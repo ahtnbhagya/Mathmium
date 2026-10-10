@@ -1,0 +1,2802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mathmium | Your World of Mathematics</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       COLOUR SYSTEM
+    ========================================================= */
+
+    :root {
+
+      --cream:#FFFDF8;
+      --cream-2:#FAF7F0;
+      --cream-3:#F5EFE5;
+
+      --white:#FFFFFF;
+
+      --text:#29292C;
+      --text-soft:#666268;
+
+      --border:rgba(41,41,44,0.08);
+
+
+      /* TEAL */
+
+      --teal-main:#5DFFE7;
+      --teal-soft:#CFFFF7;
+      --teal-deep:#159E94;
+
+
+      /* PINK */
+
+      --pink-main:#AC5A70;
+      --pink-soft:#FFD1DC;
+      --pink-deep:#8A2947;
+
+
+      /* BLUE */
+
+      --blue-main:#A1C7FF;
+      --blue-soft:#DCEBFF;
+      --blue-deep:#3978D4;
+
+
+      /* YELLOW */
+
+      --yellow-main:#E7A714;
+      --yellow-soft:#FFE8A3;
+      --yellow-deep:#C47D00;
+
+
+      /* ORANGE */
+
+      --orange-main:#FF920D;
+      --orange-soft:#FFD0A0;
+      --orange-deep:#D95F00;
+
+
+      /* GREEN */
+
+      --green-main:#AAE22E;
+      --green-soft:#E5F9B5;
+      --green-deep:#5E9F18;
+
+
+      /* PURPLE */
+
+      --purple-main:#B58CFF;
+      --purple-soft:#CCCCFF;
+      --purple-pale:#E8E8FF;
+      --purple-softest:#F4F4FF;
+      --purple-deep:#7040C4;
+
+
+      /* RED */
+
+      --red-main:#FF6478;
+      --red-soft:#FFD0D6;
+      --red-deep:#C92E45;
+
+
+      /* INDIGO */
+
+      --indigo-main:#5B6CFF;
+      --indigo-soft:#C9D0FF;
+      --indigo-deep:#2938B8;
+
+    }
+
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+
+      font-family:"Quicksand", sans-serif;
+
+      background:var(--cream);
+
+      color:var(--text);
+
+      line-height:1.75;
+
+      font-size:18px;
+
+      font-weight:600;
+
+    }
+
+    img {
+
+      max-width:100%;
+
+      display:block;
+
+    }
+
+    a {
+
+      text-decoration:none;
+
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+
+      position:sticky;
+
+      top:0;
+
+      z-index:1000;
+
+      background:rgba(255,253,248,.94);
+
+      backdrop-filter:blur(16px);
+
+      -webkit-backdrop-filter:blur(16px);
+
+      border-bottom:
+        1px solid rgba(21,158,148,.13);
+
+    }
+
+    .nav-container {
+
+      width:min(1180px,92%);
+
+      min-height:82px;
+
+      margin:auto;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:30px;
+
+    }
+
+    .brand {
+
+      font-family:"Pacifico",cursive;
+
+      font-size:31px;
+
+      color:var(--teal-deep);
+
+      white-space:nowrap;
+
+      transition:.3s;
+
+      display:flex;
+
+      align-items:center;
+
+    }
+
+    .brand:hover {
+
+      transform:translateY(-2px);
+
+    }
+
+    .brand img {
+
+      width:auto;
+
+      height:48px;
+
+      max-width:180px;
+
+      object-fit:contain;
+
+      filter:
+        brightness(0)
+        saturate(100%)
+        invert(31%)
+        sepia(32%)
+        saturate(1064%)
+        hue-rotate(126deg)
+        brightness(86%)
+        contrast(92%);
+
+    }
+
+    nav {
+
+      display:flex;
+
+      align-items:center;
+
+      gap:28px;
+
+    }
+
+    nav a {
+
+      position:relative;
+
+      color:var(--text);
+
+      font-size:16px;
+
+      font-weight:600;
+
+      transition:.3s;
+
+    }
+
+    nav a:hover {
+
+      color:var(--teal-deep);
+
+    }
+
+    nav a::after {
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+
+      bottom:-7px;
+
+      width:0;
+
+      height:2px;
+
+      background:var(--teal-deep);
+
+      border-radius:5px;
+
+      transition:width .3s;
+
+    }
+
+    nav a:hover::after {
+
+      width:100%;
+
+    }
+
+
+    /* =========================================================
+       COMMON SECTIONS
+    ========================================================= */
+
+    .section {
+
+      position:relative;
+
+      overflow:hidden;
+
+      padding:110px 0;
+
+      min-height:100vh;
+
+      display:flex;
+
+      align-items:center;
+
+    }
+
+    .section-inner {
+
+      width:min(1180px,90%);
+
+      margin:auto;
+
+    }
+
+    .section-label {
+
+      font-size:13px;
+
+      font-weight:700;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+      margin-bottom:13px;
+
+    }
+
+    .section-title {
+
+      font-size:clamp(35px,5vw,55px);
+
+      line-height:1.15;
+
+      font-weight:700;
+
+      margin-bottom:22px;
+
+    }
+
+    .section-text {
+
+      font-size:18px;
+
+      line-height:1.85;
+
+      margin-bottom:20px;
+
+      font-weight:600;
+
+    }
+
+    .section-button {
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:13px 27px;
+
+      border-radius:50px;
+
+      color:#fff;
+
+      font-size:16px;
+
+      font-weight:700;
+
+      transition:
+        transform .3s,
+        box-shadow .3s;
+
+    }
+
+    .section-button:hover {
+
+      transform:translateY(-3px);
+
+    }
+
+
+    /* =========================================================
+       HERO
+       FITS WITHIN ONE LAPTOP SCREEN
+    ========================================================= */
+
+    .hero {
+
+      min-height:calc(100vh - 82px);
+
+      height:calc(100vh - 82px);
+
+      display:flex;
+
+      align-items:center;
+
+      position:relative;
+
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(93,255,231,.20),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 85% 75%,
+          rgba(161,199,255,.24),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #FFFDF8 0%,
+          #F4FFFC 50%,
+          #F8FFFE 100%
+        );
+
+    }
+
+    .hero-inner {
+
+      width:min(1250px,92%);
+
+      margin:auto;
+
+      text-align:center;
+
+      padding:45px 0;
+
+      position:relative;
+
+      z-index:2;
+
+    }
+
+    .hero-title {
+
+      font-family:"Pacifico",cursive;
+
+      font-size:clamp(65px,10vw,120px);
+
+      line-height:1;
+
+      margin-bottom:6px;
+
+      color:var(--teal-deep);
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+    }
+
+    .hero-title img {
+
+      width:auto;
+
+      max-width:min(900px,90%);
+
+      height:auto;
+
+      max-height:105px;
+
+      object-fit:contain;
+
+      margin:auto;
+
+    }
+
+    .hero-subtitle {
+
+      font-size:clamp(28px,4vw,42px);
+
+      line-height:1.2;
+
+      font-weight:700;
+
+      margin-bottom:12px;
+
+      color:var(--text);
+
+    }
+
+    .hero-description {
+
+      max-width:900px;
+
+      margin:0 auto 16px;
+
+      color:var(--text-soft);
+
+      font-size:18px;
+
+      line-height:1.6;
+
+      font-weight:600;
+
+    }
+
+    .hero-description + .hero-description {
+
+      margin-bottom:22px;
+
+    }
+
+    .hero-button {
+
+      background:var(--teal-deep);
+
+      box-shadow:
+        0 12px 28px rgba(21,158,148,.18);
+
+    }
+
+    .hero-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(21,158,148,.28);
+
+    }
+
+
+    /* =========================================================
+       SECTION 01 — MEET THE TUTOR
+       PINK THEME
+    ========================================================= */
+
+    .about-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FFF7FA 0%,
+          #FFD1DC 45%,
+          #FFFDF8 100%
+        );
+
+    }
+
+    .about-grid {
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:80px;
+
+      align-items:center;
+
+    }
+
+    .about-content {
+
+      max-width:650px;
+
+    }
+
+    .about-label {
+
+      color:var(--pink-deep);
+
+    }
+
+    .about-title {
+
+      color:var(--pink-deep);
+
+    }
+
+    .about-text {
+
+      color:var(--text-soft);
+
+    }
+
+    .about-button {
+
+      background:var(--pink-deep);
+
+      box-shadow:
+        0 12px 28px rgba(138,41,71,.16);
+
+    }
+
+    .about-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(138,41,71,.25);
+
+    }
+
+    .about-visual {
+
+      min-height:430px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      border-radius:38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,209,220,.90),
+          rgba(255,253,248,.96)
+        );
+
+      border:
+        1px solid rgba(138,41,71,.08);
+
+      box-shadow:
+        0 20px 50px rgba(138,41,71,.08);
+
+      overflow:hidden;
+
+    }
+
+    .about-visual img {
+
+      width:310px;
+
+      height:310px;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      border:
+        8px solid rgba(255,255,255,.85);
+
+      box-shadow:
+        0 25px 50px rgba(138,41,71,.12),
+        0 0 0 1px rgba(138,41,71,.08);
+
+    }
+
+
+    /* =========================================================
+       SECTION 02 — CLASSES
+       BLUE THEME
+    ========================================================= */
+
+    .classes-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #F7FBFF 0%,
+          #DCEBFF 48%,
+          #F7FBFF 100%
+        );
+
+    }
+
+    .classes-heading {
+
+      max-width:760px;
+
+      margin:0 auto 55px;
+
+      text-align:center;
+
+    }
+
+    .classes-label {
+
+      color:var(--blue-deep);
+
+    }
+
+    .classes-title {
+
+      color:var(--blue-deep);
+
+    }
+
+    .classes-intro {
+
+      color:var(--text-soft);
+
+    }
+
+    .class-cards {
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:25px;
+
+    }
+
+    .class-card {
+
+      padding:38px 30px;
+
+      border-radius:28px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      border:
+        1px solid rgba(57,120,212,.10);
+
+      box-shadow:
+        0 15px 45px rgba(57,120,212,.07);
+
+      transition:.3s;
+
+      text-align:center;
+
+    }
+
+    .class-card:hover {
+
+      transform:translateY(-5px);
+
+      box-shadow:
+        0 20px 50px rgba(57,120,212,.12);
+
+    }
+
+    .class-number {
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      width:100px;
+
+      height:100px;
+
+      border-radius:24px;
+
+      background:var(--blue-soft);
+
+      color:var(--blue-deep);
+
+      font-size:13px;
+
+      font-weight:700;
+
+      margin-bottom:20px;
+
+      margin-left:auto;
+
+      margin-right:auto;
+
+      overflow:hidden;
+
+    }
+
+    .class-number img {
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:contain;
+
+      border-radius:20px;
+
+    }
+
+    .class-card h3 {
+
+      font-size:24px;
+
+      color:var(--blue-deep);
+
+      margin-bottom:14px;
+
+      text-align:center;
+
+    }
+
+    .class-card p {
+
+      color:var(--text-soft);
+
+      font-size:18px;
+
+      line-height:1.8;
+
+      font-weight:600;
+
+      text-align:center;
+
+    }
+
+    .classes-button-wrap {
+
+      text-align:center;
+
+      margin-top:40px;
+
+    }
+
+    .classes-button {
+
+      background:var(--blue-deep);
+
+      box-shadow:
+        0 12px 28px rgba(57,120,212,.16);
+
+    }
+
+    .classes-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(57,120,212,.25);
+
+    }
+
+
+    /* =========================================================
+       SECTION 03 — MATERIALS
+       YELLOW / GOLD THEME
+    ========================================================= */
+
+    .materials-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FFFDF8 0%,
+          #FFF8E1 45%,
+          #FFE8A3 100%
+        );
+
+    }
+
+    .materials-grid {
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:80px;
+
+      align-items:center;
+
+    }
+
+    .materials-content {
+
+      max-width:650px;
+
+      text-align:center;
+
+      margin-left:auto;
+
+      margin-right:auto;
+
+    }
+
+    .materials-label {
+
+      color:var(--yellow-deep);
+
+    }
+
+    .materials-title {
+
+      color:var(--yellow-deep);
+
+    }
+
+    .materials-text {
+
+      color:var(--text-soft);
+
+    }
+
+    .materials-list {
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:13px 30px;
+
+      margin:25px auto 32px;
+
+      list-style:none;
+
+      width:fit-content;
+
+    }
+
+    .materials-list li {
+
+      position:relative;
+
+      color:var(--text);
+
+      text-align:left;
+
+      white-space:nowrap;
+
+    }
+
+    .materials-list li::before {
+
+      content:"✦";
+
+      margin-right:8px;
+
+      color:var(--yellow-deep);
+
+    }
+
+    .materials-button-wrap {
+
+      text-align:center;
+
+    }
+
+    .materials-button {
+
+      background:var(--yellow-deep);
+
+      box-shadow:
+        0 12px 28px rgba(196,125,0,.16);
+
+    }
+
+    .materials-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(196,125,0,.25);
+
+    }
+
+    .materials-visual {
+
+      min-height:560px;
+
+      height:560px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      border-radius:38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,232,163,.80),
+          rgba(255,253,248,.96)
+        );
+
+      border:
+        1px solid rgba(196,125,0,.08);
+
+      box-shadow:
+        0 20px 50px rgba(196,125,0,.08);
+
+      overflow:hidden;
+
+    }
+
+    .materials-visual img {
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      border-radius:30px;
+
+      padding:10px;
+
+    }
+
+    .paper-stack {
+
+      position:relative;
+
+      width:240px;
+
+      height:310px;
+
+      background:#fff;
+
+      border-radius:12px;
+
+      box-shadow:
+        0 25px 50px rgba(196,125,0,.14);
+
+      transform:rotate(-4deg);
+
+    }
+
+    .paper-stack::before,
+    .paper-stack::after {
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:#fff;
+
+      border-radius:12px;
+
+      z-index:-1;
+
+    }
+
+    .paper-stack::before {
+
+      transform:rotate(7deg);
+
+      box-shadow:
+        0 15px 30px rgba(196,125,0,.08);
+
+    }
+
+    .paper-stack::after {
+
+      transform:rotate(-8deg);
+
+      box-shadow:
+        0 15px 30px rgba(196,125,0,.08);
+
+    }
+
+    .paper-lines {
+
+      position:absolute;
+
+      left:28px;
+
+      right:28px;
+
+      top:55px;
+
+      bottom:30px;
+
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0 27px,
+          rgba(196,125,0,.12) 28px 29px
+        );
+
+    }
+
+    .paper-star {
+
+      position:absolute;
+
+      top:18px;
+
+      left:28px;
+
+      color:var(--yellow-deep);
+
+      font-size:28px;
+
+    }
+
+
+    /* =========================================================
+       SECTION 04 — DAILY MATH BOOST
+       PURPLE THEME
+    ========================================================= */
+
+    .boost-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FAFAFF 0%,
+          #E8E8FF 48%,
+          #CCCCFF 100%
+        );
+
+    }
+
+    .boost-grid {
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:80px;
+
+      align-items:center;
+
+    }
+
+    .boost-visual {
+
+      min-height:430px;
+
+      border-radius:38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(204,204,255,.90),
+          rgba(244,244,255,.95)
+        );
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      overflow:hidden;
+
+      border:
+        1px solid rgba(112,64,196,.08);
+
+      box-shadow:
+        0 20px 50px rgba(112,64,196,.08);
+
+      order:1;
+
+    }
+
+    .boost-visual img {
+
+      width:100%;
+
+      height:100%;
+
+      min-height:430px;
+
+      object-fit:cover;
+
+      border-radius:30px;
+
+      padding:10px;
+
+    }
+
+    .boost-content {
+
+      max-width:650px;
+
+      order:2;
+
+      text-align:center;
+
+      margin-left:auto;
+
+      margin-right:auto;
+
+    }
+
+    .boost-label {
+
+      color:var(--purple-deep);
+
+    }
+
+    .boost-title {
+
+      color:var(--purple-deep);
+
+    }
+
+    .boost-text {
+
+      color:var(--text-soft);
+
+      text-align:center;
+
+    }
+
+    .boost-button {
+
+      background:var(--purple-deep);
+
+      box-shadow:
+        0 12px 28px rgba(112,64,196,.16);
+
+    }
+
+    .boost-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(112,64,196,.25);
+
+    }
+
+
+    /* =========================================================
+       SECTION 05 — TREASURES
+       RED / ROSE THEME
+    ========================================================= */
+
+    .reviews-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FFF9FA 0%,
+          #FFD0D6 48%,
+          #FFFDF8 100%
+        );
+
+    }
+
+    .reviews-grid {
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:80px;
+
+      align-items:center;
+
+    }
+
+    .reviews-content {
+
+      max-width:650px;
+
+      order:1;
+
+      text-align:center;
+
+      margin-left:auto;
+
+      margin-right:auto;
+
+    }
+
+    .reviews-label {
+
+      color:var(--red-deep);
+
+    }
+
+    .reviews-title {
+
+      color:var(--red-deep);
+
+    }
+
+    .reviews-text {
+
+      color:var(--text-soft);
+
+      text-align:center;
+
+    }
+
+    .reviews-button {
+
+      background:var(--red-deep);
+
+      box-shadow:
+        0 12px 28px rgba(201,46,69,.16);
+
+    }
+
+    .reviews-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(201,46,69,.25);
+
+    }
+
+    .reviews-visual {
+
+      min-height:430px;
+
+      border-radius:38px;
+
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,208,214,.85),
+          rgba(255,253,248,.95)
+        );
+
+      border:
+        1px solid rgba(201,46,69,.08);
+
+      box-shadow:
+        0 20px 50px rgba(201,46,69,.08);
+
+      order:2;
+
+    }
+
+    .reviews-visual img {
+
+      width:100%;
+
+      height:100%;
+
+      min-height:430px;
+
+      object-fit:cover;
+
+      border-radius:30px;
+
+      padding:10px;
+
+    }
+
+
+    /* =========================================================
+       SECTION 06 — JOIN A CLASS
+       GREEN THEME
+    ========================================================= */
+
+    .join-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FAFFF1 0%,
+          #E5F9B5 50%,
+          #F5FCEB 100%
+        );
+
+    }
+
+    .join-box {
+
+      max-width:1000px;
+
+      margin:auto;
+
+      padding:75px 50px;
+
+      text-align:center;
+
+      border-radius:40px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      border:
+        1px solid rgba(94,159,24,.12);
+
+      box-shadow:
+        0 25px 60px rgba(94,159,24,.10);
+
+    }
+
+    .join-label {
+
+      color:var(--green-deep);
+
+    }
+
+    .join-title {
+
+      color:var(--green-deep);
+
+    }
+
+    .join-text {
+
+      max-width:720px;
+
+      margin:0 auto 30px;
+
+      color:var(--text-soft);
+
+    }
+
+    .join-button {
+
+      background:var(--green-deep);
+
+      box-shadow:
+        0 12px 28px rgba(94,159,24,.16);
+
+    }
+
+    .join-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(94,159,24,.25);
+
+    }
+
+
+    /* =========================================================
+       SECTION 07 — ORDER MATERIALS
+       ORANGE THEME
+    ========================================================= */
+
+    .order-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #FFF9F1 0%,
+          #FFD0A0 50%,
+          #FFF4E8 100%
+        );
+
+    }
+
+    .order-box {
+
+      max-width:1000px;
+
+      margin:auto;
+
+      padding:75px 50px;
+
+      text-align:center;
+
+      border-radius:40px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      border:
+        1px solid rgba(217,95,0,.12);
+
+      box-shadow:
+        0 25px 60px rgba(217,95,0,.10);
+
+    }
+
+    .order-label {
+
+      color:var(--orange-deep);
+
+    }
+
+    .order-title {
+
+      color:var(--orange-deep);
+
+    }
+
+    .order-text {
+
+      max-width:720px;
+
+      margin:0 auto 30px;
+
+      color:var(--text-soft);
+
+    }
+
+    .order-button {
+
+      background:var(--orange-deep);
+
+      box-shadow:
+        0 12px 28px rgba(217,95,0,.16);
+
+    }
+
+    .order-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(217,95,0,.25);
+
+    }
+
+
+    /* =========================================================
+       SECTION 08 — CONTACT
+       INDIGO THEME
+    ========================================================= */
+
+    .contact-section {
+
+      background:
+        linear-gradient(
+          135deg,
+          #F8F9FF 0%,
+          #C9D0FF 50%,
+          #EEF0FF 100%
+        );
+
+    }
+
+    .contact-box {
+
+      max-width:1000px;
+
+      margin:auto;
+
+      padding:75px 50px;
+
+      text-align:center;
+
+      border-radius:40px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      border:
+        1px solid rgba(41,56,184,.12);
+
+      box-shadow:
+        0 25px 60px rgba(41,56,184,.10);
+
+    }
+
+    .contact-label {
+
+      color:var(--indigo-deep);
+
+    }
+
+    .contact-title {
+
+      color:var(--indigo-deep);
+
+    }
+
+    .contact-text {
+
+      max-width:720px;
+
+      margin:0 auto 30px;
+
+      color:var(--text-soft);
+
+    }
+
+    .contact-button {
+
+      background:var(--indigo-deep);
+
+      box-shadow:
+        0 12px 28px rgba(41,56,184,.16);
+
+    }
+
+    .contact-button:hover {
+
+      box-shadow:
+        0 17px 38px rgba(41,56,184,.25);
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      padding:70px 20px 35px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #F8FFFC 0%,
+          #F2FBF8 100%
+        );
+
+      border-top:
+        1px solid rgba(21,158,148,.10);
+
+      text-align:center;
+
+    }
+
+    .footer-brand {
+
+      font-family:"Pacifico",cursive;
+
+      font-size:35px;
+
+      color:var(--teal-deep);
+
+      margin-bottom:8px;
+
+    }
+
+    .footer-tagline {
+
+      color:var(--text-soft);
+
+      font-size:16px;
+
+      font-weight:600;
+
+      margin-bottom:4px;
+
+    }
+
+    .footer-description {
+
+      color:var(--text-soft);
+
+      font-size:15px;
+
+      font-weight:600;
+
+    }
+
+    .footer-links {
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      flex-wrap:wrap;
+
+      gap:10px 28px;
+
+      margin:30px auto;
+
+      max-width:900px;
+
+    }
+
+    .footer-links a {
+
+      color:var(--teal-deep);
+
+      font-size:15px;
+
+      font-weight:700;
+
+      transition:.3s;
+
+    }
+
+    .footer-links a:hover {
+
+      color:var(--text);
+
+      transform:translateY(-2px);
+
+    }
+
+    .copyright {
+
+      padding-top:25px;
+
+      border-top:
+        1px solid rgba(21,158,148,.10);
+
+      color:#8A918F;
+
+      font-size:14px;
+
+      font-weight:600;
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — TABLET
+    ========================================================= */
+
+    @media(max-width:900px) {
+
+      nav {
+
+        gap:17px;
+
+      }
+
+      nav a {
+
+        font-size:14px;
+
+      }
+
+      .hero {
+
+        height:auto;
+
+        min-height:calc(100vh - 82px);
+
+      }
+
+      .hero-inner {
+
+        width:min(1000px,90%);
+
+        padding:65px 0;
+
+      }
+
+      .hero-title img {
+
+        max-width:850px;
+
+        max-height:115px;
+
+      }
+
+      .about-grid,
+      .materials-grid,
+      .boost-grid,
+      .reviews-grid {
+
+        grid-template-columns:1fr;
+
+        gap:55px;
+
+      }
+
+      .about-content,
+      .materials-content,
+      .boost-content,
+      .reviews-content {
+
+        max-width:100%;
+
+      }
+
+      .about-visual,
+      .materials-visual,
+      .boost-visual,
+      .reviews-visual {
+
+        min-height:350px;
+
+      }
+
+      .about-visual img {
+
+        width:270px;
+
+        height:270px;
+
+      }
+
+      .materials-visual {
+
+        height:500px;
+
+      }
+
+      .materials-visual img {
+
+        height:100%;
+
+      }
+
+      .boost-visual {
+
+        order:1;
+
+      }
+
+      .boost-content {
+
+        order:2;
+
+      }
+
+      .reviews-content {
+
+        order:1;
+
+      }
+
+      .reviews-visual {
+
+        order:2;
+
+      }
+
+      .class-cards {
+
+        grid-template-columns:1fr;
+
+      }
+
+      .class-number {
+
+        width:90px;
+
+        height:90px;
+
+      }
+
+      .class-number img {
+
+        border-radius:20px;
+
+      }
+
+      .boost-visual img,
+      .reviews-visual img {
+
+        min-height:350px;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — MOBILE
+    ========================================================= */
+
+    @media(max-width:700px) {
+
+      body {
+
+        font-size:17px;
+
+      }
+
+      .nav-container {
+
+        min-height:auto;
+
+        padding:18px 0;
+
+        flex-direction:column;
+
+        gap:12px;
+
+      }
+
+      nav {
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:9px 17px;
+
+      }
+
+      nav a {
+
+        font-size:13px;
+
+      }
+
+      .brand {
+
+        font-size:28px;
+
+      }
+
+      .brand img {
+
+        height:42px;
+
+        max-width:160px;
+
+      }
+
+      .hero {
+
+        height:auto;
+
+        min-height:auto;
+
+      }
+
+      .hero-inner {
+
+        width:92%;
+
+        padding:65px 0 75px;
+
+      }
+
+      .hero-title img {
+
+        max-width:85%;
+
+        max-height:110px;
+
+      }
+
+      .hero-description {
+
+        font-size:17px;
+
+      }
+
+      .section {
+
+        padding-top:85px;
+
+        padding-bottom:85px;
+
+        min-height:100vh;
+
+      }
+
+      .about-section,
+      .classes-section,
+      .materials-section,
+      .boost-section,
+      .reviews-section,
+      .join-section,
+      .order-section,
+      .contact-section {
+
+        padding-top:85px;
+
+        padding-bottom:85px;
+
+      }
+
+      .section-title {
+
+        font-size:37px;
+
+      }
+
+      .section-text {
+
+        font-size:17px;
+
+      }
+
+      .materials-list {
+
+        grid-template-columns:1fr;
+
+      }
+
+      .about-visual img {
+
+        width:250px;
+
+        height:250px;
+
+      }
+
+      .materials-visual {
+
+        height:420px;
+
+        min-height:420px;
+
+      }
+
+      .materials-visual img {
+
+        height:100%;
+
+      }
+
+      .class-number {
+
+        width:72px;
+
+        height:72px;
+
+      }
+
+      .class-number img {
+
+        border-radius:18px;
+
+      }
+
+      .boost-visual,
+      .reviews-visual {
+
+        min-height:320px;
+
+      }
+
+      .boost-visual img,
+      .reviews-visual img {
+
+        min-height:320px;
+
+      }
+
+      .join-box,
+      .order-box,
+      .contact-box {
+
+        padding:55px 25px;
+
+      }
+
+      .footer-links {
+
+        gap:10px 18px;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — SMALL MOBILE
+    ========================================================= */
+
+    @media(max-width:480px) {
+
+      .brand {
+
+        font-size:25px;
+
+      }
+
+      .brand img {
+
+        height:38px;
+
+        max-width:145px;
+
+      }
+
+      nav a {
+
+        font-size:11px;
+
+      }
+
+      .hero-title {
+
+        font-size:60px;
+
+      }
+
+      .hero-title img {
+
+        max-width:90%;
+
+        max-height:90px;
+
+      }
+
+      .hero-subtitle {
+
+        font-size:25px;
+
+      }
+
+      .hero-description {
+
+        font-size:16px;
+
+      }
+
+      .section-title {
+
+        font-size:34px;
+
+      }
+
+      .section-text {
+
+        font-size:16px;
+
+      }
+
+      .about-visual {
+
+        min-height:280px;
+
+      }
+
+      .about-visual img {
+
+        width:190px;
+
+        height:190px;
+
+      }
+
+      .materials-visual {
+
+        min-height:350px;
+
+        height:350px;
+
+      }
+
+      .materials-visual img {
+
+        height:100%;
+
+      }
+
+      .class-number {
+
+        width:66px;
+
+        height:66px;
+
+      }
+
+      .class-number img {
+
+        border-radius:17px;
+
+      }
+
+      .boost-visual,
+      .reviews-visual {
+
+        min-height:280px;
+
+      }
+
+      .boost-visual img,
+      .reviews-visual img {
+
+        min-height:280px;
+
+      }
+
+      .footer-brand {
+
+        font-size:30px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+
+  <header>
+
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="images/Logo.svg"
+          alt="Mathmium"
+        >
+
+      </a>
+
+      <nav>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="index.html#tutor">
+          Meet the Tutor
+        </a>
+
+        <a href="index.html#classes">
+          Classes
+        </a>
+
+        <a href="index.html#materials">
+          Materials
+        </a>
+
+        <a href="index.html#treasures">
+          Treasures I've Earned
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <section class="hero section" id="home">
+
+    <div class="hero-inner">
+
+      <h1 class="hero-title">
+
+        <img
+          src="images/Name.png"
+          alt="Mathmium"
+        >
+
+      </h1>
+
+      <div class="hero-subtitle">
+        Your World of Mathematics
+      </div>
+
+      <p class="hero-description">
+        A Creative Space to Discover Mathematics
+      </p>
+
+      <p class="hero-description">
+        Explore Mathematics through simple explanations,
+        creative activities, practice, learning materials,
+        and meaningful mathematical adventures.
+      </p>
+
+      <a href="index.html#tutor" class="section-button hero-button">
+        Explore Mathmium
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 01
+  ========================================================= -->
+
+  <section class="section about-section" id="tutor">
+
+    <div class="section-inner">
+
+      <div class="about-grid">
+
+        <div class="about-content">
+
+          <div class="section-label about-label">
+            01 — The Person Behind Mathmium
+          </div>
+
+          <h2 class="section-title about-title">
+            Meet the Mind Behind Mathmium
+          </h2>
+
+          <p class="section-text about-text">
+            Mathmium is created by Nipuni Bhagya, a B.Sc. (Hons)
+            in Civil Engineering graduate with a passion for Mathematics,
+            creativity, and working with children. She enjoys creating
+            simple, friendly, and engaging learning experiences that help
+            make Mathematics easier and more enjoyable.
+          </p>
+
+          <a href="tutor.html" class="section-button about-button">
+            Meet Nipuni
+          </a>
+
+        </div>
+
+
+        <div class="about-visual">
+
+          <img
+            src="images/Meetme.JPG"
+            alt="Meet Nipuni"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 02
+  ========================================================= -->
+
+  <section class="section classes-section" id="classes">
+
+    <div class="section-inner">
+
+      <div class="classes-heading">
+
+        <div class="section-label classes-label">
+          02 — Mathematics Classes
+        </div>
+
+        <h2 class="section-title classes-title">
+          Let's Make Mathematics Click!
+        </h2>
+
+        <p class="section-text classes-intro">
+          Mathematics becomes easier when ideas are explained clearly.
+          Explore friendly, personalised online Mathematics classes
+          designed to help students understand, practise, and enjoy learning.
+        </p>
+
+      </div>
+
+
+      <div class="class-cards">
+
+        <div class="class-card">
+
+          <div class="class-number">
+
+            <img
+              src="images/Blue 1.PNG"
+              alt="1"
+            >
+
+          </div>
+
+          <h3>
+            Understand
+          </h3>
+
+          <p>
+            Build a strong understanding of mathematical ideas through
+            simple explanations and meaningful examples.
+          </p>
+
+        </div>
+
+
+        <div class="class-card">
+
+          <div class="class-number">
+
+            <img
+              src="images/BLue 2.PNG"
+              alt="2"
+            >
+
+          </div>
+
+          <h3>
+            Practise
+          </h3>
+
+          <p>
+            Strengthen skills through carefully designed practice
+            questions, activities, and challenges.
+          </p>
+
+        </div>
+
+
+        <div class="class-card">
+
+          <div class="class-number">
+
+            <img
+              src="images/Blue 3.PNG"
+              alt="3"
+            >
+
+          </div>
+
+          <h3>
+            Grow
+          </h3>
+
+          <p>
+            Build confidence and become a more independent
+            Mathematics learner.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="classes-button-wrap">
+
+        <a href="classes.html" class="section-button classes-button">
+          Explore Classes &amp; Teaching Materials
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 03
+  ========================================================= -->
+
+  <section class="section materials-section" id="materials">
+
+    <div class="section-inner">
+
+      <div class="materials-grid">
+
+
+        <div class="materials-content">
+
+          <div class="section-label materials-label">
+            03 — Mathematics Materials
+          </div>
+
+          <h2 class="section-title materials-title">
+            Made to Make Mathematics Meaningful
+          </h2>
+
+          <p class="section-text materials-text">
+            <strong>
+              Learning materials can make a big difference.
+            </strong>
+          </p>
+
+          <p class="section-text materials-text">
+            <strong>
+              Discover thoughtfully designed worksheets, notes,
+              activities, visual resources, lesson slides, and
+              story-based Mathematics materials created to make
+              learning clearer and more engaging.
+            </strong>
+          </p>
+
+
+          <ul class="materials-list">
+
+            <li>
+              Worksheets
+            </li>
+
+            <li>
+              Flashcards
+            </li>
+
+            <li>
+              Notes
+            </li>
+
+            <li>
+              Activities
+            </li>
+
+            <li>
+              Lesson Slides
+            </li>
+
+            <li>
+              Visual Resources
+            </li>
+
+            <li>
+              Story-Based Lessons
+            </li>
+
+            <li>
+              Custom Materials
+            </li>
+
+          </ul>
+
+
+          <div class="materials-button-wrap">
+
+            <a href="materials.html" class="section-button materials-button">
+              Explore the Materials
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="materials-visual">
+
+          <img
+            src="images/Material.JPG"
+            alt="Mathematics learning materials"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 04
+  ========================================================= -->
+
+  <section class="section boost-section" id="boost">
+
+    <div class="section-inner">
+
+      <div class="boost-grid">
+
+
+        <div class="boost-visual">
+
+          <img
+            src="images/Youtube.JPG"
+            alt="Daily Mathematics practice"
+          >
+
+        </div>
+
+
+        <div class="boost-content">
+
+          <div class="section-label boost-label">
+            04 — Daily Math Boost
+          </div>
+
+          <h2 class="section-title boost-title">
+            A Little Math Boost Every Day!
+          </h2>
+
+          <p class="section-text boost-text">
+            Keep your Mathematics skills growing with a new
+            practice question every day.
+          </p>
+
+          <p class="section-text boost-text">
+            Visit the Mathmium YouTube channel for quick Mathematics
+            challenges designed to give your brain a fun little workout.
+          </p>
+
+          <a href="https://youtube.com/@mathmium?si=yq2pMLZ3l5j1r0eN" class="section-button boost-button">
+            Join the Math Boost
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 05
+  ========================================================= -->
+
+  <section class="section reviews-section" id="treasures">
+
+    <div class="section-inner">
+
+      <div class="reviews-grid">
+
+
+        <div class="reviews-content">
+
+          <div class="section-label reviews-label">
+            05 — Treasures I've Earned
+          </div>
+
+          <h2 class="section-title reviews-title">
+            Words That<br>
+            Mean a Lot
+          </h2>
+
+          <p class="section-text reviews-text">
+            Every kind word is a special treasure along the
+            Mathmium journey.
+          </p>
+
+          <p class="section-text reviews-text">
+            Read what parents have shared about their children's
+            Mathematics classes and what clients have said about
+            the Mathematics materials and resources created for them.
+          </p>
+
+          <p class="section-text reviews-text">
+            Kind words from parents, students, and clients are some
+            of the most meaningful treasures along the Mathmium journey.
+          </p>
+
+          <a href="reviews.html" class="section-button reviews-button">
+            Read Their Words
+          </a>
+
+        </div>
+
+
+        <div class="reviews-visual">
+
+          <img
+            src="images/Feedback.JPG"
+            alt="Treasures from the Mathmium journey"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 06
+  ========================================================= -->
+
+  <section class="section join-section" id="join">
+
+    <div class="section-inner">
+
+      <div class="join-box">
+
+        <div class="section-label join-label">
+          06 — Join a Class
+        </div>
+
+        <h2 class="section-title join-title">
+          Ready for Your Next Math Adventure?
+        </h2>
+
+        <p class="section-text join-text">
+          Let's make Mathematics a little simpler, a little more creative,
+          and a lot more enjoyable.
+        </p>
+
+        <p class="section-text join-text">
+          Whether you need extra practice, support with challenging topics,
+          or a friendly place to build confidence, Mathmium is here to help.
+        </p>
+
+        <a href="join.html" class="section-button join-button">
+          Join a Class
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 07
+  ========================================================= -->
+
+  <section class="section order-section" id="order">
+
+    <div class="section-inner">
+
+      <div class="order-box">
+
+        <div class="section-label order-label">
+          07 — Order Mathematics Materials
+        </div>
+
+        <h2 class="section-title order-title">
+          Looking for the Right Math Materials?
+        </h2>
+
+        <p class="section-text order-text">
+          Find learning materials designed around different ages,
+          levels, topics, and learning needs.
+        </p>
+
+        <p class="section-text order-text">
+          Explore the available materials or request something
+          specially created for your learning goals.
+        </p>
+
+        <a href="order-materials.html" class="section-button order-button">
+          Explore &amp; Order
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       SECTION 08
+  ========================================================= -->
+
+  <section class="section contact-section" id="contact">
+
+    <div class="section-inner">
+
+      <div class="contact-box">
+
+        <div class="section-label contact-label">
+          08 — Contact
+        </div>
+
+        <h2 class="section-title contact-title">
+          Have a Question? Let's Talk!
+        </h2>
+
+        <p class="section-text contact-text">
+          Whether you have a question about classes,
+          Mathematics materials, or anything else about Mathmium,
+          feel free to get in touch.
+        </p>
+
+        <a href="contact.html" class="section-button contact-button">
+          Let's Talk
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <div class="footer-brand">
+      Mathmium
+    </div>
+
+    <div class="footer-tagline">
+      Your World of Mathematics
+    </div>
+
+    <div class="footer-description">
+      A creative space to discover, practise, explore, and enjoy Mathematics.
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#classes">
+        Classes
+      </a>
+
+      <a href="index.html#materials">
+        Materials
+      </a>
+
+      <a href="index.html#join">
+        Join Classes
+      </a>
+
+      <a href="index.html#order">
+        Order Materials
+      </a>
+
+      <a href="index.html#contact">
+        Contact
+      </a>
+
+      <a href="index.html#treasures">
+        Reviews
+      </a>
+
+    </div>
+
+
+    <div class="copyright">
+      © Mathmium
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>

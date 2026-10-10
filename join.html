@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Join the Mathmium Journey | Mathmium</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            color: #26351f;
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #E4F9B3 0%,
+                    #f1fbd5 22%,
+                    #ffffff 45%,
+                    #f5fbdc 68%,
+                    #E4F9B3 100%
+                );
+
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 6%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.98),
+                    rgba(250,255,243,0.96)
+                );
+
+            border-bottom:
+                1px solid
+                rgba(83,165,29,0.15);
+
+            box-shadow:
+                0 5px 22px
+                rgba(83,165,29,0.07);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo img {
+            width: 145px;
+            height: auto;
+            display: block;
+
+            filter:
+                brightness(0)
+                saturate(100%)
+                invert(53%)
+                sepia(35%)
+                saturate(1100%)
+                hue-rotate(55deg)
+                brightness(92%)
+                contrast(95%);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #35422f;
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #53A51D;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            width: 100%;
+            overflow: visible;
+            background: transparent;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            width: 100%;
+            text-align: center;
+
+            padding:
+                115px 25px
+                105px;
+
+            background: transparent;
+
+            border-bottom:
+                1px solid
+                rgba(83,165,29,0.18);
+        }
+
+        .hero-kicker {
+            margin-bottom: 18px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: #53A51D;
+        }
+
+        .hero h1 {
+            max-width: 950px;
+            margin:
+                0 auto
+                22px;
+
+            font-size:
+                clamp(42px, 6vw, 70px);
+
+            line-height: 1.08;
+            font-weight: 700;
+            color: #53A51D;
+
+            text-shadow:
+                0 2px 12px
+                rgba(255,255,255,0.65);
+        }
+
+        .hero p {
+            max-width: 740px;
+            margin: 0 auto;
+            font-size: 21px;
+            line-height: 1.7;
+            font-weight: 600;
+            color: #56634e;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+
+            padding:
+                80px 0
+                95px;
+
+            background: transparent;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 13px;
+
+            font-size:
+                clamp(31px, 4vw, 43px);
+
+            line-height: 1.2;
+            font-weight: 700;
+            color: #53A51D;
+
+            text-shadow:
+                0 2px 10px
+                rgba(255,255,255,0.60);
+        }
+
+        .section-heading p {
+            font-size: 18px;
+            line-height: 1.7;
+            font-weight: 600;
+            color: #64705d;
+        }
+
+
+        /* =====================================================
+           JOURNEY GRID
+        ===================================================== */
+
+        .journey-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+
+        /* =====================================================
+           JOURNEY CARDS
+        ===================================================== */
+
+        .journey-card {
+            position: relative;
+
+            width: calc(
+                (100% - 80px) / 5
+            );
+
+            min-height: 300px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                36px 23px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.97) 0%,
+                    rgba(255,255,255,0.93) 58%,
+                    rgba(228,249,179,0.72) 100%
+                );
+
+            border:
+                1px solid
+                rgba(83,165,29,0.18);
+
+            border-radius: 26px;
+
+            box-shadow:
+                0 14px 38px
+                rgba(83,165,29,0.09);
+
+            backdrop-filter:
+                blur(5px);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-6px);
+
+            border-color:
+                rgba(83,165,29,0.36);
+
+            box-shadow:
+                0 20px 45px
+                rgba(83,165,29,0.14);
+        }
+
+
+        /* =====================================================
+           STEP NUMBER
+        ===================================================== */
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 23px;
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #AAE22E 0%,
+                    #53A51D 100%
+                );
+
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 20px
+                rgba(83,165,29,0.18);
+        }
+
+
+        /* =====================================================
+           JOURNEY TEXT
+        ===================================================== */
+
+        .journey-card h3 {
+            width: 100%;
+            margin-bottom: 14px;
+
+            font-size: 20px;
+            line-height: 1.35;
+            font-weight: 700;
+            color: #53A51D;
+            text-align: center;
+        }
+
+        .journey-card p {
+            width: 100%;
+
+            font-size: 15px;
+            line-height: 1.65;
+            font-weight: 600;
+            color: #65715f;
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           JOIN SECTION
+        ===================================================== */
+
+        .join-section {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+
+            padding:
+                30px 0
+                120px;
+
+            background: transparent;
+        }
+
+        .join-box {
+            width: 100%;
+            text-align: center;
+
+            padding:
+                78px 40px
+                95px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.98) 0%,
+                    rgba(255,255,255,0.94) 62%,
+                    rgba(228,249,179,0.70) 100%
+                );
+
+            border:
+                1px solid
+                rgba(83,165,29,0.18);
+
+            border-radius: 34px;
+
+            box-shadow:
+                0 18px 55px
+                rgba(83,165,29,0.10);
+
+            backdrop-filter:
+                blur(6px);
+        }
+
+        .join-box h2 {
+            margin-bottom: 17px;
+
+            font-size:
+                clamp(31px, 4vw, 44px);
+
+            line-height: 1.2;
+            font-weight: 700;
+            color: #53A51D;
+        }
+
+        .join-box > p {
+            max-width: 720px;
+            margin:
+                0 auto
+                36px;
+
+            font-size: 18px;
+            line-height: 1.75;
+            font-weight: 600;
+            color: #606d59;
+        }
+
+
+        /* =====================================================
+           JOIN BUTTON
+        ===================================================== */
+
+        .join-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 195px;
+
+            padding:
+                16px 32px;
+
+            border: none;
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #AAE22E 0%,
+                    #53A51D 100%
+                );
+
+            color: #ffffff;
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 24px
+                rgba(83,165,29,0.18);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #53A51D 0%,
+                    #3F8215 100%
+                );
+
+            box-shadow:
+                0 15px 32px
+                rgba(83,165,29,0.25);
+        }
+
+        .join-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           FORM CONTAINER
+        ===================================================== */
+
+        .form-container {
+            display: none;
+            width: 100%;
+            margin-top: 58px;
+            padding: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff 0%,
+                    #fbfff6 55%,
+                    #E4F9B3 100%
+                );
+
+            border:
+                1px solid
+                rgba(83,165,29,0.18);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(83,165,29,0.08);
+        }
+
+        .form-container.show {
+            display: block;
+        }
+
+
+        /* =====================================================
+           FORM IFRAME
+        ===================================================== */
+
+        .form-frame {
+            display: block;
+            width: 100%;
+            height: 1300px;
+            min-height: 1300px;
+            border: none;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           BACK TO HOME
+        ===================================================== */
+
+        .back-home {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .back-home a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                14px 30px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.98),
+                    rgba(228,249,179,0.72)
+                );
+
+            border:
+                1px solid
+                rgba(83,165,29,0.28);
+
+            color: #53A51D;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+
+            box-shadow:
+                0 6px 18px
+                rgba(83,165,29,0.06);
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .back-home a:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #AAE22E,
+                    #53A51D
+                );
+
+            color: #ffffff;
+
+            border-color:
+                #53A51D;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding:
+                75px 25px
+                48px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(228,249,179,0.30) 0%,
+                    rgba(228,249,179,0.48) 50%,
+                    rgba(255,255,255,0.20) 100%
+                );
+
+            border-top:
+                1px solid
+                rgba(83,165,29,0.12);
+        }
+
+        .footer-logo {
+            font-family: "Pacifico", cursive;
+            font-size: 35px;
+            color: #53A51D;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #53A51D;
+            margin-bottom: 14px;
+        }
+
+        .footer-description {
+            max-width: 650px;
+            margin:
+                0 auto
+                28px;
+
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.7;
+            color: #596652;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            gap:
+                18px 28px;
+
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #53A51D;
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: #3F8215;
+        }
+
+        .copyright {
+            font-family: "Quicksand", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #64705d;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .journey-grid {
+                justify-content: center;
+            }
+
+            .journey-card {
+                width: calc(
+                    (100% - 40px) / 3
+                );
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            body {
+                background:
+                    linear-gradient(
+                        160deg,
+                        #E4F9B3 0%,
+                        #f5fbdc 25%,
+                        #ffffff 50%,
+                        #f2fad7 75%,
+                        #E4F9B3 100%
+                    );
+
+                background-attachment: fixed;
+            }
+
+            .navbar {
+                padding:
+                    16px 5%;
+
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero {
+                padding:
+                    78px 20px
+                    70px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section {
+                width: 90%;
+                padding:
+                    65px 0
+                    75px;
+            }
+
+            .journey-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+
+            .journey-card {
+                width: 100%;
+                max-width: 430px;
+                min-height: 250px;
+
+                padding:
+                    35px 28px;
+            }
+
+            .join-section {
+                width: 90%;
+                padding:
+                    25px 0
+                    85px;
+            }
+
+            .join-box {
+                padding:
+                    55px 18px
+                    70px;
+
+                border-radius: 27px;
+            }
+
+            .join-box h2 {
+                font-size: 32px;
+            }
+
+            .join-box > p {
+                font-size: 17px;
+            }
+
+            .form-container {
+                margin-top: 45px;
+                padding: 8px;
+                border-radius: 20px;
+            }
+
+            .form-frame {
+                height: 1500px;
+                min-height: 1500px;
+            }
+
+            .footer-links {
+                gap:
+                    15px 20px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 430px) {
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section-heading h2 {
+                font-size: 31px;
+            }
+
+            .journey-card h3 {
+                font-size: 19px;
+            }
+
+            .journey-card p {
+                font-size: 14px;
+            }
+
+            .join-button {
+                width: 100%;
+                max-width: 260px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="images/Logo.svg"
+                alt="Mathmium"
+            >
+
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tutor">
+                Meet the Tutor
+            </a>
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ===================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-kicker">
+                JOIN MATHMIUM
+            </div>
+
+            <h1>
+                Join the Mathmium Journey
+            </h1>
+
+            <p>
+                Ready to make Mathematics easier and more enjoyable?
+            </p>
+
+        </section>
+
+
+
+
+        <!-- =====================================================
+             GETTING STARTED
+        ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Getting started is easy!
+                </h2>
+
+                <p>
+                    Here’s what happens:
+                </p>
+
+            </div>
+
+
+            <div class="journey-grid">
+
+
+                <article class="journey-card">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Fill Out the Form
+                    </h3>
+
+                    <p>
+                        Tell me a little about the student,
+                        their grade, and what kind of
+                        Mathematics support they need.
+                    </p>
+
+                </article>
+
+
+                <article class="journey-card">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Let’s Talk
+                    </h3>
+
+                    <p>
+                        I’ll contact you by email to learn
+                        more about the student, their learning
+                        needs, and their goals.
+                    </p>
+
+                </article>
+
+
+                <article class="journey-card">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Try a Free Lesson
+                    </h3>
+
+                    <p>
+                        Join a free trial lesson and experience
+                        how Mathematics can be simple,
+                        friendly, and fun.
+                    </p>
+
+                </article>
+
+
+                <article class="journey-card">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Choose Your Time
+                    </h3>
+
+                    <p>
+                        If you’d like to continue, we’ll find
+                        lesson days and times that work
+                        well for you.
+                    </p>
+
+                </article>
+
+
+                <article class="journey-card">
+
+                    <div class="step-number">
+                        5
+                    </div>
+
+                    <h3>
+                        Start Learning!
+                    </h3>
+
+                    <p>
+                        Let’s build understanding, confidence,
+                        and a love for Mathematics —
+                        one step at a time.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- =====================================================
+             JOIN CLASS FORM
+        ===================================================== -->
+
+        <section class="join-section">
+
+            <div class="join-box">
+
+                <h2>
+                    Ready to Get Started?
+                </h2>
+
+                <p>
+                    Complete the form below to begin your
+                    Mathmium journey. I’ll get in touch with
+                    you by email to discuss the student’s
+                    learning needs and the next steps.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="showFormButton"
+                    class="join-button"
+                >
+                    Join the Class
+                </button>
+
+
+                <div
+                    id="formContainer"
+                    class="form-container"
+                >
+
+                    <iframe
+                        class="form-frame"
+                        src="https://script.google.com/macros/s/AKfycbycrk5sd9t56atk3GgbdtDgLfkfeRehmisC4On1BS-iR1ceivAa0VkZRjmkDjre35n3/exec?page=JoinClass"
+                        title="Join the Mathmium Class"
+                        scrolling="no"
+                    >
+                    </iframe>
+
+                </div>
+
+
+                <div class="back-home">
+
+                    <a href="index.html">
+                        Back to Home
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mathmium
+        </div>
+
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
+
+        <div class="footer-description">
+            A creative space to discover, practise, explore,
+            and enjoy Mathematics.
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#join">
+                Join Classes
+            </a>
+
+            <a href="index.html#order">
+                Order Materials
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+            <a href="index.html#treasures">
+                Reviews
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © Mathmium
+        </div>
+
+    </footer>
+
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const showFormButton =
+            document.getElementById("showFormButton");
+
+        const formContainer =
+            document.getElementById("formContainer");
+
+
+        showFormButton.addEventListener(
+            "click",
+            function () {
+
+                const isVisible =
+                    formContainer.classList.contains("show");
+
+
+                if (!isVisible) {
+
+                    formContainer.classList.add("show");
+
+                    showFormButton.textContent =
+                        "Hide the Form";
+
+                } else {
+
+                    formContainer.classList.remove("show");
+
+                    showFormButton.textContent =
+                        "Join the Class";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

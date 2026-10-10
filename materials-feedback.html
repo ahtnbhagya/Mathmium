@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Words from Clients | Mathmium</title>
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            color: #24324A;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background:
+                radial-gradient(
+                    circle at 8% 8%,
+                    rgba(160, 196, 250, 0.20),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 92% 12%,
+                    rgba(206, 194, 255, 0.20),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 12% 88%,
+                    rgba(245, 197, 213, 0.15),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 88% 85%,
+                    rgba(191, 232, 212, 0.16),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #FCFEFF 0%,
+                    #F9FBFF 45%,
+                    #FFFDF9 100%
+                );
+        }
+
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 6%;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(117, 106, 156, 0.08);
+        }
+
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+
+
+        .logo img {
+            width: 145px;
+            height: auto;
+            display: block;
+            filter:
+                brightness(0)
+                saturate(100%)
+                invert(20%)
+                sepia(15%)
+                saturate(900%)
+                hue-rotate(180deg)
+                brightness(82%)
+                contrast(92%);
+        }
+
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+
+
+        .nav-links a {
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #24324A;
+            transition:
+                color 0.25s ease;
+        }
+
+
+
+        .nav-links a:hover {
+            color: #756A9C;
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 110px 24px 80px;
+            text-align: center;
+        }
+
+
+
+        .hero-kicker {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #756A9C;
+            margin-bottom: 18px;
+        }
+
+
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.15;
+            font-weight: 700;
+            color: #24324A;
+            margin-bottom: 28px;
+        }
+
+
+
+        .hero-description {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.8;
+            font-weight: 600;
+            color: #66707D;
+        }
+
+
+
+        /* =====================================================
+           CLIENT REVIEWS
+        ====================================================== */
+
+        .reviews-section {
+            padding: 25px 24px 100px;
+        }
+
+
+
+        .reviews-container {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+
+
+        .review-card {
+            position: relative;
+            width: 100%;
+            padding: 42px 52px 42px 62px;
+            background: rgba(255, 255, 255, 0.86);
+            border-radius: 28px;
+            box-shadow:
+                0 18px 45px rgba(66, 79, 110, 0.08),
+                0 4px 14px rgba(66, 79, 110, 0.04);
+            overflow: hidden;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                *background* 0.3s ease;
+        }
+
+
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow:
+                0 24px 55px rgba(66, 79, 110, 0.12),
+                0 6px 18px rgba(66, 79, 110, 0.06);
+        }
+
+
+
+        .review-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            background:
+                linear-gradient(
+                    180deg,
+                    #A0C4FA,
+                    #CEC2FF
+                );
+        }
+
+
+
+        .review-card:nth-child(3n + 2)::before {
+            background:
+                linear-gradient(
+                    180deg,
+                    #CEC2FF,
+                    #F5C5D5
+                );
+        }
+
+
+
+        .review-card:nth-child(3n + 3)::before {
+            background:
+                linear-gradient(
+                    180deg,
+                    #BFE8D4,
+                    #A0C4FA
+                );
+        }
+
+
+
+        .review-quote {
+            position: relative;
+            font-family: "Quicksand", sans-serif;
+            font-size: 28px;
+            line-height: 1.55;
+            font-weight: 600;
+            font-style: italic;
+            color: #626873;
+            letter-spacing: 0.1px;
+            padding-left: 14px;
+        }
+
+
+
+        .review-quote::before {
+            content: "“";
+            position: absolute;
+            left: -25px;
+            top: -25px;
+            font-family: Georgia, serif;
+            font-size: 72px;
+            line-height: 1;
+            font-weight: 700;
+            font-style: normal;
+            color: rgba(117, 106, 156, 0.16);
+        }
+
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+
+        .back-section {
+            display: flex;
+            justify-content: center;
+            padding: 0 24px 100px;
+        }
+
+
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 34px;
+            border-radius: 999px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #5B7890,
+                    #456579
+                );
+            color: #FFFFFF;
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow:
+                0 10px 25px rgba(69, 101, 121, 0.18);
+            transition:
+                transform 0.25s ease,
+                *background* 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            background:
+                linear-gradient(
+                    135deg,
+                    #294A70,
+                    #1D3557
+                );
+            box-shadow:
+                0 14px 30px rgba(41, 74, 112, 0.22);
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+            text-align: center;
+            padding: 70px 24px 35px;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(245, 248, 252, 0.88),
+                    rgba(239, 244, 249, 0.98)
+                );
+        }
+
+
+
+        .footer-logo {
+            font-family: "Pacifico", cursive;
+            font-size: 35px;
+            color: #24324A;
+            margin-bottom: 10px;
+        }
+
+
+
+        .footer-tagline {
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #756A9C;
+            margin-bottom: 14px;
+        }
+
+
+
+        .footer-description {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.7;
+            color: #66707D;
+        }
+
+
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 24px;
+            margin-top: 28px;
+        }
+
+
+
+        .footer-links a {
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #24324A;
+            transition:
+                color 0.25s ease;
+        }
+
+
+
+        .footer-links a:hover {
+            color: #756A9C;
+        }
+
+
+
+        .copyright {
+            margin-top: 30px;
+            font-family: "Quicksand", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #7A828C;
+        }
+
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px 5%;
+            }
+
+
+
+            .nav-links {
+                gap: 22px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+
+
+            .hero {
+                padding: 75px 20px 60px;
+            }
+
+
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+
+
+            .review-card {
+                padding: 36px 38px 36px 48px;
+                border-radius: 24px;
+            }
+
+
+
+            .review-quote {
+                font-size: 26px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 500px) {
+
+            .logo img {
+                width: 135px;
+            }
+
+
+
+            .nav-links {
+                gap: 16px;
+            }
+
+
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+
+
+            .hero {
+                padding: 60px 18px 50px;
+            }
+
+
+
+            .hero-kicker {
+                font-size: 13px;
+                letter-spacing: 2.4px;
+            }
+
+
+
+            .hero h1 {
+                font-size: 34px;
+                line-height: 1.2;
+            }
+
+
+
+            .hero-description {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+
+
+            .reviews-section {
+                padding: 20px 16px 65px;
+            }
+
+
+
+            .reviews-container {
+                gap: 20px;
+            }
+
+
+
+            .review-card {
+                padding: 32px 24px 32px 38px;
+                border-radius: 22px;
+            }
+
+
+
+            .review-quote {
+                font-size: 24px;
+                padding-left: 5px;
+            }
+
+
+
+            .review-quote::before {
+                left: -17px;
+                top: -17px;
+                font-size: 56px;
+            }
+
+
+
+            .back-section {
+                padding-bottom: 70px;
+            }
+
+
+
+            footer {
+                padding: 55px 20px 30px;
+            }
+
+
+
+            .footer-links {
+                gap: 14px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="images/Logo.svg"
+                alt="Mathmium"
+            >
+
+        </a>
+
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+
+            <a href="index.html#tutor">
+                Meet the Tutor
+            </a>
+
+
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+
+
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-kicker">
+            WORDS FROM CLIENTS
+        </div>
+
+
+
+        <h1>
+            The Joy Behind Every Creation
+        </h1>
+
+
+
+        <p class="hero-description">
+            The kind words, appreciation, and meaningful feedback I receive
+            from clients about my Mathematics materials are some of the most
+            precious treasures I have collected throughout my creative journey.
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CLIENT REVIEWS
+    ====================================================== -->
+
+    <main>
+
+        <section class="reviews-section">
+
+            <div
+                class="reviews-container"
+                id="clientReviewsContainer"
+            >
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BACK BUTTON
+        ================================================== -->
+
+        <section class="back-section">
+
+            <a
+                href="reviews.html"
+                class="back-button"
+            >
+                Go Back
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mathmium
+        </div>
+
+
+
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
+
+
+
+        <div class="footer-description">
+            A creative space to discover, practise, explore,
+            and enjoy Mathematics.
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+
+
+            <a href="index.html#join">
+                Join Classes
+            </a>
+
+
+
+            <a href="index.html#order">
+                Order Materials
+            </a>
+
+
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+
+
+            <a href="index.html#treasures">
+                Reviews
+            </a>
+
+        </div>
+
+
+
+        <div class="copyright">
+            © Mathmium
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         CLIENT FEEDBACK JAVASCRIPT
+    ====================================================== -->
+
+    <script src="materials-feedback.js"></script>
+
+
+
+</body>
+
+</html>

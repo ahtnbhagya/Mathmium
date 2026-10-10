@@ -1,0 +1,3322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Person Behind Mathmium | Mathmium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+
+            --cream: #FFF9F7;
+            --white: #FFFFFF;
+
+            --wine: #641C2D;
+            --deep-red: #8F263D;
+            --rose: #C85C72;
+
+            --soft-rose: #F3D6DC;
+            --blush: #FBECEF;
+
+            --text: #292326;
+            --muted: #5F565A;
+
+            --border: rgba(100, 28, 45, 0.13);
+
+            --shadow: 0 20px 60px rgba(100, 28, 45, 0.09);
+
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: 'Quicksand', sans-serif;
+
+            color: var(--text);
+
+            line-height: 1.75;
+
+            background: var(--cream);
+
+            font-size: 17px;
+
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        .container {
+
+            width: min(1180px, 90%);
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: rgba(255, 249, 247, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            -webkit-backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .nav {
+
+            height: 82px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .brand img {
+
+            width: auto;
+
+            height: 48px;
+
+            max-width: 180px;
+
+            object-fit: contain;
+
+            filter:
+                brightness(0)
+                saturate(100%)
+                invert(48%)
+                sepia(19%)
+                saturate(1084%)
+                hue-rotate(296deg)
+                brightness(88%)
+                contrast(88%);
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+
+        }
+
+
+        .nav-links a {
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: var(--text);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .nav-links a:hover,
+
+        .nav-links .active {
+
+            color: var(--deep-red);
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTINUOUS BACKGROUND
+        ===================================================== */
+
+        main {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #FFF9F7 0%,
+                    #FBECEF 22%,
+                    #F7E5E9 43%,
+                    #FFF4F5 66%,
+                    #F3DDE2 84%,
+                    #FFF9F7 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           SECTION DIVIDER
+        ===================================================== */
+
+        .section-divider {
+
+            width: min(1180px, 90%);
+
+            height: 1px;
+
+            margin: 0 auto;
+
+            background: rgba(100, 28, 45, 0.16);
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height: calc(100vh - 82px);
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: transparent;
+
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+        }
+
+
+        .hero-content {
+
+            max-width: 650px;
+
+        }
+
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--deep-red);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .eyebrow::before {
+
+            content: "";
+
+            width: 32px;
+
+            height: 2px;
+
+            background: var(--rose);
+
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(48px, 6vw, 78px);
+
+            line-height: 1.05;
+
+            font-weight: 700;
+
+            color: var(--wine);
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: var(--rose);
+
+        }
+
+
+        .hero-subtitle {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            color: var(--deep-red);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .hero-role {
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            color: var(--wine);
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 620px;
+
+            font-size: 19px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           LINKEDIN + FREELANCER BUTTONS
+        ===================================================== */
+
+        .linkedin-button,
+        .freelancer-button {
+
+            display: inline-block;
+
+            margin-top: 24px;
+
+            padding: 12px 24px;
+
+            border-radius: 50px;
+
+            background: var(--wine);
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .linkedin-button:hover,
+        .freelancer-button:hover {
+
+            background: var(--deep-red);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .freelancer-button {
+
+            margin-left: 10px;
+
+        }
+
+
+        /* =====================================================
+           PHOTO
+        ===================================================== */
+
+        .hero-photo {
+
+            display: flex;
+
+            justify-content: center;
+
+        }
+
+
+        .photo-frame {
+
+            width: min(460px, 100%);
+
+            aspect-ratio: 4 / 5;
+
+            background: rgba(243, 214, 220, 0.82);
+
+            border-radius: 30px;
+
+            padding: 14px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+        .photo-placeholder {
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 22px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #FBECEF,
+                    #F3D6DC
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: var(--deep-red);
+
+            font-size: 19px;
+
+            font-weight: 600;
+
+            overflow: hidden;
+
+        }
+
+
+        .photo-placeholder img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+           GENERAL SECTION
+        ===================================================== */
+
+        .section {
+
+            padding: 120px 0;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: transparent;
+
+        }
+
+
+        /* =====================================================
+           SECTION HEADER
+        ===================================================== */
+
+        .section-header {
+
+            max-width: 820px;
+
+            margin: 0 auto 65px;
+
+            text-align: center;
+
+        }
+
+
+        .section-label {
+
+            color: var(--rose);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .section-title {
+
+            font-size: clamp(38px, 5vw, 58px);
+
+            line-height: 1.1;
+
+            color: var(--wine);
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .section-description {
+
+            font-size: 19px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           EXPLORE MY JOURNEY
+        ===================================================== */
+
+        .journey-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 24px;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .journey-card {
+
+            background: rgba(255, 255, 255, 0.84);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 38px 30px;
+
+            min-height: 215px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            box-shadow:
+
+                0 12px 35px rgba(100, 28, 45, 0.06);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .journey-card:hover {
+
+            transform: translateY(-7px);
+
+            background: #FFFFFF;
+
+            box-shadow:
+
+                0 20px 45px rgba(100, 28, 45, 0.12);
+
+        }
+
+
+        .journey-card h3 {
+
+            font-size: 24px;
+
+            color: var(--wine);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .journey-card p {
+
+            font-size: 17px;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =====================================================
+           KEY HIGHLIGHTS
+        ===================================================== */
+
+        .highlight-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 24px;
+
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .highlight-card {
+
+            background: rgba(255, 255, 255, 0.86);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 38px 32px;
+
+            text-align: center;
+
+            box-shadow:
+
+                0 12px 35px rgba(100, 28, 45, 0.05);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .highlight-card:hover {
+
+            transform: translateY(-5px);
+
+            background: #FFFFFF;
+
+            box-shadow:
+
+                0 18px 42px rgba(100, 28, 45, 0.10);
+
+        }
+
+
+        .highlight-card h3 {
+
+            color: var(--wine);
+
+            font-size: 22px;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .highlight-card p {
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+        }
+
+
+        .highlight-card:last-child {
+
+            grid-column: 1 / -1;
+
+            max-width: 510px;
+
+            width: 100%;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           EDUCATION
+        ===================================================== */
+
+        .education-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 28px;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .education-card {
+
+            background: rgba(255, 255, 255, 0.88);
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 42px 36px;
+
+            text-align: center;
+
+            box-shadow:
+
+                0 15px 40px rgba(100, 28, 45, 0.06);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .education-card:hover {
+
+            transform: translateY(-4px);
+
+            background: #FFFFFF;
+
+            box-shadow:
+
+                0 20px 48px rgba(100, 28, 45, 0.10);
+
+        }
+
+
+        .education-label {
+
+            display: inline-block;
+
+            padding: 7px 15px;
+
+            border-radius: 50px;
+
+            background: var(--blush);
+
+            color: var(--deep-red);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .education-card h3 {
+
+            font-size: 27px;
+
+            color: var(--wine);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .qualification {
+
+            color: var(--deep-red);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .institution {
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+        }
+
+
+        .education-year {
+
+            color: var(--rose);
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            margin: 5px 0 22px;
+
+        }
+
+
+        .education-card p {
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .certificate-button {
+
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            border-radius: 50px;
+
+            background: var(--wine);
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .certificate-button:hover {
+
+            background: var(--deep-red);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .certificate-view {
+
+            display: none;
+
+            margin-top: 28px;
+
+            padding: 18px;
+
+            border-radius: 22px;
+
+            background: rgba(251, 236, 239, 0.72);
+
+            border: 1px solid var(--border);
+
+            box-shadow: 0 15px 40px rgba(100, 28, 45, 0.08);
+
+            animation: fadeIn 0.35s ease;
+
+        }
+
+
+        .certificate-view.active {
+
+            display: block;
+
+        }
+
+
+        .certificate-view img {
+
+            width: 100%;
+
+            max-height: 650px;
+
+            height: auto;
+
+            object-fit: contain;
+
+            display: block;
+
+            margin: 0 auto;
+
+            border-radius: 16px;
+
+            background: white;
+
+            box-shadow: 0 10px 28px rgba(100, 28, 45, 0.10);
+
+        }
+
+
+        .hide-certificate-button {
+
+            margin-top: 18px;
+
+            padding: 10px 20px;
+
+            border-radius: 50px;
+
+            border: 1px solid var(--wine);
+
+            background: white;
+
+            color: var(--wine);
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .hide-certificate-button:hover {
+
+            background: var(--wine);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           EXPERIENCE TABS
+        ===================================================== */
+
+        .experience-tabs {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            max-width: 1050px;
+
+            margin: 0 auto 35px;
+
+        }
+
+
+        .experience-tab {
+
+            border: 1px solid rgba(100, 28, 45, 0.14);
+
+            background: rgba(255, 255, 255, 0.78);
+
+            color: var(--wine);
+
+            padding: 13px 21px;
+
+            border-radius: 50px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .experience-tab:hover,
+
+        .experience-tab.active {
+
+            background: var(--wine);
+
+            color: white;
+
+        }
+
+
+        .experience-panel {
+
+            display: none;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .experience-panel.active {
+
+            display: block;
+
+            animation: fadeIn 0.35s ease;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .experience-card {
+
+            background: rgba(255, 255, 255, 0.89);
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            padding: 42px;
+
+            text-align: center;
+
+            box-shadow:
+
+                0 15px 40px rgba(100, 28, 45, 0.06);
+
+        }
+
+
+        .experience-card h3 {
+
+            font-size: 29px;
+
+            color: var(--wine);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .experience-role {
+
+            color: var(--deep-red);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .experience-date {
+
+            color: var(--rose);
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .experience-card ul {
+
+            list-style: none;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            padding: 0;
+
+            text-align: left;
+
+        }
+
+
+        .experience-card li {
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.75;
+
+            margin-bottom: 13px;
+
+            padding-left: 24px;
+
+            position: relative;
+
+        }
+
+
+        .experience-card li::before {
+
+            content: "•";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            color: var(--rose);
+
+            font-size: 23px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .experience-card strong {
+
+            color: var(--wine);
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           RESEARCH PROJECTS
+        ===================================================== */
+
+        .research-projects {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 24px;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .research-project {
+
+            background: rgba(255, 255, 255, 0.88);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 34px;
+
+            text-align: left;
+
+            box-shadow:
+
+                0 12px 35px rgba(100, 28, 45, 0.05);
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .research-project:hover {
+
+            transform: translateY(-4px);
+
+            background: #FFFFFF;
+
+            box-shadow:
+
+                0 18px 42px rgba(100, 28, 45, 0.09);
+
+        }
+
+
+        .research-project h4 {
+
+            color: var(--wine);
+
+            font-size: 23px;
+
+            margin-bottom: 5px;
+
+            text-align: center;
+
+        }
+
+
+        .research-project .research-date {
+
+            color: var(--rose);
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+
+            text-align: center;
+
+        }
+
+
+        .research-project .research-name {
+
+            color: var(--deep-red);
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .research-project ul {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+
+        .research-project li {
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            margin-bottom: 10px;
+
+            padding-left: 22px;
+
+            position: relative;
+
+        }
+
+
+        .research-project li::before {
+
+            content: "•";
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--rose);
+
+            font-size: 21px;
+
+        }
+
+
+        /* =====================================================
+           TEACHING APPROACH
+        ===================================================== */
+
+        .approach-intro {
+
+            max-width: 850px;
+
+            margin: 0 auto 55px;
+
+            text-align: center;
+
+        }
+
+
+        .approach-intro h3 {
+
+            color: var(--wine);
+
+            font-size: 31px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .approach-intro p {
+
+            color: var(--muted);
+
+            font-size: 19px;
+
+            margin-bottom: 19px;
+
+        }
+
+
+        .approach-intro strong {
+
+            color: var(--wine);
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           WHAT MAKES MY TEACHING DIFFERENT
+        ===================================================== */
+
+        .difference-title {
+
+            text-align: center;
+
+            color: var(--wine);
+
+            font-size: 31px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .difference-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .difference-card {
+
+            min-height: 190px;
+
+            position: relative;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            box-shadow:
+
+                0 10px 30px rgba(100, 28, 45, 0.06);
+
+        }
+
+
+        .difference-front,
+
+        .difference-back {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            transition: 0.35s ease;
+
+        }
+
+
+        .difference-front {
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #FFFFFF,
+                    #FBECEF
+                );
+
+            color: var(--wine);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+        }
+
+
+        .difference-back {
+
+            background: var(--wine);
+
+            color: white;
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .difference-card:hover .difference-front {
+
+            opacity: 0;
+
+        }
+
+
+        .difference-card:hover .difference-back {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           CLOSING
+        ===================================================== */
+
+        .closing-content {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .closing-content h2 {
+
+            font-size: clamp(38px, 5vw, 56px);
+
+            color: var(--wine);
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .closing-content p {
+
+            color: var(--muted);
+
+            font-size: 19px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .closing-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 32px;
+
+        }
+
+
+        .closing-button {
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: var(--wine);
+
+            border: 1px solid var(--wine);
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .closing-button:hover {
+
+            background: var(--wine);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: var(--wine);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 70px 20px 35px;
+
+        }
+
+
+        .footer-brand {
+
+            font-family: 'Pacifico', cursive;
+
+            font-size: 35px;
+
+            color: white;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .footer-title {
+
+            font-family: 'Quicksand', sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: var(--soft-rose);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .footer-description {
+
+            max-width: 600px;
+
+            margin: 0 auto 30px;
+
+            color: rgba(255, 255, 255, 0.82);
+
+            font-family: 'Quicksand', sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 25px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .footer-links a {
+
+            color: white;
+
+            font-family: 'Quicksand', sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: var(--soft-rose);
+
+        }
+
+
+        .footer-copy {
+
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+            color: rgba(255, 255, 255, 0.75);
+
+            font-family: 'Quicksand', sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .hero-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+
+            }
+
+
+            .hero-photo {
+
+                order: -1;
+
+            }
+
+
+            .photo-frame {
+
+                max-width: 390px;
+
+            }
+
+
+            .difference-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .education-grid,
+
+            .research-projects {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                font-size: 16px;
+
+            }
+
+
+            .nav {
+
+                height: 70px;
+
+            }
+
+
+            .brand img {
+
+                height: 42px;
+
+                max-width: 155px;
+
+            }
+
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                min-height: auto;
+
+                padding: 75px 0;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 48px;
+
+            }
+
+
+            .hero-subtitle {
+
+                font-size: 18px;
+
+            }
+
+
+            .hero-role {
+
+                font-size: 16px;
+
+            }
+
+
+            .hero-text {
+
+                font-size: 17px;
+
+            }
+
+
+            .photo-frame {
+
+                max-width: 330px;
+
+            }
+
+
+            .section {
+
+                padding: 85px 0;
+
+            }
+
+
+            .section-title {
+
+                font-size: 40px;
+
+            }
+
+
+            .section-description {
+
+                font-size: 17px;
+
+            }
+
+
+            .journey-grid,
+
+            .highlight-grid,
+
+            .research-projects {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .highlight-card:last-child {
+
+                grid-column: auto;
+
+                max-width: none;
+
+            }
+
+
+            .journey-card {
+
+                padding: 30px 24px;
+
+            }
+
+
+            .education-card {
+
+                padding: 34px 24px;
+
+            }
+
+
+            .certificate-view {
+
+                padding: 12px;
+
+            }
+
+
+            .certificate-view img {
+
+                max-height: 520px;
+
+            }
+
+
+            .experience-tabs {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+
+            .experience-tab {
+
+                width: 100%;
+
+            }
+
+
+            .experience-card {
+
+                padding: 30px 22px;
+
+            }
+
+
+            .experience-card li {
+
+                font-size: 16px;
+
+            }
+
+
+            .difference-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .difference-card {
+
+                min-height: 175px;
+
+            }
+
+
+            .approach-intro h3 {
+
+                font-size: 26px;
+
+            }
+
+
+            .approach-intro p {
+
+                font-size: 17px;
+
+            }
+
+
+            .closing-content h2 {
+
+                font-size: 40px;
+
+            }
+
+
+            .closing-content p {
+
+                font-size: 17px;
+
+            }
+
+
+            .footer-links {
+
+                gap: 15px 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="index.html" class="brand">
+            <img src="images/Logo.svg" alt="Mathmium">
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tutor" class="active">
+                Meet the Tutor
+            </a>
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                The Person Behind Mathmium
+            </div>
+
+
+            <h1>
+                Hello, I'm <span>Nipuni Bhagya</span>
+            </h1>
+
+
+            <div class="hero-subtitle">
+                B.Sc. (Hons) in Civil Engineering
+            </div>
+
+
+            <div class="hero-role">
+                Mathematics Tutor | Mathematics Content Designer
+            </div>
+
+
+            <p class="hero-text">
+                I teach Mathematics online and create thoughtfully
+                designed learning materials to help make Mathematics
+                easier to understand, practise, and enjoy.
+            </p>
+
+
+            <a
+                href="https://www.linkedin.com/in/aht-nipuni-bhagya"
+                class="linkedin-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+            <a
+                href="https://www.freelancer.com/u/InspiraDesk?frm=InspiraDesk&sb=t"
+                class="freelancer-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Freelancer
+            </a>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <div class="photo-frame">
+
+                <div class="photo-placeholder">
+                    <img src="images/NB.PNG" alt="Nipuni Bhagya">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     SECTION 01 — EXPLORE MY JOURNEY
+===================================================== -->
+
+<section class="section journey-section">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                MY JOURNEY
+            </div>
+
+
+            <h2 class="section-title">
+                Explore My Journey
+            </h2>
+
+
+            <p class="section-description">
+                Discover the experiences, education, and ideas that
+                shape the way I teach Mathematics and create learning
+                materials.
+            </p>
+
+        </div>
+
+
+        <div class="journey-grid">
+
+
+            <a href="#highlights" class="journey-card">
+
+                <h3>
+                    Key Highlights
+                </h3>
+
+                <p>
+                    Discover the experiences and interests that shape
+                    my work as a Mathematics tutor and content designer.
+                </p>
+
+            </a>
+
+
+            <a href="#education" class="journey-card">
+
+                <h3>
+                    Education & Qualifications
+                </h3>
+
+                <p>
+                    Explore my academic background, qualifications,
+                    and professional development.
+                </p>
+
+            </a>
+
+
+            <a href="#experience" class="journey-card">
+
+                <h3>
+                    Experience
+                </h3>
+
+                <p>
+                    Discover my experience in Mathematics tutoring,
+                    educational content creation, research, and engineering.
+                </p>
+
+            </a>
+
+
+            <a href="#approach" class="journey-card">
+
+                <h3>
+                    Teaching Approach
+                </h3>
+
+                <p>
+                    Learn how I create Mathematics lessons that are
+                    friendly, clear, creative, and supportive.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     SECTION 02 — KEY HIGHLIGHTS
+===================================================== -->
+
+<section class="section highlights-section" id="highlights">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                KEY HIGHLIGHTS
+            </div>
+
+
+            <h2 class="section-title">
+                Math | Education | Creativity
+            </h2>
+
+
+            <p class="section-description">
+                A blend of Mathematics, education, visual design,
+                engineering, and creative learning.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-grid">
+
+
+            <div class="highlight-card">
+
+                <h3>
+                    Mathematics & Engineering Education
+                </h3>
+
+                <p>
+                    B.Sc. (Hons) in Civil Engineering with a strong
+                    academic foundation in Mathematics, analytical
+                    thinking, problem-solving, and technical reasoning.
+                </p>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <h3>
+                    Online Mathematics Tutoring
+                </h3>
+
+                <p>
+                    Online one-to-one Mathematics tutoring experience
+                    with elementary and middle-school students since
+                    2025, supporting students according to their
+                    individual learning needs and progress.
+                </p>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <h3>
+                    Mathematics Content Creation
+                </h3>
+
+                <p>
+                    Hands-on experience creating Mathematics worksheets,
+                    exercises, activities, notes, presentations,
+                    lesson materials, and educational resources.
+                </p>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <h3>
+                    Graphic Design & Visual Learning
+                </h3>
+
+                <p>
+                    Hands-on experience in graphic design and vector art
+                    using Inkscape, supporting the creation of colourful,
+                    structured, and visually engaging educational materials.
+                </p>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+                <h3>
+                    Passion for Children's Education
+                </h3>
+
+                <p>
+                    Passionate about Mathematics, children's education,
+                    creative educational design, and making learning
+                    enjoyable, meaningful, and engaging.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     SECTION 03 — EDUCATION
+===================================================== -->
+
+<section class="section education-section" id="education">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                EDUCATION & QUALIFICATIONS
+            </div>
+
+
+            <h2 class="section-title">
+                Education & Qualifications
+            </h2>
+
+
+            <p class="section-description">
+                Academic learning and professional development that
+                contribute to my work as a Mathematics educator.
+            </p>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <div class="education-card">
+
+                <div class="education-label">
+                    Bachelor's Degree
+                </div>
+
+
+                <h3>
+                    B.Sc. (Hons) in Civil Engineering
+                </h3>
+
+
+                <div class="qualification">
+                    South Eastern University of Sri Lanka
+                </div>
+
+
+                <div class="institution">
+                    Faculty of Engineering
+                </div>
+
+
+                <div class="education-year">
+                    2024
+                </div>
+
+
+                <p>
+                    A multidisciplinary engineering education that
+                    developed strong foundations in Mathematics,
+                    analytical thinking, problem-solving, research,
+                    technical communication, and structured reasoning.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="certificate-button"
+                    onclick="showCertificate('degreeCertificate')"
+                >
+                    Degree Certificate
+                </button>
+
+
+                <div
+                    class="certificate-view"
+                    id="degreeCertificate"
+                >
+
+                    <img
+                        src="images/DC.JPG"
+                        alt="Degree Certificate"
+                    >
+
+                    <button
+                        type="button"
+                        class="hide-certificate-button"
+                        onclick="hideCertificate('degreeCertificate')"
+                    >
+                        Hide Certificate
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <div class="education-label">
+                    Professional Certification
+                </div>
+
+
+                <h3>
+                    Certified ACPT Tutor
+                </h3>
+
+
+                <div class="qualification">
+                    Academic Tutoring & Student Support
+                </div>
+
+
+                <div class="institution">
+                    Professional Certification
+                </div>
+
+
+                <div class="education-year">
+                    Certificate ID: 545799328
+                </div>
+
+
+                <p>
+                    Professional certification supporting knowledge
+                    and skills in academic tutoring, student support,
+                    subject understanding, effective tutoring strategies,
+                    and learner-focused academic assistance.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="certificate-button"
+                    onclick="showCertificate('certification')"
+                >
+                    Certification
+                </button>
+
+
+                <div
+                    class="certificate-view"
+                    id="certification"
+                >
+
+                    <img
+                        src="images/C.PNG"
+                        alt="Professional Certification"
+                    >
+
+                    <button
+                        type="button"
+                        class="hide-certificate-button"
+                        onclick="hideCertificate('certification')"
+                    >
+                        Hide Certificate
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     SECTION 04 — EXPERIENCE
+===================================================== -->
+
+<section class="section experience-section" id="experience">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                EXPERIENCE
+            </div>
+
+
+            <h2 class="section-title">
+                Experience
+            </h2>
+
+
+            <p class="section-description">
+                Explore the different areas of experience that have
+                shaped my approach to Mathematics, education, research,
+                design, and problem-solving.
+            </p>
+
+        </div>
+
+
+        <div class="experience-tabs">
+
+
+            <button
+                class="experience-tab active"
+                onclick="showExperience('tutoring', this)"
+            >
+                Tutoring Experience
+            </button>
+
+
+            <button
+                class="experience-tab"
+                onclick="showExperience('materials', this)"
+            >
+                Materials Creating Experience
+            </button>
+
+
+            <button
+                class="experience-tab"
+                onclick="showExperience('research', this)"
+            >
+                Undergraduate Research Projects
+            </button>
+
+
+            <button
+                class="experience-tab"
+                onclick="showExperience('engineering', this)"
+            >
+                Engineering Experience
+            </button>
+
+        </div>
+
+
+        <!-- TUTORING -->
+
+        <div
+            class="experience-panel active"
+            id="tutoring"
+        >
+
+            <div class="experience-card">
+
+                <h3>
+                    Mathematics Tutor
+                </h3>
+
+                <div class="experience-role">
+                    One-to-One Online Mathematics Tutoring
+                </div>
+
+                <div class="experience-date">
+                    2025 – Present | Online
+                </div>
+
+
+                <ul>
+
+                    <li>
+                        Provide one-to-one Mathematics tutoring for
+                        elementary and middle-school students.
+                    </li>
+
+                    <li>
+                        Explain mathematical concepts using simple,
+                        clear, and structured methods.
+                    </li>
+
+                    <li>
+                        Prepare lessons based on each student's
+                        learning level, needs, and progress.
+                    </li>
+
+                    <li>
+                        Use visual examples, worksheets, activities,
+                        and interactive exercises to support learning.
+                    </li>
+
+                    <li>
+                        Encourage students through positive feedback
+                        to build confidence and motivation.
+                    </li>
+
+                    <li>
+                        Adapt teaching strategies to suit different
+                        learning styles and individual needs.
+                    </li>
+
+                    <li>
+                        Support the development of problem-solving,
+                        logical thinking, and mathematical reasoning skills.
+                    </li>
+
+                    <li>
+                        Monitor student progress and adjust lessons
+                        when needed.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- MATERIAL CREATION -->
+
+        <div
+            class="experience-panel"
+            id="materials"
+        >
+
+            <div class="experience-card">
+
+                <h3>
+                    Mathematics & Educational Content Creator
+                </h3>
+
+                <div class="experience-role">
+                    Independent
+                </div>
+
+                <div class="experience-date">
+                    2019 – Present
+                </div>
+
+
+                <ul>
+
+                    <li>
+                        Create Mathematics worksheets, exercises,
+                        activities, notes, flashcards, presentations,
+                        and lesson materials.
+                    </li>
+
+                    <li>
+                        Develop structured and age-appropriate
+                        learning resources for students.
+                    </li>
+
+                    <li>
+                        Create story-based Mathematics activities
+                        using characters, situations, and simple narratives.
+                    </li>
+
+                    <li>
+                        Turn mathematical concepts into visual and
+                        interactive learning experiences.
+                    </li>
+
+                    <li>
+                        Design colourful illustrations and educational
+                        materials to make concepts easier to understand.
+                    </li>
+
+                    <li>
+                        Create practice resources that encourage students
+                        to explore, apply, and strengthen their knowledge.
+                    </li>
+
+                    <li>
+                        Combine Mathematics, visual design, storytelling,
+                        and creativity to develop engaging learning materials.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- UNDERGRADUATE RESEARCH -->
+
+        <div
+            class="experience-panel"
+            id="research"
+        >
+
+            <div class="research-projects">
+
+
+                <div class="research-project">
+
+                    <h4>
+                        Civil Engineering Research
+                    </h4>
+
+                    <div class="research-date">
+                        December 2023 – November 2024
+                    </div>
+
+                    <div class="research-name">
+                        Soil Stabilization Using Various Admixtures:
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Investigated expansive soil stabilization
+                            using lime, rice husk ash, and water treatment sludge.
+                        </li>
+
+                        <li>
+                            Conducted laboratory testing and evaluated
+                            engineering properties of treated soil.
+                        </li>
+
+                        <li>
+                            Studied different mix proportions and
+                            compared their performance.
+                        </li>
+
+                        <li>
+                            Developed practical experience in research,
+                            experimentation, data analysis, and technical evaluation.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="research-project">
+
+                    <h4>
+                        Civil Engineering Project
+                    </h4>
+
+                    <div class="research-date">
+                        December 2023 – November 2024
+                    </div>
+
+                    <div class="research-name">
+                        Upgrading Water Supply Network System:
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Assessed an existing water supply network
+                            to identify leakage, water loss, pressure,
+                            and water shortage issues.
+                        </li>
+
+                        <li>
+                            Developed a District Metered Area (DMA)
+                            zoning approach for improved network
+                            monitoring and management.
+                        </li>
+
+                        <li>
+                            Investigated suitable locations for valves,
+                            flow meters, and pressure-control components.
+                        </li>
+
+                        <li>
+                            Analysed pipeline pressure conditions and
+                            network requirements to support improvement planning.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ENGINEERING -->
+
+        <div
+            class="experience-panel"
+            id="engineering"
+        >
+
+            <div class="experience-card">
+
+                <h3>
+                    Engineering Experience
+                </h3>
+
+                <div class="experience-role">
+                    Construction, Road Development & Laboratory Work
+                </div>
+
+                <div class="experience-date">
+                    2022 – 2023
+                </div>
+
+
+                <ul>
+
+                    <li>
+                        <strong>U-Drain Construction:</strong>
+                        Monitored dewatering, site clearing, formwork,
+                        reinforcement, and concrete works.
+                    </li>
+
+                    <li>
+                        Prepared existing-structure drawings for the
+                        U-drain basin and assisted with reinforcement
+                        quantity calculations.
+                    </li>
+
+                    <li>
+                        <strong>Jacket Wall Construction:</strong>
+                        Conducted levelling calculations, prepared
+                        existing-structure drawings, and calculated
+                        concrete quantities.
+                    </li>
+
+                    <li>
+                        <strong>Road Development & Maintenance:</strong>
+                        Gained practical exposure to routine, recurrent,
+                        periodic, and urgent road maintenance.
+                    </li>
+
+                    <li>
+                        Observed common road defects including cracking,
+                        bleeding, and edge breaking.
+                    </li>
+
+                    <li>
+                        Gained exposure to reinforced concrete, gravity,
+                        rubble, mass concrete, and gabion retaining structures.
+                    </li>
+
+                    <li>
+                        <strong>Construction Materials & Laboratory Testing:</strong>
+                        Gained practical exposure to testing concrete,
+                        aggregates, soil, bitumen, and asphalt.
+                    </li>
+
+                    <li>
+                        Observed tests including slump, compressive strength,
+                        particle-size distribution, Atterberg limits,
+                        Proctor compaction, CBR, DCP, bitumen penetration,
+                        and asphalt testing.
+                    </li>
+
+                    <li>
+                        <strong>Construction Supervision & Documentation:</strong>
+                        Monitored earthwork, foundations, concrete,
+                        reinforcement, brickwork, finishing, setting out,
+                        and construction measurements.
+                    </li>
+
+                    <li>
+                        Assisted with monthly progress reports, labour
+                        records, weather records, and project documentation.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     SECTION 05 — TEACHING APPROACH
+===================================================== -->
+
+<section class="section approach-section" id="approach">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                TEACHING APPROACH
+            </div>
+
+
+            <h2 class="section-title">
+                A Friendly and Supportive Approach to Mathematics
+            </h2>
+
+
+            <p class="section-description">
+                Creating a learning environment where students can
+                understand, practise, ask questions, make mistakes,
+                and grow in confidence.
+            </p>
+
+        </div>
+
+
+        <div class="approach-intro">
+
+            <h3>
+                Mathematics Is More Than Finding the Answer
+            </h3>
+
+
+            <p>
+                I believe Mathematics can be
+                <strong>simple, creative, and fun.</strong>
+            </p>
+
+
+            <p>
+                My goal is to create a friendly learning environment
+                where children feel comfortable asking questions,
+                making mistakes, and trying again.
+            </p>
+
+
+            <p>
+                I explain ideas in simple ways and use
+                <strong>visuals, activities, examples, and creative
+                learning materials</strong> to make Mathematics easier
+                to understand.
+            </p>
+
+
+            <p>
+                Most importantly, I want children to understand
+                <strong>how and why Mathematics works</strong>, while
+                building confidence and enjoying the learning journey.
+            </p>
+
+        </div>
+
+
+        <h3 class="difference-title">
+            What Makes My Teaching Different
+        </h3>
+
+
+        <div class="difference-grid">
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Improved Student Engagement
+                </div>
+
+                <div class="difference-back">
+                    Helped an elementary student with little initial
+                    interest in Mathematics develop greater enjoyment
+                    and enthusiasm through positive, colourful, and
+                    engaging lessons.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Individualised Online Learning
+                </div>
+
+                <div class="difference-back">
+                    Conduct one-to-one Zoom lessons tailored to each
+                    student's learning pace, needs, and level of
+                    understanding, using screen sharing for interactive learning.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Creative Mathematics Resources
+                </div>
+
+                <div class="difference-back">
+                    Create colourful worksheets, exercises, presentations,
+                    and learning materials designed to make Mathematics
+                    more enjoyable and accessible for children.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Story-Based & Visual Learning
+                </div>
+
+                <div class="difference-back">
+                    Create story-based explanations, animated
+                    step-by-step visuals, diagrams, and examples to
+                    make mathematical concepts engaging and memorable.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Simplifying Difficult Concepts
+                </div>
+
+                <div class="difference-back">
+                    Break down challenging Mathematics topics into
+                    small, easy-to-understand steps using simple
+                    explanations, examples, and diagrams.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Colour-Coded Learning Notes
+                </div>
+
+                <div class="difference-back">
+                    Use colour-coded notes and visual highlights to
+                    organise important information and help students
+                    identify and remember key points more easily.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Practice & Reinforcement
+                </div>
+
+                <div class="difference-back">
+                    Prepare personalised practice questions,
+                    worksheets, and homework activities to help
+                    students strengthen and apply what they learn.
+                </div>
+
+            </div>
+
+
+            <div class="difference-card">
+
+                <div class="difference-front">
+                    Building Confidence
+                </div>
+
+                <div class="difference-back">
+                    Create a supportive learning environment where
+                    students feel comfortable asking questions,
+                    making mistakes, and trying again.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIVIDER -->
+
+<div class="section-divider"></div>
+
+
+<!-- =====================================================
+     CLOSING
+===================================================== -->
+
+<section class="section closing-section">
+
+    <div class="container">
+
+        <div class="closing-content">
+
+            <h2>
+                Making Mathematics Clearer, Friendlier & More Enjoyable
+            </h2>
+
+
+            <p>
+                Every student learns differently. With the right
+                explanations, encouragement, practice, and learning
+                environment, Mathematics can become clearer, more
+                enjoyable, and less intimidating.
+            </p>
+
+
+            <p>
+                Mathmium is a space where Mathematics meets creativity,
+                curiosity, and meaningful learning.
+            </p>
+
+
+            <div class="closing-buttons">
+
+                <a
+                    href="index.html#classes"
+                    class="closing-button"
+                >
+                    Explore Classes
+                </a>
+
+
+                <a
+                    href="index.html#materials"
+                    class="closing-button"
+                >
+                    Explore Materials
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="closing-button"
+                >
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-brand">
+        Mathmium
+    </div>
+
+
+    <div class="footer-title">
+        Your World of Mathematics
+    </div>
+
+
+    <p class="footer-description">
+        A creative space to discover, practise, explore, and enjoy Mathematics.
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#classes">
+            Classes
+        </a>
+
+        <a href="index.html#materials">
+            Materials
+        </a>
+
+        <a href="index.html#join">
+            Join Class
+        </a>
+
+        <a href="index.html#order">
+            Order Materials
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+        <a href="index.html#treasures">
+            Reviews
+        </a>
+
+    </div>
+
+
+    <div class="footer-copy">
+        © Mathmium
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    function showExperience(sectionId, button) {
+
+        const panels =
+            document.querySelectorAll('.experience-panel');
+
+        const buttons =
+            document.querySelectorAll('.experience-tab');
+
+
+        panels.forEach(function(panel) {
+
+            panel.classList.remove('active');
+
+        });
+
+
+        buttons.forEach(function(tab) {
+
+            tab.classList.remove('active');
+
+        });
+
+
+        document
+            .getElementById(sectionId)
+            .classList.add('active');
+
+
+        button.classList.add('active');
+
+    }
+
+
+    function showCertificate(certificateId) {
+
+        document
+            .getElementById(certificateId)
+            .classList.add('active');
+
+    }
+
+
+    function hideCertificate(certificateId) {
+
+        document
+            .getElementById(certificateId)
+            .classList.remove('active');
+
+    }
+
+</script>
+
+
+</body>
+</html>

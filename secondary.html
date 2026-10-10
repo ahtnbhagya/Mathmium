@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mathmium | Secondary Mathematics</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+
+            --navy: #182B45;
+            --navy-soft: #304866;
+            --deep-teal: #245C61;
+            --teal: #4E8586;
+            --cream: #FCFAF5;
+            --white: #FFFFFF;
+            --muted: #59697D;
+
+            --line: rgba(24, 43, 69, 0.13);
+
+            --tree-1: #D9EAF3;
+            --tree-2: #9FC4D5;
+            --tree-3: #C8DFE9;
+
+            --consumer-1: #E7E3F4;
+            --consumer-2: #C6B9DE;
+            --consumer-3: #DDD5EC;
+
+            --construction-1: #E0EFEA;
+            --construction-2: #A9D2C5;
+            --construction-3: #CDE4DC;
+
+            --equation-1: #F2E1E3;
+            --equation-2: #D7AEB7;
+            --equation-3: #E9CDD2;
+
+            --figures-1: #F4E8C9;
+            --figures-2: #DEC98F;
+            --figures-3: #EEE0B5;
+
+            --solutions-1: #DCE8F7;
+            --solutions-2: #AFC8E4;
+            --solutions-3: #CBDCF0;
+
+            --shadow:
+                0 24px 60px rgba(35, 55, 80, 0.12);
+
+            --soft-shadow:
+                0 12px 32px rgba(35, 55, 80, 0.08);
+
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: "Quicksand", sans-serif;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.75;
+            overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 5% 8%,
+                    rgba(214, 232, 242, 0.72),
+                    transparent 21%
+                ),
+
+                radial-gradient(
+                    circle at 95% 11%,
+                    rgba(230, 222, 244, 0.68),
+                    transparent 23%
+                ),
+
+                radial-gradient(
+                    circle at 7% 53%,
+                    rgba(220, 239, 232, 0.62),
+                    transparent 24%
+                ),
+
+                radial-gradient(
+                    circle at 94% 55%,
+                    rgba(245, 225, 226, 0.58),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 50% 94%,
+                    rgba(239, 226, 190, 0.45),
+                    transparent 24%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #FCFAF5 0%,
+                    #F3F8FA 22%,
+                    #F8F5FA 43%,
+                    #F3FAF7 63%,
+                    #F7F5FA 82%,
+                    #FCFAF5 100%
+                );
+
+            background-attachment: fixed;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+            color: inherit;
+
+        }
+
+
+        img {
+
+            max-width: 100%;
+            display: block;
+
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+
+            width: 100%;
+            min-height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 7%;
+
+            background:
+                rgba(255, 255, 255, 0.78);
+
+            border-bottom:
+                1px solid rgba(24, 43, 69, 0.08);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+            line-height: 1;
+
+        }
+
+
+        .logo img {
+
+            width: 145px;
+            height: auto;
+            display: block;
+
+            filter:
+                brightness(0)
+                saturate(100%)
+                invert(17%)
+                sepia(21%)
+                saturate(1078%)
+                hue-rotate(175deg)
+                brightness(90%)
+                contrast(91%);
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+        }
+
+
+        .nav-links a {
+
+            font-family: "Quicksand", sans-serif;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            color: var(--navy);
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: var(--deep-teal);
+
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            text-align: center;
+
+            padding-top: 100px;
+            padding-bottom: 100px;
+
+        }
+
+
+        .hero-category {
+
+            margin-bottom: 18px;
+
+            font-size: 17px;
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color: var(--navy-soft);
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero h1 {
+
+            max-width: 950px;
+
+            margin: 0 auto 28px;
+
+            font-size:
+                clamp(38px, 5vw, 64px);
+
+            line-height: 1.12;
+
+            font-weight: 700;
+
+            color: var(--navy);
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .hero-description {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            line-height: 1.75;
+
+            font-weight: 800;
+
+        }
+
+
+        .hero-description strong:first-child {
+
+            display: block;
+
+            font-size: 26px;
+
+            line-height: 1.45;
+
+            font-weight: 800;
+
+            color: var(--navy);
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .hero-description strong:nth-child(2) {
+
+            display: block;
+
+            font-size: 22px;
+
+            line-height: 1.5;
+
+            font-weight: 800;
+
+            color: #36596C;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .hero-description strong:last-child {
+
+            display: block;
+
+            max-width: 780px;
+
+            margin: 0 auto;
+
+            font-size: 19px;
+
+            line-height: 1.75;
+
+            font-weight: 700;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =========================================================
+           WATCH BUTTON
+        ========================================================= */
+
+        .watch-button {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 32px;
+
+            padding: 15px 27px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5B7890,
+                    #456579
+                );
+
+            color: var(--white);
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px rgba(23, 42, 70, 0.13);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+        }
+
+
+        .watch-button:hover {
+
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #294A70,
+                    #1D3557
+                );
+
+            box-shadow:
+                0 17px 35px rgba(23, 42, 70, 0.22);
+
+        }
+
+
+        /* =========================================================
+           MATERIAL SECTIONS
+        ========================================================= */
+
+        .materials {
+
+            width: 100%;
+
+        }
+
+
+        .material-section {
+
+            padding: 82px 7%;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        .material-content {
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .material-section h2 {
+
+            max-width: 850px;
+
+            margin: 0 auto 15px;
+
+            font-size:
+                clamp(28px, 4vw, 43px);
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color: var(--navy);
+
+        }
+
+
+        .material-description {
+
+            max-width: 790px;
+
+            margin: 0 auto 34px;
+
+            font-size: 18px;
+
+            line-height: 1.75;
+
+            font-weight: 700;
+
+            color: var(--muted);
+
+        }
+
+
+        /* =========================================================
+           PREMIUM IMAGE GALLERY
+        ========================================================= */
+
+        .secondary-gallery {
+
+            width: 100%;
+
+            max-width: 1120px;
+
+            margin: 38px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+        }
+
+
+        .secondary-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            aspect-ratio: 16 / 9;
+
+            border-radius: 24px;
+
+            background:
+                rgba(255, 255, 255, 0.82);
+
+            border:
+                1px solid rgba(24, 43, 69, 0.09);
+
+            box-shadow:
+                0 14px 38px rgba(35, 55, 80, 0.10);
+
+            padding: 7px;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .secondary-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.30),
+                    rgba(255,255,255,0)
+                );
+
+            pointer-events: none;
+
+            z-index: 1;
+
+        }
+
+
+        .secondary-card:hover {
+
+            transform:
+                translateY(-6px)
+                scale(1.012);
+
+            box-shadow:
+                0 22px 48px rgba(35, 55, 80, 0.16);
+
+        }
+
+
+        .secondary-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            background:
+                rgba(250, 252, 253, 0.96);
+
+        }
+
+
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
+
+        .final-cta {
+
+            padding-top: 90px;
+
+            padding-bottom: 95px;
+
+            text-align: center;
+
+            border-top:
+                1px solid var(--line);
+
+        }
+
+
+        .final-cta-box {
+
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            padding: 62px 35px;
+
+            border-radius: 36px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(228, 239, 245, 0.90),
+                    rgba(237, 231, 246, 0.90),
+                    rgba(231, 242, 237, 0.90),
+                    rgba(246, 235, 222, 0.88),
+                    rgba(241, 225, 229, 0.88)
+                );
+
+            border:
+                1px solid rgba(24, 43, 69, 0.07);
+
+            box-shadow:
+                0 20px 50px rgba(39, 59, 91, 0.09);
+
+        }
+
+
+        .final-cta h2 {
+
+            font-size:
+                clamp(30px, 4vw, 45px);
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color: var(--navy);
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .final-cta p {
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: var(--muted);
+
+            font-weight: 700;
+
+        }
+
+
+        .cta-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 31px;
+
+        }
+
+
+        .cta-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 155px;
+
+            padding: 14px 24px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5A789D,
+                    #456887
+                );
+
+            color: var(--white);
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px rgba(23, 42, 70, 0.13);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+
+        }
+
+
+        .cta-button:hover {
+
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #294A70,
+                    #1D3557
+                );
+
+            box-shadow:
+                0 17px 35px rgba(23, 42, 70, 0.22);
+
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            width: 100%;
+
+            padding:
+                65px 7% 35px;
+
+            text-align: center;
+
+            background: #173A63;
+
+            color: var(--white);
+
+        }
+
+
+        .footer-logo {
+
+            font-family: "Pacifico", cursive;
+
+            font-size: 35px;
+
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .footer-tagline {
+
+            font-family: "Quicksand", sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .footer-description {
+
+            max-width: 550px;
+
+            margin: 0 auto 25px;
+
+            font-family: "Quicksand", sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.7;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 16px 24px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .footer-links a {
+
+            font-family: "Quicksand", sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: var(--white);
+
+            transition:
+                opacity 0.25s ease;
+
+        }
+
+
+        .footer-links a:hover {
+
+            opacity: 0.75;
+
+        }
+
+
+        .copyright {
+
+            font-family: "Quicksand", sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            opacity: 0.82;
+
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .secondary-gallery {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 20px;
+
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .navbar {
+
+                padding-left: 5%;
+                padding-right: 5%;
+
+            }
+
+
+            .nav-links {
+
+                gap: 18px;
+
+            }
+
+
+            .material-section {
+
+                padding-left: 5%;
+                padding-right: 5%;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                min-height: auto;
+
+                padding-top: 17px;
+                padding-bottom: 17px;
+
+                flex-direction: column;
+
+                gap: 16px;
+
+            }
+
+
+            .nav-links {
+
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+
+                gap: 12px 18px;
+
+            }
+
+
+            .hero {
+
+                padding-top: 75px;
+                padding-bottom: 75px;
+
+                padding-left: 6%;
+                padding-right: 6%;
+
+            }
+
+
+            .hero-category {
+
+                font-size: 16px;
+
+                margin-bottom: 16px;
+
+            }
+
+
+            .hero-description strong:first-child {
+
+                font-size: 23px;
+
+            }
+
+
+            .hero-description strong:nth-child(2) {
+
+                font-size: 20px;
+
+            }
+
+
+            .hero-description strong:last-child {
+
+                font-size: 17px;
+
+            }
+
+
+            .material-section {
+
+                padding-top: 65px;
+                padding-bottom: 65px;
+
+                padding-left: 6%;
+                padding-right: 6%;
+
+            }
+
+
+            .material-description {
+
+                font-size: 17px;
+
+            }
+
+
+            .secondary-gallery {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+
+                max-width: 650px;
+
+            }
+
+
+            .secondary-card {
+
+                border-radius: 22px;
+
+                padding: 6px;
+
+            }
+
+
+            .secondary-card img {
+
+                border-radius: 17px;
+
+            }
+
+
+            .final-cta {
+
+                padding-top: 70px;
+                padding-bottom: 75px;
+
+                padding-left: 6%;
+                padding-right: 6%;
+
+            }
+
+
+            .final-cta-box {
+
+                padding: 48px 22px;
+
+                border-radius: 30px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 450px) {
+
+            .logo img {
+
+                width: 135px;
+
+            }
+
+
+            .nav-links a {
+
+                font-size: 15px;
+
+            }
+
+
+            .hero {
+
+                padding-top: 62px;
+                padding-bottom: 62px;
+
+            }
+
+
+            .hero-category {
+
+                font-size: 15px;
+
+                letter-spacing: 1.7px;
+
+            }
+
+
+            .hero-description strong:first-child {
+
+                font-size: 21px;
+
+            }
+
+
+            .hero-description strong:nth-child(2) {
+
+                font-size: 19px;
+
+            }
+
+
+            .hero-description strong:last-child {
+
+                font-size: 16px;
+
+            }
+
+
+            .material-section {
+
+                padding-top: 55px;
+                padding-bottom: 55px;
+
+            }
+
+
+            .material-description {
+
+                font-size: 16px;
+
+            }
+
+
+            .secondary-gallery {
+
+                gap: 15px;
+
+            }
+
+
+            .secondary-card {
+
+                border-radius: 20px;
+
+                padding: 5px;
+
+            }
+
+
+            .secondary-card img {
+
+                border-radius: 15px;
+
+            }
+
+
+            .final-cta p {
+
+                font-size: 17px;
+
+            }
+
+
+            .cta-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .cta-button {
+
+                width: 100%;
+
+                max-width: 250px;
+
+            }
+
+
+            footer {
+
+                padding-left: 6%;
+                padding-right: 6%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="images/Logo.svg"
+                alt="Mathmium"
+            >
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tutor">
+                Meet the Tutor
+            </a>
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-category">
+                SECONDARY MATHEMATICS
+            </div>
+
+
+            <h1>
+
+                Learning Mathematics Through<br>
+
+                Understanding &amp; Practice
+
+            </h1>
+
+
+            <div class="hero-description">
+
+                <strong>
+
+                    Maths can sometimes feel like a lot of numbers, letters, and formulas.
+
+                </strong>
+
+                <strong>
+
+                    Clear explanations, diagrams, visual examples, and step-by-step methods
+                    can make challenging ideas easier to understand.
+
+                </strong>
+
+            </div>
+
+
+            <a
+                href="https://youtu.be/qNtb0ar3Ctk?si=PIdfeRQAc1hPycS-"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="watch-button"
+            >
+
+                ▶ Watch: About My Classes
+
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             MATERIAL SAMPLES
+        ====================================================== -->
+
+        <div class="materials">
+
+
+            <!-- =================================================
+                 TREE DIAGRAMS
+            ================================================== -->
+
+            <section class="material-section">
+
+                <div class="material-content">
+
+                    <h2>
+                        Tree Diagrams
+                    </h2>
+
+                    <p class="material-description">
+
+                        Visual diagrams with clear, step-by-step explanations
+                        to make problems easier to understand.
+
+                    </p>
+
+                    <div
+                        class="secondary-gallery"
+                        id="treeDiagramsGallery"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONSUMER MATHEMATICS
+            ================================================== -->
+
+            <section class="material-section">
+
+                <div class="material-content">
+
+                    <h2>
+                        Consumer Mathematics
+                    </h2>
+
+                    <p class="material-description">
+
+                        Practical mathematical concepts explained through
+                        theory, real-life examples, and engaging story-based lessons.
+
+                    </p>
+
+                    <div
+                        class="secondary-gallery"
+                        id="consumerMathematicsGallery"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 GEOMETRIC CONSTRUCTIONS
+            ================================================== -->
+
+            <section class="material-section">
+
+                <div class="material-content">
+
+                    <h2>
+                        Geometric Constructions
+                    </h2>
+
+                    <p class="material-description">
+
+                        Simple animated, step-by-step demonstrations
+                        with easy-to-follow study materials.
+
+                    </p>
+
+                    <div
+                        class="secondary-gallery"
+                        id="geometricConstructionsGallery"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EQUATION SOLVING
+            ================================================== -->
+
+            <section class="material-section">
+
+                <div class="material-content">
+
+                    <h2>
+                        Equation Solving
+                    </h2>
+
+                    <p class="material-description">
+
+                        Animated, step-by-step explanations that show students
+                        how to solve equations clearly and confidently.
+
+                    </p>
+
+                    <div
+                        class="secondary-gallery"
+                        id="equationSolvingGallery"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 3D FIGURES
+            ================================================== -->
+
+            <section class="material-section">
+
+                <div class="material-content">
+
+                    <h2>
+                        3D Figures
+                    </h2>
+
+                    <p class="material-description">
+
+                        Visual interpretations with colour-based explanations
+                        to help students understand 3D shapes and concepts
+                        more easily.
+
+                    </p>
+
+                    <div
+                        class="secondary-gallery"
+                        id="figuresGallery"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+             FINAL CTA
+        ====================================================== -->
+
+        <section class="final-cta">
+
+            <div class="final-cta-box">
+
+                <h2>
+                    Ready to Make Mathematics More Enjoyable?
+                </h2>
+
+                <p>
+
+                    Explore the classes and discover a creative way
+                    to learn Mathematics.
+
+                </p>
+
+
+                <div class="cta-buttons">
+
+                    <a
+                        href="index.html#join"
+                        class="cta-button"
+                    >
+                        Join Classes
+                    </a>
+
+
+                    <a
+                        href="classes.html"
+                        class="cta-button"
+                    >
+                        Go Back
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mathmium
+        </div>
+
+
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
+
+
+        <div class="footer-description">
+
+            A creative space to discover, practise, explore,
+            and enjoy Mathematics.
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#classes">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#join">
+                Join Class
+            </a>
+
+            <a href="index.html#order">
+                Order Materials
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+            <a href="index.html#treasures">
+                Reviews
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+            © Mathmium
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         SECONDARY MATHEMATICS IMAGE FILES
+    ========================================================= -->
+
+    <script src="secondary-images.js"></script>
+
+
+    <!-- =========================================================
+         IMAGE GALLERY GENERATOR
+    ========================================================= -->
+
+    <script>
+
+        function createSecondaryGallery(files, galleryId) {
+
+            const gallery =
+                document.getElementById(galleryId);
+
+
+            if (!gallery || !Array.isArray(files)) {
+
+                return;
+
+            }
+
+
+            files.forEach(function(file) {
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "secondary-card";
+
+
+                const image =
+                    document.createElement("img");
+
+                image.src =
+                    file;
+
+                image.alt =
+                    "Secondary Mathematics learning material";
+
+                image.loading =
+                    "lazy";
+
+
+                card.appendChild(image);
+
+                gallery.appendChild(card);
+
+            });
+
+        }
+
+
+        createSecondaryGallery(
+            treeDiagramsFiles,
+            "treeDiagramsGallery"
+        );
+
+
+        createSecondaryGallery(
+            consumerMathematicsFiles,
+            "consumerMathematicsGallery"
+        );
+
+
+        createSecondaryGallery(
+            geometricConstructionsFiles,
+            "geometricConstructionsGallery"
+        );
+
+
+        createSecondaryGallery(
+            equationSolvingFiles,
+            "equationSolvingGallery"
+        );
+
+
+        createSecondaryGallery(
+            figuresFiles,
+            "figuresGallery"
+        );
+
+    </script>
+
+
+</body>
+
+</html>

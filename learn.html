@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What Students Can Learn | Mathmium</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           MATHMIUM
+           WHAT STUDENTS CAN LEARN
+           PREMIUM ACADEMIC PAGE
+        ========================================================= */
+
+        :root {
+
+            --navy: #182B45;
+            --navy-soft: #304866;
+            --deep-teal: #245C61;
+            --teal: #4E8586;
+
+            --cream: #FCFAF5;
+            --white: #FFFFFF;
+            --muted: #59697D;
+
+            --line:
+                rgba(24, 43, 69, 0.13);
+
+            /* SOFT CUTE PASTEL COLOURS */
+
+            --primary-1: #EDF4FF;
+            --primary-2: #A0C4FA;
+
+            --secondary-1: #F1EEFF;
+            --secondary-2: #CEC2FF;
+
+            --curriculum-1: #ECFAF3;
+            --curriculum-2: #BFE8D5;
+
+            --personalised-1: #FFF4E5;
+            --personalised-2: #FFD6A5;
+
+            --support-1: #FFF0F5;
+            --support-2: #F7C8D8;
+
+            --shadow:
+                0 24px 60px rgba(35, 55, 80, 0.12);
+
+            --soft-shadow:
+                0 12px 32px rgba(35, 55, 80, 0.08);
+        }
+
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            color:
+                var(--navy);
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 8%,
+                    rgba(210, 229, 235, 0.60),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(228, 220, 239, 0.55),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 15% 78%,
+                    rgba(238, 224, 207, 0.55),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #FCFAF5 0%,
+                    #F7F8F6 48%,
+                    #F9F7F4 100%
+                );
+
+            background-attachment: fixed;
+        }
+
+
+
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+
+            width: 100%;
+
+            padding:
+                22px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background:
+                rgba(255, 255, 255, 0.82);
+
+            border-bottom:
+                1px solid
+                rgba(24, 43, 69, 0.08);
+
+            backdrop-filter:
+                blur(16px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+
+        .logo {
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size: 30px;
+
+            color:
+                var(--navy);
+
+            text-decoration: none;
+
+            line-height: 1;
+        }
+
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+
+        .nav-links a {
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color:
+                var(--navy-soft);
+
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--deep-teal);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+
+        .nav-links a.active {
+
+            color:
+                var(--deep-teal);
+        }
+
+
+
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            min-height: 690px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+                100px 7%
+                90px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 460px;
+
+            height: 460px;
+
+            top: -190px;
+
+            left: -140px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(200, 224, 231, 0.50),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+        }
+
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 430px;
+
+            height: 430px;
+
+            right: -140px;
+
+            bottom: -180px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(211, 201, 231, 0.42),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+        }
+
+
+
+        .hero-content {
+
+            max-width: 1100px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+
+        .hero-category {
+
+            margin:
+                0 0 18px;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color:
+                var(--deep-teal);
+        }
+
+
+
+        .hero h1 {
+
+            margin: 0;
+
+            font-size:
+                clamp(44px, 6vw, 72px);
+
+            line-height: 1.08;
+
+            font-weight: 700;
+
+            color:
+                var(--navy);
+
+            letter-spacing:
+                -1.5px;
+        }
+
+
+
+        .hero h1 span {
+
+            display: block;
+        }
+
+
+
+        .hero-intro {
+
+            max-width: 760px;
+
+            margin:
+                30px auto
+                0;
+
+            font-size: 22px;
+
+            line-height: 1.7;
+
+            font-weight: 600;
+
+            color:
+                var(--navy-soft);
+        }
+
+
+
+        .hero-description {
+
+            max-width: 900px;
+
+            margin:
+                18px auto
+                0;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            font-weight: 500;
+
+            color:
+                var(--muted);
+        }
+
+
+
+
+
+        /* =========================================================
+           LEARNING BUTTONS
+        ========================================================= */
+
+        .learning-buttons {
+
+            max-width: 1050px;
+
+            margin:
+                42px auto
+                0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+
+        .learning-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding:
+                12px 20px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color:
+                var(--navy);
+
+            border:
+                1px solid
+                rgba(24, 43, 69, 0.10);
+
+            box-shadow:
+                0 8px 22px
+                rgba(35, 55, 80, 0.07);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+
+        .learning-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 14px 30px
+                rgba(35, 55, 80, 0.13);
+        }
+
+
+
+        /* =========================================================
+           FIRST ROW — 3 BUTTONS
+        ========================================================= */
+
+        .primary-button {
+
+            grid-column:
+                1 / span 2;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #EDF4FF,
+                    #A0C4FA
+                );
+        }
+
+
+
+        .secondary-button {
+
+            grid-column:
+                3 / span 2;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #F1EEFF,
+                    #CEC2FF
+                );
+        }
+
+
+
+        .curriculum-button {
+
+            grid-column:
+                5 / span 2;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ECFAF3,
+                    #BFE8D5
+                );
+        }
+
+
+
+        /* =========================================================
+           SECOND ROW — 2 CENTERED BUTTONS
+        ========================================================= */
+
+        .personalised-button {
+
+            grid-column:
+                2 / span 2;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #FFF4E5,
+                    #FFD6A5
+                );
+        }
+
+
+
+        .support-button {
+
+            grid-column:
+                4 / span 2;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #FFF0F5,
+                    #F7C8D8
+                );
+        }
+
+
+
+
+
+        /* =========================================================
+           LEARNING SECTIONS
+        ========================================================= */
+
+        .learning-section {
+
+            width: 100%;
+
+            padding:
+                85px 7%
+                95px;
+
+            border-top:
+                1px solid
+                var(--line);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+
+        .learning-card {
+
+            max-width: 1180px;
+
+            margin:
+                0 auto;
+
+            padding:
+                55px 55px
+                60px;
+
+            border-radius: 34px;
+
+            box-shadow:
+                var(--shadow);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+
+        .learning-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+
+            height: 220px;
+
+            right: -70px;
+
+            top: -90px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.48),
+                    transparent 70%
+                );
+        }
+
+
+
+        .section-content {
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+
+        .section-number {
+
+            margin:
+                0 0 12px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            color:
+                var(--deep-teal);
+        }
+
+
+
+        .learning-card h2 {
+
+            margin: 0;
+
+            font-size:
+                clamp(34px, 4vw, 48px);
+
+            line-height: 1.15;
+
+            font-weight: 700;
+
+            color:
+                var(--navy);
+        }
+
+
+
+        .learning-card h3 {
+
+            max-width: 850px;
+
+            margin:
+                16px 0
+                0;
+
+            font-size: 22px;
+
+            line-height: 1.45;
+
+            font-weight: 700;
+
+            color:
+                var(--navy-soft);
+        }
+
+
+
+        .section-description {
+
+            max-width: 900px;
+
+            margin:
+                22px 0
+                0;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            font-weight: 500;
+
+            color:
+                var(--navy-soft);
+        }
+
+
+
+        .section-description strong {
+
+            font-weight: 700;
+
+            color:
+                var(--navy);
+        }
+
+
+
+
+
+        /* =========================================================
+           SECTION COLOURS
+        ========================================================= */
+
+        .primary-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-1),
+                    var(--primary-2)
+                );
+        }
+
+
+
+        .secondary-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--secondary-1),
+                    var(--secondary-2)
+                );
+        }
+
+
+
+        .curriculum-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--curriculum-1),
+                    var(--curriculum-2)
+                );
+        }
+
+
+
+        .personalised-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--personalised-1),
+                    var(--personalised-2)
+                );
+        }
+
+
+
+        .support-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--support-1),
+                    var(--support-2)
+                );
+        }
+
+
+
+
+
+        /* =========================================================
+           HIGHLIGHT TEXT
+        ========================================================= */
+
+        .highlight-text {
+
+            max-width: 850px;
+
+            margin:
+                28px 0
+                0;
+
+            padding:
+                18px 22px;
+
+            border-left:
+                4px solid
+                var(--deep-teal);
+
+            border-radius:
+                0 16px 16px 0;
+
+            background:
+                rgba(255, 255, 255, 0.42);
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            font-weight: 600;
+
+            color:
+                var(--navy-soft);
+        }
+
+
+
+        .highlight-text strong {
+
+            color:
+                var(--navy);
+
+            font-weight: 700;
+        }
+
+
+
+
+
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
+
+        .final-cta {
+
+            padding:
+                105px 7%
+                110px;
+
+            text-align: center;
+
+            border-top:
+                1px solid
+                var(--line);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.72),
+                    rgba(238, 244, 242, 0.78)
+                );
+        }
+
+
+
+        .final-cta h2 {
+
+            margin: 0;
+
+            font-size:
+                clamp(32px, 4vw, 48px);
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color:
+                var(--navy);
+        }
+
+
+
+        .final-cta p {
+
+            max-width: 750px;
+
+            margin:
+                20px auto
+                34px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            font-weight: 600;
+
+            color:
+                var(--muted);
+        }
+
+
+
+        .cta-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 16px;
+
+            flex-wrap: wrap;
+        }
+
+
+
+        .cta-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 150px;
+
+            padding:
+                14px 26px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5B7890,
+                    #456579
+                );
+
+            color: #FFFFFF;
+
+            border:
+                1px solid
+                rgba(69, 101, 121, 0.18);
+
+            box-shadow:
+                0 12px 28px
+                rgba(69, 101, 121, 0.18);
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+
+        .cta-button:hover {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #294A70,
+                    #1D3557
+                );
+
+            color: #FFFFFF;
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 36px
+                rgba(29, 53, 87, 0.25);
+        }
+
+
+
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            padding:
+                65px 7%
+                35px;
+
+            text-align: center;
+
+            background:
+                #182B45;
+
+            color: #FFFFFF;
+        }
+
+
+
+        .footer-logo {
+
+            font-family:
+                "Pacifico",
+                cursive;
+
+            font-size: 35px;
+
+            line-height: 1;
+
+            margin-bottom: 14px;
+        }
+
+
+
+        .footer-tagline {
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+        }
+
+
+
+        .footer-description {
+
+            max-width: 600px;
+
+            margin:
+                0 auto
+                24px;
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            line-height: 1.7;
+
+            color:
+                rgba(255, 255, 255, 0.78);
+        }
+
+
+
+        .footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap:
+                12px 24px;
+
+            margin-bottom: 28px;
+        }
+
+
+
+        .footer-links a {
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #FFFFFF;
+
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease;
+        }
+
+
+
+        .footer-links a:hover {
+
+            color:
+                #BFD8D6;
+        }
+
+
+
+        .copyright {
+
+            font-family:
+                "Quicksand",
+                sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color:
+                rgba(255, 255, 255, 0.65);
+        }
+
+
+
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+
+                padding:
+                    20px 5%;
+            }
+
+
+
+            .nav-links {
+
+                gap: 18px;
+            }
+
+
+
+            .hero {
+
+                padding:
+                    85px 6%
+                    80px;
+            }
+
+
+
+            .learning-section {
+
+                padding:
+                    75px 6%
+                    85px;
+            }
+
+
+
+            .learning-card {
+
+                padding:
+                    45px 38px
+                    50px;
+            }
+
+
+
+            /*
+             * Keep the 3 + 2 arrangement on tablet.
+             */
+
+            .learning-buttons {
+
+                max-width: 850px;
+
+                grid-template-columns:
+                    repeat(6, 1fr);
+
+                gap: 12px;
+            }
+
+
+
+            .learning-button {
+
+                font-size: 14px;
+
+                padding:
+                    12px 14px;
+            }
+
+
+
+            .final-cta {
+
+                padding:
+                    85px 6%
+                    90px;
+            }
+
+        }
+
+
+
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                padding:
+                    18px 5%;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+
+            .logo {
+
+                font-size: 28px;
+            }
+
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap:
+                    10px 18px;
+            }
+
+
+
+            .nav-links a {
+
+                font-size: 15px;
+            }
+
+
+
+            .hero {
+
+                min-height: auto;
+
+                padding:
+                    75px 6%
+                    70px;
+            }
+
+
+
+            .hero-category {
+
+                font-size: 13px;
+
+                letter-spacing: 2px;
+            }
+
+
+
+            .hero h1 {
+
+                font-size: 40px;
+
+                letter-spacing:
+                    -0.8px;
+            }
+
+
+
+            .hero-intro {
+
+                margin-top: 24px;
+
+                font-size: 19px;
+
+                line-height: 1.65;
+            }
+
+
+
+            .hero-description {
+
+                margin-top: 17px;
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+
+            .learning-buttons {
+
+                margin-top: 32px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: center;
+
+                gap: 10px;
+            }
+
+
+
+            .learning-button {
+
+                width: 100%;
+
+                max-width: 330px;
+
+                font-size: 14px;
+            }
+
+
+
+            .primary-button,
+            .secondary-button,
+            .curriculum-button,
+            .personalised-button,
+            .support-button {
+
+                grid-column: auto;
+            }
+
+
+
+            .learning-section {
+
+                padding:
+                    60px 5%
+                    70px;
+            }
+
+
+
+            .learning-card {
+
+                padding:
+                    35px 24px
+                    40px;
+
+                border-radius: 26px;
+            }
+
+
+
+            .learning-card h2 {
+
+                font-size: 34px;
+            }
+
+
+
+            .learning-card h3 {
+
+                font-size: 19px;
+            }
+
+
+
+            .section-description {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+
+            .highlight-text {
+
+                font-size: 16px;
+            }
+
+
+
+            .final-cta {
+
+                padding:
+                    70px 5%
+                    75px;
+            }
+
+
+
+            .final-cta h2 {
+
+                font-size: 34px;
+            }
+
+
+
+            .final-cta p {
+
+                font-size: 16px;
+            }
+
+
+
+            .cta-buttons {
+
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+
+
+            .cta-button {
+
+                width: 100%;
+
+                max-width: 300px;
+            }
+
+
+
+            footer {
+
+                padding:
+                    55px 5%
+                    30px;
+            }
+
+
+
+            .footer-links {
+
+                gap:
+                    10px 18px;
+            }
+
+        }
+
+
+
+
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 450px) {
+
+            .hero h1 {
+
+                font-size: 34px;
+            }
+
+
+
+            .hero-intro {
+
+                font-size: 18px;
+            }
+
+
+
+            .learning-card h2 {
+
+                font-size: 30px;
+            }
+
+
+
+            .learning-card h3 {
+
+                font-size: 18px;
+            }
+
+
+
+            .final-cta h2 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            Mathmium
+        </a>
+
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+
+            <a href="classes.html" class="active">
+                Classes
+            </a>
+
+
+
+            <a href="tutor.html">
+                Meet the Tutor
+            </a>
+
+
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-category">
+                WHAT STUDENTS CAN LEARN
+            </p>
+
+
+
+            <h1>
+
+                <span>
+                    Learn Mathematics
+                </span>
+
+                <span>
+                    With Confidence
+                </span>
+
+            </h1>
+
+
+
+            <p class="hero-intro">
+                Every student learns differently.
+            </p>
+
+
+
+            <p class="hero-description">
+
+                Mathmium offers clear, friendly Mathematics lessons designed
+                to help students understand ideas, build skills, and become
+                more confident with Maths.
+
+            </p>
+
+
+
+            <div class="learning-buttons">
+
+                <a
+                    href="#primary"
+                    class="learning-button primary-button">
+
+                    Primary Mathematics
+
+                </a>
+
+
+
+                <a
+                    href="#secondary"
+                    class="learning-button secondary-button">
+
+                    Secondary Mathematics
+
+                </a>
+
+
+
+                <a
+                    href="#curriculum"
+                    class="learning-button curriculum-button">
+
+                    Curriculum-Based Learning
+
+                </a>
+
+
+
+                <a
+                    href="#personalised"
+                    class="learning-button personalised-button">
+
+                    Personalised Learning Plan
+
+                </a>
+
+
+
+                <a
+                    href="#support"
+                    class="learning-button support-button">
+
+                    Extra Support
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         PRIMARY MATHEMATICS
+    ========================================================= -->
+
+    <section
+        class="learning-section"
+        id="primary">
+
+        <div class="learning-card primary-card">
+
+            <div class="section-content">
+
+                <p class="section-number">
+                    01
+                </p>
+
+
+
+                <h2>
+                    Primary Mathematics
+                </h2>
+
+
+
+                <h3>
+                    Building Strong Foundations Through Fun &amp; Practice
+                </h3>
+
+
+
+                <p class="section-description">
+
+                    Curriculum-based lessons for younger learners, using
+
+                    <strong>
+                        simple explanations, colourful visuals, stories, games,
+                        and activities
+                    </strong>
+
+                    to make Mathematics easier and more enjoyable.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         SECONDARY MATHEMATICS
+    ========================================================= -->
+
+    <section
+        class="learning-section"
+        id="secondary">
+
+        <div class="learning-card secondary-card">
+
+            <div class="section-content">
+
+                <p class="section-number">
+                    02
+                </p>
+
+
+
+                <h2>
+                    Secondary Mathematics
+                </h2>
+
+
+
+                <h3>
+                    Understanding Maths, One Step at a Time
+                </h3>
+
+
+
+                <p class="section-description">
+
+                    Grade-specific Mathematics lessons that help students
+
+                    <strong>
+                        understand concepts, practise skills, and solve
+                        problems with confidence.
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         CURRICULUM-BASED LEARNING
+    ========================================================= -->
+
+    <section
+        class="learning-section"
+        id="curriculum">
+
+        <div class="learning-card curriculum-card">
+
+            <div class="section-content">
+
+                <p class="section-number">
+                    03
+                </p>
+
+
+
+                <h2>
+                    Curriculum-Based Learning
+                </h2>
+
+
+
+                <h3>
+                    Learning Alongside the School Curriculum
+                </h3>
+
+
+
+                <p class="section-description">
+
+                    Have a specific school, grade, or curriculum to follow?
+
+                </p>
+
+
+
+                <p class="section-description">
+
+                    <strong>
+
+                        Lessons can be adapted to your child's curriculum,
+                        helping them understand their schoolwork, practise
+                        important skills, and stay on track.
+
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         PERSONALISED LEARNING PLAN
+    ========================================================= -->
+
+    <section
+        class="learning-section"
+        id="personalised">
+
+        <div class="learning-card personalised-card">
+
+            <div class="section-content">
+
+                <p class="section-number">
+                    04
+                </p>
+
+
+
+                <h2>
+                    Personalised Learning Plan
+                </h2>
+
+
+
+                <h3>
+                    A Learning Plan Made for Your Child
+                </h3>
+
+
+
+                <p class="section-description">
+
+                    Not sure what your child should learn next?
+
+                </p>
+
+
+
+                <p class="section-description">
+
+                    <strong>
+
+                        A structured Mathematics learning plan can be created
+                        based on their grade, current level, learning needs,
+                        and goals.
+
+                    </strong>
+
+                </p>
+
+
+
+                <p class="highlight-text">
+
+                    This gives students a clear path to
+
+                    <strong>
+                        learn, practise, and grow step by step.
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         EXTRA SUPPORT
+    ========================================================= -->
+
+    <section
+        class="learning-section"
+        id="support">
+
+        <div class="learning-card support-card">
+
+            <div class="section-content">
+
+                <p class="section-number">
+                    05
+                </p>
+
+
+
+                <h2>
+                    Extra Support
+                </h2>
+
+
+
+                <h3>
+                    Extra Help Where It Is Needed
+                </h3>
+
+
+
+                <p class="section-description">
+
+                    Need help with a particular topic?
+
+                </p>
+
+
+
+                <p class="section-description">
+
+                    <strong>
+
+                        Lessons can focus on the areas where your child needs
+                        more explanation, practice, or confidence.
+
+                    </strong>
+
+                </p>
+
+
+
+                <p class="section-description">
+
+                    Whether it is one difficult topic or several areas,
+                    learning can move at a
+
+                    <strong>
+                        comfortable pace.
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         FINAL CTA
+    ========================================================= -->
+
+    <section class="final-cta">
+
+        <h2>
+            Ready to Make Mathematics More Enjoyable?
+        </h2>
+
+
+
+        <p>
+            Explore the classes and discover a creative, friendly way to learn Mathematics.
+        </p>
+
+
+
+        <div class="cta-buttons">
+
+            <a
+                href="index.html#join"
+                class="cta-button">
+
+                Join Classes
+
+            </a>
+
+
+
+            <a
+                href="classes.html"
+                class="cta-button">
+
+                Back to Classes
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mathmium
+        </div>
+
+
+
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
+
+
+
+        <div class="footer-description">
+
+            A creative space to discover, practise, explore,
+            and enjoy Mathematics.
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="classes.html">
+                Classes
+            </a>
+
+            <a href="index.html#materials">
+                Materials
+            </a>
+
+            <a href="index.html#join">
+                Join Classes
+            </a>
+
+            <a href="index.html#materials">
+                Order Materials
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+            <a href="index.html#reviews">
+                Reviews
+            </a>
+
+        </div>
+
+
+
+        <div class="copyright">
+            © Mathmium
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
