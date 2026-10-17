@@ -1,0 +1,2327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grade 6 Maths Quiz | Mathmium Quiz Zone</title>
+    <meta name="description" content="Enjoy a colourful Grade 6 maths adventure with fun questions, helpful hints, and cheerful encouragement at Mathmium.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #29305D;
+            --muted: #666B8C;
+            --purple: #7B4DFF;
+            --pink: #FF5EAA;
+            --orange: #FF9B42;
+            --yellow: #FFD84D;
+            --blue: #42B9FF;
+            --teal: #17CDB5;
+            --green: #35C987;
+            --white: #FFFFFF;
+
+            --page-width: 1180px;
+
+            --rainbow: linear-gradient(
+                115deg,
+                #FF5EAA 0%,
+                #FF9B42 20%,
+                #FFD84D 38%,
+                #35C987 56%,
+                #42B9FF 75%,
+                #9562FF 100%
+            );
+
+            /* Premium pastel rainbow buttons */
+            --button-gradient: linear-gradient(
+                115deg,
+                #FFE0EF 0%,
+                #FFE8D6 22%,
+                #FFF4C9 42%,
+                #DDF8E9 62%,
+                #DDF1FF 81%,
+                #EAE0FF 100%
+            );
+
+            --button-hover: linear-gradient(
+                115deg,
+                #FFCDE4 0%,
+                #FFDDC2 22%,
+                #FFEDAE 42%,
+                #C9F2DC 62%,
+                #CBE9FF 81%,
+                #DCCEFF 100%
+            );
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--ink);
+            font-family: "Quicksand", sans-serif;
+            line-height: 1.6;
+
+            background:
+                radial-gradient(ellipse at 8% 10%, rgba(255, 94, 170, 0.30), transparent 30%),
+                radial-gradient(ellipse at 92% 14%, rgba(66, 185, 255, 0.30), transparent 30%),
+                radial-gradient(ellipse at 80% 80%, rgba(53, 201, 135, 0.27), transparent 32%),
+                radial-gradient(ellipse at 15% 82%, rgba(255, 216, 77, 0.30), transparent 30%),
+                radial-gradient(ellipse at 50% 45%, rgba(180, 145, 255, 0.18), transparent 38%),
+                linear-gradient(135deg, #FFF0FB 0%, #FFF9E8 25%, #EAFBFF 52%, #F2ECFF 76%, #FFF0F7 100%);
+
+            background-size: 160% 160%;
+            background-attachment: fixed;
+            animation: backgroundShimmer 22s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -25%;
+            z-index: 0;
+            pointer-events: none;
+
+            background:
+                radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.44), transparent 24%),
+                radial-gradient(circle at 75% 65%, rgba(255, 255, 255, 0.34), transparent 27%);
+
+            opacity: 0.75;
+            animation: lightDrift 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShimmer {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 55% 40%; }
+            100% { background-position: 100% 80%; }
+        }
+
+        @keyframes lightDrift {
+            0% {
+                transform: translate3d(-2%, -1%, 0) scale(1);
+                opacity: 0.45;
+            }
+            100% {
+                transform: translate3d(2%, 2%, 0) scale(1.08);
+                opacity: 0.85;
+            }
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        a {
+            font-family: "Quicksand", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #4B39B7;
+            outline-offset: 4px;
+        }
+
+        .page-container {
+            width: min(var(--page-width), 91%);
+            margin: 0 auto;
+        }
+
+        nav,
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            width: 100%;
+            padding: 16px 6%;
+
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(123, 77, 255, 0.12);
+            box-shadow: 0 5px 24px rgba(84, 65, 153, 0.09);
+            backdrop-filter: blur(14px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .logo img {
+            display: block;
+            width: 145px;
+            height: auto;
+            filter: brightness(0) saturate(100%) invert(47%) sepia(91%) saturate(1594%) hue-rotate(225deg) brightness(102%) contrast(101%);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 12px 25px;
+        }
+
+        .nav-links a {
+            color: #41436B;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #EF4F9C;
+        }
+
+        /* PREMIUM PASTEL RAINBOW BUTTONS */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 155px;
+            min-height: 50px;
+            padding: 13px 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.98);
+            border-radius: 17px;
+
+            background: var(--button-gradient);
+            color: #514477;
+
+            font-size: 15px;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+
+            box-shadow:
+                0 7px 18px rgba(139, 74, 194, 0.13),
+                0 2px 5px rgba(139, 74, 194, 0.06),
+                inset 0 2px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -2px 0 rgba(139, 74, 194, 0.04);
+
+            transition:
+                transform 0.22s ease,
+                box-shadow 0.22s ease,
+                background 0.22s ease;
+        }
+
+        .button:hover {
+            background: var(--button-hover);
+            color: #443568;
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(139, 74, 194, 0.19),
+                0 4px 8px rgba(139, 74, 194, 0.08),
+                inset 0 2px 0 rgba(255, 255, 255, 0.98);
+        }
+
+        .button:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow:
+                0 3px 9px rgba(139, 74, 194, 0.12),
+                inset 0 2px 4px rgba(139, 74, 194, 0.06);
+        }
+
+        .button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .button-secondary {
+            background: var(--button-gradient);
+            color: #514477;
+            border: 1px solid rgba(255, 255, 255, 0.98);
+        }
+
+        .button-secondary:hover {
+            background: var(--button-hover);
+            color: #443568;
+        }
+
+        .button-small {
+            min-width: auto;
+            min-height: 42px;
+            padding: 9px 16px;
+            font-size: 13px;
+            border-radius: 14px;
+        }
+
+        #finishQuizButton[hidden] {
+            display: none !important;
+        }
+
+        /* FLOATING FLOWERS, DOTS AND SPARKLES */
+
+        .floaty {
+            position: fixed;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.58;
+            line-height: 1;
+
+            animation:
+                floatAround var(--float-duration, 7s) ease-in-out infinite,
+                floatDrift var(--drift-duration, 13s) ease-in-out infinite alternate,
+                floatTwinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+
+            animation-delay:
+                var(--float-delay, 0s),
+                var(--drift-delay, -4s),
+                var(--twinkle-delay, -2s);
+
+            filter: drop-shadow(0 5px 9px rgba(105, 67, 160, 0.10));
+            will-change: transform, opacity;
+        }
+
+        .floaty.flower {
+            font-size: 30px;
+        }
+
+        .floaty.dot {
+            font-size: 20px;
+        }
+
+        .floaty.sparkle {
+            font-size: 25px;
+        }
+
+        .floaty.one {
+            top: 12%;
+            left: 3%;
+            color: #FF5EAA;
+            --float-duration: 7s;
+            --drift-duration: 12s;
+            --float-delay: -1s;
+            --drift-delay: -4s;
+        }
+
+        .floaty.two {
+            top: 25%;
+            right: 4%;
+            color: #42B9FF;
+            --float-duration: 8s;
+            --drift-duration: 15s;
+            --float-delay: -3s;
+            --drift-delay: -6s;
+        }
+
+        .floaty.three {
+            bottom: 17%;
+            left: 5%;
+            color: #FFB86B;
+            --float-duration: 6.5s;
+            --drift-duration: 14s;
+            --float-delay: -4s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.four {
+            bottom: 25%;
+            right: 5%;
+            color: #9562FF;
+            --float-duration: 8.5s;
+            --drift-duration: 12s;
+            --float-delay: -1s;
+            --drift-delay: -8s;
+        }
+
+        .floaty.five {
+            top: 58%;
+            left: 1.5%;
+            color: #35C987;
+            --float-duration: 7.5s;
+            --drift-duration: 13s;
+            --float-delay: -3s;
+            --drift-delay: -2s;
+        }
+
+        .floaty.six {
+            top: 8%;
+            left: 28%;
+            color: #FFB52E;
+            --float-duration: 9s;
+            --drift-duration: 16s;
+            --float-delay: -2s;
+            --drift-delay: -5s;
+        }
+
+        .floaty.seven {
+            top: 16%;
+            right: 25%;
+            color: #A56BFF;
+            --float-duration: 7s;
+            --drift-duration: 13s;
+            --float-delay: -5s;
+            --drift-delay: -2s;
+        }
+
+        .floaty.eight {
+            top: 45%;
+            right: 2%;
+            color: #FF6E9E;
+            --float-duration: 8s;
+            --drift-duration: 14s;
+            --float-delay: -3s;
+            --drift-delay: -7s;
+        }
+
+        .floaty.nine {
+            bottom: 8%;
+            left: 25%;
+            color: #38BDE8;
+            --float-duration: 7s;
+            --drift-duration: 12s;
+            --float-delay: -4s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.ten {
+            bottom: 12%;
+            right: 27%;
+            color: #F7A32E;
+            --float-duration: 9s;
+            --drift-duration: 15s;
+            --float-delay: -1s;
+            --drift-delay: -6s;
+        }
+
+        .floaty.eleven {
+            top: 70%;
+            left: 17%;
+            color: #9562FF;
+            --float-duration: 8s;
+            --drift-duration: 13s;
+            --float-delay: -6s;
+            --drift-delay: -4s;
+        }
+
+        .floaty.twelve {
+            top: 36%;
+            left: 19%;
+            color: #20BFA7;
+            --float-duration: 7s;
+            --drift-duration: 16s;
+            --float-delay: -2s;
+            --drift-delay: -9s;
+        }
+
+        .floaty.thirteen {
+            top: 60%;
+            right: 16%;
+            color: #FF5EAA;
+            --float-duration: 9s;
+            --drift-duration: 14s;
+            --float-delay: -5s;
+            --drift-delay: -1s;
+        }
+
+        .floaty.fourteen {
+            top: 5%;
+            right: 8%;
+            color: #35C987;
+            --float-duration: 7.5s;
+            --drift-duration: 13s;
+            --float-delay: -3s;
+            --drift-delay: -5s;
+        }
+
+        .floaty.fifteen {
+            bottom: 34%;
+            left: 10%;
+            color: #FFB52E;
+            --float-duration: 8s;
+            --drift-duration: 15s;
+            --float-delay: -4s;
+            --drift-delay: -7s;
+        }
+
+        .floaty.sixteen {
+            bottom: 4%;
+            right: 8%;
+            color: #42B9FF;
+            --float-duration: 7s;
+            --drift-duration: 12s;
+            --float-delay: -1s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.seventeen {
+            top: 82%;
+            right: 39%;
+            color: #FF5EAA;
+            --float-duration: 8s;
+            --drift-duration: 14s;
+            --float-delay: -6s;
+            --drift-delay: -5s;
+        }
+
+        .floaty.eighteen {
+            top: 22%;
+            left: 43%;
+            color: #9562FF;
+            --float-duration: 7s;
+            --drift-duration: 15s;
+            --float-delay: -2s;
+            --drift-delay: -8s;
+        }
+
+        /* EXTRA FLOATING DECORATIONS */
+
+        .floaty.nineteen {
+            top: 40%;
+            left: 7%;
+            color: #FF79B5;
+            --float-duration: 10s;
+            --drift-duration: 17s;
+            --float-delay: -7s;
+            --drift-delay: -10s;
+        }
+
+        .floaty.twenty {
+            top: 33%;
+            right: 15%;
+            color: #49CDB8;
+            --float-duration: 6.5s;
+            --drift-duration: 14s;
+            --float-delay: -4s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.twenty-one {
+            top: 76%;
+            right: 8%;
+            color: #FFB86B;
+            --float-duration: 8.5s;
+            --drift-duration: 16s;
+            --float-delay: -3s;
+            --drift-delay: -7s;
+        }
+
+        .floaty.twenty-two {
+            top: 18%;
+            left: 14%;
+            color: #B38AFF;
+            --float-duration: 7.5s;
+            --drift-duration: 13s;
+            --float-delay: -5s;
+            --drift-delay: -4s;
+        }
+
+        .floaty.twenty-three {
+            bottom: 15%;
+            left: 42%;
+            color: #F4A6CF;
+            --float-duration: 9s;
+            --drift-duration: 16s;
+            --float-delay: -2s;
+            --drift-delay: -8s;
+        }
+
+        .floaty.twenty-four {
+            top: 48%;
+            right: 30%;
+            color: #73C8FF;
+            --float-duration: 7s;
+            --drift-duration: 13s;
+            --float-delay: -6s;
+            --drift-delay: -2s;
+        }
+
+        .floaty.twenty-five {
+            bottom: 37%;
+            right: 18%;
+            color: #A8DFAF;
+            --float-duration: 8s;
+            --drift-duration: 15s;
+            --float-delay: -3s;
+            --drift-delay: -6s;
+        }
+
+        .floaty.twenty-six {
+            top: 6%;
+            left: 54%;
+            color: #FF90C6;
+            --float-duration: 9.5s;
+            --drift-duration: 17s;
+            --float-delay: -4s;
+            --drift-delay: -9s;
+        }
+
+        .floaty.twenty-seven {
+            bottom: 6%;
+            left: 7%;
+            color: #C0A0FF;
+            --float-duration: 7.5s;
+            --drift-duration: 12s;
+            --float-delay: -1s;
+            --drift-delay: -5s;
+        }
+
+        .floaty.twenty-eight {
+            top: 65%;
+            left: 34%;
+            color: #FFD36E;
+            --float-duration: 8s;
+            --drift-duration: 14s;
+            --float-delay: -5s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.twenty-nine {
+            top: 88%;
+            left: 57%;
+            color: #FF7DAE;
+            --float-duration: 10s;
+            --drift-duration: 16s;
+            --float-delay: -7s;
+            --drift-delay: -6s;
+        }
+
+        .floaty.thirty {
+            top: 30%;
+            left: 64%;
+            color: #55D8BE;
+            --float-duration: 7s;
+            --drift-duration: 15s;
+            --float-delay: -2s;
+            --drift-delay: -8s;
+        }
+
+        .floaty.thirty-one {
+            top: 52%;
+            left: 47%;
+            color: #FFB5D8;
+            --float-duration: 9s;
+            --drift-duration: 16s;
+            --float-delay: -4s;
+            --drift-delay: -2s;
+        }
+
+        .floaty.thirty-two {
+            bottom: 25%;
+            left: 31%;
+            color: #8DCFFF;
+            --float-duration: 7.5s;
+            --drift-duration: 14s;
+            --float-delay: -6s;
+            --drift-delay: -5s;
+        }
+
+        .floaty.thirty-three {
+            top: 10%;
+            right: 40%;
+            color: #B5E7BD;
+            --float-duration: 8.5s;
+            --drift-duration: 15s;
+            --float-delay: -3s;
+            --drift-delay: -9s;
+        }
+
+        .floaty.thirty-four {
+            bottom: 48%;
+            left: 3%;
+            color: #F3A5D0;
+            --float-duration: 7s;
+            --drift-duration: 13s;
+            --float-delay: -5s;
+            --drift-delay: -3s;
+        }
+
+        .floaty.thirty-five {
+            top: 91%;
+            right: 16%;
+            color: #A5B8FF;
+            --float-duration: 9s;
+            --drift-duration: 15s;
+            --float-delay: -1s;
+            --drift-delay: -7s;
+        }
+
+        .floaty.thirty-six {
+            top: 38%;
+            left: 36%;
+            color: #FFCE79;
+            --float-duration: 8s;
+            --drift-duration: 14s;
+            --float-delay: -6s;
+            --drift-delay: -4s;
+        }
+
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(-7deg) scale(1);
+            }
+
+            25% {
+                transform: translate3d(7px, -10px, 0) rotate(4deg) scale(1.05);
+            }
+
+            50% {
+                transform: translate3d(-3px, -20px, 0) rotate(9deg) scale(1.1);
+            }
+
+            75% {
+                transform: translate3d(-8px, -8px, 0) rotate(-3deg) scale(1.04);
+            }
+        }
+
+        @keyframes floatDrift {
+            0% {
+                margin-left: -8px;
+                opacity: 0.30;
+            }
+
+            50% {
+                opacity: 0.68;
+            }
+
+            100% {
+                margin-left: 9px;
+                opacity: 0.48;
+            }
+        }
+
+        @keyframes floatTwinkle {
+            0%, 100% {
+                filter: drop-shadow(0 4px 7px rgba(105, 67, 160, 0.08));
+            }
+
+            50% {
+                filter: drop-shadow(0 5px 12px currentColor);
+            }
+        }
+
+        /* SCREEN MANAGEMENT */
+
+        main {
+            min-height: 0;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+            animation: screenIn 0.38s ease both;
+        }
+
+        @keyframes screenIn {
+            from {
+                opacity: 0;
+                transform: translateY(9px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* WELCOME SCREEN */
+
+        .welcome-screen {
+            min-height: calc(100svh - 82px);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 24px 0;
+        }
+
+        .welcome-screen.active {
+            display: flex;
+        }
+
+        .welcome-screen > .page-container {
+            width: min(var(--page-width), 91%);
+            margin: auto;
+        }
+
+        .welcome-card {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+
+            width: min(920px, 100%);
+            margin: 0 auto;
+            padding: clamp(24px, 4vw, 48px);
+
+            text-align: center;
+
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            border-radius: 34px;
+
+            background: rgba(255, 255, 255, 0.88);
+
+            box-shadow:
+                0 24px 70px rgba(111, 77, 169, 0.15),
+                0 0 35px rgba(255, 255, 255, 0.45);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .welcome-card::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 9px;
+            background: var(--rainbow);
+        }
+
+        .welcome-card::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 260px;
+            height: 260px;
+            top: -145px;
+            right: -90px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 94, 170, 0.18), transparent 70%);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #7851DB;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .welcome-art {
+            margin-bottom: 10px;
+            font-size: clamp(40px, 6vw, 58px);
+            line-height: 1.2;
+            animation: rainbowFloat 3.5s ease-in-out infinite;
+        }
+
+        @keyframes rainbowFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .welcome-card h1 {
+            margin-bottom: 10px;
+            color: #3D367C;
+            font-family: "Baloo 2", sans-serif;
+            font-size: clamp(34px, 5vw, 55px);
+            font-weight: 800;
+            line-height: 1.12;
+        }
+
+        .welcome-card h1 span {
+            background: var(--rainbow);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .welcome-subtitle {
+            margin-bottom: 14px;
+            color: #EC579F;
+            font-size: clamp(18px, 2.5vw, 23px);
+            font-weight: 800;
+        }
+
+        .welcome-description {
+            max-width: 700px;
+            margin: 0 auto 10px;
+            color: #626587;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+
+        .welcome-question {
+            margin: 16px 0 22px;
+            color: #51458E;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .welcome-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        /* QUIZ TOP BAR: ONLY THE FINISH BUTTON */
+
+        .quiz-topbar {
+            position: relative;
+            z-index: 500;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: min(900px, 91%);
+            margin: 0 auto;
+            padding: 12px 0 0;
+        }
+
+        /* Hide the brand and question counter */
+
+        .quiz-topbar > div {
+            display: none !important;
+        }
+
+        /* PROGRESS INDICATOR */
+
+        .progress-track {
+            height: 8px;
+            overflow: hidden;
+            background: #ECE7FB;
+            border-radius: 20px;
+        }
+
+        .progress-fill {
+            width: 0;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--rainbow);
+            transition: width 0.3s ease;
+        }
+
+        .quiz-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: min(900px, 91%);
+            min-height: calc(100svh - 145px);
+            margin: 0 auto;
+            padding: 12px 0 24px;
+        }
+
+        .progress-area {
+            margin-bottom: 16px;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 8px;
+            color: #727394;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* QUESTION CARD */
+
+        .quiz-card {
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.92);
+
+            box-shadow: 0 20px 55px rgba(111, 77, 169, 0.13);
+            backdrop-filter: blur(10px);
+        }
+
+        .quiz-card-top {
+            height: 8px;
+            background: var(--rainbow);
+        }
+
+        .question-content {
+            padding: clamp(22px, 4vw, 38px);
+            text-align: center;
+        }
+
+        .question-label {
+            margin-bottom: 10px;
+            color: #8A60DD;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+        }
+
+        .question-text {
+            max-width: 720px;
+            margin: 0 auto 22px;
+            color: #39366F;
+            font-family: "Baloo 2", sans-serif;
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800;
+            line-height: 1.3;
+            white-space: pre-line;
+        }
+
+        /* ANSWER OPTIONS */
+
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .answer-option {
+            min-width: 0;
+            min-height: 76px;
+            padding: 14px 12px;
+            border: 2px solid #E7E0FA;
+            border-radius: 18px;
+
+            background: linear-gradient(145deg, #FFFFFF, #FAF7FF);
+            color: #4C477B;
+
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+
+            box-shadow: 0 6px 15px rgba(88, 67, 151, 0.05);
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .answer-option:hover:not(:disabled) {
+            transform: translateY(-3px);
+            border-color: #A88AFF;
+            box-shadow: 0 10px 22px rgba(123, 77, 255, 0.12);
+        }
+
+        .answer-option.selected {
+            border-color: #8C5CFF;
+            background: linear-gradient(145deg, #F1EAFF, #FFF1FA);
+            color: #5834B9;
+            box-shadow: 0 0 0 3px rgba(140, 92, 255, 0.1);
+        }
+
+        .answer-option.correct-choice {
+            border-color: #35C987;
+            background: #EAFFF4;
+            color: #14794B;
+        }
+
+        .answer-option.wrong-choice {
+            border-color: #FF8CAA;
+            background: #FFF0F4;
+            color: #B3345C;
+        }
+
+        .answer-option:disabled {
+            cursor: default;
+        }
+
+        .answer-instruction {
+            margin: 0 auto 14px;
+            color: #7651C7;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1.6;
+            text-align: center;
+            transition: color 0.2s ease;
+        }
+
+        .answer-instruction.attention {
+            color: #D9367F;
+            animation: instructionNudge 0.35s ease;
+        }
+
+        @keyframes instructionNudge {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+
+        .check-area {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* FEEDBACK MESSAGES */
+
+        .feedback {
+            display: none;
+            max-width: 680px;
+            margin: 22px auto 0;
+            padding: 18px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: screenIn 0.25s ease both;
+        }
+
+        .feedback.success {
+            background: linear-gradient(135deg, #E6FFF2, #F0FFF9);
+            border: 1px solid #B9F0D2;
+        }
+
+        .feedback.try {
+            background: linear-gradient(135deg, #FFF0F6, #FFF7E8);
+            border: 1px solid #FFD4E4;
+        }
+
+        .feedback h3 {
+            margin-bottom: 5px;
+            color: #3D367C;
+            font-family: "Baloo 2", sans-serif;
+            font-size: 23px;
+            line-height: 1.3;
+        }
+
+        .feedback p {
+            color: #656486;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .feedback-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .hint-text {
+            display: none;
+            max-width: 650px;
+            margin: 14px auto 0;
+            padding: 15px 17px;
+            border-radius: 15px;
+            background: #FFF9DC;
+            color: #755C18;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .hint-text.show {
+            display: block;
+            animation: screenIn 0.25s ease both;
+        }
+
+        .quiz-bottom-note {
+            margin-top: 14px;
+            color: #797997;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* END SCREENS */
+
+        .end-screen {
+            min-height: calc(100svh - 82px);
+            align-items: center;
+            justify-content: center;
+            padding: 24px 0;
+        }
+
+        .end-screen.active {
+            display: flex;
+        }
+
+        .end-card {
+            width: min(760px, 91%);
+            margin: 0 auto;
+            padding: clamp(28px, 5vw, 48px);
+            border: 2px solid #FFFFFF;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.93);
+            box-shadow: 0 22px 60px rgba(111, 77, 169, 0.15);
+            text-align: center;
+        }
+
+        .end-art {
+            margin-bottom: 13px;
+            font-size: clamp(48px, 7vw, 75px);
+        }
+
+        #finishScreen .end-art {
+            display: inline-block;
+            transform-origin: center;
+            animation: celebrationPopShake 1.6s ease-in-out infinite;
+        }
+
+        @keyframes celebrationPopShake {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            12% { transform: translateY(-9px) scale(1.12) rotate(-8deg); }
+            24% { transform: translateY(0) scale(1.04) rotate(8deg); }
+            36% { transform: translateY(-5px) scale(1.1) rotate(-6deg); }
+            48% { transform: translateY(0) scale(1) rotate(5deg); }
+            60% { transform: translateY(-3px) scale(1.05) rotate(-3deg); }
+            72% { transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        .end-card h1 {
+            margin-bottom: 12px;
+            color: #4A3B91;
+            font-family: "Baloo 2", sans-serif;
+            font-size: clamp(31px, 5vw, 45px);
+            line-height: 1.2;
+        }
+
+        .end-card p {
+            max-width: 600px;
+            margin: 0 auto 13px;
+            color: #646587;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.85;
+        }
+
+        .end-card .end-count {
+            color: #ED579E;
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .end-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        /* HIDE THE FOOTER COMPLETELY */
+
+        footer {
+            display: none !important;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 1050px) {
+            .navbar {
+                padding: 15px 4%;
+            }
+
+            .nav-links {
+                gap: 10px 15px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 760px) {
+            .navbar {
+                position: relative;
+                flex-direction: column;
+                gap: 14px;
+                padding: 16px 5%;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 9px 17px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .welcome-screen {
+                min-height: calc(100svh - 150px);
+                padding: 20px 0 25px;
+            }
+
+            .welcome-card {
+                border-radius: 27px;
+            }
+
+            .welcome-description {
+                font-size: 14px;
+            }
+
+            .quiz-topbar {
+                width: 91%;
+                padding-top: 10px;
+            }
+
+            .quiz-wrap {
+                width: 91%;
+                min-height: calc(100svh - 180px);
+                padding-top: 12px;
+                padding-bottom: 20px;
+            }
+
+            .answers {
+                gap: 9px;
+            }
+
+            .answer-option {
+                min-height: 70px;
+                padding: 11px 7px;
+                font-size: 17px;
+                border-radius: 15px;
+            }
+
+            .question-content {
+                padding: 24px 18px;
+            }
+
+            .feedback-actions .button,
+            .check-area .button {
+                flex: 1 1 180px;
+            }
+
+            .floaty.one {
+                left: 1%;
+                font-size: 23px;
+            }
+
+            .floaty.two {
+                right: 1%;
+                font-size: 23px;
+            }
+
+            .floaty.six,
+            .floaty.seven,
+            .floaty.twelve,
+            .floaty.eighteen {
+                display: none;
+            }
+
+            .floaty.nineteen,
+            .floaty.twenty,
+            .floaty.twenty-one,
+            .floaty.twenty-two,
+            .floaty.twenty-three,
+            .floaty.twenty-four,
+            .floaty.twenty-five,
+            .floaty.twenty-six,
+            .floaty.twenty-seven,
+            .floaty.twenty-eight,
+            .floaty.twenty-nine,
+            .floaty.thirty,
+            .floaty.thirty-one,
+            .floaty.thirty-two,
+            .floaty.thirty-three,
+            .floaty.thirty-four,
+            .floaty.thirty-five,
+            .floaty.thirty-six {
+                opacity: 0.35;
+            }
+        }
+
+        /* SMALL MOBILE */
+
+        @media (max-width: 390px) {
+            .page-container {
+                width: 93%;
+            }
+
+            .nav-links {
+                gap: 8px 12px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .welcome-card {
+                padding: 25px 18px;
+            }
+
+            .welcome-card h1 {
+                font-size: 34px;
+            }
+
+            .button {
+                min-width: 140px;
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+
+            .answers {
+                gap: 6px;
+            }
+
+            .answer-option {
+                padding: 10px 4px;
+                font-size: 15px;
+            }
+
+            .quiz-topbar .button {
+                min-width: auto;
+                padding: 9px 12px;
+            }
+
+            .question-text {
+                font-size: 26px;
+            }
+        }
+
+        /* REDUCED MOTION */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating background decorations: flowers, dots and sparkles only -->
+
+    <span class="floaty flower one" aria-hidden="true">✧</span>
+    <span class="floaty dot two" aria-hidden="true">●</span>
+    <span class="floaty flower three" aria-hidden="true">✧</span>
+    <span class="floaty sparkle four" aria-hidden="true">✦</span>
+    <span class="floaty dot five" aria-hidden="true">●</span>
+    <span class="floaty flower six" aria-hidden="true">✧</span>
+    <span class="floaty sparkle seven" aria-hidden="true">✦</span>
+    <span class="floaty dot eight" aria-hidden="true">●</span>
+    <span class="floaty flower nine" aria-hidden="true">✧</span>
+    <span class="floaty sparkle ten" aria-hidden="true">✦</span>
+    <span class="floaty dot eleven" aria-hidden="true">●</span>
+    <span class="floaty flower twelve" aria-hidden="true">✦</span>
+    <span class="floaty flower thirteen" aria-hidden="true">✧</span>
+    <span class="floaty sparkle fourteen" aria-hidden="true">✦</span>
+    <span class="floaty dot fifteen" aria-hidden="true">●</span>
+    <span class="floaty flower sixteen" aria-hidden="true">✦</span>
+    <span class="floaty sparkle seventeen" aria-hidden="true">✦</span>
+    <span class="floaty dot eighteen" aria-hidden="true">●</span>
+    <span class="floaty flower nineteen" aria-hidden="true">✧</span>
+    <span class="floaty dot twenty" aria-hidden="true">●</span>
+    <span class="floaty sparkle twenty-one" aria-hidden="true">✦</span>
+    <span class="floaty flower twenty-two" aria-hidden="true">✦</span>
+    <span class="floaty dot twenty-three" aria-hidden="true">●</span>
+    <span class="floaty flower twenty-four" aria-hidden="true">✧</span>
+    <span class="floaty sparkle twenty-five" aria-hidden="true">✦</span>
+    <span class="floaty dot twenty-six" aria-hidden="true">●</span>
+    <span class="floaty flower twenty-seven" aria-hidden="true">✦</span>
+    <span class="floaty sparkle twenty-eight" aria-hidden="true">✦</span>
+    <span class="floaty dot twenty-nine" aria-hidden="true">●</span>
+    <span class="floaty flower thirty" aria-hidden="true">✧</span>
+    <span class="floaty sparkle thirty-one" aria-hidden="true">✦</span>
+    <span class="floaty dot thirty-two" aria-hidden="true">●</span>
+    <span class="floaty flower thirty-three" aria-hidden="true">✦</span>
+    <span class="floaty dot thirty-four" aria-hidden="true">●</span>
+    <span class="floaty sparkle thirty-five" aria-hidden="true">✦</span>
+    <span class="floaty flower thirty-six" aria-hidden="true">✧</span>
+
+    <!-- NAVIGATION BAR -->
+
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="Mathmium home">
+            <img src="Images/Logo.svg" alt="Mathmium">
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tutor">Meet the Tutor</a>
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#materials">Materials</a>
+            <a href="index.html#treasures">Treasure I've Earned</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- WELCOME SCREEN -->
+
+        <section
+            class="screen welcome-screen active"
+            id="welcomeScreen"
+            aria-labelledby="welcomeTitle"
+        >
+            <div class="page-container">
+                <div class="welcome-card">
+
+                    <div class="eyebrow">
+                        Mathmium Quiz Zone · Grade 6
+                    </div>
+
+                    <div class="welcome-art" aria-hidden="true">
+                        🌈
+                    </div>
+
+                    <h1 id="welcomeTitle">
+                        Welcome, Maths Champion! 🌟
+                    </h1>
+
+                    <p class="welcome-subtitle">
+                        Think Smart. Solve Challenges. Shine Bright!
+                    </p>
+
+                    <p class="welcome-description">
+                        Get ready to put your mathematical skills to the test!
+                    </p>
+
+                    <p class="welcome-description">
+                        Explore numbers, master new concepts, solve challenging problems, and discover the power of logical thinking with every question.
+                    </p>
+
+                    <p class="welcome-description">
+                        Take your time, trust your thinking, and remember — every challenge is an opportunity to learn and grow.
+                    </p>
+
+                    <p class="welcome-question">
+                        Are you ready to challenge yourself and show what you can do?
+                    </p>
+
+                    <div class="welcome-actions">
+                        <button class="button" id="startQuizButton" type="button">
+                            Let's Start
+                        </button>
+
+                        <a class="button button-secondary" href="quizzes.html#quiz-grades">
+                            Go Back
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+
+        <section
+            class="screen"
+            id="quizScreen"
+            aria-label="Grade 6 maths quiz"
+        >
+
+            <!-- Question counter removed; finish button remains -->
+
+            <div class="quiz-topbar">
+                <div>
+                    <div class="quiz-brand">MATHMIUM · GRADE 6</div>
+                    <div class="quiz-counter" id="topCounter" aria-live="polite">
+                        Question 1 of 20
+                    </div>
+                </div>
+
+                <button
+                    class="button button-small"
+                    id="finishQuizButton"
+                    type="button"
+                    hidden
+                >
+                    Finish My Quiz
+                </button>
+            </div>
+
+            <div class="quiz-wrap">
+
+                <div class="progress-area">
+                    <div class="progress-meta">
+                        <span id="progressText">
+                            Your adventure is starting!
+                        </span>
+
+                        <span id="scoreText">
+                            Correct: 0
+                        </span>
+                    </div>
+
+                    <div
+                        class="progress-track"
+                        role="progressbar"
+                        aria-label="Questions completed"
+                        aria-valuemin="0"
+                        aria-valuemax="20"
+                        aria-valuenow="0"
+                        id="progressTrack"
+                    >
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-card-top"></div>
+
+                    <div class="question-content">
+
+                        <div class="question-label" id="questionLabel">
+                            Little Maths Challenge
+                        </div>
+
+                        <h2 class="question-text" id="questionText">
+                            What number comes after 7?
+                        </h2>
+
+                        <div
+                            class="answers"
+                            id="answers"
+                            role="group"
+                            aria-label="Choose your answer"
+                        ></div>
+
+                        <p
+                            class="answer-instruction"
+                            id="answerInstruction"
+                            aria-live="polite"
+                        >
+                            Choose the answer you think is correct!
+                        </p>
+
+                        <div class="check-area" id="checkArea">
+                            <button class="button" id="checkAnswerButton" type="button">
+                                Let's Find Out!
+                            </button>
+                        </div>
+
+                        <div
+                            class="feedback"
+                            id="feedback"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            <h3 id="feedbackTitle"></h3>
+                            <p id="feedbackMessage"></p>
+
+                            <div
+                                class="feedback-actions"
+                                id="feedbackActions"
+                            ></div>
+                        </div>
+
+                        <div
+                            class="hint-text"
+                            id="hintText"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
+
+                    </div>
+                </div>
+
+                <p class="quiz-bottom-note">
+                    Take your time. Every try helps you learn!
+                </p>
+
+            </div>
+        </section>
+
+        <!-- FINISH QUIZ EARLY SCREEN -->
+
+        <section
+            class="screen end-screen"
+            id="finishScreen"
+            aria-labelledby="finishTitle"
+        >
+            <div class="end-card">
+
+                <div class="end-art" aria-hidden="true">🎉</div>
+
+                <h1 id="finishTitle">
+                    Excellent Work, Maths Champion!
+                </h1>
+
+                <p class="end-count" id="finishCount">
+                    You completed 0 questions today!
+                </p>
+
+                <p>
+                    Every challenge you take on helps strengthen your mathematical skills and build your confidence.
+                </p>
+
+                <p>
+                    Be proud of your effort, keep thinking critically, and never stop learning!
+                </p>
+
+                <div class="end-actions">
+                    <a class="button" href="quizzes.html#quiz-grades">
+                        Go Back
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ALL QUESTIONS COMPLETED SCREEN -->
+
+        <section
+            class="screen end-screen"
+            id="completeScreen"
+            aria-labelledby="completeTitle"
+        >
+            <div class="end-card">
+
+                <div class="end-art" aria-hidden="true">
+                    🏆 🌟 🎊
+                </div>
+
+                <h1 id="completeTitle">
+                    Hooray, Maths Superstar!
+                </h1>
+
+                <p class="end-count">
+                    You answered all questions!
+                </p>
+
+                <p>
+                    Amazing work! You did a wonderful job.
+                </p>
+
+                <p>
+                    Keep learning, keep practising, and keep shining!
+                </p>
+
+                <div class="end-actions">
+                    <a class="button" href="quizzes.html#quiz-grades">
+                        Go Back
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer intentionally hidden -->
+
+    <footer>
+        <div class="footer-logo">Mathmium</div>
+        <div class="footer-tagline">Your World of Mathematics</div>
+        <div class="footer-description">
+            A creative space to discover, practise, explore, and enjoy Mathematics.
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#classes">Classes</a>
+            <a href="index.html#materials">Materials</a>
+            <a href="index.html#join">Join Classes</a>
+            <a href="index.html#order">Order Materials</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="index.html#treasures">Reviews</a>
+        </div>
+        <div class="copyright">© Mathmium</div>
+    </footer>
+
+    <script>
+        (() => {
+            "use strict";
+
+            /* ALL 20 QUESTIONS */
+
+            const questions = [
+                {
+                    question: "Look at the number 364,825. \nWhat is the value of the digit 6?",
+                    options: ["600", "6,000", "60,000"],
+                    answer: "60,000",
+                    hint: "Look at the position of the digit 6 in the number."
+                },
+                {
+                    question: "The temperature is 3°  below zero. \nIt gets 5°  colder. \nWhat is the new temperature?",
+                    options: ["2°C", "−8°C", "−2°C"],
+                    answer: "−8°C",
+                    hint: "When the temperature gets colder below zero, move farther below zero."
+                },
+                {
+                    question: "Which number divides both 24 and 36 exactly?",
+                    options: ["5", "6", "8"],
+                    answer: "6",
+                    hint: "Find a number that divides 24 and 36 with nothing left over."
+                },
+                {
+                    question: "Calculate: 8 + 4 × 3",
+                    options: ["36", "20", "24"],
+                    answer: "20",
+                    hint: "Remember to multiply first, then add."
+                },
+                {
+                    question: "Add 3/8 and 2/8. \nWhat fraction do you get?",
+                    options: ["5/8", "5/16", "6/8"],
+                    answer: "5/8",
+                    hint: "The bottom numbers are the same, so add the top numbers and keep the bottom number."
+                },
+                {
+                    question: "What is ¾ of 45?",
+                    options: ["15", "27", "30"],
+                    answer: "27",
+                    hint: "First divide 45 by 5. Then multiply that answer by 3."
+                },
+                {
+                    question: "Subtract 3.42 from 7.85. \nWhat is the answer?",
+                    options: ["4.43", "4.53", "5.43"],
+                    answer: "4.43",
+                    hint: "Line up the decimal points before you subtract."
+                },
+                {
+                    question: "What is 20% of 150?",
+                    options: ["20", "25", "30"],
+                    answer: "30",
+                    hint: "Find 10% first, then double your answer."
+                },
+                {
+                    question: "The ratio of red balls to blue balls is 2 to 3. \nIf there are 10 red balls, \nhow many blue balls are there?",
+                    options: ["12", "15", "20"],
+                    answer: "15",
+                    hint: "The number of red balls has been multiplied by 5. Multiply the number of blue balls by 5 too."
+                },
+                {
+                    question: "A mystery number plus 7 equals 19. \nWhat is the mystery number?",
+                    options: ["11", "12", "26"],
+                    answer: "12",
+                    hint: "Take 7 away from 19 to find the mystery number."
+                },
+                {
+                    question: "What number comes next in this pattern: \n5, 11, 17, 23, ...?",
+                    options: ["27", "29", "30"],
+                    answer: "29",
+                    hint: "Check how much is added each time."
+                },
+                {
+                    question: "An angle is 145°. \nWhat kind of angle is it?",
+                    options: ["An acute angle", "A right angle", "An obtuse angle"],
+                    answer: "An obtuse angle",
+                    hint: "An obtuse angle is bigger than 90° but smaller than 180°."
+                },
+                {
+                    question: "How many sides does a regular hexagon have?",
+                    options: ["5", "6", "8"],
+                    answer: "6",
+                    hint: "Count the straight sides of the shape."
+                },
+                {
+                    question: "A rectangle is 14 cm long and 6 cm wide. \nWhat is its perimeter?",
+                    options: ["20 cm", "40 cm", "84 cm"],
+                    answer: "40 cm",
+                    hint: "Add all four sides, or add the length and width and then double the total."
+                },
+                {
+                    question: "A square has sides that are each 9 cm long. \nWhat is its area?",
+                    options: ["18 cm²", "36 cm²", "81 cm²"],
+                    answer: "81 cm²",
+                    hint: "Multiply the side length by itself: 9 times 9."
+                },
+                {
+                    question: "How many millimetres are in 4.5 centimetres?",
+                    options: ["4.5 mm", "45 mm", "450 mm"],
+                    answer: "45 mm",
+                    hint: "There are 10 millimetres in every centimetre."
+                },
+                {
+                    question: "A lesson starts at 9:35 a.m. \nand lasts 1 hour and 45 minutes. \nWhen does it finish?",
+                    options: ["11:10 a.m.", "11:20 a.m.", "11:30 a.m."],
+                    answer: "11:20 a.m.",
+                    hint: "Add 1 hour first, then add another 45 minutes."
+                },
+                {
+                    question: "A book costs $12.50 and a pen costs $1.75. \nHow much do 2 books and 3 pens cost altogether?",
+                    options: ["$30.25", "$31.25", "$32.75"],
+                    answer: "$30.25",
+                    hint: "Work out the cost of 2 books and 3 pens separately, then add the costs."
+                },
+                {
+                    question: "Four students scored \n6, 8, 10, and 12 marks. \nWhat is their average score?",
+                    options: ["8", "9", "10"],
+                    answer: "9",
+                    hint: "Add all four scores, then divide the total by 4."
+                },
+                {
+                    question: "A bag has 4 red balls and 6 blue balls. \nIf you pick one without looking, \nwhich colour are you more likely to get?",
+                    options: ["Red", "Blue", "Both are equally likely"],
+                    answer: "Blue",
+                    hint: "Compare the number of red balls with the number of blue balls."
+                }
+            ];
+
+            /* ENCOURAGEMENT MESSAGES */
+
+            const correctMessages = [
+                "Hooray! That's correct!",
+                "Brilliant! You're a little maths star!",
+                "Wonderful! You did it!",
+                "Super job! Keep it up!",
+                "Yay! Your answer is correct!",
+                "Fantastic thinking! Well done!"
+            ];
+
+            const wrongMessages = [
+                "Almost there! Let's try again!",
+                "Not this time, little star! You can do it!",
+                "Good try! Every mistake helps us learn!",
+                "Oopsie! Let's give it another go!",
+                "That's okay! Keep thinking and try again!"
+            ];
+
+            /* GET PAGE ELEMENTS */
+
+            const screens = {
+                welcome: document.getElementById("welcomeScreen"),
+                quiz: document.getElementById("quizScreen"),
+                finish: document.getElementById("finishScreen"),
+                complete: document.getElementById("completeScreen")
+            };
+
+            const elements = {
+                start: document.getElementById("startQuizButton"),
+                finish: document.getElementById("finishQuizButton"),
+
+                topCounter: document.getElementById("topCounter"),
+                progressText: document.getElementById("progressText"),
+                scoreText: document.getElementById("scoreText"),
+                progressFill: document.getElementById("progressFill"),
+                progressTrack: document.getElementById("progressTrack"),
+
+                questionLabel: document.getElementById("questionLabel"),
+                questionText: document.getElementById("questionText"),
+                answers: document.getElementById("answers"),
+
+                checkArea: document.getElementById("checkArea"),
+                check: document.getElementById("checkAnswerButton"),
+                answerInstruction: document.getElementById("answerInstruction"),
+
+                feedback: document.getElementById("feedback"),
+                feedbackTitle: document.getElementById("feedbackTitle"),
+                feedbackMessage: document.getElementById("feedbackMessage"),
+                feedbackActions: document.getElementById("feedbackActions"),
+
+                hint: document.getElementById("hintText"),
+                finishCount: document.getElementById("finishCount")
+            };
+
+            /* QUIZ STATE */
+
+            let shuffledQuestions = [];
+            let currentIndex = 0;
+            let selectedAnswer = null;
+            let correctCount = 0;
+            let completedCount = 0;
+            let answeredCurrent = false;
+            let hintShown = false;
+
+            /* SHUFFLE */
+
+            function shuffle(array) {
+                const result = [...array];
+
+                for (let i = result.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+
+                    [result[i], result[j]] = [result[j], result[i]];
+                }
+
+                return result;
+            }
+
+            /* SWITCH SCREENS */
+
+            function showScreen(screenToShow) {
+                Object.values(screens).forEach(screen => {
+                    screen.classList.remove("active");
+                    screen.setAttribute("aria-hidden", "true");
+                });
+
+                screenToShow.classList.add("active");
+                screenToShow.setAttribute("aria-hidden", "false");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            /* START QUIZ */
+
+            function startQuiz() {
+                shuffledQuestions = shuffle(questions).map(question => ({
+                    ...question,
+                    options: [...question.options]
+                }));
+
+                currentIndex = 0;
+                selectedAnswer = null;
+                correctCount = 0;
+                completedCount = 0;
+                answeredCurrent = false;
+                hintShown = false;
+
+                showScreen(screens.quiz);
+                renderQuestion();
+            }
+
+            /* DISPLAY QUESTION */
+
+            function renderQuestion() {
+                const question = shuffledQuestions[currentIndex];
+
+                selectedAnswer = null;
+                answeredCurrent = false;
+                hintShown = false;
+
+                elements.topCounter.textContent =
+                    `Question ${currentIndex + 1} of ${shuffledQuestions.length}`;
+
+                elements.progressText.textContent =
+                    `Question ${currentIndex + 1} of ${shuffledQuestions.length}`;
+
+                elements.scoreText.textContent =
+                    `Correct: ${correctCount}`;
+
+                updateProgress();
+
+                elements.questionLabel.textContent =
+                    `Little Maths Challenge ${currentIndex + 1}`;
+
+                elements.questionText.textContent = question.question;
+                elements.answers.replaceChildren();
+
+                elements.feedback.className = "feedback";
+                elements.feedbackTitle.textContent = "";
+                elements.feedbackMessage.textContent = "";
+                elements.feedbackActions.replaceChildren();
+
+                elements.hint.className = "hint-text";
+                elements.hint.textContent = "";
+
+                elements.answerInstruction.textContent =
+                    "Choose the answer you think is correct!";
+
+                elements.answerInstruction.classList.remove("attention");
+
+                elements.checkArea.style.display = "flex";
+                elements.check.disabled = false;
+                elements.check.textContent = "Let's Find Out!";
+
+                elements.finish.hidden = currentIndex === 0;
+
+                shuffle(question.options).forEach(option => {
+                    const button = document.createElement("button");
+
+                    button.type = "button";
+                    button.className = "answer-option";
+                    button.textContent = option;
+                    button.setAttribute("aria-pressed", "false");
+
+                    button.addEventListener("click", () => {
+                        selectAnswer(button, option);
+                    });
+
+                    elements.answers.appendChild(button);
+                });
+            }
+
+            /* UPDATE PROGRESS */
+
+            function updateProgress() {
+                const percentage =
+                    (completedCount / shuffledQuestions.length) * 100;
+
+                elements.progressFill.style.width = `${percentage}%`;
+
+                elements.progressTrack.setAttribute(
+                    "aria-valuenow",
+                    completedCount
+                );
+            }
+
+            /* SELECT ANSWER */
+
+            function selectAnswer(button, answer) {
+                if (answeredCurrent) {
+                    return;
+                }
+
+                selectedAnswer = answer;
+
+                elements.answers.querySelectorAll(".answer-option")
+                    .forEach(option => {
+                        option.classList.remove("selected");
+                        option.setAttribute("aria-pressed", "false");
+                    });
+
+                button.classList.add("selected");
+                button.setAttribute("aria-pressed", "true");
+
+                elements.answerInstruction.textContent =
+                    "Choose the answer you think is correct!";
+
+                elements.answerInstruction.classList.remove("attention");
+                elements.check.disabled = false;
+            }
+
+            /* CREATE FEEDBACK BUTTONS */
+
+            function makeButton(label, className, handler) {
+                const button = document.createElement("button");
+
+                button.type = "button";
+                button.className = `button ${className || ""}`.trim();
+                button.textContent = label;
+                button.addEventListener("click", handler);
+
+                return button;
+            }
+
+            /* CHECK ANSWER */
+
+            function checkAnswer() {
+                if (answeredCurrent) {
+                    return;
+                }
+
+                if (!selectedAnswer) {
+                    elements.answerInstruction.textContent =
+                        "Choose an answer first, Maths Champion!";
+
+                    elements.answerInstruction.classList.remove("attention");
+
+                    void elements.answerInstruction.offsetWidth;
+
+                    elements.answerInstruction.classList.add("attention");
+                    return;
+                }
+
+                const question = shuffledQuestions[currentIndex];
+                const isCorrect = selectedAnswer === question.answer;
+
+                if (isCorrect) {
+                    answeredCurrent = true;
+                    completedCount++;
+                    correctCount++;
+
+                    elements.scoreText.textContent =
+                        `Correct: ${correctCount}`;
+
+                    updateProgress();
+
+                    elements.answers.querySelectorAll(".answer-option")
+                        .forEach(option => {
+                            option.disabled = true;
+
+                            if (option.textContent === question.answer) {
+                                option.classList.add("correct-choice");
+                            }
+                        });
+
+                    elements.checkArea.style.display = "none";
+
+                    const nextButtonLabel =
+                        currentIndex === shuffledQuestions.length - 1
+                            ? "Finish Quiz"
+                            : "Next Question";
+
+                    showFeedback(
+                        "success",
+                        pickRandom(correctMessages),
+                        "You worked it out. Keep that wonderful thinking going!",
+                        [
+                            makeButton(
+                                nextButtonLabel,
+                                "",
+                                nextQuestion
+                            )
+                        ]
+                    );
+
+                } else {
+                    elements.answers.querySelectorAll(".answer-option")
+                        .forEach(option => {
+                            if (option.textContent === selectedAnswer) {
+                                option.classList.add("wrong-choice");
+                            }
+                        });
+
+                    showFeedback(
+                        "try",
+                        pickRandom(wrongMessages),
+                        "Have another think. You can try the same question again.",
+                        [
+                            makeButton(
+                                "A Little Clue, Please!",
+                                "button-secondary",
+                                showHint
+                            ),
+                            makeButton(
+                                "Try Again",
+                                "",
+                                tryAgain
+                            )
+                        ]
+                    );
+                }
+            }
+
+            /* SHOW FEEDBACK */
+
+            function showFeedback(type, title, message, buttons) {
+                elements.feedback.className = `feedback show ${type}`;
+                elements.feedbackTitle.textContent = title;
+                elements.feedbackMessage.textContent = message;
+                elements.feedbackActions.replaceChildren(...buttons);
+            }
+
+            /* SHOW HINT */
+
+            function showHint() {
+                if (hintShown) {
+                    return;
+                }
+
+                const question = shuffledQuestions[currentIndex];
+
+                elements.hint.textContent = `A little clue: ${question.hint}`;
+                elements.hint.classList.add("show");
+
+                hintShown = true;
+            }
+
+            /* TRY AGAIN */
+
+            function tryAgain() {
+                selectedAnswer = null;
+                answeredCurrent = false;
+
+                elements.feedback.className = "feedback";
+                elements.feedbackActions.replaceChildren();
+
+                elements.hint.className = "hint-text";
+                elements.hint.textContent = "";
+
+                elements.answerInstruction.textContent =
+                    "Choose the answer you think is correct!";
+
+                elements.answerInstruction.classList.remove("attention");
+
+                elements.answers.querySelectorAll(".answer-option")
+                    .forEach(option => {
+                        option.disabled = false;
+
+                        option.classList.remove(
+                            "selected",
+                            "wrong-choice",
+                            "correct-choice"
+                        );
+
+                        option.setAttribute("aria-pressed", "false");
+                    });
+
+                elements.check.disabled = false;
+                elements.checkArea.style.display = "flex";
+            }
+
+            /* NEXT QUESTION */
+
+            function nextQuestion() {
+                if (currentIndex >= shuffledQuestions.length - 1) {
+                    elements.progressFill.style.width = "100%";
+
+                    elements.progressTrack.setAttribute(
+                        "aria-valuenow",
+                        shuffledQuestions.length
+                    );
+
+                    showScreen(screens.complete);
+                    return;
+                }
+
+                currentIndex++;
+
+                renderQuestion();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+
+            /* FINISH QUIZ EARLY */
+
+            function finishQuiz() {
+                const word = completedCount === 1
+                    ? "question"
+                    : "questions";
+
+                elements.finishCount.textContent =
+                    `You completed ${completedCount} ${word} today!`;
+
+                showScreen(screens.finish);
+            }
+
+            /* RANDOM MESSAGE */
+
+            function pickRandom(messages) {
+                const index = Math.floor(Math.random() * messages.length);
+                return messages[index];
+            }
+
+            /* CONNECT BUTTONS */
+
+            elements.start.addEventListener("click", startQuiz);
+            elements.check.addEventListener("click", checkAnswer);
+            elements.finish.addEventListener("click", finishQuiz);
+
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mathmium Quiz Zone | Think. Solve. Shine!</title>
+
+    <meta
+        name="description"
+        content="Explore the Mathmium Quiz Zone and discover engaging mathematics quizzes for Grades 1–10."
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =====================================================
+           1. GLOBAL STYLES
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --teal: #00AFA8;
+            --teal-bright: #16C9BE;
+            --teal-dark: #087E80;
+            --teal-deep: #075B60;
+
+            --aqua: #6BE5D8;
+            --mint: #C8F5E8;
+            --light-teal: #E5FBF7;
+            --pale-aqua: #F0FFFC;
+
+            --blue-teal: #299CB4;
+            --sea-green: #43C7A5;
+            --soft-blue: #DDF5FA;
+
+            --ink: #26383A;
+            --muted: #637477;
+            --white: #FFFFFF;
+
+            --page-width: 1180px;
+
+            --button-gradient: linear-gradient(
+                120deg,
+                #16C9BE 0%,
+                #00AFA8 48%,
+                #299CB4 100%
+            );
+
+            --button-hover-gradient: linear-gradient(
+                120deg,
+                #087E80 0%,
+                #076D73 55%,
+                #087E80 100%
+            );
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Quicksand", sans-serif;
+            color: var(--ink);
+            line-height: 1.65;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #E4FCF6 0%,
+                    #F6FFFD 24%,
+                    #FFFFFF 48%,
+                    #EDFBFC 73%,
+                    #DFF8F1 100%
+                );
+
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            font-family: "Quicksand", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--teal-dark);
+            outline-offset: 4px;
+        }
+
+        .page-container {
+            width: min(var(--page-width), 90%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 82px 0;
+            scroll-margin-top: 90px;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 43px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--teal-dark);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 13px;
+            color: var(--teal-dark);
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 700;
+            line-height: 1.22;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           2. NAVIGATION
+        ===================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+
+            width: 100%;
+            padding: 18px 6%;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-bottom:
+                1px solid rgba(0, 175, 168, 0.15);
+
+            box-shadow:
+                0 5px 22px rgba(0, 115, 116, 0.07);
+
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .logo img {
+            display: block;
+            width: 145px;
+            height: auto;
+
+            filter:
+                brightness(0)
+                saturate(100%)
+                invert(43%)
+                sepia(91%)
+                saturate(1177%)
+                hue-rotate(136deg)
+                brightness(94%)
+                contrast(101%);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 27px;
+        }
+
+        .nav-links a {
+            color: #35494A;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           3. UNIFIED BUTTON STYLE
+        ===================================================== */
+
+        .quiz-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 185px;
+            min-height: 52px;
+            padding: 14px 29px;
+
+            border: 1px solid transparent;
+            border-radius: 14px;
+
+            background: var(--button-gradient);
+            color: var(--white);
+
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 9px 24px rgba(0, 157, 151, 0.19);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .quiz-button:hover {
+            background: var(--button-hover-gradient);
+            color: var(--white);
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 13px 28px rgba(0, 105, 108, 0.23);
+        }
+
+        .quiz-button:active {
+            transform: translateY(0);
+            box-shadow:
+                0 5px 14px rgba(0, 105, 108, 0.17);
+        }
+
+
+        /* =====================================================
+           4. HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 110px 20px 105px;
+
+            text-align: center;
+
+            border-bottom:
+                1px solid rgba(0, 175, 168, 0.14);
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(107, 229, 216, 0.22),
+                    transparent 57%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+
+        .hero-kicker {
+            margin-bottom: 21px;
+            color: var(--teal-dark);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.2px;
+        }
+
+        .hero h1 {
+            margin-bottom: 19px;
+
+            color: var(--ink);
+            font-size: clamp(44px, 7vw, 76px);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 .gradient-text {
+            background:
+                linear-gradient(
+                    100deg,
+                    #00AFA8 0%,
+                    #16C9BE 45%,
+                    #299CB4 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 20px;
+            color: var(--teal-dark);
+            font-size: clamp(19px, 2.5vw, 25px);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .hero-description {
+            max-width: 790px;
+            margin: 0 auto 20px;
+
+            color: #586B6D;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.9;
+        }
+
+        .hero-emphasis {
+            margin-bottom: 30px;
+            color: #385C5D;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .hero-emphasis span {
+            color: var(--teal);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+
+        /* =====================================================
+           5. ENCOURAGEMENT SECTION
+        ===================================================== */
+
+        .encouragement-section {
+            padding-top: 0;
+            padding-bottom: 88px;
+            scroll-margin-top: 100px;
+        }
+
+        .encouragement-box {
+            padding: 58px 35px;
+
+            text-align: center;
+
+            border: 1px solid rgba(0, 175, 168, 0.15);
+            border-radius: 32px;
+
+            background:
+                radial-gradient(
+                    ellipse at 0% 100%,
+                    rgba(107, 229, 216, 0.25),
+                    transparent 42%
+                ),
+                radial-gradient(
+                    ellipse at 100% 0%,
+                    rgba(41, 156, 180, 0.15),
+                    transparent 42%
+                ),
+                linear-gradient(
+                    135deg,
+                    #E7FAF6,
+                    #FFFFFF 53%,
+                    #E5F8FB
+                );
+
+            box-shadow:
+                0 16px 42px rgba(0, 115, 116, 0.07);
+        }
+
+        .encouragement-box h2 {
+            margin-bottom: 17px;
+            color: var(--teal-dark);
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.25;
+        }
+
+        .encouragement-box > p {
+            max-width: 800px;
+            margin: 0 auto 19px;
+
+            color: #5D7071;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.9;
+        }
+
+        .encouragement-box .encouragement-message {
+            margin-bottom: 27px;
+            color: #087E80;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           6. GRADE SELECTION
+        ===================================================== */
+
+        .grades-section {
+            padding-top: 0;
+            padding-bottom: 100px;
+        }
+
+        .grades-section .section-heading {
+            margin-bottom: 38px;
+        }
+
+        .grade-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 19px;
+        }
+
+        .grade-card {
+            --grade-accent: #00AFA8;
+            --grade-tint: #E1FAF5;
+
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 0;
+            min-height: 180px;
+            padding: 24px 14px;
+
+            overflow: hidden;
+
+            text-align: center;
+            text-decoration: none;
+
+            border: 1px solid rgba(0, 135, 131, 0.15);
+            border-radius: 23px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #FFFFFF 0%,
+                    #FFFFFF 45%,
+                    var(--grade-tint) 100%
+                );
+
+            box-shadow:
+                0 10px 27px rgba(0, 115, 116, 0.07);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .grade-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--grade-accent);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--grade-accent);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #FFFFFF 0%,
+                    var(--grade-tint) 100%
+                );
+
+            box-shadow:
+                0 17px 34px rgba(0, 115, 116, 0.13);
+        }
+
+        .grade-card:focus-visible {
+            outline: 3px solid var(--grade-accent);
+            outline-offset: 4px;
+        }
+
+        .grade-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 77px;
+            height: 77px;
+            margin-bottom: 15px;
+
+            border-radius: 25px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--grade-light),
+                    var(--grade-accent)
+                );
+
+            color: #FFFFFF;
+            font-size: 33px;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 20px rgba(0, 115, 116, 0.12);
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .grade-card:hover .grade-number {
+            transform: scale(1.06);
+        }
+
+        .grade-card h3 {
+            color: var(--teal-deep);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .grade-card:nth-child(1) {
+            --grade-accent: #00AFA8;
+            --grade-light: #42D9CB;
+            --grade-tint: #E1FAF5;
+        }
+
+        .grade-card:nth-child(2) {
+            --grade-accent: #159CB0;
+            --grade-light: #54D1DF;
+            --grade-tint: #E2F7FA;
+        }
+
+        .grade-card:nth-child(3) {
+            --grade-accent: #25B99D;
+            --grade-light: #66E2BD;
+            --grade-tint: #E3FBF2;
+        }
+
+        .grade-card:nth-child(4) {
+            --grade-accent: #078B94;
+            --grade-light: #38C7C9;
+            --grade-tint: #DFF7F7;
+        }
+
+        .grade-card:nth-child(5) {
+            --grade-accent: #329FA1;
+            --grade-light: #73DCD0;
+            --grade-tint: #E8FAF6;
+        }
+
+        .grade-card:nth-child(6) {
+            --grade-accent: #0A9990;
+            --grade-light: #47D0BB;
+            --grade-tint: #E0F9F3;
+        }
+
+        .grade-card:nth-child(7) {
+            --grade-accent: #278DA8;
+            --grade-light: #63C9DB;
+            --grade-tint: #E4F6FB;
+        }
+
+        .grade-card:nth-child(8) {
+            --grade-accent: #19A88F;
+            --grade-light: #5BD8B7;
+            --grade-tint: #E3FAF0;
+        }
+
+        .grade-card:nth-child(9) {
+            --grade-accent: #087E80;
+            --grade-light: #36BFC0;
+            --grade-tint: #E1F6F4;
+        }
+
+        .grade-card:nth-child(10) {
+            --grade-accent: #16A9B8;
+            --grade-light: #64D9DE;
+            --grade-tint: #E3F9FA;
+        }
+
+
+        /* =====================================================
+           7. DAILY MATHS CHALLENGE
+        ===================================================== */
+
+        .daily-section {
+            padding-top: 0;
+            padding-bottom: 100px;
+        }
+
+        .daily-box {
+            position: relative;
+            overflow: hidden;
+
+            padding: 65px 35px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 32px;
+
+            background:
+                radial-gradient(
+                    ellipse at 0% 0%,
+                    rgba(140, 255, 235, 0.30),
+                    transparent 45%
+                ),
+                radial-gradient(
+                    ellipse at 100% 100%,
+                    rgba(91, 219, 222, 0.30),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    120deg,
+                    #087E80 0%,
+                    #00AFA8 48%,
+                    #299CB4 100%
+                );
+
+            box-shadow:
+                0 18px 42px rgba(0, 115, 116, 0.18);
+        }
+
+        .daily-content {
+            position: relative;
+            z-index: 1;
+
+            width: min(790px, 100%);
+            margin: 0 auto;
+        }
+
+        .daily-label {
+            display: inline-block;
+            margin-bottom: 16px;
+
+            color: #E2FFFA;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .daily-box h2 {
+            margin-bottom: 17px;
+            color: #FFFFFF;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .daily-box p {
+            margin-bottom: 28px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.9;
+        }
+
+        .daily-box .quiz-button {
+            background: linear-gradient(
+                120deg,
+                #FFFFFF 0%,
+                #F0FFFC 50%,
+                #DDF8F4 100%
+            );
+
+            color: #087E80;
+
+            box-shadow:
+                0 9px 24px rgba(0, 66, 68, 0.15);
+        }
+
+        .daily-box .quiz-button:hover {
+            background: linear-gradient(
+                120deg,
+                #D0F8EF 0%,
+                #B9F0E6 100%
+            );
+
+            color: #075B60;
+
+            box-shadow:
+                0 13px 28px rgba(0, 66, 68, 0.23);
+        }
+
+
+        /* =====================================================
+           8. BACK TO HOME BUTTON
+        ===================================================== */
+
+        .back-home-section {
+            padding: 0 0 85px;
+            text-align: center;
+        }
+
+        .back-home-section .quiz-button {
+            margin-top: 0;
+        }
+
+
+        /* =====================================================
+           9. FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 75px 25px 48px;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(200, 245, 232, 0.35) 0%,
+                    rgba(229, 251, 247, 0.60) 48%,
+                    rgba(255, 255, 255, 0.85) 100%
+                );
+
+            border-top:
+                1px solid rgba(0, 175, 168, 0.13);
+        }
+
+        .footer-logo {
+            margin-bottom: 8px;
+            color: var(--teal-dark);
+            font-family: "Pacifico", cursive;
+            font-size: 35px;
+        }
+
+        .footer-tagline {
+            margin-bottom: 14px;
+            color: var(--teal-dark);
+            font-family: "Quicksand", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-description {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            color: #596D6D;
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px 28px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--teal-dark);
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .copyright {
+            color: #647777;
+            font-family: "Quicksand", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           10. TABLET
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+            .navbar {
+                padding: 17px 4%;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .grade-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+
+        /* =====================================================
+           11. MOBILE
+        ===================================================== */
+
+        @media (max-width: 760px) {
+            html {
+                scroll-padding-top: 20px;
+            }
+
+            .navbar {
+                position: relative;
+                flex-direction: column;
+                gap: 16px;
+                padding: 17px 5%;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 18px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 78px 20px 75px;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: clamp(43px, 9vw, 60px);
+                letter-spacing: -0.8px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+                line-height: 1.85;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-emphasis {
+                font-size: 15px;
+            }
+
+            .section {
+                padding: 65px 0 75px;
+            }
+
+            .encouragement-section {
+                padding-top: 0;
+                padding-bottom: 70px;
+            }
+
+            .encouragement-box {
+                padding: 45px 23px;
+                border-radius: 27px;
+            }
+
+            .grades-section {
+                padding-top: 0;
+                padding-bottom: 75px;
+            }
+
+            .grade-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .grade-card {
+                min-height: 165px;
+                padding: 19px 12px;
+            }
+
+            .grade-number {
+                width: 68px;
+                height: 68px;
+                border-radius: 22px;
+                font-size: 29px;
+            }
+
+            .daily-section {
+                padding-bottom: 75px;
+            }
+
+            .daily-box {
+                padding: 47px 24px;
+                border-radius: 27px;
+            }
+
+            .back-home-section {
+                padding-bottom: 65px;
+            }
+
+            footer {
+                padding: 60px 20px 38px;
+            }
+
+            .footer-links {
+                gap: 15px 20px;
+            }
+        }
+
+
+        /* =====================================================
+           12. SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 390px) {
+            .page-container {
+                width: 92%;
+            }
+
+            .nav-links {
+                gap: 9px 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 17px;
+            }
+
+            .hero h1 {
+                font-size: 41px;
+            }
+
+            .hero-kicker {
+                font-size: 11px;
+                letter-spacing: 1.7px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-actions .quiz-button {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .section-heading p {
+                font-size: 15px;
+            }
+
+            .grade-grid {
+                gap: 11px;
+            }
+
+            .grade-card {
+                min-height: 154px;
+                padding: 17px 8px;
+            }
+
+            .grade-number {
+                width: 61px;
+                height: 61px;
+                margin-bottom: 11px;
+                border-radius: 19px;
+                font-size: 26px;
+            }
+
+            .grade-card h3 {
+                font-size: 16px;
+            }
+
+            .quiz-button {
+                min-width: 170px;
+                padding: 13px 22px;
+                font-size: 15px;
+            }
+
+            .encouragement-box {
+                padding: 38px 18px;
+            }
+
+            .daily-box {
+                padding: 39px 19px;
+            }
+
+            .footer-links {
+                gap: 13px 16px;
+            }
+        }
+
+
+        /* =====================================================
+           13. REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <nav class="navbar" aria-label="Main navigation">
+
+        <a href="index.html" class="logo" aria-label="Mathmium home">
+            <img src="Images/Logo.svg" alt="Mathmium">
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#tutor">Meet the Tutor</a>
+
+            <a href="index.html#classes">Classes</a>
+
+            <a href="index.html#materials">Materials</a>
+
+            <a href="index.html#treasures">Treasure I've Earned</a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <!-- =====================================================
+             SECTION 1: CENTRED HERO
+        ===================================================== -->
+
+        <section class="hero" id="quiz-home">
+
+            <div class="hero-content">
+
+                <div class="hero-kicker">
+                    MATHMIUM QUIZ ZONE
+                </div>
+
+                <h1>
+                    Think. Solve.<br>
+                    <span class="gradient-text">Shine!</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Your next maths adventure starts here!
+                </p>
+
+                <p class="hero-description">
+                    Welcome to a world of fun, challenges, and mathematical
+                    discoveries! Explore interactive maths quizzes for Grades
+                    1–10, test your knowledge, and grow your confidence one
+                    question at a time.
+                </p>
+
+                <p class="hero-emphasis">
+                    <span aria-hidden="true">★</span>
+                    Every question is a new opportunity to learn and shine!
+                </p>
+
+                <div class="hero-actions">
+
+                    <!-- Smoothly scrolls to the encouragement section -->
+                    <a href="#encouragement" class="quiz-button">
+                        Let's Go
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 2: ENCOURAGEMENT
+             The "Your Learning Journey, Made Fun" section has
+             been removed.
+        ===================================================== -->
+
+        <section class="encouragement-section" id="encouragement">
+
+            <div class="page-container">
+
+                <div class="encouragement-box">
+
+                    <h2>Maths Is a Journey, Not a Race!</h2>
+
+                    <p>
+                        Every great mathematician starts with a question.
+                        Take your time, try different strategies, and remember
+                        that mistakes are part of learning. Each challenge you
+                        attempt helps you grow!
+                    </p>
+
+                    <p class="encouragement-message">
+                        Believe in your thinking. Celebrate every little victory.
+                    </p>
+
+                    <a href="#quiz-grades" class="quiz-button">
+                        Choose Your Grade
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 3: GRADE SELECTION
+        ===================================================== -->
+
+        <section class="section grades-section" id="quiz-grades">
+
+            <div class="page-container">
+
+                <div class="section-heading">
+
+                    <h2>Find Your Maths Adventure</h2>
+
+                    <p>
+                        Choose your grade and discover exciting quizzes
+                        created just for your learning journey!
+                    </p>
+
+                </div>
+
+
+                <div class="grade-grid">
+
+                    <a class="grade-card" href="grade-1.html" aria-label="Grade 1 quizzes">
+                        <div class="grade-number">1</div>
+                        <h3>Grade 1</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-2.html" aria-label="Grade 2 quizzes">
+                        <div class="grade-number">2</div>
+                        <h3>Grade 2</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-3.html" aria-label="Grade 3 quizzes">
+                        <div class="grade-number">3</div>
+                        <h3>Grade 3</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-4.html" aria-label="Grade 4 quizzes">
+                        <div class="grade-number">4</div>
+                        <h3>Grade 4</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-5.html" aria-label="Grade 5 quizzes">
+                        <div class="grade-number">5</div>
+                        <h3>Grade 5</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-6.html" aria-label="Grade 6 quizzes">
+                        <div class="grade-number">6</div>
+                        <h3>Grade 6</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-7.html" aria-label="Grade 7 quizzes">
+                        <div class="grade-number">7</div>
+                        <h3>Grade 7</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-8.html" aria-label="Grade 8 quizzes">
+                        <div class="grade-number">8</div>
+                        <h3>Grade 8</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-9.html" aria-label="Grade 9 quizzes">
+                        <div class="grade-number">9</div>
+                        <h3>Grade 9</h3>
+                    </a>
+
+                    <a class="grade-card" href="grade-10.html" aria-label="Grade 10 quizzes">
+                        <div class="grade-number">10</div>
+                        <h3>Grade 10</h3>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 4: DAILY MATHS CHALLENGE
+        ===================================================== -->
+
+        <section class="daily-section">
+
+            <div class="page-container">
+
+                <div class="daily-box">
+
+                    <div class="daily-content">
+
+                        <div class="daily-label">
+                            KEEP YOUR MIND ACTIVE
+                        </div>
+
+                        <h2>Ready for a Daily Maths Boost?</h2>
+
+                        <p>
+                            Keep your mathematical thinking active with quick
+                            questions and fun challenges! Visit Mathmium regularly
+                            to discover new ways to practise, explore, and enjoy
+                            mathematics.
+                        </p>
+
+                        <!-- Mathmium YouTube channel -->
+                        <a
+                            href="https://youtube.com/@mathmium?si=Q7fHndzehAzwnm8q"
+                            class="quiz-button"
+                            id="dailyChallengeLink"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Try the Daily Challenge
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SECTION 5: BACK TO HOME
+        ===================================================== -->
+
+        <section class="back-home-section">
+
+            <div class="page-container">
+
+                <a href="index.html" class="quiz-button">
+                    Back to Home
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Mathmium
+        </div>
+
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
+
+        <div class="footer-description">
+            A creative space to discover, practise, explore,
+            and enjoy Mathematics.
+        </div>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#classes">Classes</a>
+
+            <a href="index.html#materials">Materials</a>
+
+            <a href="index.html#join">Join Classes</a>
+
+            <a href="index.html#order">Order Materials</a>
+
+            <a href="index.html#contact">Contact</a>
+
+            <a href="index.html#treasures">Reviews</a>
+
+        </div>
+
+        <div class="copyright">
+            © Mathmium
+        </div>
+
+    </footer>
+
+</body>
+</html>
