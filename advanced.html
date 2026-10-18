@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1277,6 +1276,334 @@
 
             }
 
+        }
+
+        /* =========================================================
+           RESPONSIVE SAFETY OVERRIDES
+           Preserve the original design, content, and colour palette.
+        ========================================================= */
+
+        :root {
+            color-scheme: light;
+        }
+
+        html {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            overflow-x: clip;
+            background-color: #FCFAF5;
+        }
+
+        img,
+        video,
+        iframe,
+        svg {
+            max-width: 100%;
+        }
+
+        .navbar,
+        .hero,
+        .materials-section,
+        .final-cta,
+        footer {
+            min-width: 0;
+        }
+
+        .navbar {
+            flex-wrap: wrap;
+            column-gap: 24px;
+            row-gap: 16px;
+        }
+
+        .nav-links {
+            min-width: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            overflow-wrap: anywhere;
+        }
+
+        .hero-content,
+        .hero h1,
+        .hero h1 span,
+        .hero-intro,
+        .hero-description,
+        .material-card,
+        .material-card h2,
+        .material-description,
+        .final-cta h2,
+        .final-cta p {
+            min-width: 0;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 span {
+            max-width: 100%;
+        }
+
+        .material-card {
+            width: 100%;
+        }
+
+        .sample-gallery {
+            min-width: 0;
+        }
+
+        .sample-card {
+            min-width: 0;
+        }
+
+        .sample-card img {
+            max-width: 100%;
+        }
+
+        .cta-buttons {
+            min-width: 0;
+        }
+
+        .cta-button {
+            max-width: 100%;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .footer-links {
+            min-width: 0;
+        }
+
+        .footer-links a {
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            .hero h1 {
+                font-size: clamp(36px, 6vw, 56px);
+            }
+
+            .sample-card {
+                width: calc((100% - 24px) / 2);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 16px 5%;
+                gap: 14px;
+            }
+
+            .nav-links {
+                width: 100%;
+                gap: 10px 14px;
+            }
+
+            .hero {
+                padding: 64px 6% 60px;
+            }
+
+            .hero h1 {
+                font-size: clamp(30px, 8vw, 40px);
+                letter-spacing: -0.6px;
+                line-height: 1.15;
+            }
+
+            .hero h1 span {
+                display: inline;
+            }
+
+            .hero h1 span + span::before {
+                content: " ";
+            }
+
+            .hero-intro {
+                font-size: clamp(17px, 4.5vw, 19px);
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .materials-section {
+                padding: 52px 5% 60px;
+            }
+
+            .material-card {
+                padding: 28px 20px 32px;
+                border-radius: 24px;
+            }
+
+            .material-card h2 {
+                font-size: clamp(28px, 7vw, 34px);
+            }
+
+            .material-description {
+                font-size: 16px;
+            }
+
+            .sample-gallery {
+                gap: 16px;
+            }
+
+            .sample-card {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+            }
+
+            .final-cta {
+                padding: 60px 5% 64px;
+            }
+
+            .final-cta h2 {
+                font-size: clamp(27px, 7vw, 34px);
+            }
+
+            .final-cta p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                align-items: stretch;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+                align-self: center;
+            }
+
+            footer {
+                padding: 48px 5% 28px;
+            }
+
+            .footer-logo {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .nav-links {
+                column-gap: 12px;
+                row-gap: 9px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .hero-category {
+                font-size: 12px;
+                letter-spacing: 1.6px;
+                overflow-wrap: anywhere;
+            }
+
+            .hero h1 {
+                font-size: clamp(27px, 7.8vw, 34px);
+            }
+
+            .material-card {
+                padding: 25px 16px 28px;
+            }
+
+            .sample-card {
+                border-radius: 16px;
+            }
+
+            .footer-links {
+                column-gap: 14px;
+                row-gap: 10px;
+            }
+
+            .footer-links a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .navbar {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .hero,
+            .materials-section,
+            .final-cta,
+            footer {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .material-card {
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+
+            .nav-links {
+                column-gap: 9px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: light;
+            }
+
+            body {
+                color: var(--navy);
+                background-color: #FCFAF5;
+            }
+
+            .navbar {
+                background: rgba(255, 255, 255, 0.82);
+            }
+
+            .hero h1,
+            .material-card h2,
+            .final-cta h2 {
+                color: var(--navy);
+            }
+
+            .hero-intro,
+            .material-description,
+            .nav-links a {
+                color: var(--navy-soft);
+            }
+
+            .hero-description,
+            .final-cta p {
+                color: var(--muted);
+            }
+
+            footer {
+                background: #182B45;
+                color: #FFFFFF;
+            }
+
+            .footer-links a,
+            .cta-button {
+                color: #FFFFFF;
+            }
         }
 
     </style>
