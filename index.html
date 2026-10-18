@@ -975,6 +975,310 @@
       .floating-triangle { animation:none; opacity:.25; }
       .section-button,.class-card,.brand,nav a::after { transition:none; }
     }
+
+
+    /* RESPONSIVE FIT + FIXED LIGHT COLOUR SCHEME
+       Added only as overrides; original content, colors, and functionality remain unchanged. */
+    :root,
+    html {
+      color-scheme: light;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    body {
+      min-width: 0;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+    }
+
+    .section-inner,
+    .hero-inner,
+    .nav-container,
+    .about-grid,
+    .materials-grid,
+    .boost-grid,
+    .quiz-zone-box,
+    .reviews-grid,
+    .class-cards,
+    .class-card,
+    .about-content,
+    .materials-content,
+    .boost-content,
+    .quiz-zone-content,
+    .reviews-content {
+      min-width: 0;
+    }
+
+    .section {
+      min-height: 100svh;
+      padding-block: clamp(48px, 8vh, 110px);
+      scroll-margin-top: 90px;
+    }
+
+    .hero.section {
+      min-height: calc(100svh - 82px);
+      height: auto;
+      padding-block: clamp(36px, 6vh, 70px);
+    }
+
+    .hero-title img {
+      max-width: 100%;
+    }
+
+    .materials-list {
+      max-width: 100%;
+    }
+
+    .materials-list li {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .section-button {
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .about-visual,
+    .materials-visual,
+    .boost-visual,
+    .quiz-zone-visual,
+    .reviews-visual {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .about-visual img,
+    .materials-visual img,
+    .boost-visual img,
+    .quiz-zone-visual img,
+    .reviews-visual img {
+      max-width: 100%;
+    }
+
+    .join-box,
+    .order-box,
+    .contact-box,
+    .quiz-zone-box {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: 1100px) {
+      .about-grid,
+      .materials-grid,
+      .boost-grid {
+        gap: clamp(28px, 5vw, 55px);
+      }
+
+      .quiz-zone-box {
+        gap: clamp(24px, 4vw, 40px);
+        padding: clamp(24px, 4vw, 40px);
+      }
+
+      .class-cards {
+        gap: 20px;
+      }
+
+      .class-card {
+        padding: clamp(22px, 3vw, 32px) clamp(16px, 2.5vw, 26px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section {
+        min-height: auto;
+        padding-block: clamp(52px, 7vh, 80px);
+      }
+
+      .hero.section {
+        min-height: calc(100svh - 82px);
+      }
+
+      .about-grid,
+      .materials-grid,
+      .boost-grid,
+      .quiz-zone-box {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .reviews-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          "visual"
+          "content";
+      }
+
+      .about-visual,
+      .materials-visual,
+      .boost-visual,
+      .reviews-visual {
+        width: 100%;
+      }
+
+      .class-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .materials-list {
+        width: fit-content;
+        max-width: 100%;
+      }
+
+      .quiz-zone-visual {
+        min-height: 0;
+        height: clamp(220px, 42vw, 340px);
+        order: 1;
+      }
+
+      .quiz-zone-visual img {
+        min-height: 0;
+        height: 100%;
+      }
+
+      .quiz-zone-content {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        width: 92%;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        line-height: 1.5;
+      }
+
+      .section {
+        min-height: auto;
+        padding-block: 56px;
+        scroll-margin-top: 130px;
+      }
+
+      .hero.section {
+        min-height: auto;
+        padding-block: 48px 58px;
+      }
+
+      .section-inner {
+        width: 90%;
+      }
+
+      .about-grid,
+      .materials-grid,
+      .boost-grid,
+      .reviews-grid {
+        gap: 28px;
+      }
+
+      .class-cards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .class-card {
+        padding: 28px 22px;
+      }
+
+      .about-visual {
+        min-height: 0;
+        height: auto;
+      }
+
+      .about-visual img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: 420px;
+        object-fit: cover;
+      }
+
+      .materials-visual {
+        height: clamp(240px, 70vw, 380px);
+        min-height: 0;
+      }
+
+      .materials-visual img {
+        min-height: 0;
+      }
+
+      .boost-visual,
+      .reviews-visual {
+        height: clamp(220px, 62vw, 320px);
+        min-height: 0;
+      }
+
+      .boost-visual img,
+      .reviews-visual img {
+        height: 100%;
+        min-height: 0;
+      }
+
+      .quiz-zone-box {
+        padding: 24px 18px;
+        gap: 24px;
+        border-radius: 28px;
+      }
+
+      .quiz-zone-visual {
+        height: clamp(200px, 58vw, 290px);
+      }
+
+      .join-box,
+      .order-box,
+      .contact-box {
+        padding: clamp(28px, 7vw, 45px) clamp(18px, 5vw, 25px);
+        border-radius: 28px;
+      }
+
+      .footer-description {
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (max-width: 380px) {
+      nav {
+        gap: 8px 12px;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 8.5vw, 32px);
+        overflow-wrap: anywhere;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(22px, 7vw, 25px);
+      }
+
+      .section-button {
+        padding: 12px 18px;
+      }
+
+      .materials-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
   </style>
 </head>
 
