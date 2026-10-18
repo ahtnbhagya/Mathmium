@@ -562,45 +562,216 @@
     .quiz-zone-button:hover { box-shadow:0 17px 38px rgba(21,158,148,.26); }
 
     /* SECTION 06 — TREASURES */
-    .reviews-section {
-      background:linear-gradient(135deg,#FFF9FA 0%,#FFD0D6 48%,#FFFDF8 100%);
-    }
+    
+/* SECTION 06 — TREASURES */
+.reviews-section {
+  background: linear-gradient(
+    135deg,
+    #FFF9FA 0%,
+    #FFD0D6 48%,
+    #FFFDF8 100%
+  );
+}
 
-    .reviews-grid {
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      grid-template-areas:"visual content";
-      gap:80px;
-      align-items:center;
-    }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "visual content";
+  gap: 55px;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
 
-    .reviews-content {
-      grid-area:content;
-      max-width:650px;
-      order:2;
-      text-align:center;
-      margin-left:auto;
-      margin-right:auto;
-    }
+.reviews-content {
+  grid-area: content;
+  min-width: 0;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  margin: 0 auto;
+}
 
-    .reviews-label,.reviews-title { color:var(--red-deep); }
-    .reviews-text { color:var(--text-soft); text-align:center; }
+.reviews-label,
+.reviews-title {
+  color: var(--red-deep);
+}
 
-    .reviews-button { background:var(--red-deep); box-shadow:0 12px 28px rgba(201,46,69,.16); }
-    .reviews-button:hover { box-shadow:0 17px 38px rgba(201,46,69,.25); }
+.reviews-text {
+  color: var(--text-soft);
+  text-align: center;
+  overflow-wrap: break-word;
+}
 
-    .reviews-visual {
-      grid-area:visual;
-      min-height:430px;
-      order:2;
-      border-radius:38px;
-      overflow:hidden;
-      background:linear-gradient(145deg,rgba(255,208,214,.85),rgba(255,253,248,.95));
-      border:1px solid rgba(201,46,69,.08);
-      box-shadow:0 20px 50px rgba(201,46,69,.08);
-    }
+.reviews-button {
+  background: var(--red-deep);
+  box-shadow: 0 12px 28px rgba(201, 46, 69, 0.16);
+}
 
-    .reviews-visual img { width:100%; height:100%; min-height:430px; object-fit:cover; border-radius:30px; padding:10px; }
+.reviews-button:hover {
+  box-shadow: 0 17px 38px rgba(201, 46, 69, 0.25);
+}
+
+.reviews-visual {
+  grid-area: visual;
+  width: 100%;
+  min-width: 0;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 208, 214, 0.85),
+    rgba(255, 253, 248, 0.95)
+  );
+  border: 1px solid rgba(201, 46, 69, 0.08);
+  box-shadow: 0 20px 50px rgba(201, 46, 69, 0.08);
+}
+
+.reviews-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .reviews-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "visual"
+      "content";
+    gap: 32px;
+  }
+
+  .reviews-visual {
+    min-height: 0;
+    height: 350px;
+  }
+
+  .reviews-visual img {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .reviews-content {
+    max-width: 700px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .reviews-section {
+    padding: 65px 0;
+    min-height: auto;
+  }
+
+  .reviews-section .section-inner {
+    width: 90%;
+  }
+
+  .reviews-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "visual"
+      "content";
+    gap: 26px;
+  }
+
+  .reviews-visual {
+    width: 100%;
+    height: 260px;
+    min-height: 0;
+    border-radius: 24px;
+  }
+
+  .reviews-visual img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 7px;
+    border-radius: 24px;
+    object-fit: cover;
+  }
+
+  .reviews-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .reviews-label {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+  .reviews-title {
+    font-size: clamp(30px, 8vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .reviews-text {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .reviews-button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .reviews-section {
+    padding: 50px 0;
+  }
+
+  .reviews-section .section-inner {
+    width: 90%;
+  }
+
+  .reviews-grid {
+    gap: 22px;
+  }
+
+  .reviews-visual {
+    height: 220px;
+    border-radius: 20px;
+  }
+
+  .reviews-visual img {
+    border-radius: 20px;
+  }
+
+  .reviews-title {
+    font-size: 32px;
+  }
+
+  .reviews-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .reviews-button {
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+}
+
 
     /* SECTION 07 — JOIN A CLASS */
     .join-section { background:linear-gradient(135deg,#FAFFF1 0%,#E5F9B5 50%,#F5FCEB 100%); }
