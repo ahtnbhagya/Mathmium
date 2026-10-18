@@ -1651,14 +1651,36 @@
       const cellW = width / columns;
       const cellH = height / rows;
 
-      // Keep triangles away from the edges of their cells.
-      const x = cell.col * cellW + cellW * (
-        0.25 + Math.random() * 0.50
+      // Keep the centre clear and concentrate triangles near the edges.
+      let x, y;
+      let attempts = 0;
+
+      do {
+      x = cell.col * cellW + cellW * (
+      0.15 + Math.random() * 0.70
       );
 
-      const y = cell.row * cellH + cellH * (
-        0.25 + Math.random() * 0.50
+      y = cell.row * cellH + cellH * (
+      0.15 + Math.random() * 0.70
       );
+
+      attempts++;
+
+      const nx = x / width;
+      const ny = y / height;
+    
+      // Elliptical clear space around the hero content.
+      const centreX = (nx - 0.5) / 0.36;
+      const centreY = (ny - 0.5) / 0.34;
+
+      const inCentre =
+      centreX * centreX + centreY * centreY < 1;
+
+      // Retry positions that fall inside the clear centre.
+      if (!inCentre) break;
+
+      // Avoid an endless loop on small screens.
+      } while (attempts < 12);
 
       const size = Math.round(
         18 + Math.random() * (mobile ? 16 : 22)
