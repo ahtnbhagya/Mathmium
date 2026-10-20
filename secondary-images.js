@@ -70,7 +70,8 @@ const geometricConstructionsFiles = [
     "Images/Secondary/3 Geometric Constructions/10.gif",
     "Images/Secondary/3 Geometric Constructions/11.gif",
     "Images/Secondary/3 Geometric Constructions/12.gif",
-    "Images/Secondary/3 Geometric Constructions/13.gif"
+    "Images/Secondary/3 Geometric Constructions/13.gif",
+    "Images/Secondary/3 Geometric Constructions/14.gif"
 
 ];
 
