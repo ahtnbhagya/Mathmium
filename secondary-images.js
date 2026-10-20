@@ -44,7 +44,7 @@ const consumerMathematicsFiles = [
     "Images/Secondary/2 Consumer Mathematics/3.gif",
     "Images/Secondary/2 Consumer Mathematics/4.gif",
     "Images/Secondary/2 Consumer Mathematics/5.gif",
-    "Images/Secondary/2 Consumer Mathematics/6.gif"
+    "Images/Secondary/2 Consumer Mathematics/7.gif"
 
 ];
 
