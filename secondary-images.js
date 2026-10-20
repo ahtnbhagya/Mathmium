@@ -1,3 +1,4 @@
+
 /* =========================================================
    MATHMIUM
    SECONDARY MATHEMATICS
@@ -104,5 +105,26 @@ const figuresFiles = [
     "Images/Secondary/5 3D Figures/1.gif",
     "Images/Secondary/5 3D Figures/2.gif",
     "Images/Secondary/5 3D Figures/3.gif"
+
+];
+
+
+/* =========================================================
+   06 — RATIOS, RATES & PERCENTAGES
+
+   Folder:
+   images/Secondary/6 Ratios/
+========================================================= */
+
+const ratiosFiles = [
+
+    "Images/Secondary/6 Ratios/1.gif",
+    "Images/Secondary/6 Ratios/2.gif",
+    "Images/Secondary/6 Ratios/3.gif",
+    "Images/Secondary/6 Ratios/4.gif",
+    "Images/Secondary/6 Ratios/5.gif",
+    "Images/Secondary/6 Ratios/6.gif",
+    "Images/Secondary/6 Ratios/7.gif",
+    "Images/Secondary/6 Ratios/8.gif"
 
 ];
