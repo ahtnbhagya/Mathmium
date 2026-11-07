@@ -92,7 +92,9 @@ const additionFiles = [
     "Images/Primary/4 Addition & Subtraction/P4 10.gif",
     "Images/Primary/4 Addition & Subtraction/P4 11.gif",
     "Images/Primary/4 Addition & Subtraction/P4 12.gif",
-    "Images/Primary/4 Addition & Subtraction/P4 13.gif"
+    "Images/Primary/4 Addition & Subtraction/P4 13.gif",
+    "Images/Primary/4 Addition & Subtraction/P4 14.gif",
+    "Images/Primary/4 Addition & Subtraction/P4 15.gif"
 
 ];
 
