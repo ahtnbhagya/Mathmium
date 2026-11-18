@@ -1,5 +1,9 @@
 const parentReviews = [
 
+    /* =====================================================
+       MAY 2025
+    ===================================================== */
+
     {
         title: "Parent of a Kindergarten student",
         date: "May 2025",
@@ -11,6 +15,11 @@ const parentReviews = [
         date: "May 2025",
         quote: "She loves counting with the princesses. Thank you so much for the session."
     },
+
+
+    /* =====================================================
+       AUGUST 2025
+    ===================================================== */
 
     {
         title: "Parent of a Grade 1 student",
@@ -24,6 +33,11 @@ const parentReviews = [
         quote: "Many thanks for creating such engaging lessons with animations. My daughter really enjoys them."
     },
 
+
+    /* =====================================================
+       SEPTEMBER 2025
+    ===================================================== */
+
     {
         title: "Parent of a Grade 1 student",
         date: "September 2025",
@@ -35,6 +49,11 @@ const parentReviews = [
         date: "September 2025",
         quote: "Thank you very much for the great study material. I am really impressed with how good your visuals are explaining the concepts."
     },
+
+
+    /* =====================================================
+       OCTOBER 2025
+    ===================================================== */
 
     {
         title: "Parent of a Grade 1 student",
@@ -55,6 +74,10 @@ const parentReviews = [
     },
 
 
+    /* =====================================================
+       NOVEMBER 2025
+    ===================================================== */
+
     {
         title: "Parent of a Grade 2 student",
         date: "November 2025",
@@ -74,6 +97,10 @@ const parentReviews = [
     },
 
 
+    /* =====================================================
+       DECEMBER 2025
+    ===================================================== */
+
     {
         title: "Parent of a Grade 2 student",
         date: "December 2025",
@@ -86,12 +113,21 @@ const parentReviews = [
         quote: "My kid loves finding the numbers with the princesses. Thank you for making Maths so enjoyable for her."
     },
 
+
+    /* =====================================================
+       MAY 2026
+    ===================================================== */
+
     {
         title: "Parent of a Grade 2 student",
         date: "May 2026",
         quote: "I really appreciate the thought and care you put into every step of the learning process."
     },
 
+
+    /* =====================================================
+       NOVEMBER 2026
+    ===================================================== */
 
     {
         title: "Parent of a Grade 4 student",
