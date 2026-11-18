@@ -212,7 +212,7 @@
 
 
         /* =====================================================
-           REVIEWS SECTION
+           REVIEWS SECTION - ONE COLUMN
         ===================================================== */
 
         .reviews-section {
@@ -268,98 +268,39 @@
         }
 
 
-        /* =====================================================
-           PASTEL ACCENT COLOURS
-        ===================================================== */
-
-        .review-card {
-            --accent-light: #A0C4FA;
-            --accent-dark: #7FA8E8;
-        }
-
-        .review-card:nth-child(4n + 2) {
-            --accent-light: #CEC2FF;
-            --accent-dark: #A99AE8;
-        }
-
-        .review-card:nth-child(4n + 3) {
-            --accent-light: #F5C5D5;
-            --accent-dark: #E6A5BC;
-        }
-
-        .review-card:nth-child(4n + 4) {
-            --accent-light: #BFE8D4;
-            --accent-dark: #8DC9AD;
-        }
+        /* SUBTLE PASTEL ACCENT */
 
         .review-card::before {
             content: "";
             position: absolute;
+
             left: 0;
             top: 0;
             right: 0;
+
             height: 4px;
 
             background: linear-gradient(
                 90deg,
-                var(--accent-light),
-                var(--accent-dark)
+                #A0C4FA,
+                #CEC2FF
             );
         }
 
-
-        /* =====================================================
-           PROFILE ICON BESIDE EACH PARENT TITLE
-        ===================================================== */
-
-        .review-heading {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            margin-bottom: 7px;
-        }
-
-        .review-heading .review-title {
-            margin-bottom: 0;
-        }
-
-        .profile-icon {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            color: var(--accent-dark);
-
-            background: color-mix(
-                in srgb,
-                var(--accent-light) 24%,
-                white
-            );
-
-            border: 1.5px solid color-mix(
-                in srgb,
-                var(--accent-dark) 55%,
-                white
+        .review-card:nth-child(3n + 2)::before {
+            background: linear-gradient(
+                90deg,
+                #CEC2FF,
+                #F5C5D5
             );
         }
 
-        .profile-icon svg {
-            width: 19px;
-            height: 19px;
-            display: block;
-        }
-
-        @supports not (background: color-mix(in srgb, white, black)) {
-            .profile-icon {
-                background: rgba(160, 196, 250, 0.22);
-                border-color: var(--accent-dark);
-            }
+        .review-card:nth-child(3n + 3)::before {
+            background: linear-gradient(
+                90deg,
+                #BFE8D4,
+                #A0C4FA
+            );
         }
 
 
@@ -648,21 +589,6 @@
                 font-size: 15px;
             }
 
-            .profile-icon {
-                width: 33px;
-                height: 33px;
-                min-width: 33px;
-            }
-
-            .profile-icon svg {
-                width: 17px;
-                height: 17px;
-            }
-
-            .review-heading {
-                gap: 9px;
-            }
-
             .review-date {
                 font-size: 12px;
                 margin-bottom: 16px;
@@ -870,53 +796,6 @@
 
     <script src="teaching-feedback.js"></script>
 
-    <script>
-        /* Add a pastel profile icon to each dynamically loaded parent review. */
-        document.addEventListener("DOMContentLoaded", function () {
-            const reviewsContainer = document.getElementById("reviewsContainer");
-
-            if (!reviewsContainer) return;
-
-            const profileIcon = `
-                <span class="profile-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="8" r="3.5"
-                                stroke="currentColor" stroke-width="1.8"/>
-                        <path d="M5.5 20c.5-3.5 2.9-5.5 6.5-5.5s6 2 6.5 5.5"
-                              stroke="currentColor" stroke-width="1.8"
-                              stroke-linecap="round"/>
-                    </svg>
-                </span>
-            `;
-
-            function addProfileIcons() {
-                const cards = reviewsContainer.querySelectorAll(".review-card");
-
-                cards.forEach(function (card) {
-                    const title = card.querySelector(".review-title");
-
-                    if (!title || card.querySelector(".profile-icon")) return;
-
-                    const heading = document.createElement("div");
-                    heading.className = "review-heading";
-
-                    title.parentNode.insertBefore(heading, title);
-                    heading.appendChild(title);
-                    heading.insertAdjacentHTML("afterbegin", profileIcon);
-                });
-            }
-
-            addProfileIcons();
-
-            const observer = new MutationObserver(addProfileIcons);
-
-            observer.observe(reviewsContainer, {
-                childList: true,
-                subtree: true
-            });
-        });
-    </script>
 
 </body>
 
