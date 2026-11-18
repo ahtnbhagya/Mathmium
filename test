@@ -1,23 +1,43 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
     <title>Words from Parents | Mathmium</title>
 
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
+
+
 
     <style>
 
@@ -31,16 +51,19 @@
             padding: 0;
         }
 
+
+
         html {
             scroll-behavior: smooth;
         }
+
+
 
         body {
             font-family: "Quicksand", sans-serif;
             color: #24324A;
             min-height: 100vh;
             overflow-x: hidden;
-
             background:
                 radial-gradient(
                     circle at 8% 8%,
@@ -71,6 +94,7 @@
         }
 
 
+
         /* =====================================================
            NAVIGATION
         ===================================================== */
@@ -81,18 +105,21 @@
             align-items: center;
             justify-content: space-between;
             padding: 22px 6%;
-
-            background: rgba(255, 255, 255, 0.82);
-
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(36, 50, 74, 0.08);
-
+            background:
+                rgba(255, 255, 255, 0.82);
+            backdrop-filter:
+                blur(18px);
+            -webkit-backdrop-filter:
+                blur(18px);
+            border-bottom:
+                1px solid
+                rgba(36, 50, 74, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
         }
+
+
 
         .logo {
             display: flex;
@@ -101,11 +128,12 @@
             text-decoration: none;
         }
 
+
+
         .logo img {
             width: 145px;
             height: auto;
             display: block;
-
             filter:
                 brightness(0)
                 saturate(100%)
@@ -117,28 +145,37 @@
                 contrast(92%);
         }
 
+
+
         .nav-links {
             display: flex;
             align-items: center;
             gap: 30px;
         }
 
+
+
         .nav-links a {
-            font-family: "Quicksand", sans-serif;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 16px;
             font-weight: 600;
             color: #24324A;
             text-decoration: none;
-
             transition:
                 color 0.25s ease,
                 transform 0.25s ease;
         }
 
+
+
         .nav-links a:hover {
             color: #756A9C;
-            transform: translateY(-1px);
+            transform:
+                translateY(-1px);
         }
+
 
 
         /* =====================================================
@@ -150,8 +187,11 @@
             text-align: center;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 110px 24px 80px;
+            padding:
+                110px 24px 80px;
         }
+
+
 
         .hero::before {
             content: "";
@@ -159,14 +199,15 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-
-            background: rgba(206, 194, 255, 0.16);
+            background:
+                rgba(206, 194, 255, 0.16);
             filter: blur(4px);
-
             top: 55px;
             left: -60px;
             z-index: -1;
         }
+
+
 
         .hero::after {
             content: "";
@@ -174,14 +215,15 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-
-            background: rgba(160, 196, 250, 0.16);
+            background:
+                rgba(160, 196, 250, 0.16);
             filter: blur(4px);
-
             bottom: 15px;
             right: -40px;
             z-index: -1;
         }
+
+
 
         .hero-kicker {
             font-size: 15px;
@@ -191,25 +233,30 @@
             margin-bottom: 18px;
         }
 
+
+
         .hero h1 {
             max-width: 950px;
-            margin: 0 auto 28px;
-
-            font-size: clamp(38px, 5vw, 64px);
+            margin:
+                0 auto 28px;
+            font-size:
+                clamp(38px, 5vw, 64px);
             line-height: 1.12;
             font-weight: 700;
             color: #24324A;
         }
 
+
+
         .hero-description {
             max-width: 820px;
             margin: 0 auto;
-
             font-size: 20px;
             line-height: 1.8;
             font-weight: 600;
             color: #66707D;
         }
+
 
 
         /* =====================================================
@@ -218,16 +265,21 @@
 
         .reviews-section {
             width: 100%;
-            padding: 25px 24px 100px;
+            padding:
+                25px 24px 100px;
         }
+
+
 
         .reviews-container {
-            width: min(1100px, 100%);
+            width:
+                min(1100px, 100%);
             margin: 0 auto;
-
-            columns: 2;
-            column-gap: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
+
 
 
         /* =====================================================
@@ -236,138 +288,125 @@
 
         .review-card {
             position: relative;
-            display: inline-block;
             width: 100%;
-            margin: 0 0 28px;
-
-            padding: 30px 32px;
-
-            background: rgba(255, 255, 255, 0.88);
-
-            border: 1px solid rgba(36, 50, 74, 0.075);
-            border-radius: 22px;
-
+            padding:
+                42px 52px 42px 62px;
+            background:
+                rgba(255, 255, 255, 0.86);
+            border:
+                1px solid
+                rgba(36, 50, 74, 0.075);
+            border-radius: 28px;
             box-shadow:
-                0 12px 35px rgba(36, 50, 74, 0.055);
-
+                0 16px 42px
+                rgba(36, 50, 74, 0.075);
             overflow: hidden;
-            break-inside: avoid;
-
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease,
-                background 0.3s ease;
+                *background* 0.3s ease;
         }
+
+
 
         .review-card:hover {
-            transform: translateY(-4px);
-
-            background: rgba(255, 255, 255, 0.98);
-
+            transform:
+                translateY(-5px);
+            background:
+                rgba(255, 255, 255, 0.96);
             box-shadow:
-                0 20px 45px rgba(36, 50, 74, 0.10);
+                0 24px 55px
+                rgba(36, 50, 74, 0.11);
         }
 
 
-        /* SUBTLE PASTEL ACCENT */
+
+        /* =====================================================
+           PASTEL LEFT ACCENT
+        ===================================================== */
 
         .review-card::before {
             content: "";
             position: absolute;
-
             left: 0;
             top: 0;
-            right: 0;
-
-            height: 4px;
-
-            background: linear-gradient(
-                90deg,
-                #A0C4FA,
-                #CEC2FF
-            );
+            bottom: 0;
+            width: 7px;
+            background:
+                linear-gradient(
+                    180deg,
+                    #A0C4FA,
+                    #CEC2FF
+                );
         }
+
+
 
         .review-card:nth-child(3n + 2)::before {
-            background: linear-gradient(
-                90deg,
-                #CEC2FF,
-                #F5C5D5
-            );
+            background:
+                linear-gradient(
+                    180deg,
+                    #CEC2FF,
+                    #F5C5D5
+                );
         }
+
+
 
         .review-card:nth-child(3n + 3)::before {
-            background: linear-gradient(
-                90deg,
-                #BFE8D4,
-                #A0C4FA
-            );
+            background:
+                linear-gradient(
+                    180deg,
+                    #BFE8D4,
+                    #A0C4FA
+                );
         }
 
 
-        /* =====================================================
-           REVIEW TITLE
-        ===================================================== */
-
-        .review-title {
-            font-family: "Quicksand", sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 800;
-
-            color: #43516A;
-
-            margin-bottom: 7px;
-        }
-
 
         /* =====================================================
-           REVIEW DATE
+           FEEDBACK TEXT
+           QUICKSAND
+           ITALIC
+           DARK ASH
         ===================================================== */
 
-        .review-date {
-            font-family: "Quicksand", sans-serif;
-            font-size: 13px;
-            line-height: 1.5;
+        .review-quote {
+            position: relative;
+            font-family:
+                "Quicksand",
+                sans-serif;
+            font-size: 28px;
+            line-height: 1.55;
             font-weight: 600;
-
-            color: #9299A7;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =====================================================
-           REVIEW FEEDBACK
-        ===================================================== */
-
-        .review-feedback {
-            font-family: "Quicksand", sans-serif;
-            font-size: 17px;
-            line-height: 1.85;
-            font-weight: 600;
-
+            font-style: italic;
             color: #626873;
             letter-spacing: 0.1px;
-
-            position: relative;
-            padding-left: 19px;
+            padding-left: 14px;
         }
 
-        .review-feedback::before {
+
+
+        /* =====================================================
+           QUOTE MARK
+        ===================================================== */
+
+        .review-quote::before {
             content: "“";
-
             position: absolute;
-            left: -2px;
-            top: -9px;
-
-            font-family: Georgia, serif;
-            font-size: 32px;
+            left: -25px;
+            top: -25px;
+            font-family:
+                Georgia,
+                serif;
+            font-size: 72px;
             line-height: 1;
-
             font-weight: 700;
-            color: rgba(117, 106, 156, 0.35);
+            font-style: normal;
+            color:
+                rgba(117, 106, 156, 0.16);
         }
+
 
 
         /* =====================================================
@@ -377,54 +416,61 @@
         .back-section {
             display: flex;
             justify-content: center;
-            padding: 0 24px 100px;
+            padding:
+                0 24px 100px;
         }
+
+
 
         .back-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             min-width: 155px;
-            padding: 14px 28px;
-
+            padding:
+                14px 28px;
             border-radius: 50px;
             text-decoration: none;
-
-            font-family: "Quicksand", sans-serif;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 15px;
             font-weight: 700;
             color: #FFFFFF;
-
-            background: linear-gradient(
-                135deg,
-                #5B7890,
-                #456579
-            );
-
-            border: 1px solid rgba(69, 101, 121, 0.18);
-
+            background:
+                linear-gradient(
+                    135deg,
+                    #5B7890,
+                    #456579
+                );
+            border:
+                1px solid
+                rgba(69, 101, 121, 0.18);
             box-shadow:
-                0 12px 28px rgba(69, 101, 121, 0.18);
-
+                0 12px 28px
+                rgba(69, 101, 121, 0.18);
             transition:
-                background 0.25s ease,
+                *background* 0.25s ease,
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
         }
 
+
+
         .back-button:hover {
-            background: linear-gradient(
-                135deg,
-                #294A70,
-                #1D3557
-            );
-
-            transform: translateY(-3px);
-
+            background:
+                linear-gradient(
+                    135deg,
+                    #294A70,
+                    #1D3557
+                );
+            transform:
+                translateY(-3px);
             box-shadow:
-                0 18px 36px rgba(29, 53, 87, 0.25);
+                0 18px 36px
+                rgba(29, 53, 87, 0.25);
         }
+
 
 
         /* =====================================================
@@ -433,42 +479,58 @@
 
         footer {
             text-align: center;
-            padding: 65px 24px 30px;
-
-            background: linear-gradient(
-                135deg,
-                #F5F8FD,
-                #F8F5FF
-            );
-
-            border-top: 1px solid rgba(36, 50, 74, 0.09);
+            padding:
+                65px 24px 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #F5F8FD,
+                    #F8F5FF
+                );
+            border-top:
+                1px solid
+                rgba(36, 50, 74, 0.09);
         }
 
+
+
         .footer-logo {
-            font-family: "Pacifico", cursive;
+            font-family:
+                "Pacifico",
+                cursive;
             font-size: 35px;
             color: #24324A;
             margin-bottom: 8px;
         }
 
+
+
         .footer-tagline {
-            font-family: "Quicksand", sans-serif;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 16px;
             font-weight: 600;
             color: #43516A;
             margin-bottom: 12px;
         }
 
+
+
         .footer-description {
             max-width: 600px;
-            margin: 0 auto 28px;
-
-            font-family: "Quicksand", sans-serif;
+            margin:
+                0 auto 28px;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 15px;
             line-height: 1.7;
             font-weight: 600;
             color: #596575;
         }
+
+
 
         .footer-links {
             display: flex;
@@ -478,26 +540,37 @@
             margin-bottom: 28px;
         }
 
+
+
         .footer-links a {
-            font-family: "Quicksand", sans-serif;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 15px;
             font-weight: 700;
             color: #43516A;
             text-decoration: none;
-
-            transition: color 0.25s ease;
+            transition:
+                color 0.25s ease;
         }
+
+
 
         .footer-links a:hover {
             color: #756A9C;
         }
 
+
+
         .copyright {
-            font-family: "Quicksand", sans-serif;
+            font-family:
+                "Quicksand",
+                sans-serif;
             font-size: 14px;
             font-weight: 600;
             color: #758092;
         }
+
 
 
         /* =====================================================
@@ -507,114 +580,145 @@
         @media (max-width: 800px) {
 
             .navbar {
-                padding: 18px 5%;
+                padding:
+                    18px 5%;
                 flex-direction: column;
                 gap: 14px;
             }
 
+
+
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 14px 22px;
+                gap:
+                    14px 22px;
             }
 
+
+
             .hero {
-                padding: 75px 20px 60px;
+                padding:
+                    75px 20px 60px;
             }
+
+
 
             .hero h1 {
                 font-size: 42px;
             }
 
+
+
             .hero-description {
                 font-size: 18px;
             }
 
-            .reviews-container {
-                column-gap: 20px;
-            }
+
 
             .review-card {
-                padding: 27px 25px;
-                border-radius: 20px;
+                padding:
+                    36px 38px 36px 48px;
+                border-radius: 24px;
             }
 
-            .review-feedback {
-                font-size: 16px;
-                line-height: 1.8;
+
+
+            .review-quote {
+                font-size: 26px;
+                line-height: 1.55;
             }
 
         }
+
 
 
         /* =====================================================
            MOBILE
         ===================================================== */
 
-        @media (max-width: 600px) {
+        @media (max-width: 500px) {
 
             .logo img {
                 width: 135px;
             }
 
+
+
             .nav-links a {
                 font-size: 15px;
             }
 
+
+
             .hero {
-                padding: 60px 18px 50px;
+                padding:
+                    60px 18px 50px;
             }
+
+
 
             .hero-kicker {
                 font-size: 13px;
                 letter-spacing: 2.3px;
             }
 
+
+
             .hero h1 {
                 font-size: 34px;
                 line-height: 1.18;
             }
+
+
 
             .hero-description {
                 font-size: 17px;
                 line-height: 1.7;
             }
 
+
+
             .reviews-section {
-                padding: 20px 16px 65px;
+                padding:
+                    20px 16px 65px;
             }
 
-            .reviews-container {
-                columns: 1;
-            }
+
 
             .review-card {
-                padding: 27px 25px;
-                margin-bottom: 20px;
-                border-radius: 19px;
+                padding:
+                    32px 24px 32px 38px;
+                border-radius: 22px;
             }
 
-            .review-title {
-                font-size: 15px;
+
+
+            .review-quote {
+                font-size: 24px;
+                line-height: 1.55;
+                padding-left: 5px;
             }
 
-            .review-date {
-                font-size: 12px;
-                margin-bottom: 16px;
+
+
+            .review-quote::before {
+                left: -17px;
+                top: -17px;
+                font-size: 56px;
             }
 
-            .review-feedback {
-                font-size: 16px;
-                line-height: 1.8;
-                padding-left: 17px;
-            }
+
 
             .back-section {
                 padding-bottom: 70px;
             }
 
+
+
             .footer-links {
-                gap: 14px 20px;
+                gap:
+                    14px 20px;
             }
 
         }
@@ -624,7 +728,9 @@
 </head>
 
 
+
 <body>
+
 
 
     <!-- =====================================================
@@ -633,7 +739,10 @@
 
     <nav class="navbar">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
 
             <img
                 src="Images/Logo.svg"
@@ -643,23 +752,32 @@
         </a>
 
 
+
         <div class="nav-links">
 
             <a href="index.html">
                 Home
             </a>
 
+
+
             <a href="index.html#tutor">
                 Meet the Tutor
             </a>
+
+
 
             <a href="index.html#classes">
                 Classes
             </a>
 
+
+
             <a href="index.html#materials">
                 Materials
             </a>
+
+
 
             <a href="index.html#treasures">
                 Treasure I've Earned
@@ -682,9 +800,11 @@
         </div>
 
 
+
         <h1>
             My Greatest Strength Is the Words from Parents
         </h1>
+
 
 
         <p class="hero-description">
@@ -709,7 +829,7 @@
         >
 
             <!--
-                Parent reviews are automatically loaded
+                Reviews are automatically loaded
                 from teaching-feedback.js
             -->
 
@@ -747,9 +867,11 @@
         </div>
 
 
+
         <div class="footer-tagline">
             Your World of Mathematics
         </div>
+
 
 
         <div class="footer-description">
@@ -758,37 +880,51 @@
         </div>
 
 
+
         <div class="footer-links">
 
             <a href="index.html">
                 Home
             </a>
 
+
+
             <a href="index.html#classes">
                 Classes
             </a>
+
+
 
             <a href="index.html#materials">
                 Materials
             </a>
 
+
+
             <a href="index.html#join">
                 Join Classes
             </a>
+
+
 
             <a href="index.html#order">
                 Order Materials
             </a>
 
+
+
             <a href="index.html#contact">
                 Contact
             </a>
+
+
 
             <a href="index.html#treasures">
                 Reviews
             </a>
 
         </div>
+
 
 
         <div class="copyright">
@@ -804,6 +940,7 @@
     ===================================================== -->
 
     <script src="teaching-feedback.js"></script>
+
 
 
 </body>
