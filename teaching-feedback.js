@@ -1,3 +1,4 @@
+
 const parentReviews = [
 
     /* =====================================================
@@ -142,3 +143,88 @@ const parentReviews = [
     }
 
 ];
+
+
+// =====================================================
+// DISPLAY PARENT REVIEWS
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const container = document.getElementById("reviewsContainer");
+
+    if (!container) {
+        console.error("Mathmium: Reviews container not found.");
+        return;
+    }
+
+    // Clear existing cards to prevent duplicates.
+    container.innerHTML = "";
+
+    // Profile icon SVG.
+    const profileSVG = `
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.8"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             aria-hidden="true">
+
+            <circle cx="12" cy="8" r="3.5"></circle>
+
+            <path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"></path>
+
+        </svg>
+    `;
+
+    // Create each review card.
+    parentReviews.forEach(function (review) {
+
+        const card = document.createElement("div");
+        card.className = "review-card";
+
+        // Parent information.
+        const meta = document.createElement("div");
+        meta.className = "review-meta";
+
+        // Profile icon.
+        const profile = document.createElement("div");
+        profile.className = "profile-icon";
+        profile.setAttribute("aria-label", "Parent profile");
+        profile.innerHTML = profileSVG;
+
+        // Reviewer details.
+        const details = document.createElement("div");
+        details.className = "reviewer-details";
+
+        const title = document.createElement("div");
+        title.className = "review-title";
+        title.textContent = review.title;
+
+        const date = document.createElement("div");
+        date.className = "review-date";
+        date.textContent = review.date;
+
+        details.appendChild(title);
+        details.appendChild(date);
+
+        meta.appendChild(profile);
+        meta.appendChild(details);
+
+        // Review quotation.
+        const quote = document.createElement("div");
+        quote.className = "review-quote";
+        quote.textContent = review.quote;
+
+        // Assemble the card.
+        card.appendChild(meta);
+        card.appendChild(quote);
+
+        container.appendChild(card);
+
+    });
+
+    console.log("Mathmium: " + parentReviews.length + " parent reviews loaded successfully.");
+
+});
