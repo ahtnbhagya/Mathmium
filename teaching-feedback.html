@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
-    <title>Words from Clients | Mathmium</title>
+    <title>Words from Parents | Mathmium</title>
 
     <!-- GOOGLE FONTS -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -44,16 +41,32 @@
             overflow-x: hidden;
 
             background:
-                radial-gradient(circle at 8% 8%, rgba(160, 196, 250, 0.20), transparent 28%),
-                radial-gradient(circle at 92% 12%, rgba(206, 194, 255, 0.20), transparent 30%),
-                radial-gradient(circle at 12% 88%, rgba(245, 197, 213, 0.15), transparent 28%),
-                radial-gradient(circle at 88% 85%, rgba(191, 232, 212, 0.16), transparent 30%),
-                linear-gradient(135deg, #FCFEFF 0%, #F9FBFF 45%, #FFFDF9 100%);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+                radial-gradient(
+                    circle at 8% 8%,
+                    rgba(160, 196, 250, 0.20),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 92% 12%,
+                    rgba(206, 194, 255, 0.20),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 12% 88%,
+                    rgba(245, 197, 213, 0.15),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 88% 85%,
+                    rgba(191, 232, 212, 0.16),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #FCFEFF 0%,
+                    #F9FBFF 45%,
+                    #FFFDF9 100%
+                );
         }
 
 
@@ -84,7 +97,7 @@
             display: flex;
             align-items: center;
             line-height: 1;
-            white-space: nowrap;
+            text-decoration: none;
         }
 
         .logo img {
@@ -110,14 +123,20 @@
         }
 
         .nav-links a {
+            font-family: "Quicksand", sans-serif;
             font-size: 16px;
             font-weight: 600;
             color: #24324A;
-            transition: color 0.25s ease;
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
         }
 
         .nav-links a:hover {
             color: #756A9C;
+            transform: translateY(-1px);
         }
 
 
@@ -127,45 +146,39 @@
 
         .hero {
             position: relative;
+            text-align: center;
             max-width: 1100px;
             margin: 0 auto;
             padding: 110px 24px 80px;
-            text-align: center;
         }
 
         .hero::before {
             content: "";
             position: absolute;
-
             width: 180px;
             height: 180px;
-
             border-radius: 50%;
-            background: rgba(206, 194, 255, 0.16);
 
+            background: rgba(206, 194, 255, 0.16);
             filter: blur(4px);
 
             top: 55px;
             left: -60px;
-
             z-index: -1;
         }
 
         .hero::after {
             content: "";
             position: absolute;
-
             width: 150px;
             height: 150px;
-
             border-radius: 50%;
-            background: rgba(160, 196, 250, 0.16);
 
+            background: rgba(160, 196, 250, 0.16);
             filter: blur(4px);
 
             bottom: 15px;
             right: -40px;
-
             z-index: -1;
         }
 
@@ -181,27 +194,25 @@
             max-width: 950px;
             margin: 0 auto 28px;
 
-            font-size: clamp(38px, 6vw, 64px);
-            line-height: 1.15;
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.12;
             font-weight: 700;
-
             color: #24324A;
         }
 
         .hero-description {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
 
             font-size: 20px;
             line-height: 1.8;
             font-weight: 600;
-
             color: #66707D;
         }
 
 
         /* =====================================================
-           CLIENT REVIEWS SECTION
+           REVIEWS SECTION
         ===================================================== */
 
         .reviews-section {
@@ -224,22 +235,17 @@
         ===================================================== */
 
         .review-card {
-            --accent-light: #A0C4FA;
-            --accent-dark: #7FA8E8;
-            --accent-soft: rgba(160, 196, 250, 0.14);
-
             position: relative;
-
             display: block;
             width: 100%;
             margin: 0;
 
-            padding: 38px 42px 38px 52px;
+            padding: 30px 36px;
 
             background: rgba(255, 255, 255, 0.88);
 
             border: 1px solid rgba(36, 50, 74, 0.075);
-            border-radius: 24px;
+            border-radius: 22px;
 
             box-shadow:
                 0 12px 35px rgba(36, 50, 74, 0.055);
@@ -263,51 +269,39 @@
 
 
         /* =====================================================
-           COLOUR VARIATIONS
+           PASTEL ACCENT COLOURS
         ===================================================== */
 
-        .review-card:nth-child(4n + 1) {
+        .review-card {
             --accent-light: #A0C4FA;
             --accent-dark: #7FA8E8;
-            --accent-soft: rgba(160, 196, 250, 0.14);
         }
 
         .review-card:nth-child(4n + 2) {
             --accent-light: #CEC2FF;
             --accent-dark: #A99AE8;
-            --accent-soft: rgba(206, 194, 255, 0.16);
         }
 
         .review-card:nth-child(4n + 3) {
             --accent-light: #F5C5D5;
             --accent-dark: #E6A5BC;
-            --accent-soft: rgba(245, 197, 213, 0.16);
         }
 
         .review-card:nth-child(4n + 4) {
             --accent-light: #BFE8D4;
             --accent-dark: #8DC9AD;
-            --accent-soft: rgba(191, 232, 212, 0.17);
         }
-
-
-        /* =====================================================
-           LEFT ACCENT LINE
-        ===================================================== */
 
         .review-card::before {
             content: "";
-
             position: absolute;
-
             left: 0;
             top: 0;
-            bottom: 0;
-
-            width: 5px;
+            right: 0;
+            height: 4px;
 
             background: linear-gradient(
-                180deg,
+                90deg,
                 var(--accent-light),
                 var(--accent-dark)
             );
@@ -315,97 +309,122 @@
 
 
         /* =====================================================
-           PROFILE ICON + CLIENT TITLE
+           PROFILE ICON BESIDE EACH PARENT TITLE
         ===================================================== */
 
         .review-heading {
             display: flex;
             align-items: center;
-            gap: 13px;
+            gap: 11px;
             margin-bottom: 7px;
         }
 
+        .review-heading .review-title {
+            margin-bottom: 0;
+        }
+
         .profile-icon {
-            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
 
-            width: 43px;
-            height: 43px;
-
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
-            background: var(--accent-soft);
-            border: 1px solid var(--accent-light);
-
             color: var(--accent-dark);
+
+            background: color-mix(
+                in srgb,
+                var(--accent-light) 24%,
+                white
+            );
+
+            border: 1.5px solid color-mix(
+                in srgb,
+                var(--accent-dark) 55%,
+                white
+            );
         }
 
         .profile-icon svg {
-            width: 23px;
-            height: 23px;
+            width: 19px;
+            height: 19px;
             display: block;
         }
 
+        @supports not (background: color-mix(in srgb, white, black)) {
+            .profile-icon {
+                background: rgba(160, 196, 250, 0.22);
+                border-color: var(--accent-dark);
+            }
+        }
+
+
+        /* =====================================================
+           REVIEW TITLE
+        ===================================================== */
+
         .review-title {
+            font-family: "Quicksand", sans-serif;
             font-size: 16px;
             line-height: 1.5;
             font-weight: 800;
+
             color: #43516A;
+
+            margin-bottom: 7px;
         }
 
 
         /* =====================================================
-           CLIENT REVIEW DATE
+           REVIEW DATE
         ===================================================== */
 
         .review-date {
+            font-family: "Quicksand", sans-serif;
             font-size: 13px;
             line-height: 1.5;
             font-weight: 600;
+
             color: #9299A7;
-            margin-bottom: 22px;
+
+            margin-bottom: 20px;
         }
 
 
         /* =====================================================
-           CLIENT REVIEW QUOTE
+           REVIEW FEEDBACK
         ===================================================== */
 
-        .review-quote {
-            position: relative;
-
-            font-size: 22px;
-            line-height: 1.8;
+        .review-feedback {
+            font-family: "Quicksand", sans-serif;
+            font-size: 17px;
+            line-height: 1.85;
             font-weight: 600;
-            font-style: italic;
 
             color: #626873;
             letter-spacing: 0.1px;
 
-            padding-left: 18px;
+            position: relative;
+            padding-left: 19px;
         }
 
-        .review-quote::before {
+        .review-feedback::before {
             content: "“";
 
             position: absolute;
-
-            left: -8px;
-            top: -15px;
+            left: -2px;
+            top: -9px;
 
             font-family: Georgia, serif;
-
-            font-size: 46px;
+            font-size: 32px;
             line-height: 1;
 
             font-weight: 700;
-            font-style: normal;
-
-            color: var(--accent-dark);
-            opacity: 0.45;
+            color: rgba(117, 106, 156, 0.35);
         }
 
 
@@ -416,7 +435,6 @@
         .back-section {
             display: flex;
             justify-content: center;
-
             padding: 0 24px 100px;
         }
 
@@ -429,17 +447,18 @@
             padding: 14px 28px;
 
             border-radius: 50px;
+            text-decoration: none;
+
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #FFFFFF;
 
             background: linear-gradient(
                 135deg,
                 #5B7890,
                 #456579
             );
-
-            color: #FFFFFF;
-
-            font-size: 15px;
-            font-weight: 700;
 
             border: 1px solid rgba(69, 101, 121, 0.18);
 
@@ -491,6 +510,7 @@
         }
 
         .footer-tagline {
+            font-family: "Quicksand", sans-serif;
             font-size: 16px;
             font-weight: 600;
             color: #43516A;
@@ -501,10 +521,10 @@
             max-width: 600px;
             margin: 0 auto 28px;
 
+            font-family: "Quicksand", sans-serif;
             font-size: 15px;
             line-height: 1.7;
             font-weight: 600;
-
             color: #596575;
         }
 
@@ -512,16 +532,17 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-
             gap: 18px 28px;
-
             margin-bottom: 28px;
         }
 
         .footer-links a {
+            font-family: "Quicksand", sans-serif;
             font-size: 15px;
             font-weight: 700;
             color: #43516A;
+            text-decoration: none;
+
             transition: color 0.25s ease;
         }
 
@@ -530,6 +551,7 @@
         }
 
         .copyright {
+            font-family: "Quicksand", sans-serif;
             font-size: 14px;
             font-weight: 600;
             color: #758092;
@@ -567,12 +589,12 @@
             }
 
             .review-card {
-                padding: 32px 32px 32px 43px;
-                border-radius: 22px;
+                padding: 27px 25px;
+                border-radius: 20px;
             }
 
-            .review-quote {
-                font-size: 20px;
+            .review-feedback {
+                font-size: 16px;
                 line-height: 1.8;
             }
 
@@ -616,48 +638,40 @@
                 padding: 20px 16px 65px;
             }
 
-            .reviews-container {
-                gap: 20px;
-            }
-
             .review-card {
-                padding: 27px 22px 29px 30px;
+                padding: 27px 25px;
+                margin-bottom: 20px;
                 border-radius: 19px;
-            }
-
-            .review-heading {
-                gap: 11px;
-            }
-
-            .profile-icon {
-                width: 38px;
-                height: 38px;
-            }
-
-            .profile-icon svg {
-                width: 20px;
-                height: 20px;
             }
 
             .review-title {
                 font-size: 15px;
             }
 
+            .profile-icon {
+                width: 33px;
+                height: 33px;
+                min-width: 33px;
+            }
+
+            .profile-icon svg {
+                width: 17px;
+                height: 17px;
+            }
+
+            .review-heading {
+                gap: 9px;
+            }
+
             .review-date {
                 font-size: 12px;
-                margin-bottom: 17px;
+                margin-bottom: 16px;
             }
 
-            .review-quote {
-                font-size: 17px;
+            .review-feedback {
+                font-size: 16px;
                 line-height: 1.8;
-                padding-left: 12px;
-            }
-
-            .review-quote::before {
-                left: -7px;
-                top: -11px;
-                font-size: 36px;
+                padding-left: 17px;
             }
 
             .back-section {
@@ -696,15 +710,25 @@
 
         <div class="nav-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="index.html#tutor">Meet the Tutor</a>
+            <a href="index.html#tutor">
+                Meet the Tutor
+            </a>
 
-            <a href="index.html#classes">Classes</a>
+            <a href="index.html#classes">
+                Classes
+            </a>
 
-            <a href="index.html#materials">Materials</a>
+            <a href="index.html#materials">
+                Materials
+            </a>
 
-            <a href="index.html#treasures">Treasure I've Earned</a>
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
 
         </div>
 
@@ -719,19 +743,19 @@
     <header class="hero">
 
         <div class="hero-kicker">
-            WORDS FROM CLIENTS
+            WORDS FROM PARENTS
         </div>
 
 
         <h1>
-            The Joy Behind Every Creation
+            My Greatest Strength Is the Words from Parents
         </h1>
 
 
         <p class="hero-description">
-            The kind words, appreciation, and meaningful feedback I receive
-            from clients about my Mathematics materials are some of the most
-            precious treasures I have collected throughout my creative journey.
+            The kind words, encouragement, and meaningful feedback
+            I receive from parents are among the most precious
+            treasures I have earned throughout my teaching journey.
         </p>
 
     </header>
@@ -739,39 +763,41 @@
 
 
     <!-- =====================================================
-         CLIENT REVIEWS
+         PARENT REVIEWS
     ===================================================== -->
 
-    <main>
+    <section class="reviews-section">
 
-        <section class="reviews-section">
+        <div
+            class="reviews-container"
+            id="reviewsContainer"
+        >
 
-            <div
-                class="reviews-container"
-                id="clientReviewsContainer"
-            >
+            <!--
+                Parent reviews are automatically loaded
+                from teaching-feedback.js
+            -->
 
-                <!-- Client reviews loaded from materials-feedback.js -->
+        </div>
 
-            </div>
-
-        </section>
+    </section>
 
 
 
-        <!-- =================================================
-             BACK BUTTON
-        ================================================== -->
+    <!-- =====================================================
+         BACK BUTTON
+    ===================================================== -->
 
-        <section class="back-section">
+    <section class="back-section">
 
-            <a href="reviews.html" class="back-button">
-                Go Back
-            </a>
+        <a
+            href="reviews.html"
+            class="back-button"
+        >
+            Go Back
+        </a>
 
-        </section>
-
-    </main>
+    </section>
 
 
 
@@ -799,19 +825,33 @@
 
         <div class="footer-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="index.html#classes">Classes</a>
+            <a href="index.html#classes">
+                Classes
+            </a>
 
-            <a href="index.html#materials">Materials</a>
+            <a href="index.html#materials">
+                Materials
+            </a>
 
-            <a href="index.html#join">Join Classes</a>
+            <a href="index.html#join">
+                Join Classes
+            </a>
 
-            <a href="index.html#order">Order Materials</a>
+            <a href="index.html#order">
+                Order Materials
+            </a>
 
-            <a href="index.html#contact">Contact</a>
+            <a href="index.html#contact">
+                Contact
+            </a>
 
-            <a href="index.html#treasures">Reviews</a>
+            <a href="index.html#treasures">
+                Reviews
+            </a>
 
         </div>
 
@@ -825,100 +865,58 @@
 
 
     <!-- =====================================================
-         CLIENT FEEDBACK JAVASCRIPT
+         JAVASCRIPT
     ===================================================== -->
 
-    <script src="materials-feedback.js"></script>
-
-
-    <!-- =====================================================
-         PROFILE ICON INJECTION
-    ===================================================== -->
+    <script src="teaching-feedback.js"></script>
 
     <script>
-
+        /* Add a pastel profile icon to each dynamically loaded parent review. */
         document.addEventListener("DOMContentLoaded", function () {
-
-            const reviewsContainer = document.getElementById(
-                "clientReviewsContainer"
-            );
+            const reviewsContainer = document.getElementById("reviewsContainer");
 
             if (!reviewsContainer) return;
 
             const profileIcon = `
                 <span class="profile-icon" aria-hidden="true">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-
-                        <circle
-                            cx="12"
-                            cy="8"
-                            r="3.5"
-                            stroke="currentColor"
-                            stroke-width="1.7"
-                        />
-
-                        <path
-                            d="M5 20C5 16.5 8.1 13.8 12 13.8C15.9 13.8 19 16.5 19 20"
-                            stroke="currentColor"
-                            stroke-width="1.7"
-                            stroke-linecap="round"
-                        />
-
+                    <svg viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="3.5"
+                                stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M5.5 20c.5-3.5 2.9-5.5 6.5-5.5s6 2 6.5 5.5"
+                              stroke="currentColor" stroke-width="1.8"
+                              stroke-linecap="round"/>
                     </svg>
-
                 </span>
             `;
 
             function addProfileIcons() {
+                const cards = reviewsContainer.querySelectorAll(".review-card");
 
-                const reviewCards = reviewsContainer.querySelectorAll(
-                    ".review-card"
-                );
-
-                reviewCards.forEach(function (card) {
-
-                    if (card.querySelector(".profile-icon")) return;
-
+                cards.forEach(function (card) {
                     const title = card.querySelector(".review-title");
 
-                    if (!title) return;
+                    if (!title || card.querySelector(".profile-icon")) return;
 
                     const heading = document.createElement("div");
-
                     heading.className = "review-heading";
 
                     title.parentNode.insertBefore(heading, title);
-
-                    heading.innerHTML = profileIcon;
-
                     heading.appendChild(title);
-
+                    heading.insertAdjacentHTML("afterbegin", profileIcon);
                 });
-
             }
 
-            // Add icons to existing reviews
             addProfileIcons();
 
-            // Detect dynamically loaded reviews
-            const observer = new MutationObserver(function () {
-                addProfileIcons();
-            });
+            const observer = new MutationObserver(addProfileIcons);
 
             observer.observe(reviewsContainer, {
                 childList: true,
                 subtree: true
             });
-
         });
-
     </script>
-
 
 </body>
 
