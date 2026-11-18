@@ -16,6 +16,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
 
+
     <style>
 
         /* =====================================================
@@ -39,32 +40,11 @@
             overflow-x: hidden;
 
             background:
-                radial-gradient(
-                    circle at 8% 8%,
-                    rgba(160, 196, 250, 0.20),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 92% 12%,
-                    rgba(206, 194, 255, 0.20),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 12% 88%,
-                    rgba(245, 197, 213, 0.15),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 88% 85%,
-                    rgba(191, 232, 212, 0.16),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    135deg,
-                    #FCFEFF 0%,
-                    #F9FBFF 45%,
-                    #FFFDF9 100%
-                );
+                radial-gradient(circle at 8% 8%, rgba(160, 196, 250, 0.20), transparent 28%),
+                radial-gradient(circle at 92% 12%, rgba(206, 194, 255, 0.20), transparent 30%),
+                radial-gradient(circle at 12% 88%, rgba(245, 197, 213, 0.15), transparent 28%),
+                radial-gradient(circle at 88% 85%, rgba(191, 232, 212, 0.16), transparent 30%),
+                linear-gradient(135deg, #FCFEFF 0%, #F9FBFF 45%, #FFFDF9 100%);
         }
 
 
@@ -126,9 +106,7 @@
             color: #24324A;
             text-decoration: none;
 
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
+            transition: color 0.25s ease, transform 0.25s ease;
         }
 
         .nav-links a:hover {
@@ -227,8 +205,8 @@
 
         .review-card {
             --accent: #A0C4FA;
-            --accent-dark: #668BBF;
-            --accent-soft: rgba(160, 196, 250, 0.12);
+            --accent-dark: #6387BC;
+            --accent-soft: rgba(160, 196, 250, 0.15);
 
             position: relative;
             width: 100%;
@@ -296,27 +274,43 @@
 
 
         /* =====================================================
-           RIGHT SIDE ACCENT LINE
+           MATCHING LEFT AND RIGHT ACCENT LINES
         ===================================================== */
 
+        .review-card::before,
         .review-card::after {
             content: "";
             position: absolute;
 
             top: 22px;
-            right: 0;
             bottom: 22px;
 
             width: 4px;
 
             background: var(--accent);
 
-            border-radius: 8px 0 0 8px;
+            border-radius: 8px;
 
             opacity: 0.9;
+
             transition: width 0.3s ease;
         }
 
+        /* LEFT SIDE LINE */
+
+        .review-card::before {
+            left: 0;
+        }
+
+        /* RIGHT SIDE LINE */
+
+        .review-card::after {
+            right: 0;
+        }
+
+        /* MATCHED HOVER EFFECT */
+
+        .review-card:hover::before,
         .review-card:hover::after {
             width: 6px;
         }
@@ -355,9 +349,7 @@
 
             color: var(--accent-dark);
 
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .review-card:hover .profile-icon {
@@ -367,12 +359,11 @@
         .profile-icon svg {
             width: 25px;
             height: 25px;
-
             display: block;
         }
 
 
-        /* REVIEWER NAME AND DATE */
+        /* REVIEWER DETAILS */
 
         .reviewer-details {
             display: flex;
@@ -384,18 +375,14 @@
             font-size: 15px;
             line-height: 1.4;
             font-weight: 800;
-
             color: #344258;
-
             letter-spacing: 0.1px;
         }
 
         .review-date {
             font-size: 12px;
             font-weight: 600;
-
             color: #8993A1;
-
             letter-spacing: 0.3px;
         }
 
@@ -404,7 +391,6 @@
            FEEDBACK QUOTE
         ===================================================== */
 
-        .review-feedback,
         .review-quote {
             position: relative;
 
@@ -426,7 +412,6 @@
 
         /* OPENING QUOTATION MARK */
 
-        .review-feedback::before,
         .review-quote::before {
             content: "“";
 
@@ -450,7 +435,6 @@
 
         /* CLOSING QUOTATION MARK */
 
-        .review-feedback::after,
         .review-quote::after {
             content: "”";
 
@@ -502,11 +486,7 @@
 
             color: #FFFFFF;
 
-            background: linear-gradient(
-                135deg,
-                #5B7890,
-                #456579
-            );
+            background: linear-gradient(135deg, #5B7890, #456579);
 
             border: 1px solid rgba(69, 101, 121, 0.18);
 
@@ -519,11 +499,7 @@
         }
 
         .back-button:hover {
-            background: linear-gradient(
-                135deg,
-                #294A70,
-                #1D3557
-            );
+            background: linear-gradient(135deg, #294A70, #1D3557);
 
             transform: translateY(-3px);
 
@@ -539,11 +515,7 @@
             text-align: center;
             padding: 65px 24px 30px;
 
-            background: linear-gradient(
-                135deg,
-                #F5F8FD,
-                #F8F5FF
-            );
+            background: linear-gradient(135deg, #F5F8FD, #F8F5FF);
 
             border-top: 1px solid rgba(36, 50, 74, 0.09);
         }
@@ -637,7 +609,6 @@
                 border-radius: 20px;
             }
 
-            .review-feedback,
             .review-quote {
                 font-size: 21px;
             }
@@ -694,10 +665,18 @@
                 border-radius: 18px;
             }
 
+            /* BOTH SIDE LINES ON MOBILE */
+
+            .review-card::before,
             .review-card::after {
                 top: 18px;
                 bottom: 18px;
                 width: 3px;
+            }
+
+            .review-card:hover::before,
+            .review-card:hover::after {
+                width: 4px;
             }
 
             .review-meta {
@@ -724,21 +703,18 @@
                 font-size: 11px;
             }
 
-            .review-feedback,
             .review-quote {
                 font-size: 18px;
                 line-height: 1.75;
                 padding: 0 13px;
             }
 
-            .review-feedback::before,
             .review-quote::before {
                 left: -5px;
                 top: -12px;
                 font-size: 40px;
             }
 
-            .review-feedback::after,
             .review-quote::after {
                 font-size: 30px;
                 vertical-align: -10px;
@@ -784,10 +760,7 @@
 
         <a href="index.html" class="logo">
 
-            <img
-                src="Images/Logo.svg"
-                alt="Mathmium"
-            >
+            <img src="Images/Logo.svg" alt="Mathmium">
 
         </a>
 
@@ -923,22 +896,14 @@
 
 
     <!-- =====================================================
-         LOAD EXISTING REVIEWS
+         LOAD PARENT FEEDBACK
     ===================================================== -->
 
     <script src="teaching-feedback.js"></script>
 
 
     <!-- =====================================================
-         AUTOMATIC REVIEW CARD ENHANCEMENT
-
-         Adds:
-         - Professional profile icon
-         - Reviewer information grouping
-         - Existing review date
-         - Matching accent colours
-
-         Does not modify teaching-feedback.js
+         PROFESSIONAL PROFILE ICON ENHANCEMENT
     ===================================================== -->
 
     <script>
@@ -950,7 +915,7 @@
             if (!container) return;
 
 
-            /* Professional profile icon */
+            /* PROFESSIONAL PROFILE ICON */
 
             const profileSVG = `
                 <svg
@@ -959,6 +924,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
                 >
+
                     <circle
                         cx="12"
                         cy="8"
@@ -973,19 +939,18 @@
                         stroke-width="1.7"
                         stroke-linecap="round"
                     />
+
                 </svg>
             `;
 
 
-            /* Enhance dynamically created review cards */
+            /* ENHANCE REVIEW CARDS */
 
             function enhanceReviews() {
 
                 const cards = container.querySelectorAll(".review-card");
 
                 cards.forEach(function (card) {
-
-                    /* Prevent duplicate icons */
 
                     if (card.dataset.enhanced === "true") return;
 
@@ -995,16 +960,17 @@
                     const date = card.querySelector(".review-date");
 
 
-                    if (!title) return;
+                    if (!title || !date) return;
 
 
-                    /* Create reviewer information container */
+                    /* REVIEWER INFORMATION */
 
                     const meta = document.createElement("div");
+
                     meta.className = "review-meta";
 
 
-                    /* Create profile icon */
+                    /* PROFILE ICON */
 
                     const profile = document.createElement("div");
 
@@ -1015,28 +981,26 @@
                     profile.innerHTML = profileSVG;
 
 
-                    /* Create reviewer details container */
+                    /* REVIEWER DETAILS */
 
                     const details = document.createElement("div");
 
                     details.className = "reviewer-details";
 
 
-                    /* Move existing title and date */
-
                     details.appendChild(title);
 
-                    if (date) {
-                        details.appendChild(date);
-                    }
+                    details.appendChild(date);
 
+
+                    /* ASSEMBLE META */
 
                     meta.appendChild(profile);
 
                     meta.appendChild(details);
 
 
-                    /* Place reviewer information at the top */
+                    /* PLACE AT TOP OF CARD */
 
                     card.insertBefore(meta, card.firstChild);
 
@@ -1048,12 +1012,12 @@
             }
 
 
-            /* Run immediately for already loaded reviews */
+            /* INITIAL CHECK */
 
             enhanceReviews();
 
 
-            /* Watch for reviews loaded dynamically */
+            /* OBSERVE DYNAMICALLY LOADED REVIEWS */
 
             const observer = new MutationObserver(function () {
 
@@ -1075,5 +1039,5 @@
 
 
 </body>
+
 </html>
-s
