@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
@@ -12,20 +12,13 @@
     <title>Words from Clients | Mathmium</title>
 
     <!-- GOOGLE FONTS -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
 
     <style>
 
@@ -141,7 +134,6 @@
             font-size: 16px;
             font-weight: 600;
             color: #24324A;
-
             transition: color 0.25s ease;
         }
 
@@ -165,36 +157,26 @@
         .hero::before {
             content: "";
             position: absolute;
-
             width: 180px;
             height: 180px;
-
             border-radius: 50%;
             background: rgba(206, 194, 255, 0.16);
-
             filter: blur(4px);
-
             top: 55px;
             left: -60px;
-
             z-index: -1;
         }
 
         .hero::after {
             content: "";
             position: absolute;
-
             width: 150px;
             height: 150px;
-
             border-radius: 50%;
             background: rgba(160, 196, 250, 0.16);
-
             filter: blur(4px);
-
             bottom: 15px;
             right: -40px;
-
             z-index: -1;
         }
 
@@ -209,29 +191,24 @@
         .hero h1 {
             max-width: 950px;
             margin: 0 auto 28px;
-
             font-size: clamp(38px, 6vw, 64px);
             line-height: 1.15;
             font-weight: 700;
-
             color: #24324A;
         }
 
         .hero-description {
             max-width: 900px;
             margin: 0 auto;
-
             font-size: 20px;
             line-height: 1.8;
             font-weight: 600;
-
             color: #66707D;
         }
 
 
         /* =====================================================
            CLIENT REVIEWS SECTION
-           ONE VERTICAL COLUMN
         ===================================================== */
 
         .reviews-section {
@@ -242,7 +219,6 @@
         .reviews-container {
             width: min(850px, 100%);
             margin: 0 auto;
-
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -255,14 +231,12 @@
 
         .review-card {
             position: relative;
-
             display: block;
             width: 100%;
             margin: 0;
-
             padding: 38px 42px 38px 52px;
 
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.90);
 
             border: 1px solid rgba(36, 50, 74, 0.075);
             border-radius: 24px;
@@ -280,7 +254,6 @@
 
         .review-card:hover {
             transform: translateY(-4px);
-
             background: rgba(255, 255, 255, 0.98);
 
             box-shadow:
@@ -289,18 +262,15 @@
 
 
         /* =====================================================
-           PASTEL ACCENT BAR
+           PASTEL CARD ACCENT COLOURS
         ===================================================== */
 
         .review-card::before {
             content: "";
-
             position: absolute;
-
             left: 0;
             top: 0;
             bottom: 0;
-
             width: 5px;
 
             background: linear-gradient(
@@ -310,15 +280,15 @@
             );
         }
 
-        .review-card:nth-child(3n + 2)::before {
+        .review-card:nth-child(4n + 2)::before {
             background: linear-gradient(
                 180deg,
                 #CEC2FF,
-                #F5C5D5
+                #F0BDD0
             );
         }
 
-        .review-card:nth-child(3n + 3)::before {
+        .review-card:nth-child(4n + 3)::before {
             background: linear-gradient(
                 180deg,
                 #BFE8D4,
@@ -326,78 +296,146 @@
             );
         }
 
+        .review-card:nth-child(4n + 4)::before {
+            background: linear-gradient(
+                180deg,
+                #F0BDD0,
+                #F5D9A8
+            );
+        }
+
 
         /* =====================================================
-           CLIENT REVIEW TITLE
+           PROFILE ICON + REVIEW DETAILS
+        ===================================================== */
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 28px;
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .review-card:hover .profile-icon {
+            transform: scale(1.06);
+        }
+
+        /* Blue */
+
+        .review-card:nth-child(4n + 1) .profile-icon {
+            background: #EAF2FF;
+            border: 1px solid #A0C4FA;
+            color: #6389C0;
+        }
+
+        /* Lavender */
+
+        .review-card:nth-child(4n + 2) .profile-icon {
+            background: #F1EDFF;
+            border: 1px solid #CEC2FF;
+            color: #8A79BD;
+        }
+
+        /* Mint */
+
+        .review-card:nth-child(4n + 3) .profile-icon {
+            background: #E9F8F0;
+            border: 1px solid #BFE8D4;
+            color: #679D80;
+        }
+
+        /* Blush */
+
+        .review-card:nth-child(4n + 4) .profile-icon {
+            background: #FFF0F4;
+            border: 1px solid #F0BDD0;
+            color: #C17E99;
+        }
+
+        .profile-icon svg {
+            width: 27px;
+            height: 27px;
+            display: block;
+        }
+
+        .reviewer-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 0;
+        }
+
+
+        /* =====================================================
+           REVIEW TITLE
         ===================================================== */
 
         .review-title {
             font-family: "Quicksand", sans-serif;
-
             font-size: 16px;
             line-height: 1.5;
             font-weight: 800;
-
             color: #43516A;
-
-            margin-bottom: 7px;
+            margin-bottom: 4px;
         }
 
 
         /* =====================================================
-           CLIENT REVIEW DATE
+           REVIEW DATE
         ===================================================== */
 
         .review-date {
             font-family: "Quicksand", sans-serif;
-
             font-size: 13px;
             line-height: 1.5;
             font-weight: 600;
-
             color: #9299A7;
-
-            margin-bottom: 22px;
+            margin: 0;
         }
 
 
         /* =====================================================
-           CLIENT REVIEW QUOTE
+           REVIEW QUOTE
         ===================================================== */
 
         .review-quote {
             position: relative;
-
             font-family: "Quicksand", sans-serif;
-
             font-size: 22px;
             line-height: 1.8;
             font-weight: 600;
             font-style: italic;
-
             color: #626873;
-
             letter-spacing: 0.1px;
-
             padding-left: 18px;
         }
 
         .review-quote::before {
             content: "“";
-
             position: absolute;
-
             left: -8px;
             top: -15px;
-
             font-family: Georgia, serif;
-
             font-size: 46px;
             line-height: 1;
-
             font-weight: 700;
             font-style: normal;
-
             color: rgba(117, 106, 156, 0.30);
         }
 
@@ -409,7 +447,6 @@
         .back-section {
             display: flex;
             justify-content: center;
-
             padding: 0 24px 100px;
         }
 
@@ -417,11 +454,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             min-width: 155px;
-
             padding: 14px 28px;
-
             border-radius: 50px;
 
             background: linear-gradient(
@@ -431,11 +465,9 @@
             );
 
             color: #FFFFFF;
-
             font-family: "Quicksand", sans-serif;
             font-size: 15px;
             font-weight: 700;
-
             border: 1px solid rgba(69, 101, 121, 0.18);
 
             box-shadow:
@@ -467,7 +499,6 @@
 
         footer {
             text-align: center;
-
             padding: 65px 24px 30px;
 
             background: linear-gradient(
@@ -497,12 +528,10 @@
         .footer-description {
             max-width: 600px;
             margin: 0 auto 28px;
-
             font-family: "Quicksand", sans-serif;
             font-size: 15px;
             line-height: 1.7;
             font-weight: 600;
-
             color: #596575;
         }
 
@@ -510,9 +539,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-
             gap: 18px 28px;
-
             margin-bottom: 28px;
         }
 
@@ -520,9 +547,7 @@
             font-family: "Quicksand", sans-serif;
             font-size: 15px;
             font-weight: 700;
-
             color: #43516A;
-
             transition: color 0.25s ease;
         }
 
@@ -546,7 +571,6 @@
 
             .navbar {
                 padding: 18px 5%;
-
                 flex-direction: column;
                 gap: 14px;
             }
@@ -628,13 +652,28 @@
                 border-radius: 19px;
             }
 
+            .review-meta {
+                gap: 12px;
+                margin-bottom: 23px;
+            }
+
+            .profile-icon {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+            }
+
+            .profile-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
             .review-title {
                 font-size: 15px;
             }
 
             .review-date {
                 font-size: 12px;
-                margin-bottom: 17px;
             }
 
             .review-quote {
@@ -673,10 +712,7 @@
 
     <nav class="navbar">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
+        <a href="index.html" class="logo">
 
             <img
                 src="Images/Logo.svg"
@@ -688,25 +724,15 @@
 
         <div class="nav-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#tutor">
-                Meet the Tutor
-            </a>
+            <a href="index.html#tutor">Meet the Tutor</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#treasures">
-                Treasure I've Earned
-            </a>
+            <a href="index.html#treasures">Treasure I've Earned</a>
 
         </div>
 
@@ -724,11 +750,9 @@
             WORDS FROM CLIENTS
         </div>
 
-
         <h1>
             The Joy Behind Every Creation
         </h1>
-
 
         <p class="hero-description">
             The kind words, appreciation, and meaningful feedback I receive
@@ -753,10 +777,7 @@
                 id="clientReviewsContainer"
             >
 
-                <!--
-                    Client reviews are automatically loaded
-                    from materials-feedback.js
-                -->
+                <!-- Client reviews load from materials-feedback.js -->
 
             </div>
 
@@ -770,10 +791,7 @@
 
         <section class="back-section">
 
-            <a
-                href="reviews.html"
-                class="back-button"
-            >
+            <a href="reviews.html" class="back-button">
                 Go Back
             </a>
 
@@ -793,50 +811,32 @@
             Mathmium
         </div>
 
-
         <div class="footer-tagline">
             Your World of Mathematics
         </div>
-
 
         <div class="footer-description">
             A creative space to discover, practise, explore,
             and enjoy Mathematics.
         </div>
 
-
         <div class="footer-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#join">
-                Join Classes
-            </a>
+            <a href="index.html#join">Join Classes</a>
 
-            <a href="index.html#order">
-                Order Materials
-            </a>
+            <a href="index.html#order">Order Materials</a>
 
-            <a href="index.html#contact">
-                Contact
-            </a>
+            <a href="index.html#contact">Contact</a>
 
-            <a href="index.html#treasures">
-                Reviews
-            </a>
+            <a href="index.html#treasures">Reviews</a>
 
         </div>
-
 
         <div class="copyright">
             © Mathmium
@@ -851,6 +851,125 @@
     ===================================================== -->
 
     <script src="materials-feedback.js"></script>
+
+
+    <!-- =====================================================
+         PROFILE ICON ENHANCEMENT
+         Adds one profile icon to each client review
+    ===================================================== -->
+
+    <script>
+
+        (function () {
+
+            const container = document.getElementById(
+                "clientReviewsContainer"
+            );
+
+            if (!container) return;
+
+
+            const profileSVG = `
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="3.5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    />
+
+                    <path
+                        d="M5 20C5 16.5 8.1 13.8 12 13.8C15.9 13.8 19 16.5 19 20"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                    />
+                </svg>
+            `;
+
+
+            function enhanceReviews() {
+
+                const cards = container.querySelectorAll(".review-card");
+
+                cards.forEach(function (card) {
+
+                    // Prevent adding a second profile icon
+                    if (card.querySelector(".review-meta")) {
+                        return;
+                    }
+
+                    const title = card.querySelector(".review-title");
+                    const date = card.querySelector(".review-date");
+
+                    if (!title || !date) {
+                        return;
+                    }
+
+
+                    // Profile and reviewer information wrapper
+                    const meta = document.createElement("div");
+                    meta.className = "review-meta";
+
+
+                    // Profile icon
+                    const profile = document.createElement("div");
+                    profile.className = "profile-icon";
+
+                    profile.setAttribute(
+                        "aria-label",
+                        "Client profile"
+                    );
+
+                    profile.innerHTML = profileSVG;
+
+
+                    // Title and date wrapper
+                    const details = document.createElement("div");
+                    details.className = "reviewer-details";
+
+
+                    // Move existing title and date into the wrapper
+                    details.appendChild(title);
+                    details.appendChild(date);
+
+
+                    // Assemble profile section
+                    meta.appendChild(profile);
+                    meta.appendChild(details);
+
+
+                    // Place profile section at the top of the card
+                    card.insertBefore(meta, card.firstChild);
+
+                });
+
+            }
+
+
+            // Enhance cards that already exist
+            enhanceReviews();
+
+
+            // Watch for cards added by materials-feedback.js
+            const observer = new MutationObserver(function () {
+                enhanceReviews();
+            });
+
+            observer.observe(container, {
+                childList: true,
+                subtree: true
+            });
+
+        })();
+
+    </script>
 
 
 </body>
