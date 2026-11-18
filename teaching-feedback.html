@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -305,6 +306,27 @@
 
 
         /* =====================================================
+           FIVE-STAR RATING
+        ===================================================== */
+
+        .review-stars {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 16px;
+        }
+
+        .review-stars span {
+            font-size: 23px;
+            line-height: 1;
+            color: #F2C66D;
+
+            text-shadow:
+                0 2px 5px rgba(242, 198, 109, 0.18);
+        }
+
+
+        /* =====================================================
            REVIEW TITLE
         ===================================================== */
 
@@ -600,6 +622,15 @@
                 padding-left: 17px;
             }
 
+            .review-stars {
+                gap: 4px;
+                margin-bottom: 14px;
+            }
+
+            .review-stars span {
+                font-size: 21px;
+            }
+
             .back-section {
                 padding-bottom: 70px;
             }
@@ -795,6 +826,60 @@
     ===================================================== -->
 
     <script src="teaching-feedback.js"></script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const reviewsContainer = document.getElementById("reviewsContainer");
+
+            function addFiveStars() {
+
+                const reviewCards = reviewsContainer.querySelectorAll(".review-card");
+
+                reviewCards.forEach(function (card) {
+
+                    // Avoid adding stars more than once
+                    if (card.querySelector(".review-stars")) {
+                        return;
+                    }
+
+                    const stars = document.createElement("div");
+
+                    stars.className = "review-stars";
+                    stars.setAttribute("aria-label", "5 out of 5 stars");
+
+                    stars.innerHTML = `
+                        <span aria-hidden="true">★</span>
+                        <span aria-hidden="true">★</span>
+                        <span aria-hidden="true">★</span>
+                        <span aria-hidden="true">★</span>
+                        <span aria-hidden="true">★</span>
+                    `;
+
+                    // Insert stars at the top of each review card
+                    card.insertBefore(stars, card.firstChild);
+
+                });
+
+            }
+
+            // Add stars to reviews already available
+            addFiveStars();
+
+            // Detect reviews loaded later by teaching-feedback.js
+            const observer = new MutationObserver(function () {
+                addFiveStars();
+            });
+
+            observer.observe(reviewsContainer, {
+                childList: true,
+                subtree: true
+            });
+
+        });
+
+    </script>
 
 
 </body>
