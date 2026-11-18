@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
@@ -12,20 +12,13 @@
     <title>Words from Clients | Mathmium</title>
 
     <!-- GOOGLE FONTS -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
 
     <style>
 
@@ -260,7 +253,7 @@
             width: 100%;
             margin: 0;
 
-            padding: 38px 42px 38px 52px;
+            padding: 38px 100px 38px 52px;
 
             background: rgba(255, 255, 255, 0.88);
 
@@ -310,7 +303,7 @@
             );
         }
 
-        .review-card:nth-child(3n + 2)::before {
+        .review-card:nth-child(6n + 2)::before {
             background: linear-gradient(
                 180deg,
                 #CEC2FF,
@@ -318,12 +311,105 @@
             );
         }
 
-        .review-card:nth-child(3n + 3)::before {
+        .review-card:nth-child(6n + 3)::before {
             background: linear-gradient(
                 180deg,
                 #BFE8D4,
                 #A0C4FA
             );
+        }
+
+        .review-card:nth-child(6n + 4)::before {
+            background: linear-gradient(
+                180deg,
+                #FFD9B8,
+                #F5C5D5
+            );
+        }
+
+        .review-card:nth-child(6n + 5)::before {
+            background: linear-gradient(
+                180deg,
+                #F8DCA5,
+                #CEC2FF
+            );
+        }
+
+        .review-card:nth-child(6n + 6)::before {
+            background: linear-gradient(
+                180deg,
+                #BFE8D4,
+                #F5C5D5
+            );
+        }
+
+
+        /* =====================================================
+           PROFILE ICON
+           DIFFERENT PASTEL COLOURS
+        ===================================================== */
+
+        .review-card::after {
+            content: "";
+
+            position: absolute;
+
+            top: 32px;
+            right: 32px;
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background-color: #CEC2FF;
+
+            background-image:
+                radial-gradient(
+                    circle at 50% 36%,
+                    rgba(255, 255, 255, 0.95) 0 7px,
+                    transparent 7.5px
+                ),
+                radial-gradient(
+                    ellipse at 50% 105%,
+                    rgba(255, 255, 255, 0.95) 0 15px,
+                    transparent 15.5px
+                );
+
+            background-repeat: no-repeat;
+
+            box-shadow:
+                0 5px 14px rgba(36, 50, 74, 0.10);
+        }
+
+        /* Lavender */
+        .review-card:nth-child(6n + 1)::after {
+            background-color: #BDB0F4;
+        }
+
+        /* Soft pink */
+        .review-card:nth-child(6n + 2)::after {
+            background-color: #F0B7CC;
+        }
+
+        /* Mint green */
+        .review-card:nth-child(6n + 3)::after {
+            background-color: #A9DCC6;
+        }
+
+        /* Sky blue */
+        .review-card:nth-child(6n + 4)::after {
+            background-color: #9DC5EE;
+        }
+
+        /* Peach */
+        .review-card:nth-child(6n + 5)::after {
+            background-color: #F2C49E;
+        }
+
+        /* Soft yellow */
+        .review-card:nth-child(6n + 6)::after {
+            background-color: #E9D18F;
         }
 
 
@@ -570,8 +656,15 @@
             }
 
             .review-card {
-                padding: 32px 32px 32px 43px;
+                padding: 32px 90px 32px 43px;
                 border-radius: 22px;
+            }
+
+            .review-card::after {
+                top: 27px;
+                right: 25px;
+                width: 44px;
+                height: 44px;
             }
 
             .review-quote {
@@ -624,8 +717,23 @@
             }
 
             .review-card {
-                padding: 29px 23px 29px 34px;
+                padding: 28px 22px 29px 34px;
                 border-radius: 19px;
+            }
+
+            .review-card::after {
+                position: relative;
+
+                top: auto;
+                right: auto;
+
+                float: right;
+
+                width: 40px;
+                height: 40px;
+
+                margin-top: -3px;
+                margin-left: 10px;
             }
 
             .review-title {
@@ -673,10 +781,7 @@
 
     <nav class="navbar">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
+        <a href="index.html" class="logo">
 
             <img
                 src="Images/Logo.svg"
@@ -688,25 +793,15 @@
 
         <div class="nav-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#tutor">
-                Meet the Tutor
-            </a>
+            <a href="index.html#tutor">Meet the Tutor</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#treasures">
-                Treasure I've Earned
-            </a>
+            <a href="index.html#treasures">Treasure I've Earned</a>
 
         </div>
 
@@ -807,33 +902,19 @@
 
         <div class="footer-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#join">
-                Join Classes
-            </a>
+            <a href="index.html#join">Join Classes</a>
 
-            <a href="index.html#order">
-                Order Materials
-            </a>
+            <a href="index.html#order">Order Materials</a>
 
-            <a href="index.html#contact">
-                Contact
-            </a>
+            <a href="index.html#contact">Contact</a>
 
-            <a href="index.html#treasures">
-                Reviews
-            </a>
+            <a href="index.html#treasures">Reviews</a>
 
         </div>
 
