@@ -1,29 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
-    <title>Words from Parents | Mathmium</title>
+    <title>Words from Clients | Mathmium</title>
 
     <!-- GOOGLE FONTS -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- PROFILE ICONS -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
 
     <style>
 
@@ -76,6 +78,11 @@
                 );
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
 
         /* =====================================================
            NAVIGATION
@@ -104,7 +111,7 @@
             display: flex;
             align-items: center;
             line-height: 1;
-            text-decoration: none;
+            white-space: nowrap;
         }
 
         .logo img {
@@ -134,16 +141,12 @@
             font-size: 16px;
             font-weight: 600;
             color: #24324A;
-            text-decoration: none;
 
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
+            transition: color 0.25s ease;
         }
 
         .nav-links a:hover {
             color: #756A9C;
-            transform: translateY(-1px);
         }
 
 
@@ -153,39 +156,45 @@
 
         .hero {
             position: relative;
-            text-align: center;
             max-width: 1100px;
             margin: 0 auto;
             padding: 110px 24px 80px;
+            text-align: center;
         }
 
         .hero::before {
             content: "";
             position: absolute;
+
             width: 180px;
             height: 180px;
-            border-radius: 50%;
 
+            border-radius: 50%;
             background: rgba(206, 194, 255, 0.16);
+
             filter: blur(4px);
 
             top: 55px;
             left: -60px;
+
             z-index: -1;
         }
 
         .hero::after {
             content: "";
             position: absolute;
+
             width: 150px;
             height: 150px;
-            border-radius: 50%;
 
+            border-radius: 50%;
             background: rgba(160, 196, 250, 0.16);
+
             filter: blur(4px);
 
             bottom: 15px;
             right: -40px;
+
             z-index: -1;
         }
 
@@ -201,25 +210,28 @@
             max-width: 950px;
             margin: 0 auto 28px;
 
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.12;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.15;
             font-weight: 700;
+
             color: #24324A;
         }
 
         .hero-description {
-            max-width: 820px;
+            max-width: 900px;
             margin: 0 auto;
 
             font-size: 20px;
             line-height: 1.8;
             font-weight: 600;
+
             color: #66707D;
         }
 
 
         /* =====================================================
-           REVIEWS SECTION
+           CLIENT REVIEWS SECTION
+           ONE VERTICAL COLUMN
         ===================================================== */
 
         .reviews-section {
@@ -243,15 +255,17 @@
 
         .review-card {
             position: relative;
+
             display: block;
             width: 100%;
+            margin: 0;
 
-            padding: 30px 36px;
+            padding: 38px 42px 38px 52px;
 
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.88);
 
             border: 1px solid rgba(36, 50, 74, 0.075);
-            border-radius: 22px;
+            border-radius: 24px;
 
             box-shadow:
                 0 12px 35px rgba(36, 50, 74, 0.055);
@@ -267,27 +281,30 @@
         .review-card:hover {
             transform: translateY(-4px);
 
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.98);
 
             box-shadow:
                 0 20px 45px rgba(36, 50, 74, 0.10);
         }
 
 
-        /* TOP PASTEL ACCENT */
+        /* =====================================================
+           PASTEL ACCENT BAR
+        ===================================================== */
 
         .review-card::before {
             content: "";
+
             position: absolute;
 
             left: 0;
             top: 0;
-            right: 0;
+            bottom: 0;
 
-            height: 4px;
+            width: 5px;
 
             background: linear-gradient(
-                90deg,
+                180deg,
                 #A0C4FA,
                 #CEC2FF
             );
@@ -295,7 +312,7 @@
 
         .review-card:nth-child(3n + 2)::before {
             background: linear-gradient(
-                90deg,
+                180deg,
                 #CEC2FF,
                 #F5C5D5
             );
@@ -303,7 +320,7 @@
 
         .review-card:nth-child(3n + 3)::before {
             background: linear-gradient(
-                90deg,
+                180deg,
                 #BFE8D4,
                 #A0C4FA
             );
@@ -311,128 +328,77 @@
 
 
         /* =====================================================
-           REVIEW HEADER
+           CLIENT REVIEW TITLE
         ===================================================== */
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            margin-bottom: 22px;
-        }
-
-
-        /* PROFILE ICON */
-
-        .review-profile-icon {
-            width: 52px;
-            height: 52px;
-            min-width: 52px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #EAF1FF;
-            color: #6D82B5;
-
-            font-size: 21px;
-
-            box-shadow:
-                inset 0 0 0 1px rgba(109, 130, 181, 0.10);
-        }
-
-        .review-card:nth-child(3n + 2) .review-profile-icon {
-            background: #F2ECFF;
-            color: #8872B7;
-        }
-
-        .review-card:nth-child(3n + 3) .review-profile-icon {
-            background: #E8F6EF;
-            color: #61977D;
-        }
-
-
-        /* PARENT NAME */
-
-        .review-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            min-width: 0;
-        }
 
         .review-title {
             font-family: "Quicksand", sans-serif;
+
             font-size: 16px;
             line-height: 1.5;
             font-weight: 800;
 
             color: #43516A;
+
+            margin-bottom: 7px;
         }
 
 
-        /* REVIEW DATE */
+        /* =====================================================
+           CLIENT REVIEW DATE
+        ===================================================== */
 
         .review-date {
             font-family: "Quicksand", sans-serif;
+
             font-size: 13px;
             line-height: 1.5;
             font-weight: 600;
 
             color: #9299A7;
+
+            margin-bottom: 22px;
         }
 
 
         /* =====================================================
-           REVIEW FEEDBACK
+           CLIENT REVIEW QUOTE
         ===================================================== */
 
-        .review-feedback {
+        .review-quote {
+            position: relative;
+
             font-family: "Quicksand", sans-serif;
-            font-size: 17px;
-            line-height: 1.85;
+
+            font-size: 22px;
+            line-height: 1.8;
             font-weight: 600;
+            font-style: italic;
 
             color: #626873;
+
             letter-spacing: 0.1px;
 
-            position: relative;
-            padding-left: 19px;
+            padding-left: 18px;
         }
 
-        .review-feedback::before {
+        .review-quote::before {
             content: "“";
 
             position: absolute;
-            left: -2px;
-            top: -9px;
+
+            left: -8px;
+            top: -15px;
 
             font-family: Georgia, serif;
-            font-size: 32px;
+
+            font-size: 46px;
             line-height: 1;
 
             font-weight: 700;
-            color: rgba(117, 106, 156, 0.35);
-        }
+            font-style: normal;
 
-
-        /* =====================================================
-           EMPTY / LOADING MESSAGE
-        ===================================================== */
-
-        .reviews-message {
-            text-align: center;
-            padding: 35px 20px;
-
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.7;
-
-            color: #9299A7;
+            color: rgba(117, 106, 156, 0.30);
         }
 
 
@@ -443,6 +409,7 @@
         .back-section {
             display: flex;
             justify-content: center;
+
             padding: 0 24px 100px;
         }
 
@@ -452,21 +419,22 @@
             justify-content: center;
 
             min-width: 155px;
+
             padding: 14px 28px;
 
             border-radius: 50px;
-            text-decoration: none;
-
-            font-family: "Quicksand", sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: #FFFFFF;
 
             background: linear-gradient(
                 135deg,
                 #5B7890,
                 #456579
             );
+
+            color: #FFFFFF;
+
+            font-family: "Quicksand", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
 
             border: 1px solid rgba(69, 101, 121, 0.18);
 
@@ -499,6 +467,7 @@
 
         footer {
             text-align: center;
+
             padding: 65px 24px 30px;
 
             background: linear-gradient(
@@ -533,6 +502,7 @@
             font-size: 15px;
             line-height: 1.7;
             font-weight: 600;
+
             color: #596575;
         }
 
@@ -540,7 +510,9 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+
             gap: 18px 28px;
+
             margin-bottom: 28px;
         }
 
@@ -548,8 +520,8 @@
             font-family: "Quicksand", sans-serif;
             font-size: 15px;
             font-weight: 700;
+
             color: #43516A;
-            text-decoration: none;
 
             transition: color 0.25s ease;
         }
@@ -574,6 +546,7 @@
 
             .navbar {
                 padding: 18px 5%;
+
                 flex-direction: column;
                 gap: 14px;
             }
@@ -597,12 +570,12 @@
             }
 
             .review-card {
-                padding: 27px 25px;
-                border-radius: 20px;
+                padding: 32px 32px 32px 43px;
+                border-radius: 22px;
             }
 
-            .review-feedback {
-                font-size: 16px;
+            .review-quote {
+                font-size: 20px;
                 line-height: 1.8;
             }
 
@@ -651,20 +624,8 @@
             }
 
             .review-card {
-                padding: 25px 22px;
+                padding: 29px 23px 29px 34px;
                 border-radius: 19px;
-            }
-
-            .review-header {
-                gap: 12px;
-                margin-bottom: 19px;
-            }
-
-            .review-profile-icon {
-                width: 46px;
-                height: 46px;
-                min-width: 46px;
-                font-size: 19px;
             }
 
             .review-title {
@@ -673,12 +634,19 @@
 
             .review-date {
                 font-size: 12px;
+                margin-bottom: 17px;
             }
 
-            .review-feedback {
-                font-size: 16px;
+            .review-quote {
+                font-size: 17px;
                 line-height: 1.8;
-                padding-left: 17px;
+                padding-left: 12px;
+            }
+
+            .review-quote::before {
+                left: -7px;
+                top: -11px;
+                font-size: 36px;
             }
 
             .back-section {
@@ -705,7 +673,10 @@
 
     <nav class="navbar">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
 
             <img
                 src="Images/Logo.svg"
@@ -717,15 +688,25 @@
 
         <div class="nav-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="index.html#tutor">Meet the Tutor</a>
+            <a href="index.html#tutor">
+                Meet the Tutor
+            </a>
 
-            <a href="index.html#classes">Classes</a>
+            <a href="index.html#classes">
+                Classes
+            </a>
 
-            <a href="index.html#materials">Materials</a>
+            <a href="index.html#materials">
+                Materials
+            </a>
 
-            <a href="index.html#treasures">Treasure I've Earned</a>
+            <a href="index.html#treasures">
+                Treasure I've Earned
+            </a>
 
         </div>
 
@@ -740,19 +721,19 @@
     <header class="hero">
 
         <div class="hero-kicker">
-            WORDS FROM PARENTS
+            WORDS FROM CLIENTS
         </div>
 
 
         <h1>
-            My Greatest Strength Is the Words from Parents
+            The Joy Behind Every Creation
         </h1>
 
 
         <p class="hero-description">
-            The kind words, encouragement, and meaningful feedback
-            I receive from parents are among the most precious
-            treasures I have earned throughout my teaching journey.
+            The kind words, appreciation, and meaningful feedback I receive
+            from clients about my Mathematics materials are some of the most
+            precious treasures I have collected throughout my creative journey.
         </p>
 
     </header>
@@ -760,38 +741,45 @@
 
 
     <!-- =====================================================
-         PARENT REVIEWS
+         CLIENT REVIEWS
     ===================================================== -->
 
-    <section class="reviews-section">
+    <main>
 
-        <div
-            class="reviews-container"
-            id="reviewsContainer"
-        >
+        <section class="reviews-section">
 
-            <!-- Reviews automatically loaded from teaching-feedback.js -->
+            <div
+                class="reviews-container"
+                id="clientReviewsContainer"
+            >
 
-        </div>
+                <!--
+                    Client reviews are automatically loaded
+                    from materials-feedback.js
+                -->
 
-    </section>
+            </div>
+
+        </section>
 
 
 
-    <!-- =====================================================
-         BACK BUTTON
-    ===================================================== -->
+        <!-- =================================================
+             BACK BUTTON
+        ================================================== -->
 
-    <section class="back-section">
+        <section class="back-section">
 
-        <a
-            href="reviews.html"
-            class="back-button"
-        >
-            Go Back
-        </a>
+            <a
+                href="reviews.html"
+                class="back-button"
+            >
+                Go Back
+            </a>
 
-    </section>
+        </section>
+
+    </main>
 
 
 
@@ -819,19 +807,33 @@
 
         <div class="footer-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="index.html#classes">Classes</a>
+            <a href="index.html#classes">
+                Classes
+            </a>
 
-            <a href="index.html#materials">Materials</a>
+            <a href="index.html#materials">
+                Materials
+            </a>
 
-            <a href="index.html#join">Join Classes</a>
+            <a href="index.html#join">
+                Join Classes
+            </a>
 
-            <a href="index.html#order">Order Materials</a>
+            <a href="index.html#order">
+                Order Materials
+            </a>
 
-            <a href="index.html#contact">Contact</a>
+            <a href="index.html#contact">
+                Contact
+            </a>
 
-            <a href="index.html#treasures">Reviews</a>
+            <a href="index.html#treasures">
+                Reviews
+            </a>
 
         </div>
 
@@ -845,10 +847,10 @@
 
 
     <!-- =====================================================
-         JAVASCRIPT
+         CLIENT FEEDBACK JAVASCRIPT
     ===================================================== -->
 
-    <script src="teaching-feedback.js"></script>
+    <script src="materials-feedback.js"></script>
 
 
 </body>
