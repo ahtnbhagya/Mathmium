@@ -4,7 +4,7 @@ const parentReviews = [
     {
         title: "Parent of a Kindergarten student",
         date: "May 2025",
-        quote: "Thank you so much for creating such fun and engaging classes for my daughter."
+        quote: "Thank you so much for creating such fun & engaging classes for my daughter."
     },
 
     {
