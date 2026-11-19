@@ -13,6 +13,11 @@
 
 
 const clientReviews = [
+   {
+        title: "Client of Worksheet Creation",
+        date: "2025 April",
+        quote: "Great and well-structured work! Very happy with the results."
+    },
 
     {
         title: "Client of Educational Creative Design",
@@ -37,6 +42,12 @@ const clientReviews = [
         date: "2026 March",
         quote: "Nipuni understood the requirement and has done exceptional work. Very honest and sincere."
     }
+      
+   {
+        title: "Client of Activity Sheet Creation",
+        date: "2026 October",
+        quote: "Delivered the PDF exactly as requested."
+    },
 
 ];
 
