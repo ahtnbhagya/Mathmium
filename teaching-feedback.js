@@ -12,7 +12,13 @@ const parentReviews = [
     date: "November 2026",
     quote: "The slides on finding the 9’s is a very practical way to learn this times table."
 },
-
+    
+{
+    title: "Parent of a Grade 8 student",
+    date: "September 2026",
+    quote: "Thank you so much for the sessions, as always. He is lucky to have you as his maths tutor."
+},
+    
 {
     title: "Parent of a Grade 2 student",
     date: "May 2026",
