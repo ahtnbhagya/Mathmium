@@ -41,7 +41,7 @@ const clientReviews = [
         title: "Client of Academic Writing",
         date: "2026 March",
         quote: "Nipuni understood the requirement and has done exceptional work. Very honest and sincere."
-    }
+    },
       
    {
         title: "Client of Activity Sheet Creation",
