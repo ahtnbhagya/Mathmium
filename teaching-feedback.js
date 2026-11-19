@@ -4,12 +4,6 @@ const parentReviews = [
     {
         title: "Parent of a Kindergarten student",
         date: "May 2025",
-        quote: "Thank you so much for creating such fun & engaging classes for my daughter."
-    },
-
-    {
-        title: "Parent of a Kindergarten student",
-        date: "May 2025",
         quote: "She loves counting with the princesses. Thank you so much for the session."
     },
 
@@ -84,7 +78,13 @@ const parentReviews = [
         date: "December 2025",
         quote: "My kid loves finding the numbers with the princesses. Thank you for making Maths so enjoyable for her."
     },
-
+    
+    {
+        title: "Parent of a Kindergarten student",
+        date: "December 2025",
+        quote: "Thank you so much for creating such fun & engaging classes for my daughter."
+    },
+    
     {
         title: "Parent of a Grade 2 student",
         date: "May 2026",
