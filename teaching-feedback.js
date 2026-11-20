@@ -1,3 +1,4 @@
+
 const parentReviews = [
     
 {
@@ -115,6 +116,7 @@ const parentReviews = [
 // =====================================================
 // DISPLAY PARENT REVIEWS
 // Newest reviews first, oldest reviews last.
+// Colours remain permanently assigned to each review.
 // =====================================================
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -147,10 +149,17 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     // Display newest reviews first.
-    [...parentReviews].reverse().forEach(function (review) {
+    // Colour is assigned using the review's original array index.
+    [...parentReviews].reverse().forEach(function (review, reversedIndex) {
+
+        // Calculate the original index before reversing.
+        const originalIndex = parentReviews.length - 1 - reversedIndex;
 
         const card = document.createElement("div");
         card.className = "review-card";
+
+        // Permanently assign the pastel colour to this review.
+        card.setAttribute("data-colour", originalIndex % 10);
 
         // Parent information.
         const meta = document.createElement("div");
