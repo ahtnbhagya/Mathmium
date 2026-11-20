@@ -96,7 +96,8 @@ function createClientReviews() {
 
     container.innerHTML = "";
 
-    clientReviews.forEach(function(review) {
+    // Display newest feedback first
+    clientReviews.slice().reverse().forEach(function(review) {
 
         // Main review card
         const card = document.createElement("article");
