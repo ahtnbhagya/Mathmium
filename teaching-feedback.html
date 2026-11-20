@@ -243,72 +243,73 @@
                 0 25px 55px var(--accent-soft);
         }
 
-        
+
         /* =====================================================
-           INDIVIDUAL CARD ACCENT COLOURS
-           Elegant Random Pastel Sequence
+           PERMANENT REVIEW ACCENT COLOURS
+           Colours stay with original reviews.
         ===================================================== */
-        
-        .review-card:nth-child(10n + 1) {
+
+        .review-card[data-colour="0"] {
             --accent: #A0C4FA;
             --accent-dark: #6387BC;
             --accent-soft: rgba(160, 196, 250, 0.15);
         }
-        
-        .review-card:nth-child(10n + 2) {
+
+        .review-card[data-colour="1"] {
             --accent: #F5C6A5;
             --accent-dark: #B9825C;
             --accent-soft: rgba(245, 198, 165, 0.17);
         }
-        
-        .review-card:nth-child(10n + 3) {
+
+        .review-card[data-colour="2"] {
             --accent: #CEC2FF;
             --accent-dark: #8576B8;
             --accent-soft: rgba(206, 194, 255, 0.15);
         }
-        
-        .review-card:nth-child(10n + 4) {
+
+        .review-card[data-colour="3"] {
             --accent: #C8E6A0;
             --accent-dark: #7D9F52;
             --accent-soft: rgba(200, 230, 160, 0.17);
         }
-        
-        .review-card:nth-child(10n + 5) {
+
+        .review-card[data-colour="4"] {
             --accent: #F7DFA6;
             --accent-dark: #B8954F;
             --accent-soft: rgba(247, 223, 166, 0.17);
         }
-        
-        .review-card:nth-child(10n + 6) {
+
+        .review-card[data-colour="5"] {
             --accent: #F0BDD0;
             --accent-dark: #B97998;
             --accent-soft: rgba(240, 189, 208, 0.16);
         }
-        
-        .review-card:nth-child(10n + 7) {
+
+        .review-card[data-colour="6"] {
             --accent: #A9DCEB;
             --accent-dark: #5F9FB5;
             --accent-soft: rgba(169, 220, 235, 0.17);
         }
-        
-        .review-card:nth-child(10n + 8) {
+
+        .review-card[data-colour="7"] {
             --accent: #BFE8D4;
             --accent-dark: #659D83;
             --accent-soft: rgba(191, 232, 212, 0.17);
         }
-        
-        .review-card:nth-child(10n + 9) {
+
+        .review-card[data-colour="8"] {
             --accent: #F2B8B8;
             --accent-dark: #B87575;
             --accent-soft: rgba(242, 184, 184, 0.17);
         }
-        
-        .review-card:nth-child(10n + 10) {
+
+        .review-card[data-colour="9"] {
             --accent: #8FC9A8;
             --accent-dark: #4F8E68;
             --accent-soft: rgba(143, 201, 168, 0.17);
         }
-        
+
+
         /* =====================================================
            MATCHING LEFT AND RIGHT ACCENT LINES
         ===================================================== */
@@ -332,19 +333,13 @@
             transition: width 0.3s ease;
         }
 
-        /* LEFT SIDE LINE */
-
         .review-card::before {
             left: 0;
         }
 
-        /* RIGHT SIDE LINE */
-
         .review-card::after {
             right: 0;
         }
-
-        /* MATCHED HOVER EFFECT */
 
         .review-card:hover::before,
         .review-card:hover::after {
@@ -363,9 +358,6 @@
 
             margin-bottom: 28px;
         }
-
-
-        /* PROFESSIONAL PROFILE ICON */
 
         .profile-icon {
             width: 48px;
@@ -397,9 +389,6 @@
             height: 25px;
             display: block;
         }
-
-
-        /* REVIEWER DETAILS */
 
         .reviewer-details {
             display: flex;
@@ -445,9 +434,6 @@
             letter-spacing: 0.05px;
         }
 
-
-        /* OPENING QUOTATION MARK */
-
         .review-quote::before {
             content: "“";
 
@@ -467,9 +453,6 @@
             color: var(--accent);
             opacity: 0.75;
         }
-
-
-        /* CLOSING QUOTATION MARK */
 
         .review-quote::after {
             content: "”";
@@ -700,8 +683,6 @@
                 padding: 26px 25px 30px 24px;
                 border-radius: 18px;
             }
-
-            /* BOTH SIDE LINES ON MOBILE */
 
             .review-card::before,
             .review-card::after {
