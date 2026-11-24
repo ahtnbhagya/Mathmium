@@ -1,15 +1,10 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
@@ -49,7 +44,6 @@
         }
 
 
-
         /* =========================
            NAVIGATION
         ========================= */
@@ -69,12 +63,8 @@
                     rgba(255,255,255,0.98),
                     rgba(255,247,238,0.97)
                 );
-            border-bottom:
-                1px solid
-                rgba(217,101,0,0.10);
-            box-shadow:
-                0 8px 25px
-                rgba(217,101,0,0.06);
+            border-bottom: 1px solid rgba(217,101,0,0.10);
+            box-shadow: 0 8px 25px rgba(217,101,0,0.06);
             backdrop-filter: blur(12px);
         }
 
@@ -115,61 +105,54 @@
             transition: 0.25s ease;
         }
 
-        .nav-links a:hover {
-            color: #D96500;
-        }
-
+        .nav-links a:hover,
         .nav-links a.active {
             color: #D96500;
         }
 
 
-
         /* =========================
-           HERO
+           HERO SECTION
         ========================= */
 
         .hero {
+            min-height: calc(100svh - 76px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 34px 20px 30px;
-            border-bottom:
-                1px solid
-                rgba(217,101,0,0.16);
-        }
-
-        .hero-kicker {
-            margin: 0 0 10px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            color: #D96500;
+            padding: 25px 20px 30px;
+            border-bottom: 1px solid rgba(217,101,0,0.16);
         }
 
         .hero h1 {
             margin: 0;
             font-size: clamp(32px, 4.2vw, 50px);
-            line-height: 1.12;
+            line-height: 1.15;
             font-weight: 700;
             color: #D96500;
         }
 
         .hero p {
             max-width: 760px;
-            margin: 12px auto 0;
+            margin: 13px auto 0;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.5;
             color: #5D5148;
         }
 
+
         /* =========================
-           ORDER HERO IMAGE
-           Original ratio - no cropping
+           HERO IMAGE
+           Original image ratio
+           No cropping
         ========================= */
 
         .order-image-container {
             width: min(850px, 82%);
-            margin: 18px auto 0;
+            margin: 22px auto 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -180,14 +163,13 @@
             width: auto;
             height: auto;
             max-width: 100%;
-            max-height: 260px;
+            max-height: 34vh;
             object-fit: contain;
             border-radius: 22px;
             box-shadow:
-                0 14px 35px rgba(90, 55, 20, 0.12),
-                0 4px 12px rgba(90, 55, 20, 0.05);
+                0 14px 35px rgba(90,55,20,0.12),
+                0 4px 12px rgba(90,55,20,0.05);
         }
-
 
 
         /* =========================
@@ -196,9 +178,7 @@
 
         .journey-section {
             width: 100%;
-            padding:
-                78px 6%
-                72px;
+            padding: 78px 6% 72px;
         }
 
         .section-heading {
@@ -221,7 +201,6 @@
         }
 
 
-
         /* =========================
            JOURNEY CARDS
         ========================= */
@@ -236,14 +215,9 @@
         }
 
         .journey-card {
-            width:
-                calc(
-                    (100% - 80px) / 5
-                );
+            width: calc((100% - 80px) / 5);
             min-height: 300px;
-            padding:
-                32px 25px
-                30px;
+            padding: 32px 25px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -254,13 +228,9 @@
                     rgba(255,255,255,0.98),
                     rgba(255,249,242,0.96)
                 );
-            border:
-                1px solid
-                rgba(217,101,0,0.10);
+            border: 1px solid rgba(217,101,0,0.10);
             border-radius: 24px;
-            box-shadow:
-                0 12px 35px
-                rgba(217,101,0,0.08);
+            box-shadow: 0 12px 35px rgba(217,101,0,0.08);
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease,
@@ -269,11 +239,8 @@
 
         .journey-card:hover {
             transform: translateY(-7px);
-            border-color:
-                rgba(255,146,13,0.28);
-            box-shadow:
-                0 18px 42px
-                rgba(217,101,0,0.14);
+            border-color: rgba(255,146,13,0.28);
+            box-shadow: 0 18px 42px rgba(217,101,0,0.14);
         }
 
         .step-number {
@@ -295,9 +262,7 @@
             color: #ffffff;
             font-size: 20px;
             font-weight: 700;
-            box-shadow:
-                0 8px 20px
-                rgba(217,101,0,0.20);
+            box-shadow: 0 8px 20px rgba(217,101,0,0.20);
         }
 
         .journey-card h3 {
@@ -317,23 +282,18 @@
         }
 
 
-
         /* =========================
            CTA SECTION
         ========================= */
 
         .order-section {
-            padding:
-                35px 6%
-                90px;
+            padding: 35px 6% 90px;
         }
 
         .order-box {
             max-width: 1050px;
             margin: 0 auto;
-            padding:
-                65px 35px
-                58px;
+            padding: 65px 35px 58px;
             text-align: center;
             background:
                 linear-gradient(
@@ -342,13 +302,9 @@
                     #FFF8F0 50%,
                     #FFE7CB 100%
                 );
-            border:
-                1px solid
-                rgba(255,146,13,0.18);
+            border: 1px solid rgba(255,146,13,0.18);
             border-radius: 30px;
-            box-shadow:
-                0 20px 55px
-                rgba(217,101,0,0.11);
+            box-shadow: 0 20px 55px rgba(217,101,0,0.11);
         }
 
         .order-box h2 {
@@ -360,8 +316,7 @@
 
         .order-box p {
             max-width: 720px;
-            margin:
-                0 auto 30px;
+            margin: 0 auto 30px;
             font-size: 18px;
             line-height: 1.7;
             font-weight: 500;
@@ -373,8 +328,7 @@
             align-items: center;
             justify-content: center;
             min-width: 220px;
-            padding:
-                16px 30px;
+            padding: 16px 30px;
             border: none;
             border-radius: 14px;
             background:
@@ -390,9 +344,7 @@
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
-            box-shadow:
-                0 10px 24px
-                rgba(217,101,0,0.20);
+            box-shadow: 0 10px 24px rgba(217,101,0,0.20);
             transition:
                 transform 0.25s ease,
                 box-shadow 0.25s ease;
@@ -400,11 +352,8 @@
 
         .order-button:hover {
             transform: translateY(-3px);
-            box-shadow:
-                0 14px 30px
-                rgba(217,101,0,0.27);
+            box-shadow: 0 14px 30px rgba(217,101,0,0.27);
         }
-
 
 
         /* =========================
@@ -429,11 +378,8 @@
             border: none;
             border-radius: 18px;
             background: #ffffff;
-            box-shadow:
-                0 15px 45px
-                rgba(217,101,0,0.10);
+            box-shadow: 0 15px 45px rgba(217,101,0,0.10);
         }
-
 
 
         /* =========================
@@ -450,11 +396,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding:
-                13px 27px;
-            border:
-                1px solid
-                rgba(217,101,0,0.20);
+            padding: 13px 27px;
+            border: 1px solid rgba(217,101,0,0.20);
             border-radius: 12px;
             background: #ffffff;
             color: #D96500;
@@ -474,15 +417,12 @@
         }
 
 
-
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            padding:
-                62px 6%
-                35px;
+            padding: 62px 6% 35px;
             text-align: center;
             background:
                 linear-gradient(
@@ -490,9 +430,7 @@
                     #FFF1DF,
                     #FFE0BD
                 );
-            border-top:
-                1px solid
-                rgba(217,101,0,0.12);
+            border-top: 1px solid rgba(217,101,0,0.12);
         }
 
         .footer-logo {
@@ -511,8 +449,7 @@
 
         .footer-description {
             max-width: 620px;
-            margin:
-                14px auto 22px;
+            margin: 14px auto 22px;
             font-size: 15px;
             line-height: 1.7;
             font-weight: 600;
@@ -547,7 +484,6 @@
         }
 
 
-
         /* =========================
            TABLET
         ========================= */
@@ -555,13 +491,10 @@
         @media (max-width: 1050px) {
 
             .journey-card {
-                width:
-                    calc(
-                        (100% - 40px) / 3
-                    );
+                width: calc((100% - 40px) / 3);
             }
-        }
 
+        }
 
 
         /* =========================
@@ -584,8 +517,7 @@
             }
 
             .navbar {
-                padding:
-                    16px 5%;
+                padding: 16px 5%;
             }
 
             .logo img {
@@ -602,33 +534,40 @@
                 font-size: 13px;
             }
 
+
+            /* MOBILE HERO */
+
             .hero {
-                padding: 28px 18px 25px;
+                min-height: calc(100svh - 70px);
+                padding: 25px 18px 30px;
             }
 
             .hero h1 {
-                font-size: 34px;
+                font-size: clamp(29px, 8vw, 36px);
+                line-height: 1.2;
             }
 
             .hero p {
                 font-size: 16px;
                 line-height: 1.5;
+                margin-top: 10px;
             }
 
             .order-image-container {
                 width: 94%;
-                margin-top: 15px;
+                margin-top: 18px;
             }
 
             .order-image {
-                max-height: 190px;
+                max-height: 27vh;
                 border-radius: 17px;
             }
 
+
+            /* JOURNEY */
+
             .journey-section {
-                padding:
-                    60px 6%
-                    50px;
+                padding: 60px 6% 50px;
             }
 
             .section-heading {
@@ -652,20 +591,18 @@
                 width: 100%;
                 max-width: 430px;
                 min-height: auto;
-                padding:
-                    30px 25px;
+                padding: 30px 25px;
             }
 
+
+            /* ORDER SECTION */
+
             .order-section {
-                padding:
-                    20px 6%
-                    65px;
+                padding: 20px 6% 65px;
             }
 
             .order-box {
-                padding:
-                    48px 24px
-                    45px;
+                padding: 48px 24px 45px;
                 border-radius: 24px;
             }
 
@@ -686,16 +623,39 @@
                 height: 1500px;
             }
 
+
+            /* FOOTER */
+
             footer {
-                padding:
-                    50px 6%
-                    30px;
+                padding: 50px 6% 30px;
             }
 
             .footer-links {
-                gap:
-                    13px 18px;
+                gap: 13px 18px;
             }
+
+        }
+
+
+        /* =========================
+           SMALL MOBILE SCREENS
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .order-image {
+                max-height: 24vh;
+            }
+
         }
 
     </style>
@@ -712,10 +672,7 @@
 
     <nav class="navbar">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
+        <a href="index.html" class="logo">
 
             <img
                 src="Images/Logo.svg"
@@ -739,10 +696,7 @@
                 Classes
             </a>
 
-            <a
-                href="index.html#materials"
-                class="active"
-            >
+            <a href="index.html#materials" class="active">
                 Materials
             </a>
 
@@ -762,10 +716,6 @@
 
     <section class="hero">
 
-        <p class="hero-kicker">
-            ORDER MATHMIUM MATERIALS
-        </p>
-
         <h1>
             Order Mathematics Materials
         </h1>
@@ -774,12 +724,15 @@
             Looking for engaging Mathematics learning materials?
         </p>
 
+
         <div class="order-image-container">
+
             <img
                 src="Images/OrderM.jpg"
                 alt="Mathmium Mathematics learning materials"
                 class="order-image"
             >
+
         </div>
 
     </section>
@@ -1045,14 +998,10 @@
     <script>
 
         const showFormButton =
-            document.getElementById(
-                "showFormButton"
-            );
+            document.getElementById("showFormButton");
 
         const formContainer =
-            document.getElementById(
-                "formContainer"
-            );
+            document.getElementById("formContainer");
 
 
         showFormButton.addEventListener(
@@ -1060,25 +1009,19 @@
             function () {
 
                 const isVisible =
-                    formContainer.classList.contains(
-                        "show"
-                    );
+                    formContainer.classList.contains("show");
 
 
                 if (isVisible) {
 
-                    formContainer.classList.remove(
-                        "show"
-                    );
+                    formContainer.classList.remove("show");
 
                     showFormButton.textContent =
                         "Order Materials";
 
                 } else {
 
-                    formContainer.classList.add(
-                        "show"
-                    );
+                    formContainer.classList.add("show");
 
                     showFormButton.textContent =
                         "Hide the Form";
