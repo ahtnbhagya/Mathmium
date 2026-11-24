@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -563,276 +564,218 @@
     .quiz-zone-button:hover { box-shadow:0 17px 38px rgba(21,158,148,.26); }
 
     /* SECTION 06 — TREASURES */
-    
-/* SECTION 06 — TREASURES */
-.reviews-section {
-  background: linear-gradient(
-    135deg,
-    #FFF9FA 0%,
-    #FFD0D6 48%,
-    #FFFDF8 100%
-  );
-}
+    .reviews-section {
+      background: linear-gradient(135deg,#FFF9FA 0%,#FFD0D6 48%,#FFFDF8 100%);
+    }
 
-.reviews-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas: "visual content";
-  gap: 55px;
-  align-items: center;
-  width: 100%;
-  min-width: 0;
-}
+    .reviews-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      grid-template-areas:"visual content";
+      gap:55px;
+      align-items:center;
+      width:100%;
+      min-width:0;
+    }
 
-.reviews-content {
-  grid-area: content;
-  min-width: 0;
-  width: 100%;
-  max-width: 650px;
-  text-align: center;
-  margin: 0 auto;
-}
+    .reviews-content {
+      grid-area:content;
+      min-width:0;
+      width:100%;
+      max-width:650px;
+      text-align:center;
+      margin:0 auto;
+    }
 
-.reviews-label,
-.reviews-title {
-  color: var(--red-deep);
-}
+    .reviews-label,.reviews-title { color:var(--red-deep); }
+    .reviews-text { color:var(--text-soft); text-align:center; overflow-wrap:break-word; }
 
-.reviews-text {
-  color: var(--text-soft);
-  text-align: center;
-  overflow-wrap: break-word;
-}
+    .reviews-button {
+      background:var(--red-deep);
+      box-shadow:0 12px 28px rgba(201,46,69,.16);
+    }
 
-.reviews-button {
-  background: var(--red-deep);
-  box-shadow: 0 12px 28px rgba(201, 46, 69, 0.16);
-}
+    .reviews-button:hover { box-shadow:0 17px 38px rgba(201,46,69,.25); }
 
-.reviews-button:hover {
-  box-shadow: 0 17px 38px rgba(201, 46, 69, 0.25);
-}
+    .reviews-visual {
+      grid-area:visual;
+      width:100%;
+      min-width:0;
+      min-height:430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:30px;
+      background:linear-gradient(145deg,rgba(255,208,214,.85),rgba(255,253,248,.95));
+      border:1px solid rgba(201,46,69,.08);
+      box-shadow:0 20px 50px rgba(201,46,69,.08);
+    }
 
-.reviews-visual {
-  grid-area: visual;
-  width: 100%;
-  min-width: 0;
-  min-height: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 30px;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 208, 214, 0.85),
-    rgba(255, 253, 248, 0.95)
-  );
-  border: 1px solid rgba(201, 46, 69, 0.08);
-  box-shadow: 0 20px 50px rgba(201, 46, 69, 0.08);
-}
-
-.reviews-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 430px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 30px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-/* TABLET */
-@media (max-width: 900px) {
-  .reviews-grid {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "visual"
-      "content";
-    gap: 32px;
-  }
-
-  .reviews-visual {
-    min-height: 0;
-    height: 350px;
-  }
-
-  .reviews-visual img {
-    min-height: 0;
-    height: 100%;
-  }
-
-  .reviews-content {
-    max-width: 700px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 700px) {
-  .reviews-section {
-    padding: 65px 0;
-    min-height: auto;
-  }
-
-  .reviews-section .section-inner {
-    width: 90%;
-  }
-
-  .reviews-grid {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "visual"
-      "content";
-    gap: 26px;
-  }
-
-  .reviews-visual {
-    width: 100%;
-    height: 260px;
-    min-height: 0;
-    border-radius: 24px;
-  }
-
-  .reviews-visual img {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    padding: 7px;
-    border-radius: 24px;
-    object-fit: cover;
-  }
-
-  .reviews-content {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    text-align: center;
-  }
-
-  .reviews-label {
-    font-size: 12px;
-    letter-spacing: 1.2px;
-  }
-
-  .reviews-title {
-    font-size: clamp(30px, 8vw, 36px);
-    line-height: 1.2;
-    margin-bottom: 18px;
-  }
-
-  .reviews-text {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .reviews-button {
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-  }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-  .reviews-section {
-    padding: 50px 0;
-  }
-
-  .reviews-section .section-inner {
-    width: 90%;
-  }
-
-  .reviews-grid {
-    gap: 22px;
-  }
-
-  .reviews-visual {
-    height: 220px;
-    border-radius: 20px;
-  }
-
-  .reviews-visual img {
-    border-radius: 20px;
-  }
-
-  .reviews-title {
-    font-size: 32px;
-  }
-
-  .reviews-text {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .reviews-button {
-    padding: 12px 22px;
-    font-size: 15px;
-  }
-}
-
+    .reviews-visual img {
+      display:block;
+      width:100%;
+      height:100%;
+      min-height:430px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:30px;
+      padding:10px;
+      box-sizing:border-box;
+    }
 
     /* SECTION 07 — JOIN A CLASS */
-    .join-section { background:linear-gradient(135deg,#FAFFF1 0%,#E5F9B5 50%,#F5FCEB 100%); }
+    .join-section {
+      background:linear-gradient(135deg,#FAFFF1 0%,#E5F9B5 50%,#F5FCEB 100%);
+    }
 
-    .join-box {
-      max-width:1000px;
-      margin:auto;
-      padding:75px 50px;
+    .join-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:65px;
+      align-items:center;
+    }
+
+    .join-content {
+      max-width:650px;
       text-align:center;
-      border-radius:40px;
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(94,159,24,.12);
-      box-shadow:0 25px 60px rgba(94,159,24,.10);
+      margin:auto;
     }
 
     .join-label,.join-title { color:var(--green-deep); }
-    .join-text { max-width:720px; margin:0 auto 30px; color:var(--text-soft); }
+    .join-text { color:var(--text-soft); }
 
-    .join-button { background:var(--green-deep); box-shadow:0 12px 28px rgba(94,159,24,.16); }
+    .join-button {
+      background:var(--green-deep);
+      box-shadow:0 12px 28px rgba(94,159,24,.16);
+    }
+
     .join-button:hover { box-shadow:0 17px 38px rgba(94,159,24,.25); }
 
-    /* SECTION 08 — ORDER MATERIALS */
-    .order-section { background:linear-gradient(135deg,#FFF9F1 0%,#FFD0A0 50%,#FFF4E8 100%); }
+    .join-visual {
+      min-height:430px;
+      height:430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:38px;
+      background:linear-gradient(145deg,rgba(229,249,181,.90),rgba(255,255,255,.95));
+      border:1px solid rgba(94,159,24,.12);
+      box-shadow:0 20px 50px rgba(94,159,24,.10);
+    }
 
-    .order-box {
-      max-width:1000px;
-      margin:auto;
-      padding:75px 50px;
+    .join-visual img {
+      width:100%;
+      height:100%;
+      min-height:430px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:30px;
+      padding:10px;
+    }
+
+    /* SECTION 08 — ORDER MATERIALS */
+    .order-section {
+      background:linear-gradient(135deg,#FFF9F1 0%,#FFD0A0 50%,#FFF4E8 100%);
+    }
+
+    .order-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:65px;
+      align-items:center;
+    }
+
+    .order-content {
+      max-width:650px;
       text-align:center;
-      border-radius:40px;
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(217,95,0,.12);
-      box-shadow:0 25px 60px rgba(217,95,0,.10);
+      margin:auto;
     }
 
     .order-label,.order-title { color:var(--orange-deep); }
-    .order-text { max-width:720px; margin:0 auto 30px; color:var(--text-soft); }
+    .order-text { color:var(--text-soft); }
 
-    .order-button { background:var(--orange-deep); box-shadow:0 12px 28px rgba(217,95,0,.16); }
+    .order-button {
+      background:var(--orange-deep);
+      box-shadow:0 12px 28px rgba(217,95,0,.16);
+    }
+
     .order-button:hover { box-shadow:0 17px 38px rgba(217,95,0,.25); }
 
-    /* SECTION 09 — CONTACT */
-    .contact-section { background:linear-gradient(135deg,#F8F9FF 0%,#C9D0FF 50%,#EEF0FF 100%); }
+    .order-visual {
+      min-height:430px;
+      height:430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:38px;
+      background:linear-gradient(145deg,rgba(255,208,160,.85),rgba(255,253,248,.95));
+      border:1px solid rgba(217,95,0,.12);
+      box-shadow:0 20px 50px rgba(217,95,0,.10);
+    }
 
-    .contact-box {
-      max-width:1000px;
-      margin:auto;
-      padding:75px 50px;
+    .order-visual img {
+      width:100%;
+      height:100%;
+      min-height:430px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:30px;
+      padding:10px;
+    }
+
+    /* SECTION 09 — CONTACT */
+    .contact-section {
+      background:linear-gradient(135deg,#F8F9FF 0%,#C9D0FF 50%,#EEF0FF 100%);
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:65px;
+      align-items:center;
+    }
+
+    .contact-content {
+      max-width:650px;
       text-align:center;
-      border-radius:40px;
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(41,56,184,.12);
-      box-shadow:0 25px 60px rgba(41,56,184,.10);
+      margin:auto;
     }
 
     .contact-label,.contact-title { color:var(--indigo-deep); }
-    .contact-text { max-width:720px; margin:0 auto 30px; color:var(--text-soft); }
+    .contact-text { color:var(--text-soft); }
 
-    .contact-button { background:var(--indigo-deep); box-shadow:0 12px 28px rgba(41,56,184,.16); }
+    .contact-button {
+      background:var(--indigo-deep);
+      box-shadow:0 12px 28px rgba(41,56,184,.16);
+    }
+
     .contact-button:hover { box-shadow:0 17px 38px rgba(41,56,184,.25); }
+
+    .contact-visual {
+      min-height:430px;
+      height:430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:38px;
+      background:linear-gradient(145deg,rgba(201,208,255,.85),rgba(255,255,255,.95));
+      border:1px solid rgba(41,56,184,.12);
+      box-shadow:0 20px 50px rgba(41,56,184,.10);
+    }
+
+    .contact-visual img {
+      width:100%;
+      height:100%;
+      min-height:430px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:30px;
+      padding:10px;
+    }
 
     /* FOOTER */
     footer {
@@ -876,14 +819,24 @@
       .hero-inner { width:min(1000px,90%); padding:65px 0; }
       .hero-title img { max-width:95%; max-height:150px; }
 
-      .about-grid,.materials-grid,.boost-grid,.reviews-grid,.quiz-zone-box {
+      .about-grid,.materials-grid,.boost-grid,.reviews-grid,.quiz-zone-box,
+      .join-grid,.order-grid,.contact-grid {
         grid-template-columns:1fr;
         grid-template-areas:none;
         gap:55px;
       }
 
-      .about-content,.materials-content,.boost-content,.reviews-content,.quiz-zone-content { max-width:100%; }
-      .about-visual,.materials-visual,.boost-visual,.reviews-visual { min-height:350px; }
+      .about-content,.materials-content,.boost-content,.reviews-content,
+      .quiz-zone-content,.join-content,.order-content,.contact-content {
+        max-width:100%;
+      }
+
+      .about-visual,.materials-visual,.boost-visual,.reviews-visual,
+      .join-visual,.order-visual,.contact-visual {
+        min-height:350px;
+        height:350px;
+      }
+
       .quiz-zone-visual { min-height:320px; order:1; }
       .quiz-zone-visual img { min-height:320px; }
       .quiz-zone-content { order:2; text-align:center; }
@@ -896,10 +849,14 @@
       .boost-content { order:2; }
       .reviews-content { order:2; }
       .reviews-visual { order:1; }
+
       .class-cards { grid-template-columns:1fr; }
       .class-number { width:90px; height:90px; }
       .class-number img { border-radius:20px; }
-      .boost-visual img,.reviews-visual img { min-height:350px; }
+      .boost-visual img,.reviews-visual img,
+      .join-visual img,.order-visual img,.contact-visual img {
+        min-height:350px;
+      }
     }
 
     /* MOBILE */
@@ -944,6 +901,16 @@
       .quiz-zone-box { padding:28px 22px; gap:28px; }
       .quiz-zone-visual,.quiz-zone-visual img { min-height:260px; }
       .boost-visual img,.reviews-visual img { min-height:320px; }
+
+      .join-visual,.order-visual,.contact-visual {
+        height:300px;
+        min-height:300px;
+      }
+
+      .join-visual img,.order-visual img,.contact-visual img {
+        min-height:300px;
+      }
+
       .join-box,.order-box,.contact-box { padding:55px 25px; }
       .footer-links { gap:10px 18px; }
     }
@@ -967,6 +934,16 @@
       .class-number img { border-radius:17px; }
       .boost-visual,.reviews-visual { min-height:280px; }
       .boost-visual img,.reviews-visual img { min-height:280px; }
+
+      .join-visual,.order-visual,.contact-visual {
+        height:260px;
+        min-height:260px;
+      }
+
+      .join-visual img,.order-visual img,.contact-visual img {
+        min-height:260px;
+      }
+
       .footer-brand { font-size:30px; }
     }
 
@@ -976,29 +953,27 @@
       .section-button,.class-card,.brand,nav a::after { transition:none; }
     }
 
-
-    /* RESPONSIVE FIT + FIXED LIGHT COLOUR SCHEME
-       Added only as overrides; original content, colors, and functionality remain unchanged. */
+    /* RESPONSIVE FIT + FIXED LIGHT COLOUR SCHEME */
     :root,
     html {
-      color-scheme: light;
+      color-scheme:light;
     }
 
     html,
     body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: clip;
+      width:100%;
+      max-width:100%;
+      overflow-x:clip;
     }
 
     body {
-      min-width: 0;
+      min-width:0;
     }
 
     img,
     video,
     iframe {
-      max-width: 100%;
+      max-width:100%;
     }
 
     .section-inner,
@@ -1009,113 +984,129 @@
     .boost-grid,
     .quiz-zone-box,
     .reviews-grid,
+    .join-grid,
+    .order-grid,
+    .contact-grid,
     .class-cards,
     .class-card,
     .about-content,
     .materials-content,
     .boost-content,
     .quiz-zone-content,
-    .reviews-content {
-      min-width: 0;
+    .reviews-content,
+    .join-content,
+    .order-content,
+    .contact-content {
+      min-width:0;
     }
 
     .section {
-      min-height: 100svh;
-      padding-block: clamp(48px, 8vh, 110px);
-      scroll-margin-top: 90px;
+      min-height:100svh;
+      padding-block:clamp(48px,8vh,110px);
+      scroll-margin-top:90px;
     }
 
     .hero.section {
-      min-height: calc(100svh - 82px);
-      height: auto;
-      padding-block: clamp(36px, 6vh, 70px);
+      min-height:calc(100svh - 82px);
+      height:auto;
+      padding-block:clamp(36px,6vh,70px);
     }
 
     .hero-title img {
-      max-width: 100%;
+      max-width:100%;
     }
 
     .materials-list {
-      max-width: 100%;
+      max-width:100%;
     }
 
     .materials-list li {
-      white-space: normal;
-      overflow-wrap: anywhere;
+      white-space:normal;
+      overflow-wrap:anywhere;
     }
 
     .section-button {
-      max-width: 100%;
-      white-space: normal;
-      text-align: center;
-      overflow-wrap: anywhere;
+      max-width:100%;
+      white-space:normal;
+      text-align:center;
+      overflow-wrap:anywhere;
     }
 
     .about-visual,
     .materials-visual,
     .boost-visual,
     .quiz-zone-visual,
-    .reviews-visual {
-      min-width: 0;
-      max-width: 100%;
+    .reviews-visual,
+    .join-visual,
+    .order-visual,
+    .contact-visual {
+      min-width:0;
+      max-width:100%;
     }
 
     .about-visual img,
     .materials-visual img,
     .boost-visual img,
     .quiz-zone-visual img,
-    .reviews-visual img {
-      max-width: 100%;
+    .reviews-visual img,
+    .join-visual img,
+    .order-visual img,
+    .contact-visual img {
+      max-width:100%;
     }
 
-    .join-box,
-    .order-box,
-    .contact-box,
     .quiz-zone-box {
-      min-width: 0;
-      max-width: 100%;
+      min-width:0;
+      max-width:100%;
     }
 
-    @media (max-width: 1100px) {
+    @media (max-width:1100px) {
       .about-grid,
       .materials-grid,
-      .boost-grid {
-        gap: clamp(28px, 5vw, 55px);
+      .boost-grid,
+      .reviews-grid,
+      .join-grid,
+      .order-grid,
+      .contact-grid {
+        gap:clamp(28px,5vw,55px);
       }
 
       .quiz-zone-box {
-        gap: clamp(24px, 4vw, 40px);
-        padding: clamp(24px, 4vw, 40px);
+        gap:clamp(24px,4vw,40px);
+        padding:clamp(24px,4vw,40px);
       }
 
       .class-cards {
-        gap: 20px;
+        gap:20px;
       }
 
       .class-card {
-        padding: clamp(22px, 3vw, 32px) clamp(16px, 2.5vw, 26px);
+        padding:clamp(22px,3vw,32px) clamp(16px,2.5vw,26px);
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width:900px) {
       .section {
-        min-height: auto;
-        padding-block: clamp(52px, 7vh, 80px);
+        min-height:auto;
+        padding-block:clamp(52px,7vh,80px);
       }
 
       .hero.section {
-        min-height: calc(100svh - 82px);
+        min-height:calc(100svh - 82px);
       }
 
       .about-grid,
       .materials-grid,
       .boost-grid,
-      .quiz-zone-box {
-        grid-template-columns: minmax(0, 1fr);
+      .quiz-zone-box,
+      .join-grid,
+      .order-grid,
+      .contact-grid {
+        grid-template-columns:minmax(0,1fr);
       }
 
       .reviews-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns:minmax(0,1fr);
         grid-template-areas:
           "visual"
           "content";
@@ -1124,158 +1115,186 @@
       .about-visual,
       .materials-visual,
       .boost-visual,
-      .reviews-visual {
-        width: 100%;
+      .reviews-visual,
+      .join-visual,
+      .order-visual,
+      .contact-visual {
+        width:100%;
       }
 
       .class-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
       .materials-list {
-        width: fit-content;
-        max-width: 100%;
+        width:fit-content;
+        max-width:100%;
       }
 
       .quiz-zone-visual {
-        min-height: 0;
-        height: clamp(220px, 42vw, 340px);
-        order: 1;
+        min-height:0;
+        height:clamp(220px,42vw,340px);
+        order:1;
       }
 
       .quiz-zone-visual img {
-        min-height: 0;
-        height: 100%;
+        min-height:0;
+        height:100%;
       }
 
       .quiz-zone-content {
-        order: 2;
+        order:2;
       }
+
+      /* Keep the image/text sequence on tablet */
+      .join-visual { order:2; }
+      .join-content { order:1; }
+
+      .order-visual { order:1; }
+      .order-content { order:2; }
+
+      .contact-visual { order:2; }
+      .contact-content { order:1; }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width:700px) {
       .nav-container {
-        width: 92%;
+        width:92%;
       }
 
       nav {
-        width: 100%;
+        width:100%;
       }
 
       nav a {
-        line-height: 1.5;
+        line-height:1.5;
       }
 
       .section {
-        min-height: auto;
-        padding-block: 56px;
-        scroll-margin-top: 130px;
+        min-height:auto;
+        padding-block:56px;
+        scroll-margin-top:130px;
       }
 
       .hero.section {
-        min-height: auto;
-        padding-block: 48px 58px;
+        min-height:auto;
+        padding-block:48px 58px;
       }
 
       .section-inner {
-        width: 90%;
+        width:90%;
       }
 
       .about-grid,
       .materials-grid,
       .boost-grid,
-      .reviews-grid {
-        gap: 28px;
+      .reviews-grid,
+      .join-grid,
+      .order-grid,
+      .contact-grid {
+        gap:28px;
       }
 
       .class-cards {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns:minmax(0,1fr);
       }
 
       .class-card {
-        padding: 28px 22px;
+        padding:28px 22px;
       }
 
       .about-visual {
-        min-height: 0;
-        height: auto;
+        min-height:0;
+        height:auto;
       }
 
       .about-visual img {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: 420px;
-        object-fit: cover;
+        width:100%;
+        height:auto;
+        min-height:0;
+        max-height:420px;
+        object-fit:cover;
       }
 
       .materials-visual {
-        height: clamp(240px, 70vw, 380px);
-        min-height: 0;
+        height:clamp(240px,70vw,380px);
+        min-height:0;
       }
 
       .materials-visual img {
-        min-height: 0;
+        min-height:0;
       }
 
       .boost-visual,
       .reviews-visual {
-        height: clamp(220px, 62vw, 320px);
-        min-height: 0;
+        height:clamp(220px,62vw,320px);
+        min-height:0;
       }
 
       .boost-visual img,
       .reviews-visual img {
-        height: 100%;
-        min-height: 0;
+        height:100%;
+        min-height:0;
+      }
+
+      .join-visual,
+      .order-visual,
+      .contact-visual {
+        height:clamp(220px,62vw,320px);
+        min-height:0;
+      }
+
+      .join-visual img,
+      .order-visual img,
+      .contact-visual img {
+        height:100%;
+        min-height:0;
       }
 
       .quiz-zone-box {
-        padding: 24px 18px;
-        gap: 24px;
-        border-radius: 28px;
+        padding:24px 18px;
+        gap:24px;
+        border-radius:28px;
       }
 
       .quiz-zone-visual {
-        height: clamp(200px, 58vw, 290px);
+        height:clamp(200px,58vw,290px);
       }
 
-      .join-box,
-      .order-box,
-      .contact-box {
-        padding: clamp(28px, 7vw, 45px) clamp(18px, 5vw, 25px);
-        border-radius: 28px;
+      .join-box,.order-box,.contact-box {
+        padding:clamp(28px,7vw,45px) clamp(18px,5vw,25px);
+        border-radius:28px;
       }
 
       .footer-description {
-        overflow-wrap: anywhere;
+        overflow-wrap:anywhere;
       }
     }
 
-    @media (max-width: 380px) {
+    @media (max-width:380px) {
       nav {
-        gap: 8px 12px;
+        gap:8px 12px;
       }
 
       nav a {
-        font-size: 11px;
+        font-size:11px;
       }
 
       .section-title {
-        font-size: clamp(28px, 8.5vw, 32px);
-        overflow-wrap: anywhere;
+        font-size:clamp(28px,8.5vw,32px);
+        overflow-wrap:anywhere;
       }
 
       .hero-subtitle {
-        font-size: clamp(22px, 7vw, 25px);
+        font-size:clamp(22px,7vw,25px);
       }
 
       .section-button {
-        padding: 12px 18px;
+        padding:12px 18px;
       }
 
       .materials-list {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns:minmax(0,1fr);
       }
     }
 
@@ -1341,7 +1360,7 @@
             make Mathematics easier and more enjoyable.
           </p>
           <a href="Tutor.html" class="section-button about-button">Meet Nipuni</a>
-          <a href="mean.html" class="section-button about-button" style="margin-left: 12px;">Mathmium Story</a>
+          <a href="mean.html" class="section-button about-button" style="margin-left:12px;">Mathmium Story</a>
         </div>
 
         <div class="about-visual">
@@ -1467,7 +1486,7 @@
           <h2 class="section-title quiz-zone-title">Pick a Quiz. Give It a Try. Have Fun!</h2>
           <p class="section-text quiz-zone-text">
             Learning Mathematics can be fun! Step into the Mathmium Quiz Zone,
-            where you can test your knowledge, practise what you’ve learned,
+            where you can test your knowledge, practise what you've learned,
             and challenge yourself with exciting Mathematics quizzes.
           </p>
           <a href="quizzes.html" class="section-button quiz-zone-button">Explore the Quiz Zone</a>
@@ -1503,56 +1522,94 @@
     </div>
   </section>
 
-  <!-- SECTION 07 -->
+  <!-- SECTION 07 — JOIN A CLASS -->
   <section class="section join-section" id="join">
     <div class="section-inner">
-      <div class="join-box">
-        <div class="section-label join-label">07 — Join a Class</div>
-        <h2 class="section-title join-title">Ready for Your Next Math Adventure?</h2>
-        <p class="section-text join-text">
-          Let's make Mathematics a little simpler, a little more creative,
-          and a lot more enjoyable.
-        </p>
-        <p class="section-text join-text">
-          Whether you need extra practice, support with challenging topics,
-          or a friendly place to build confidence, Mathmium is here to help.
-        </p>
-        <a href="join.html" class="section-button join-button">Join a Class</a>
+      <div class="join-grid">
+
+        <!-- TEXT ON THE LEFT -->
+        <div class="join-content">
+          <div class="section-label join-label">07 — Join a Class</div>
+          <h2 class="section-title join-title">Ready for Your Next Math Adventure?</h2>
+
+          <p class="section-text join-text">
+            Let's make Mathematics a little simpler, a little more creative,
+            and a lot more enjoyable.
+          </p>
+
+          <p class="section-text join-text">
+            Whether you need extra practice, support with challenging topics,
+            or a friendly place to build confidence, Mathmium is here to help.
+          </p>
+
+          <a href="join.html" class="section-button join-button">Join a Class</a>
+        </div>
+
+        <!-- IMAGE ON THE RIGHT -->
+        <div class="join-visual">
+          <img src="Images/Join.jpg" alt="Join a Mathmium Mathematics class">
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 08 -->
+  <!-- SECTION 08 — ORDER MATERIALS -->
   <section class="section order-section" id="order">
     <div class="section-inner">
-      <div class="order-box">
-        <div class="section-label order-label">08 — Order Mathematics Materials</div>
-        <h2 class="section-title order-title">Looking for the Right Math Materials?</h2>
-        <p class="section-text order-text">
-          Find learning materials designed around different ages,
-          levels, topics, and learning needs.
-        </p>
-        <p class="section-text order-text">
-          Explore the available materials or request something
-          specially created for your learning goals.
-        </p>
-        <a href="order-materials.html" class="section-button order-button">Explore &amp; Order</a>
+      <div class="order-grid">
+
+        <!-- IMAGE ON THE LEFT -->
+        <div class="order-visual">
+          <img src="Images/OrderM.jpg" alt="Order Mathmium Mathematics learning materials">
+        </div>
+
+        <!-- TEXT ON THE RIGHT -->
+        <div class="order-content">
+          <div class="section-label order-label">08 — Order Mathematics Materials</div>
+          <h2 class="section-title order-title">Looking for the Right Math Materials?</h2>
+
+          <p class="section-text order-text">
+            Find learning materials designed around different ages,
+            levels, topics, and learning needs.
+          </p>
+
+          <p class="section-text order-text">
+            Explore the available materials or request something
+            specially created for your learning goals.
+          </p>
+
+          <a href="order-materials.html" class="section-button order-button">Explore &amp; Order</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 09 -->
+  <!-- SECTION 09 — CONTACT -->
   <section class="section contact-section" id="contact">
     <div class="section-inner">
-      <div class="contact-box">
-        <div class="section-label contact-label">09 — Contact</div>
-        <h2 class="section-title contact-title">Have a Question? Let's Talk!</h2>
-        <p class="section-text contact-text">
-          Whether you have a question about classes,
-          Mathematics materials, or anything else about Mathmium,
-          feel free to get in touch.
-        </p>
-        <a href="contact.html" class="section-button contact-button">Let's Talk</a>
+      <div class="contact-grid">
+
+        <!-- TEXT ON THE LEFT -->
+        <div class="contact-content">
+          <div class="section-label contact-label">09 — Contact</div>
+          <h2 class="section-title contact-title">Have a Question? Let's Talk!</h2>
+
+          <p class="section-text contact-text">
+            Whether you have a question about classes,
+            Mathematics materials, or anything else about Mathmium,
+            feel free to get in touch.
+          </p>
+
+          <a href="contact.html" class="section-button contact-button">Let's Talk</a>
+        </div>
+
+        <!-- IMAGE ON THE RIGHT -->
+        <div class="contact-visual">
+          <img src="Images/Contact.jpg" alt="Contact Mathmium">
+        </div>
+
       </div>
     </div>
   </section>
@@ -1577,243 +1634,235 @@
     <div class="copyright">© Mathmium</div>
   </footer>
 
-  
-<!-- RANDOM FLOATING TRIANGLES -->
-<script>
-(() => {
-  const field = document.getElementById("triangle-field");
-  if (!field) return;
+  <!-- RANDOM FLOATING TRIANGLES -->
+  <script>
+  (() => {
+    const field = document.getElementById("triangle-field");
+    if (!field) return;
 
-  const colors = [
-    "#AC5A70", "#FFD1DC", "#8A2947",
-    "#A1C7FF", "#DCEBFF", "#3978D4",
-    "#B58CFF", "#CCCCFF", "#7040C4",
-    "#AAE22E", "#E5F9B5", "#5E9F18",
-    "#FF920D", "#FFD0A0", "#D95F00",
-    "#5DFFE7", "#CFFFF7", "#159E94",
-    "#E7A714", "#FFE8A3", "#C47D00",
-    "#FF6478", "#FFD0D6", "#C92E45",
-    "#5B6CFF", "#C9D0FF", "#2938B8"
-  ];
+    const colors = [
+      "#AC5A70", "#FFD1DC", "#8A2947",
+      "#A1C7FF", "#DCEBFF", "#3978D4",
+      "#B58CFF", "#CCCCFF", "#7040C4",
+      "#AAE22E", "#E5F9B5", "#5E9F18",
+      "#FF920D", "#FFD0A0", "#D95F00",
+      "#5DFFE7", "#CFFFF7", "#159E94",
+      "#E7A714", "#FFE8A3", "#C47D00",
+      "#FF6478", "#FFD0D6", "#C92E45",
+      "#5B6CFF", "#C9D0FF", "#2938B8"
+    ];
 
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-  const symbols = ["▲", "▼"];
-  let resizeTimer;
+    const symbols = ["▲", "▼"];
+    let resizeTimer;
 
-  function createTriangles() {
-    field.innerHTML = "";
+    function createTriangles() {
+      field.innerHTML = "";
 
-    const width = field.clientWidth;
-    const height = field.clientHeight;
+      const width = field.clientWidth;
+      const height = field.clientHeight;
 
-    if (!width || !height) return;
+      if (!width || !height) return;
 
-    const mobile = width <= 700;
+      const mobile = width <= 700;
 
-    // Grid spacing helps distribute triangles evenly.
-    const cellWidth = mobile ? 62 : 82;
-    const cellHeight = mobile ? 64 : 82;
+      const cellWidth = mobile ? 62 : 82;
+      const cellHeight = mobile ? 64 : 82;
 
-    const columns = Math.max(1, Math.ceil(width / cellWidth));
-    const rows = Math.max(1, Math.ceil(height / cellHeight));
+      const columns = Math.max(1, Math.ceil(width / cellWidth));
+      const rows = Math.max(1, Math.ceil(height / cellHeight));
 
-    const cells = [];
+      const cells = [];
 
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < columns; col++) {
-        cells.push({ row, col });
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < columns; col++) {
+          cells.push({ row, col });
+        }
       }
-    }
 
-    // Randomise cell order so the pattern looks natural.
-    for (let i = cells.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [cells[i], cells[j]] = [cells[j], cells[i]];
-    }
+      for (let i = cells.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cells[i], cells[j]] = [cells[j], cells[i]];
+      }
 
-    const fragment = document.createDocumentFragment();
-    const count = Math.min(
-      cells.length,
-      mobile ? 75 : 145
-    );
-
-    for (let i = 0; i < count; i++) {
-      const cell = cells[i];
-      const triangle = document.createElement("span");
-
-      triangle.className = "floating-triangle";
-      triangle.textContent =
-        symbols[Math.floor(Math.random() * symbols.length)];
-
-      const cellW = width / columns;
-      const cellH = height / rows;
-
-      // Keep the centre clear and concentrate triangles near the edges.
-      let x, y;
-      let attempts = 0;
-
-      do {
-      x = cell.col * cellW + cellW * (
-      0.15 + Math.random() * 0.70
+      const fragment = document.createDocumentFragment();
+      const count = Math.min(
+        cells.length,
+        mobile ? 75 : 145
       );
 
-      y = cell.row * cellH + cellH * (
-      0.15 + Math.random() * 0.70
-      );
+      for (let i = 0; i < count; i++) {
+        const cell = cells[i];
+        const triangle = document.createElement("span");
 
-      attempts++;
+        triangle.className = "floating-triangle";
+        triangle.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
 
-      const nx = x / width;
-      const ny = y / height;
-    
-      // Elliptical clear space around the hero content.
-      const centreX = (nx - 0.5) / 0.36;
-      const centreY = (ny - 0.5) / 0.34;
+        const cellW = width / columns;
+        const cellH = height / rows;
 
-      const inCentre =
-      centreX * centreX + centreY * centreY < 1;
+        let x, y;
+        let attempts = 0;
 
-      // Retry positions that fall inside the clear centre.
-      if (!inCentre) break;
+        do {
+          x = cell.col * cellW + cellW * (
+            0.15 + Math.random() * 0.70
+          );
 
-      // Avoid an endless loop on small screens.
-      } while (attempts < 12);
+          y = cell.row * cellH + cellH * (
+            0.15 + Math.random() * 0.70
+          );
 
-      const size = Math.round(
-        18 + Math.random() * (mobile ? 16 : 22)
-      );
+          attempts++;
 
-      const color =
-        colors[Math.floor(Math.random() * colors.length)];
+          const nx = x / width;
+          const ny = y / height;
 
-      // Faster movement with natural variation.
-      const duration = 12 + Math.random() * 8;
-      const delay = -(Math.random() * duration);
-      const drift = Math.round(-22 + Math.random() * 44);
-      const rise = Math.round(18 + Math.random() * 28);
-      const rotation = Math.round(-25 + Math.random() * 50);
+          const centreX = (nx - 0.5) / 0.36;
+          const centreY = (ny - 0.5) / 0.34;
 
-      // Brighter visibility without overpowering the content.
-      const opacity = (
-        0.32 + Math.random() * 0.30
-      ).toFixed(2);
+          const inCentre =
+            centreX * centreX + centreY * centreY < 1;
 
-      triangle.style.left = `${x}px`;
-      triangle.style.top = `${y}px`;
-      triangle.style.fontSize = `${size}px`;
-      triangle.style.color = color;
+          if (!inCentre) break;
 
-      triangle.style.setProperty("--duration", `${duration}s`);
-      triangle.style.setProperty("--delay", `${delay}s`);
-      triangle.style.setProperty("--drift", `${drift}px`);
-      triangle.style.setProperty("--rise", `${rise}px`);
-      triangle.style.setProperty("--rotation", `${rotation}deg`);
-      triangle.style.setProperty("--opacity", opacity);
+        } while (attempts < 12);
 
-      if (reducedMotion) {
-        triangle.style.animation = "none";
-        triangle.style.opacity = opacity;
-        triangle.style.transform = `rotate(${rotation}deg)`;
+        const size = Math.round(
+          18 + Math.random() * (mobile ? 16 : 22)
+        );
+
+        const color =
+          colors[Math.floor(Math.random() * colors.length)];
+
+        const duration = 12 + Math.random() * 8;
+        const delay = -(Math.random() * duration);
+        const drift = Math.round(-22 + Math.random() * 44);
+        const rise = Math.round(18 + Math.random() * 28);
+        const rotation = Math.round(-25 + Math.random() * 50);
+
+        const opacity = (
+          0.32 + Math.random() * 0.30
+        ).toFixed(2);
+
+        triangle.style.left = `${x}px`;
+        triangle.style.top = `${y}px`;
+        triangle.style.fontSize = `${size}px`;
+        triangle.style.color = color;
+
+        triangle.style.setProperty("--duration", `${duration}s`);
+        triangle.style.setProperty("--delay", `${delay}s`);
+        triangle.style.setProperty("--drift", `${drift}px`);
+        triangle.style.setProperty("--rise", `${rise}px`);
+        triangle.style.setProperty("--rotation", `${rotation}deg`);
+        triangle.style.setProperty("--opacity", opacity);
+
+        if (reducedMotion) {
+          triangle.style.animation = "none";
+          triangle.style.opacity = opacity;
+          triangle.style.transform = `rotate(${rotation}deg)`;
+        }
+
+        fragment.appendChild(triangle);
       }
 
-      fragment.appendChild(triangle);
+      field.appendChild(fragment);
     }
 
-    field.appendChild(fragment);
-  }
+    if (!document.getElementById("mathmium-triangle-animation")) {
+      const style = document.createElement("style");
 
-  // Use a dedicated animation so the existing CSS stays untouched.
-  if (!document.getElementById("mathmium-triangle-animation")) {
-    const style = document.createElement("style");
+      style.id = "mathmium-triangle-animation";
 
-    style.id = "mathmium-triangle-animation";
-
-    style.textContent = `
-      #triangle-field .floating-triangle {
-        position: absolute;
-        display: block;
-        line-height: 1;
-        font-family: Arial, sans-serif;
-        font-weight: 900;
-        user-select: none;
-        pointer-events: none;
-        opacity: 0;
-        will-change: transform, opacity;
-        text-shadow: 0 3px 12px currentColor;
-        animation:
-          mathmium-smooth-float
-          var(--duration, 16s)
-          ease-in-out
-          var(--delay, 0s)
-          infinite;
-      }
-
-      @keyframes mathmium-smooth-float {
-        0% {
-          transform: translate3d(0, 12px, 0)
-                     rotate(0deg) scale(0.88);
-          opacity: 0;
-        }
-
-        12% {
-          opacity: var(--opacity, 0.5);
-        }
-
-        30% {
-          transform: translate3d(
-            var(--drift, 20px),
-            calc(var(--rise, 30px) * -0.25),
-            0
-          ) rotate(var(--rotation, 20deg)) scale(1);
-        }
-
-        55% {
-          transform: translate3d(
-            calc(var(--drift, 20px) * -0.65),
-            calc(var(--rise, 30px) * -0.7),
-            0
-          ) rotate(calc(var(--rotation, 20deg) * -0.6))
-            scale(0.94);
-        }
-
-        80% {
-          transform: translate3d(
-            var(--drift, 20px),
-            calc(var(--rise, 30px) * -1.2),
-            0
-          ) rotate(var(--rotation, 20deg)) scale(1.05);
-          opacity: var(--opacity, 0.5);
-        }
-
-        100% {
-          transform: translate3d(0, 12px, 0)
-                     rotate(0deg) scale(0.88);
-          opacity: 0;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
+      style.textContent = `
         #triangle-field .floating-triangle {
-          animation: none !important;
+          position:absolute;
+          display:block;
+          line-height:1;
+          font-family:Arial,sans-serif;
+          font-weight:900;
+          user-select:none;
+          pointer-events:none;
+          opacity:0;
+          will-change:transform,opacity;
+          text-shadow:0 3px 12px currentColor;
+          animation:
+            mathmium-smooth-float
+            var(--duration,16s)
+            ease-in-out
+            var(--delay,0s)
+            infinite;
         }
-      }
-    `;
 
-    document.head.appendChild(style);
-  }
+        @keyframes mathmium-smooth-float {
+          0% {
+            transform:translate3d(0,12px,0)
+                       rotate(0deg) scale(0.88);
+            opacity:0;
+          }
 
-  createTriangles();
+          12% {
+            opacity:var(--opacity,0.5);
+          }
 
-  // Reposition triangles when the browser size changes.
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
+          30% {
+            transform:translate3d(
+              var(--drift,20px),
+              calc(var(--rise,30px) * -0.25),
+              0
+            ) rotate(var(--rotation,20deg)) scale(1);
+          }
 
-    resizeTimer = setTimeout(() => {
-      createTriangles();
-    }, 200);
-  });
-})();
-</script>
+          55% {
+            transform:translate3d(
+              calc(var(--drift,20px) * -0.65),
+              calc(var(--rise,30px) * -0.7),
+              0
+            ) rotate(calc(var(--rotation,20deg) * -0.6))
+              scale(0.94);
+          }
+
+          80% {
+            transform:translate3d(
+              var(--drift,20px),
+              calc(var(--rise,30px) * -1.2),
+              0
+            ) rotate(var(--rotation,20deg)) scale(1.05);
+            opacity:var(--opacity,0.5);
+          }
+
+          100% {
+            transform:translate3d(0,12px,0)
+                       rotate(0deg) scale(0.88);
+            opacity:0;
+          }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+          #triangle-field .floating-triangle {
+            animation:none !important;
+          }
+        }
+      `;
+
+      document.head.appendChild(style);
+    }
+
+    createTriangles();
+
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+
+      resizeTimer = setTimeout(() => {
+        createTriangles();
+      }, 200);
+    });
+  })();
+  </script>
+
+</body>
+</html>
