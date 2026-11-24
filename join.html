@@ -3,13 +3,8 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
@@ -78,13 +73,9 @@
                     rgba(250,255,243,0.96)
                 );
 
-            border-bottom:
-                1px solid
-                rgba(83,165,29,0.15);
+            border-bottom: 1px solid rgba(83,165,29,0.15);
 
-            box-shadow:
-                0 5px 22px
-                rgba(83,165,29,0.07);
+            box-shadow: 0 5px 22px rgba(83,165,29,0.07);
         }
 
         .logo {
@@ -124,9 +115,7 @@
             color: #35422f;
             text-decoration: none;
 
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
+            transition: color 0.25s ease, transform 0.25s ease;
         }
 
         .nav-links a:hover,
@@ -159,19 +148,15 @@
             width: 100%;
             text-align: center;
 
-            padding:
-                115px 25px
-                105px;
+            padding: 45px 25px 35px;
 
             background: transparent;
 
-            border-bottom:
-                1px solid
-                rgba(83,165,29,0.18);
+            border-bottom: 1px solid rgba(83,165,29,0.18);
         }
 
         .hero-kicker {
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 2.5px;
@@ -180,27 +165,22 @@
 
         .hero h1 {
             max-width: 950px;
-            margin:
-                0 auto
-                22px;
+            margin: 0 auto 14px;
 
-            font-size:
-                clamp(42px, 6vw, 70px);
+            font-size: clamp(36px, 5vw, 58px);
 
-            line-height: 1.08;
+            line-height: 1.12;
             font-weight: 700;
             color: #53A51D;
 
-            text-shadow:
-                0 2px 12px
-                rgba(255,255,255,0.65);
+            text-shadow: 0 2px 12px rgba(255,255,255,0.65);
         }
 
         .hero p {
             max-width: 740px;
             margin: 0 auto;
-            font-size: 21px;
-            line-height: 1.7;
+            font-size: 19px;
+            line-height: 1.6;
             font-weight: 600;
             color: #56634e;
         }
@@ -211,21 +191,20 @@
         ===================================================== */
 
         .join-image-container {
-            width: min(1050px, 90%);
-            margin: 55px auto 0;
+            width: min(850px, 82%);
+            max-height: 300px;
+            margin: 25px auto 0;
             overflow: hidden;
 
-            border-radius: 28px;
+            border-radius: 24px;
 
             background: #ffffff;
 
-            border:
-                1px solid
-                rgba(83,165,29,0.14);
+            border: 1px solid rgba(83,165,29,0.14);
 
             box-shadow:
-                0 18px 50px rgba(45,75,25,0.10),
-                0 4px 14px rgba(45,75,25,0.04);
+                0 14px 35px rgba(45,75,25,0.10),
+                0 4px 12px rgba(45,75,25,0.04);
 
             transition:
                 transform 0.35s ease,
@@ -233,17 +212,18 @@
         }
 
         .join-image-container:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
 
             box-shadow:
-                0 24px 60px rgba(45,75,25,0.14);
+                0 20px 45px rgba(45,75,25,0.14);
         }
 
         .join-image {
             display: block;
             width: 100%;
-            height: auto;
+            height: 300px;
             object-fit: cover;
+            object-position: center;
             border-radius: inherit;
         }
 
@@ -256,9 +236,7 @@
             width: min(1180px, 90%);
             margin: 0 auto;
 
-            padding:
-                80px 0
-                95px;
+            padding: 80px 0 95px;
 
             background: transparent;
         }
@@ -271,16 +249,13 @@
         .section-heading h2 {
             margin-bottom: 13px;
 
-            font-size:
-                clamp(31px, 4vw, 43px);
+            font-size: clamp(31px, 4vw, 43px);
 
             line-height: 1.2;
             font-weight: 700;
             color: #53A51D;
 
-            text-shadow:
-                0 2px 10px
-                rgba(255,255,255,0.60);
+            text-shadow: 0 2px 10px rgba(255,255,255,0.60);
         }
 
         .section-heading p {
@@ -311,9 +286,7 @@
         .journey-card {
             position: relative;
 
-            width: calc(
-                (100% - 80px) / 5
-            );
+            width: calc((100% - 80px) / 5);
 
             min-height: 300px;
 
@@ -322,8 +295,7 @@
             align-items: center;
             justify-content: center;
 
-            padding:
-                36px 23px;
+            padding: 36px 23px;
 
             text-align: center;
 
@@ -335,18 +307,13 @@
                     rgba(228,249,179,0.72) 100%
                 );
 
-            border:
-                1px solid
-                rgba(83,165,29,0.18);
+            border: 1px solid rgba(83,165,29,0.18);
 
             border-radius: 26px;
 
-            box-shadow:
-                0 14px 38px
-                rgba(83,165,29,0.09);
+            box-shadow: 0 14px 38px rgba(83,165,29,0.09);
 
-            backdrop-filter:
-                blur(5px);
+            backdrop-filter: blur(5px);
 
             transition:
                 transform 0.3s ease,
@@ -357,12 +324,9 @@
         .journey-card:hover {
             transform: translateY(-6px);
 
-            border-color:
-                rgba(83,165,29,0.36);
+            border-color: rgba(83,165,29,0.36);
 
-            box-shadow:
-                0 20px 45px
-                rgba(83,165,29,0.14);
+            box-shadow: 0 20px 45px rgba(83,165,29,0.14);
         }
 
 
@@ -393,9 +357,7 @@
             font-size: 20px;
             font-weight: 700;
 
-            box-shadow:
-                0 8px 20px
-                rgba(83,165,29,0.18);
+            box-shadow: 0 8px 20px rgba(83,165,29,0.18);
         }
 
 
@@ -433,9 +395,7 @@
             width: min(1180px, 90%);
             margin: 0 auto;
 
-            padding:
-                30px 0
-                120px;
+            padding: 30px 0 120px;
 
             background: transparent;
         }
@@ -444,9 +404,7 @@
             width: 100%;
             text-align: center;
 
-            padding:
-                78px 40px
-                95px;
+            padding: 78px 40px 95px;
 
             background:
                 linear-gradient(
@@ -456,25 +414,19 @@
                     rgba(228,249,179,0.70) 100%
                 );
 
-            border:
-                1px solid
-                rgba(83,165,29,0.18);
+            border: 1px solid rgba(83,165,29,0.18);
 
             border-radius: 34px;
 
-            box-shadow:
-                0 18px 55px
-                rgba(83,165,29,0.10);
+            box-shadow: 0 18px 55px rgba(83,165,29,0.10);
 
-            backdrop-filter:
-                blur(6px);
+            backdrop-filter: blur(6px);
         }
 
         .join-box h2 {
             margin-bottom: 17px;
 
-            font-size:
-                clamp(31px, 4vw, 44px);
+            font-size: clamp(31px, 4vw, 44px);
 
             line-height: 1.2;
             font-weight: 700;
@@ -483,9 +435,7 @@
 
         .join-box > p {
             max-width: 720px;
-            margin:
-                0 auto
-                36px;
+            margin: 0 auto 36px;
 
             font-size: 18px;
             line-height: 1.75;
@@ -505,8 +455,7 @@
 
             min-width: 195px;
 
-            padding:
-                16px 32px;
+            padding: 16px 32px;
 
             border: none;
             border-radius: 14px;
@@ -520,18 +469,14 @@
 
             color: #ffffff;
 
-            font-family:
-                "Quicksand",
-                sans-serif;
+            font-family: "Quicksand", sans-serif;
 
             font-size: 17px;
             font-weight: 700;
 
             cursor: pointer;
 
-            box-shadow:
-                0 10px 24px
-                rgba(83,165,29,0.18);
+            box-shadow: 0 10px 24px rgba(83,165,29,0.18);
 
             transition:
                 transform 0.25s ease,
@@ -549,9 +494,7 @@
                     #3F8215 100%
                 );
 
-            box-shadow:
-                0 15px 32px
-                rgba(83,165,29,0.25);
+            box-shadow: 0 15px 32px rgba(83,165,29,0.25);
         }
 
         .join-button:active {
@@ -577,15 +520,11 @@
                     #E4F9B3 100%
                 );
 
-            border:
-                1px solid
-                rgba(83,165,29,0.18);
+            border: 1px solid rgba(83,165,29,0.18);
 
             border-radius: 25px;
 
-            box-shadow:
-                0 15px 45px
-                rgba(83,165,29,0.08);
+            box-shadow: 0 15px 45px rgba(83,165,29,0.08);
         }
 
         .form-container.show {
@@ -623,8 +562,7 @@
             align-items: center;
             justify-content: center;
 
-            padding:
-                14px 30px;
+            padding: 14px 30px;
 
             border-radius: 13px;
 
@@ -635,18 +573,14 @@
                     rgba(228,249,179,0.72)
                 );
 
-            border:
-                1px solid
-                rgba(83,165,29,0.28);
+            border: 1px solid rgba(83,165,29,0.28);
 
             color: #53A51D;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
 
-            box-shadow:
-                0 6px 18px
-                rgba(83,165,29,0.06);
+            box-shadow: 0 6px 18px rgba(83,165,29,0.06);
 
             transition:
                 background 0.25s ease,
@@ -665,8 +599,7 @@
 
             color: #ffffff;
 
-            border-color:
-                #53A51D;
+            border-color: #53A51D;
 
             transform: translateY(-2px);
         }
@@ -679,9 +612,7 @@
         footer {
             text-align: center;
 
-            padding:
-                75px 25px
-                48px;
+            padding: 75px 25px 48px;
 
             background:
                 linear-gradient(
@@ -691,9 +622,7 @@
                     rgba(255,255,255,0.20) 100%
                 );
 
-            border-top:
-                1px solid
-                rgba(83,165,29,0.12);
+            border-top: 1px solid rgba(83,165,29,0.12);
         }
 
         .footer-logo {
@@ -713,9 +642,7 @@
 
         .footer-description {
             max-width: 650px;
-            margin:
-                0 auto
-                28px;
+            margin: 0 auto 28px;
 
             font-family: "Quicksand", sans-serif;
             font-size: 15px;
@@ -729,8 +656,7 @@
             flex-wrap: wrap;
             justify-content: center;
 
-            gap:
-                18px 28px;
+            gap: 18px 28px;
 
             margin-bottom: 30px;
         }
@@ -742,8 +668,7 @@
             color: #53A51D;
             text-decoration: none;
 
-            transition:
-                color 0.25s ease;
+            transition: color 0.25s ease;
         }
 
         .footer-links a:hover {
@@ -769,9 +694,7 @@
             }
 
             .journey-card {
-                width: calc(
-                    (100% - 40px) / 3
-                );
+                width: calc((100% - 40px) / 3);
             }
         }
 
@@ -797,9 +720,7 @@
             }
 
             .navbar {
-                padding:
-                    16px 5%;
-
+                padding: 16px 5%;
                 flex-direction: column;
                 gap: 16px;
             }
@@ -819,30 +740,38 @@
             }
 
             .hero {
-                padding:
-                    78px 20px
-                    70px;
+                padding: 35px 18px 30px;
+            }
+
+            .hero-kicker {
+                margin-bottom: 10px;
+                font-size: 13px;
             }
 
             .hero h1 {
-                font-size: 43px;
+                font-size: 37px;
+                margin-bottom: 12px;
             }
 
             .hero p {
-                font-size: 18px;
+                font-size: 17px;
+                line-height: 1.5;
             }
 
             .join-image-container {
-                width: 100%;
-                margin-top: 38px;
-                border-radius: 20px;
+                width: 94%;
+                max-height: 190px;
+                margin-top: 20px;
+                border-radius: 18px;
+            }
+
+            .join-image {
+                height: 190px;
             }
 
             .section {
                 width: 90%;
-                padding:
-                    65px 0
-                    75px;
+                padding: 65px 0 75px;
             }
 
             .journey-grid {
@@ -856,23 +785,16 @@
                 width: 100%;
                 max-width: 430px;
                 min-height: 250px;
-
-                padding:
-                    35px 28px;
+                padding: 35px 28px;
             }
 
             .join-section {
                 width: 90%;
-                padding:
-                    25px 0
-                    85px;
+                padding: 25px 0 85px;
             }
 
             .join-box {
-                padding:
-                    55px 18px
-                    70px;
-
+                padding: 55px 18px 70px;
                 border-radius: 27px;
             }
 
@@ -896,8 +818,7 @@
             }
 
             .footer-links {
-                gap:
-                    15px 20px;
+                gap: 15px 20px;
             }
         }
 
@@ -909,11 +830,20 @@
         @media (max-width: 430px) {
 
             .hero h1 {
-                font-size: 37px;
+                font-size: 34px;
             }
 
             .hero p {
-                font-size: 17px;
+                font-size: 16px;
+            }
+
+            .join-image-container {
+                width: 96%;
+                max-height: 165px;
+            }
+
+            .join-image {
+                height: 165px;
             }
 
             .section-heading h2 {
@@ -948,10 +878,7 @@
 
     <nav class="navbar">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
+        <a href="index.html" class="logo">
 
             <img
                 src="Images/Logo.svg"
@@ -962,31 +889,19 @@
 
         <div class="nav-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#tutor">
-                Meet the Tutor
-            </a>
+            <a href="index.html#tutor">Meet the Tutor</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#treasures">
-                Treasure I've Earned
-            </a>
+            <a href="index.html#treasures">Treasure I've Earned</a>
 
         </div>
 
     </nav>
-
-
 
 
     <!-- =====================================================
@@ -1027,8 +942,6 @@
             </div>
 
         </section>
-
-
 
 
         <!-- =====================================================
@@ -1153,8 +1066,6 @@
         </section>
 
 
-
-
         <!-- =====================================================
              JOIN CLASS FORM
         ===================================================== -->
@@ -1216,8 +1127,6 @@
     </main>
 
 
-
-
     <!-- =====================================================
          FOOTER
     ===================================================== -->
@@ -1239,33 +1148,19 @@
 
         <div class="footer-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="index.html#classes">
-                Classes
-            </a>
+            <a href="index.html#classes">Classes</a>
 
-            <a href="index.html#materials">
-                Materials
-            </a>
+            <a href="index.html#materials">Materials</a>
 
-            <a href="index.html#join">
-                Join Classes
-            </a>
+            <a href="index.html#join">Join Classes</a>
 
-            <a href="index.html#order">
-                Order Materials
-            </a>
+            <a href="index.html#order">Order Materials</a>
 
-            <a href="index.html#contact">
-                Contact
-            </a>
+            <a href="index.html#contact">Contact</a>
 
-            <a href="index.html#treasures">
-                Reviews
-            </a>
+            <a href="index.html#treasures">Reviews</a>
 
         </div>
 
@@ -1274,8 +1169,6 @@
         </div>
 
     </footer>
-
-
 
 
     <!-- =====================================================
