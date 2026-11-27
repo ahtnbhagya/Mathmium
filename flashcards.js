@@ -440,11 +440,43 @@ document.addEventListener("DOMContentLoaded", function () {
         emptyMessage.style.display = "none";
 
         const colors = [
-            ["#159E94", "#CFFFF7", "#087D76"],
-            ["#3978D4", "#DCEBFF", "#245BA9"],
-            ["#D95F00", "#FFD0A0", "#A94700"]
-        ];
+             // Teal
+             ["#159E94", "#D0F5EF", "#087D76"],
 
+             // Sky Blue
+             ["#3978D4", "#DCEBFF", "#245BA9"],
+
+             // Peach
+             ["#E88752", "#FFE1CF", "#B9572C"],
+
+             // Fresh Green
+             ["#69A94E", "#E2F3D8", "#477D32"],
+
+             // Coral Pink
+             ["#E87583", "#FFE0E4", "#BD4659"],
+
+             // Golden Yellow
+             ["#D5A52E", "#FFF1C7", "#9B7418"],
+
+             // Aqua
+             ["#39AFC0", "#D5F4F7", "#197E8C"],
+
+             // Soft Orange
+             ["#DC9140", "#FFE9CC", "#A96520"],
+
+             // Berry
+             ["#B85C78", "#F8DCE6", "#883A55"],
+
+             // Mint Green
+             ["#46A88A", "#D5F2E6", "#26775D"],
+
+             // Periwinkle Blue
+             ["#657FC5", "#E0E7FF", "#40599C"],
+
+             // Lime
+             ["#91A83E", "#EDF5CE", "#667A24"]
+         ];
+           
         flashcardSubjects.forEach(function (subject, index) {
 
             const color = colors[index % colors.length];
