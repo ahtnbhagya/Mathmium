@@ -524,10 +524,10 @@
       margin:auto;
       padding:48px;
       text-align:left;
-      border-radius:0;
-      background:transparent;
-      border:0;
-      box-shadow:none;
+      border-radius:40px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(21,158,148,.16);
+      box-shadow:0 20px 50px rgba(21,158,148,.10);
     }
 
     .quiz-zone-visual {
@@ -840,7 +840,6 @@
       .quiz-zone-visual { min-height:320px; order:1; }
       .quiz-zone-visual img { min-height:320px; }
       .quiz-zone-content { order:2; text-align:center; }
-      .quiz-zone-box { padding:0; }
       .quiz-zone-text { margin-left:auto; margin-right:auto; text-align:center; }
 
       .about-visual img { width:100%; height:100%; min-height:350px; border-radius:28px; }
@@ -899,9 +898,7 @@
       .class-number img { border-radius:18px; }
       .boost-visual,.reviews-visual,.quiz-zone-visual { min-height:300px; }
 
-      .quiz-zone-box { padding:0; gap:28px; }
-      .quiz-zone-visual { order:1; }
-      .quiz-zone-content { order:2; }
+      .quiz-zone-box { padding:28px 22px; gap:28px; }
       .quiz-zone-visual,.quiz-zone-visual img { min-height:260px; }
       .boost-visual img,.reviews-visual img { min-height:320px; }
 
@@ -1274,6 +1271,43 @@
       }
     }
 
+    /* SECTION 05 — remove only the outer panel; keep the image's own background */
+    .quiz-zone-box {
+      padding:0;
+      background:transparent;
+      border:0;
+      box-shadow:none;
+      border-radius:0;
+    }
+
+    /* Sections 06–09: image first, followed by text on tablet and phone */
+    @media (max-width:900px) {
+      .reviews-grid,
+      .join-grid,
+      .order-grid,
+      .contact-grid {
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .reviews-visual,
+      .join-visual,
+      .order-visual,
+      .contact-visual {
+        order:1;
+        width:100%;
+      }
+
+      .reviews-content,
+      .join-content,
+      .order-content,
+      .contact-content {
+        order:2;
+        width:100%;
+      }
+    }
+
     @media (max-width:380px) {
       nav {
         gap:8px 12px;
@@ -1476,25 +1510,22 @@
     </div>
   </section>
 
-  <!-- SECTION 05 — PRACTICE ZONE -->
+  <!-- SECTION 05 — QUIZ ZONE -->
   <section class="section quiz-zone-section" id="quiz-zone">
     <div class="section-inner">
       <div class="quiz-zone-box">
         <div class="quiz-zone-visual">
-          <img src="Images/Quiz.jpg" alt="Mathmium Mathematics Practice Zone">
+          <img src="Images/Quiz.jpg" alt="Mathmium Mathematics Quiz Zone">
         </div>
 
         <div class="quiz-zone-content">
-          <div class="section-label quiz-zone-label">05 — Practice Zone</div>
+          <div class="section-label quiz-zone-label">05 — Quiz Zone</div>
           <h2 class="section-title quiz-zone-title">Learn. Practise. Play. Improve!</h2>
+          <p class="section-text quiz-zone-text"><strong>Make every practice session an exciting learning adventure!</strong></p>
           <p class="section-text quiz-zone-text">
-            <strong>Make every practice session an exciting learning adventure!</strong>
-          </p>
-          <p class="section-text quiz-zone-text">
-            Explore the Mathmium Practice Zone, your space for interactive quizzes,
-            flashcards, puzzles, and fun Mathematics activities. Discover new ways
-            to practise what you've learned, strengthen your skills, and build
-            confidence one activity at a time.
+            Have fun with quizzes, flashcards, puzzles, and exciting Math activities.
+            Practise what you’ve learned, build your skills, and grow your confidence,
+            one activity at a time.
           </p>
           <a href="quizzes.html" class="section-button quiz-zone-button">Explore the Practice Zone</a>
         </div>
@@ -1871,5 +1902,5 @@
   })();
   </script>
 
-<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "265e064961004d9e8dfe8afefac86aa9"}'></script><!-- Cloudflare Pages Analytics --></body>
+</body>
 </html>
