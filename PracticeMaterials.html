@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Explore the Mathmium Learning Hub with exciting mathematics quizzes, interactive flashcards and fun puzzles for Grades 1–10."
+        content="Explore Mathmium mathematics quizzes, interactive flashcards and fun puzzles for Grades 1–10."
     >
 
     <link
@@ -253,7 +253,7 @@
             position: relative;
             overflow: hidden;
 
-            padding: 105px 20px 100px;
+            padding: 115px 20px 95px;
 
             text-align: center;
 
@@ -328,26 +328,14 @@
         }
 
         .hero-subtitle {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
 
             color: var(--teal-dark);
             font-size: clamp(19px, 2.5vw, 25px);
             font-weight: 700;
         }
 
-        .hero-description {
-            max-width: 780px;
-            margin: 0 auto 24px;
-
-            color: #586B6D;
-            font-size: 17px;
-            font-weight: 600;
-            line-height: 1.9;
-        }
-
         .hero-highlight {
-            margin-bottom: 32px;
-
             color: #087E80;
             font-size: 15px;
             font-weight: 700;
@@ -355,97 +343,21 @@
 
         .hero-highlight span {
             color: var(--teal);
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
+            margin: 0 5px;
         }
 
 
         /* =====================================================
-           5. LEARNING INTRODUCTION
-        ===================================================== */
-
-        .intro-section {
-            padding: 80px 0 75px;
-        }
-
-        .intro-box {
-            position: relative;
-            overflow: hidden;
-
-            padding: 52px 35px;
-
-            text-align: center;
-
-            border: 1px solid rgba(0, 175, 168, 0.15);
-            border-radius: 30px;
-
-            background:
-                radial-gradient(
-                    ellipse at 0% 100%,
-                    rgba(107, 229, 216, 0.23),
-                    transparent 43%
-                ),
-                radial-gradient(
-                    ellipse at 100% 0%,
-                    rgba(41, 156, 180, 0.13),
-                    transparent 43%
-                ),
-                linear-gradient(
-                    135deg,
-                    #E7FAF6,
-                    #FFFFFF 53%,
-                    #E5F8FB
-                );
-
-            box-shadow:
-                0 16px 42px rgba(0, 115, 116, 0.07);
-        }
-
-        .intro-label {
-            display: inline-block;
-            margin-bottom: 13px;
-
-            color: var(--teal-dark);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .intro-box h2 {
-            margin-bottom: 15px;
-
-            color: var(--teal-dark);
-            font-size: clamp(29px, 4vw, 41px);
-            line-height: 1.25;
-        }
-
-        .intro-box p {
-            max-width: 770px;
-            margin: 0 auto;
-
-            color: #5D7071;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.9;
-        }
-
-
-        /* =====================================================
-           6. LEARNING CATEGORIES
+           5. LEARNING RESOURCES SECTION
         ===================================================== */
 
         .resources-section {
-            padding: 25px 0 105px;
+            padding: 90px 0 95px;
         }
 
         .section-heading {
             max-width: 780px;
-            margin: 0 auto 48px;
+            margin: 0 auto 50px;
             text-align: center;
         }
 
@@ -460,7 +372,7 @@
         }
 
         .section-heading h2 {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
 
             color: var(--teal-dark);
             font-size: clamp(30px, 4vw, 43px);
@@ -481,18 +393,25 @@
             gap: 25px;
         }
 
+
+        /* =====================================================
+           6. RESOURCE CARDS
+        ===================================================== */
+
         .resource-card {
             --accent: #00AFA8;
             --light: #6BE5D8;
             --tint: #E1FAF5;
 
             position: relative;
+
             display: flex;
             flex-direction: column;
             align-items: center;
 
             min-width: 0;
-            padding: 36px 25px 32px;
+            min-height: 440px;
+            padding: 39px 27px 32px;
 
             overflow: hidden;
 
@@ -539,8 +458,8 @@
             top: -65px;
             right: -65px;
 
-            width: 150px;
-            height: 150px;
+            width: 165px;
+            height: 165px;
 
             border-radius: 50%;
             background: var(--tint);
@@ -558,6 +477,16 @@
                 0 22px 45px rgba(0, 115, 116, 0.13);
         }
 
+        .resource-card:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+
+        /* =====================================================
+           7. SVG ICON CONTAINERS
+        ===================================================== */
+
         .resource-icon {
             position: relative;
             z-index: 1;
@@ -566,32 +495,68 @@
             align-items: center;
             justify-content: center;
 
-            width: 94px;
-            height: 94px;
-            margin-bottom: 24px;
+            width: 112px;
+            height: 112px;
+            margin-bottom: 26px;
 
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 29px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 32px;
 
             background:
                 linear-gradient(
-                    135deg,
-                    var(--light),
-                    var(--accent)
+                    145deg,
+                    var(--icon-light),
+                    var(--icon-dark)
                 );
 
-            color: #FFFFFF;
-            font-size: 39px;
-            font-weight: 700;
-
             box-shadow:
-                0 10px 24px rgba(0, 115, 116, 0.14);
+                0 12px 27px rgba(0, 115, 116, 0.15);
 
-            transition: transform 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .resource-card:hover .resource-icon {
-            transform: translateY(-4px) scale(1.06);
+            transform: translateY(-5px) scale(1.05);
+
+            box-shadow:
+                0 16px 32px rgba(0, 115, 116, 0.2);
+        }
+
+        .resource-icon svg {
+            display: block;
+            width: 65px;
+            height: 65px;
+
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* =====================================================
+           8. CARD CONTENT
+        ===================================================== */
+
+        .resource-tag {
+            position: relative;
+            z-index: 1;
+
+            margin-bottom: 15px;
+            padding: 7px 15px;
+
+            border: 1px solid rgba(0, 175, 168, 0.13);
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.85);
+
+            color: var(--teal-dark);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
         }
 
         .resource-card h3 {
@@ -601,7 +566,7 @@
             margin-bottom: 12px;
 
             color: var(--teal-deep);
-            font-size: 25px;
+            font-size: 26px;
             font-weight: 700;
         }
 
@@ -609,31 +574,14 @@
             position: relative;
             z-index: 1;
 
-            min-height: 105px;
-            margin-bottom: 22px;
+            flex-grow: 1;
+
+            margin-bottom: 27px;
 
             color: #627577;
             font-size: 15px;
             font-weight: 600;
             line-height: 1.85;
-        }
-
-        .resource-tag {
-            position: relative;
-            z-index: 1;
-
-            margin-bottom: 24px;
-            padding: 7px 15px;
-
-            border: 1px solid rgba(0, 175, 168, 0.13);
-            border-radius: 50px;
-
-            background: rgba(255, 255, 255, 0.8);
-
-            color: var(--teal-dark);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
         }
 
         .resource-button {
@@ -645,7 +593,7 @@
             justify-content: center;
 
             width: 100%;
-            min-height: 49px;
+            min-height: 51px;
             padding: 12px 18px;
 
             border: none;
@@ -662,254 +610,57 @@
 
             transition:
                 background 0.25s ease,
-                transform 0.25s ease;
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .resource-card:hover .resource-button {
             background: var(--button-hover-gradient);
             transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 22px rgba(0, 105, 108, 0.18);
         }
 
-        /* Individual card themes */
 
-        .resource-card.quiz-card {
+        /* =====================================================
+           9. INDIVIDUAL CARD COLOURS
+        ===================================================== */
+
+        .quiz-card {
             --accent: #00AFA8;
-            --light: #48D9CC;
+            --icon-light: #56E0D0;
+            --icon-dark: #079A98;
             --tint: #E1FAF5;
         }
 
-        .resource-card.flashcard-card {
+        .flashcard-card {
             --accent: #159CB0;
-            --light: #63D5DD;
+            --icon-light: #63D5DD;
+            --icon-dark: #168DA8;
             --tint: #E2F7FA;
         }
 
-        .resource-card.puzzle-card {
+        .puzzle-card {
             --accent: #25B99D;
-            --light: #70E2C1;
+            --icon-light: #70E2C1;
+            --icon-dark: #19A58D;
             --tint: #E3FBF2;
         }
 
 
         /* =====================================================
-           7. WHY EXPLORE MATHMIUM
-        ===================================================== */
-
-        .benefits-section {
-            padding: 0 0 105px;
-        }
-
-        .benefits-box {
-            padding: 65px 40px;
-
-            border: 1px solid rgba(0, 175, 168, 0.14);
-            border-radius: 31px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #E7FAF6 0%,
-                    #FFFFFF 50%,
-                    #E4F8FA 100%
-                );
-
-            box-shadow:
-                0 15px 40px rgba(0, 115, 116, 0.06);
-        }
-
-        .benefits-heading {
-            max-width: 750px;
-            margin: 0 auto 45px;
-            text-align: center;
-        }
-
-        .benefits-heading h2 {
-            margin-bottom: 13px;
-
-            color: var(--teal-dark);
-            font-size: clamp(29px, 4vw, 40px);
-            line-height: 1.25;
-        }
-
-        .benefits-heading p {
-            color: var(--muted);
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.8;
-        }
-
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .benefit-item {
-            padding: 25px 19px;
-
-            text-align: center;
-
-            border: 1px solid rgba(0, 175, 168, 0.12);
-            border-radius: 21px;
-
-            background: rgba(255, 255, 255, 0.85);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 12px 28px rgba(0, 115, 116, 0.09);
-        }
-
-        .benefit-symbol {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 58px;
-            height: 58px;
-            margin: 0 auto 17px;
-
-            border-radius: 19px;
-
-            background: linear-gradient(
-                135deg,
-                #D5F8EF,
-                #B9EFE8
-            );
-
-            color: var(--teal-dark);
-            font-size: 25px;
-            font-weight: 700;
-        }
-
-        .benefit-item h3 {
-            margin-bottom: 9px;
-
-            color: var(--teal-deep);
-            font-size: 17px;
-            font-weight: 700;
-        }
-
-        .benefit-item p {
-            color: #667879;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.8;
-        }
-
-
-        /* =====================================================
-           8. MOTIVATIONAL SECTION
-        ===================================================== */
-
-        .motivation-section {
-            padding: 0 0 100px;
-        }
-
-        .motivation-box {
-            position: relative;
-            overflow: hidden;
-
-            padding: 68px 30px;
-
-            text-align: center;
-
-            border-radius: 32px;
-
-            background:
-                radial-gradient(
-                    ellipse at 0% 0%,
-                    rgba(140, 255, 235, 0.28),
-                    transparent 43%
-                ),
-                radial-gradient(
-                    ellipse at 100% 100%,
-                    rgba(91, 219, 222, 0.25),
-                    transparent 43%
-                ),
-                linear-gradient(
-                    120deg,
-                    #087E80 0%,
-                    #00AFA8 48%,
-                    #299CB4 100%
-                );
-
-            box-shadow:
-                0 18px 42px rgba(0, 115, 116, 0.17);
-        }
-
-        .motivation-content {
-            position: relative;
-            z-index: 1;
-
-            max-width: 790px;
-            margin: 0 auto;
-        }
-
-        .motivation-label {
-            display: inline-block;
-            margin-bottom: 16px;
-
-            color: #DFFFFA;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .motivation-box h2 {
-            margin-bottom: 18px;
-
-            color: #FFFFFF;
-            font-size: clamp(30px, 4vw, 44px);
-            line-height: 1.25;
-        }
-
-        .motivation-box p {
-            margin-bottom: 30px;
-
-            color: rgba(255, 255, 255, 0.94);
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.9;
-        }
-
-        .motivation-box .hub-button {
-            background: linear-gradient(
-                120deg,
-                #FFFFFF,
-                #E8FFFA
-            );
-
-            color: #087E80;
-
-            box-shadow:
-                0 9px 24px rgba(0, 66, 68, 0.15);
-        }
-
-        .motivation-box .hub-button:hover {
-            background: #D0F8EF;
-            color: #075B60;
-        }
-
-
-        /* =====================================================
-           9. BACK TO HOME
+           10. BACK TO HOME
         ===================================================== */
 
         .back-home-section {
-            padding: 0 0 85px;
+            padding: 0 0 95px;
             text-align: center;
         }
 
 
         /* =====================================================
-           10. FOOTER
+           11. FOOTER
            UNCHANGED
         ===================================================== */
 
@@ -985,7 +736,7 @@
 
 
         /* =====================================================
-           11. TABLET
+           12. TABLET
         ===================================================== */
 
         @media (max-width: 1050px) {
@@ -1007,14 +758,19 @@
             }
 
             .resource-card {
-                padding: 30px 19px;
+                padding: 32px 19px 27px;
+                min-height: 455px;
+            }
+
+            .resource-card h3 {
+                font-size: 23px;
             }
 
         }
 
 
         /* =====================================================
-           12. MOBILE
+           13. MOBILE
         ===================================================== */
 
         @media (max-width: 760px) {
@@ -1045,28 +801,19 @@
             }
 
             .hero {
-                padding: 77px 20px 75px;
+                padding: 80px 20px 70px;
             }
 
             .hero h1 {
                 font-size: clamp(43px, 9vw, 60px);
             }
 
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .intro-section {
-                padding: 60px 0;
-            }
-
-            .intro-box {
-                padding: 42px 22px;
-                border-radius: 25px;
+            .hero-subtitle {
+                font-size: 20px;
             }
 
             .resources-section {
-                padding: 10px 0 75px;
+                padding: 65px 0 75px;
             }
 
             .section-heading {
@@ -1075,48 +822,28 @@
 
             .resource-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                max-width: 480px;
+                gap: 22px;
+
+                max-width: 460px;
                 margin: 0 auto;
             }
 
             .resource-card {
-                padding: 34px 26px;
+                min-height: 420px;
+                padding: 35px 26px 30px;
             }
 
             .resource-card > p {
-                min-height: auto;
+                flex-grow: 0;
             }
 
-            .benefits-section {
-                padding-bottom: 75px;
-            }
-
-            .benefits-box {
-                padding: 45px 21px;
-                border-radius: 25px;
-            }
-
-            .benefit-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .benefit-item {
-                padding: 24px 19px;
-            }
-
-            .motivation-section {
-                padding-bottom: 75px;
-            }
-
-            .motivation-box {
-                padding: 48px 23px;
-                border-radius: 26px;
+            .resource-icon {
+                width: 105px;
+                height: 105px;
             }
 
             .back-home-section {
-                padding-bottom: 65px;
+                padding-bottom: 70px;
             }
 
             footer {
@@ -1131,7 +858,7 @@
 
 
         /* =====================================================
-           13. SMALL MOBILE
+           14. SMALL MOBILE
         ===================================================== */
 
         @media (max-width: 390px) {
@@ -1149,7 +876,7 @@
             }
 
             .hero {
-                padding: 65px 17px;
+                padding: 68px 17px;
             }
 
             .hero h1 {
@@ -1169,28 +896,26 @@
                 font-size: 15px;
             }
 
-            .intro-box {
-                padding: 37px 18px;
-            }
-
             .resource-card {
+                min-height: 405px;
                 padding: 30px 20px;
             }
 
             .resource-icon {
-                width: 82px;
-                height: 82px;
-                font-size: 34px;
+                width: 95px;
+                height: 95px;
+                border-radius: 27px;
+            }
+
+            .resource-icon svg {
+                width: 57px;
+                height: 57px;
             }
 
             .hub-button {
                 min-width: 175px;
                 padding: 13px 22px;
                 font-size: 14px;
-            }
-
-            .motivation-box {
-                padding: 40px 19px;
             }
 
             .footer-links {
@@ -1201,7 +926,7 @@
 
 
         /* =====================================================
-           14. REDUCED MOTION
+           15. REDUCED MOTION
         ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
@@ -1221,10 +946,12 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
+
 
     <!-- =====================================================
          NAVIGATION
@@ -1256,6 +983,7 @@
 
     <main>
 
+
         <!-- =====================================================
              SECTION 1: HERO
         ===================================================== -->
@@ -1265,7 +993,7 @@
             <div class="hero-content">
 
                 <div class="hero-kicker">
-                    WELCOME TO THE MATHMIUM LEARNING HUB
+                    MATHMIUM LEARNING HUB
                 </div>
 
                 <h1>
@@ -1274,69 +1002,23 @@
                 </h1>
 
                 <p class="hero-subtitle">
-                    Your little world of big mathematical discoveries!
-                </p>
-
-                <p class="hero-description">
-                    Learning mathematics can be an exciting adventure!
-                    Discover a collection of engaging quizzes, interactive
-                    flashcards, and brain-teasing puzzles designed to make
-                    practising maths enjoyable, meaningful, and rewarding.
+                    Your next maths adventure starts here!
                 </p>
 
                 <p class="hero-highlight">
                     <span aria-hidden="true">✦</span>
-                    Think creatively. Learn something new. Celebrate your progress.
+                    Think creatively. Discover more. Enjoy Mathematics.
                     <span aria-hidden="true">✦</span>
                 </p>
 
-                <div class="hero-actions">
-
-                    <a href="#learning-resources" class="hub-button">
-                        Explore Learning Resources
-                    </a>
-
-                </div>
-
             </div>
 
         </section>
 
 
-        <!-- =====================================================
-             SECTION 2: INTRODUCTION
-        ===================================================== -->
-
-        <section class="intro-section">
-
-            <div class="page-container">
-
-                <div class="intro-box">
-
-                    <div class="intro-label">
-                        A WORLD OF MATHEMATICAL FUN
-                    </div>
-
-                    <h2>
-                        Every Great Discovery Starts with Curiosity!
-                    </h2>
-
-                    <p>
-                        Whether you love solving tricky questions, remembering
-                        important maths facts, or exploring fun challenges,
-                        there is something waiting for you here. Pick an activity,
-                        challenge your thinking, and enjoy learning at your own pace.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
 
         <!-- =====================================================
-             SECTION 3: LEARNING RESOURCES
+             SECTION 2: LEARNING RESOURCES
         ===================================================== -->
 
         <section class="resources-section" id="learning-resources">
@@ -1346,17 +1028,15 @@
                 <div class="section-heading">
 
                     <div class="section-label">
-                        DISCOVER YOUR NEXT ADVENTURE
+                        EXPLORE THE MATHMIUM COLLECTION
                     </div>
 
                     <h2>
-                        Choose How You Want to Learn!
+                        Choose Your Learning Adventure
                     </h2>
 
                     <p>
-                        Three exciting ways to explore mathematics,
-                        strengthen your skills, and make every learning
-                        moment count.
+                        Discover your favourite way to explore mathematics.
                     </p>
 
                 </div>
@@ -1365,7 +1045,9 @@
                 <div class="resource-grid">
 
 
-                    <!-- QUIZZES -->
+                    <!-- =================================================
+                         QUIZZES CARD
+                    ================================================== -->
 
                     <a
                         href="quizzes.html"
@@ -1373,9 +1055,40 @@
                         aria-label="Explore mathematics quizzes"
                     >
 
-                        <div class="resource-icon" aria-hidden="true">
-                            ?
+                        <div class="resource-icon">
+
+                            <svg
+                                viewBox="0 0 64 64"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+
+                                <rect
+                                    x="12"
+                                    y="9"
+                                    width="40"
+                                    height="47"
+                                    rx="7"
+                                />
+
+                                <path d="M23 9V6.5C23 5.1 24.1 4 25.5 4h13C39.9 4 41 5.1 41 6.5V9"/>
+
+                                <circle cx="25" cy="24" r="3.5"/>
+
+                                <path d="M34 24h8"/>
+
+                                <circle cx="25" cy="37" r="3.5"/>
+
+                                <path d="M34 37h8"/>
+
+                                <path d="M22 47l3 3 6-7"/>
+
+                                <path d="M36 48h6"/>
+
+                            </svg>
+
                         </div>
+
 
                         <div class="resource-tag">
                             TEST YOUR KNOWLEDGE
@@ -1384,10 +1097,9 @@
                         <h3>Quizzes</h3>
 
                         <p>
-                            Put your mathematical knowledge to the test!
-                            Explore exciting multiple-choice questions,
-                            practise different topics, and discover how
-                            much you know.
+                            Explore exciting mathematics questions,
+                            test your knowledge, and discover how much
+                            you have learned.
                         </p>
 
                         <span class="resource-button">
@@ -1397,7 +1109,10 @@
                     </a>
 
 
-                    <!-- FLASHCARDS -->
+
+                    <!-- =================================================
+                         FLASHCARDS CARD
+                    ================================================== -->
 
                     <a
                         href="flashcards.html"
@@ -1405,9 +1120,38 @@
                         aria-label="Explore mathematics flashcards"
                     >
 
-                        <div class="resource-icon" aria-hidden="true">
-                            ✧
+                        <div class="resource-icon">
+
+                            <svg
+                                viewBox="0 0 64 64"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M18 15h29a5 5 0 0 1 5 5v34H23a5 5 0 0 1-5-5V15Z"
+                                />
+
+                                <path
+                                    d="M18 15v34a5 5 0 0 1-10 0V20a5 5 0 0 1 5-5h5Z"
+                                />
+
+                                <path d="M27 26h17"/>
+
+                                <path d="M27 34h13"/>
+
+                                <path d="M27 42h17"/>
+
+                                <path d="M39 7l2.2 4.3L46 13l-4.8 1.7L39 19l-2.1-4.3L32 13l4.9-1.7L39 7Z"/>
+
+                                <path d="M51 7v5"/>
+
+                                <path d="M48.5 9.5h5"/>
+
+                            </svg>
+
                         </div>
+
 
                         <div class="resource-tag">
                             LEARN AND REMEMBER
@@ -1416,10 +1160,9 @@
                         <h3>Flashcards</h3>
 
                         <p>
-                            Make learning and remembering maths easier!
-                            Review important definitions, formulas,
-                            mathematical facts, and concepts through
-                            simple question-and-answer cards.
+                            Review important mathematical facts,
+                            definitions, formulas, and concepts
+                            with interactive question-and-answer cards.
                         </p>
 
                         <span class="resource-button">
@@ -1429,7 +1172,10 @@
                     </a>
 
 
-                    <!-- PUZZLES -->
+
+                    <!-- =================================================
+                         PUZZLES CARD
+                    ================================================== -->
 
                     <a
                         href="puzzles.html"
@@ -1437,9 +1183,36 @@
                         aria-label="Explore mathematics puzzles"
                     >
 
-                        <div class="resource-icon" aria-hidden="true">
-                            ◈
+                        <div class="resource-icon">
+
+                            <svg
+                                viewBox="0 0 64 64"
+                                xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
+                            >
+
+                                <path
+                                    d="M11 11h14a7 7 0 1 1 14 0h14v14a7 7 0 1 1 0 14v14H39a7 7 0 1 1-14 0H11V39a7 7 0 1 1 0-14V11Z"
+                                />
+
+                                <path d="M25 11v10"/>
+
+                                <path d="M39 39v14"/>
+
+                                <path d="M11 25h10"/>
+
+                                <path d="M43 25h10"/>
+
+                                <circle cx="32" cy="32" r="5"/>
+
+                                <path d="M32 29v6"/>
+
+                                <path d="M29 32h6"/>
+
+                            </svg>
+
                         </div>
+
 
                         <div class="resource-tag">
                             CHALLENGE YOUR MIND
@@ -1448,10 +1221,9 @@
                         <h3>Puzzles</h3>
 
                         <p>
-                            Ready to think outside the box?
-                            Explore fun mathematical puzzles that
-                            encourage logical reasoning, creativity,
-                            and clever problem-solving.
+                            Challenge your thinking with fun mathematical
+                            puzzles that encourage logical reasoning,
+                            creativity, and problem-solving.
                         </p>
 
                         <span class="resource-button">
@@ -1468,135 +1240,9 @@
         </section>
 
 
-        <!-- =====================================================
-             SECTION 4: LEARNING BENEFITS
-        ===================================================== -->
-
-        <section class="benefits-section">
-
-            <div class="page-container">
-
-                <div class="benefits-box">
-
-                    <div class="benefits-heading">
-
-                        <div class="section-label">
-                            MORE THAN JUST PRACTICE
-                        </div>
-
-                        <h2>
-                            Little Activities. Big Learning!
-                        </h2>
-
-                        <p>
-                            Every activity gives you a chance to develop
-                            important mathematical skills while enjoying
-                            the learning process.
-                        </p>
-
-                    </div>
-
-
-                    <div class="benefit-grid">
-
-                        <div class="benefit-item">
-
-                            <div class="benefit-symbol" aria-hidden="true">
-                                ✦
-                            </div>
-
-                            <h3>Build Confidence</h3>
-
-                            <p>
-                                Practise at your own pace and feel more
-                                confident with every question you solve.
-                            </p>
-
-                        </div>
-
-
-                        <div class="benefit-item">
-
-                            <div class="benefit-symbol" aria-hidden="true">
-                                ◈
-                            </div>
-
-                            <h3>Think Creatively</h3>
-
-                            <p>
-                                Explore different approaches, discover
-                                patterns, and develop problem-solving skills.
-                            </p>
-
-                        </div>
-
-
-                        <div class="benefit-item">
-
-                            <div class="benefit-symbol" aria-hidden="true">
-                                ✧
-                            </div>
-
-                            <h3>Keep Growing</h3>
-
-                            <p>
-                                Strengthen your mathematical knowledge
-                                through regular practice and exploration.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
 
         <!-- =====================================================
-             SECTION 5: MOTIVATIONAL SECTION
-        ===================================================== -->
-
-        <section class="motivation-section">
-
-            <div class="page-container">
-
-                <div class="motivation-box">
-
-                    <div class="motivation-content">
-
-                        <div class="motivation-label">
-                            YOUR LEARNING JOURNEY STARTS HERE
-                        </div>
-
-                        <h2>
-                            Maths Is Full of Wonderful Possibilities!
-                        </h2>
-
-                        <p>
-                            You don't need to know every answer straight away.
-                            Be curious, try new challenges, learn from mistakes,
-                            and celebrate every little achievement.
-                            Remember, every step forward makes you a stronger learner!
-                        </p>
-
-                        <a href="#learning-resources" class="hub-button">
-                            Start Exploring
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SECTION 6: BACK TO HOME
+             SECTION 3: BACK TO HOME
         ===================================================== -->
 
         <section class="back-home-section">
@@ -1611,7 +1257,9 @@
 
         </section>
 
+
     </main>
+
 
 
     <!-- =====================================================
@@ -1657,6 +1305,7 @@
         </div>
 
     </footer>
+
 
 </body>
 </html>
