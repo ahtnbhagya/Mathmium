@@ -1,28 +1,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#CFFFF7">
-    <title>Math Practice | Mathmium</title>
+
+    <title>Math Practice Hub | Mathmium</title>
+
     <link rel="icon" type="image/png" href="/Images/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --teal: #159E94;
-            --teal-bright: #5DFFE7;
+            --teal-dark: #087B75;
+            --teal-light: #5DFFE7;
             --mint: #CFFFF7;
-            --deep-teal: #087B75;
+            --mint-soft: #F3FFFC;
             --dark: #174C49;
             --muted: #668985;
             --white: #FFFFFF;
-            --soft-bg: #F4FFFC;
-            --shadow: 0 15px 40px rgba(21, 158, 148, 0.12);
+
+            --shadow:
+                0 12px 35px rgba(21, 158, 148, 0.10);
         }
 
         * {
@@ -37,32 +43,40 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
-            background: var(--soft-bg);
+            background: var(--mint-soft);
             color: var(--dark);
             overflow-x: hidden;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        /* HEADER */
+
+        /* =================================
+           HEADER
+        ================================= */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.94);
+
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(21,158,148,0.12);
-            box-shadow: 0 4px 20px rgba(21,158,148,0.05);
+
+            border-bottom: 1px solid rgba(21, 158, 148, 0.12);
+
+            box-shadow:
+                0 4px 20px rgba(21, 158, 148, 0.05);
         }
 
         .nav-container {
             max-width: 1250px;
             margin: auto;
             padding: 13px 6%;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -84,7 +98,7 @@
             font-size: 14px;
             font-weight: 700;
             color: #466B67;
-            transition: 0.3s;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover,
@@ -92,34 +106,42 @@
             color: var(--teal);
         }
 
-        .nav-join {
-            background: linear-gradient(135deg, #159E94, #087B75);
-            color: white !important;
-            padding: 11px 23px;
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(21,158,148,0.2);
-        }
 
-        .nav-join:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(21,158,148,0.3);
-        }
-
-        /* HERO */
+        /* =================================
+           HERO SECTION
+        ================================= */
 
         .hero {
             position: relative;
             overflow: hidden;
+
             min-height: 510px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
+
             padding: 90px 20px 100px;
+
             background:
-                radial-gradient(circle at 15% 20%, rgba(93,255,231,0.25), transparent 30%),
-                radial-gradient(circle at 85% 75%, rgba(21,158,148,0.13), transparent 32%),
-                linear-gradient(135deg, #FFFFFF 0%, #E9FFFA 50%, #D7FFF7 100%);
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(93, 255, 231, 0.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(21, 158, 148, 0.13),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #FFFFFF 0%,
+                    #E9FFFA 50%,
+                    #D7FFF7 100%
+                );
         }
 
         .hero::before,
@@ -133,7 +155,9 @@
         .hero::before {
             width: 260px;
             height: 260px;
-            border: 1px solid rgba(21,158,148,0.12);
+
+            border: 1px solid rgba(21, 158, 148, 0.12);
+
             top: -100px;
             right: -60px;
         }
@@ -141,7 +165,9 @@
         .hero::after {
             width: 190px;
             height: 190px;
-            border: 1px solid rgba(21,158,148,0.12);
+
+            border: 1px solid rgba(21, 158, 148, 0.12);
+
             bottom: -80px;
             left: -45px;
         }
@@ -149,84 +175,117 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 780px;
+            max-width: 800px;
         }
 
         .hero-label {
             display: inline-block;
-            background: rgba(255,255,255,0.8);
-            border: 1px solid rgba(21,158,148,0.18);
-            color: var(--deep-teal);
+
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(21, 158, 148, 0.18);
+
+            color: var(--teal-dark);
+
             padding: 9px 20px;
             border-radius: 30px;
+
             font-size: 12px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+
             margin-bottom: 24px;
         }
 
-        .hero h1 {
+        /* THREE TEAL SHADES */
+
+        .hero-title {
             font-size: clamp(42px, 7vw, 76px);
-            line-height: 1.12;
+            line-height: 1.2;
             font-weight: 800;
-            color: var(--dark);
             margin-bottom: 22px;
         }
 
-        .hero h1 span {
-            color: var(--teal);
+        .hero-title .explore {
+            color: #087B75;
         }
 
-        .hero p {
+        .hero-title .practise {
+            color: #159E94;
+        }
+
+        .hero-title .shine {
+            color: #43CDBB;
+        }
+
+        .hero-description {
             font-size: 17px;
             line-height: 1.8;
-            color: #668985;
+            color: var(--muted);
             font-weight: 600;
+
             max-width: 570px;
             margin: 0 auto 35px;
         }
 
-        /* PREMIUM LET'S GO BUTTON */
+
+        /* =================================
+           PREMIUM LET'S GO BUTTON
+        ================================= */
 
         .lets-go {
             position: relative;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 175px;
+
+            min-width: 180px;
             padding: 17px 38px;
+
             border-radius: 50px;
+
             color: #FFFFFF;
             font-size: 16px;
             font-weight: 800;
             letter-spacing: 0.6px;
-            background: linear-gradient(
-                135deg,
-                #087B75 0%,
-                #159E94 48%,
-                #36CDBB 100%
-            );
-            border: 1px solid rgba(255,255,255,0.4);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #087B75 0%,
+                    #159E94 48%,
+                    #36CDBB 100%
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.4);
+
             box-shadow:
-                0 10px 25px rgba(8,123,117,0.24),
-                inset 0 1px 1px rgba(255,255,255,0.35);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                0 10px 25px rgba(8, 123, 117, 0.24),
+                inset 0 1px 1px rgba(255, 255, 255, 0.35);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .lets-go:hover {
             transform: translateY(-4px);
+
             box-shadow:
-                0 15px 32px rgba(8,123,117,0.32),
-                0 0 22px rgba(93,255,231,0.3),
-                inset 0 1px 1px rgba(255,255,255,0.4);
+                0 15px 32px rgba(8, 123, 117, 0.32),
+                0 0 22px rgba(93, 255, 231, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
         }
 
         .lets-go:active {
             transform: translateY(-1px);
         }
 
-        /* ACTIVITIES */
+
+        /* =================================
+           ACTIVITIES SECTION
+        ================================= */
 
         .activities {
             padding: 85px 6% 100px;
@@ -239,12 +298,14 @@
             margin: 0 auto 55px;
         }
 
-        .section-heading .small-label {
+        .small-label {
             color: var(--teal);
+
             font-size: 12px;
             font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
+
             margin-bottom: 14px;
         }
 
@@ -265,59 +326,119 @@
         .activity-grid {
             max-width: 1120px;
             margin: auto;
+
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
         }
 
+
+        /* =================================
+           ACTIVITY CARDS
+        ================================= */
+
         .activity-card {
             position: relative;
             overflow: hidden;
+
             background: #FFFFFF;
-            border: 1px solid rgba(21,158,148,0.13);
+
+            border: 1px solid rgba(21, 158, 148, 0.13);
             border-radius: 27px;
+
             padding: 35px 27px 32px;
+
             text-align: center;
-            box-shadow: 0 10px 35px rgba(21,158,148,0.07);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+            box-shadow:
+                0 10px 35px rgba(21, 158, 148, 0.07);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
         .activity-card:hover {
             transform: translateY(-9px);
-            box-shadow: 0 20px 45px rgba(21,158,148,0.15);
+
+            box-shadow:
+                0 20px 45px rgba(21, 158, 148, 0.15);
         }
 
         .activity-card::before {
             content: "";
+
             position: absolute;
+
             width: 180px;
             height: 180px;
+
             border-radius: 50%;
+
             top: -100px;
             right: -80px;
-            background: rgba(93,255,231,0.12);
+
+            background: rgba(93, 255, 231, 0.12);
         }
+
+
+        /* TEAL-THEMED ICONS */
 
         .activity-icon {
             position: relative;
+
             width: 105px;
             height: 105px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             margin: 0 auto 25px;
+
             border-radius: 30px;
-            font-size: 47px;
-            background: linear-gradient(145deg, #E5FFFA, #CFFFF7);
-            box-shadow: inset 0 2px 5px rgba(255,255,255,0.9);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #E8FFFA,
+                    #CFFFF7
+                );
+
+            box-shadow:
+                0 8px 20px rgba(21, 158, 148, 0.10),
+                inset 0 2px 5px rgba(255, 255, 255, 0.9);
+        }
+
+        .activity-icon span {
+            font-size: 45px;
+
+            /* Apply a teal treatment to the emoji artwork */
+            filter:
+                grayscale(1)
+                sepia(1)
+                saturate(4)
+                hue-rotate(115deg);
+
+            opacity: 0.85;
         }
 
         .activity-card:nth-child(2) .activity-icon {
-            background: linear-gradient(145deg, #E1FFFA, #B9F5EA);
+            background:
+                linear-gradient(
+                    145deg,
+                    #E1FFFA,
+                    #B9F5EA
+                );
         }
 
         .activity-card:nth-child(3) .activity-icon {
-            background: linear-gradient(145deg, #E9FFFC, #C8F8F0);
+            background:
+                linear-gradient(
+                    145deg,
+                    #E9FFFC,
+                    #C8F8F0
+                );
         }
 
         .activity-card h3 {
@@ -332,94 +453,74 @@
             font-weight: 600;
             color: var(--muted);
             line-height: 1.8;
+
             min-height: 76px;
             margin-bottom: 25px;
         }
+
+
+        /* ACTIVITY BUTTONS */
 
         .activity-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
             min-width: 145px;
             padding: 13px 25px;
+
             border-radius: 30px;
-            color: var(--deep-teal);
+
+            color: var(--teal-dark);
             background: #E8FFFA;
-            border: 1px solid rgba(21,158,148,0.2);
+
+            border: 1px solid rgba(21, 158, 148, 0.2);
+
             font-size: 14px;
             font-weight: 800;
+
             transition: 0.3s ease;
         }
 
         .activity-button:hover {
             color: #FFFFFF;
-            background: linear-gradient(135deg, #159E94, #087B75);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #159E94,
+                    #087B75
+                );
+
             border-color: transparent;
-            box-shadow: 0 7px 18px rgba(21,158,148,0.2);
+
+            box-shadow:
+                0 7px 18px rgba(21, 158, 148, 0.2);
+
             transform: translateY(-2px);
         }
 
-        /* END SECTION */
 
-        .end-section {
-            position: relative;
-            overflow: hidden;
-            padding: 75px 20px;
-            text-align: center;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(93,255,231,0.18), transparent 30%),
-                linear-gradient(135deg, #087B75, #159E94 55%, #23B6A6);
-        }
-
-        .end-section h2 {
-            font-size: clamp(29px, 4vw, 42px);
-            font-weight: 800;
-            color: #FFFFFF;
-            margin-bottom: 15px;
-        }
-
-        .end-section p {
-            color: rgba(255,255,255,0.85);
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 28px;
-            line-height: 1.8;
-        }
-
-        .home-button {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 14px 30px;
-            border-radius: 30px;
-            color: var(--deep-teal);
-            background: #FFFFFF;
-            font-size: 14px;
-            font-weight: 800;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-            transition: 0.3s ease;
-        }
-
-        .home-button:hover {
-            background: var(--mint);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.17);
-        }
-
-        /* FOOTER */
+        /* =================================
+           FOOTER
+           Retained from the previous version
+        ================================= */
 
         footer {
             background: #FFFFFF;
             padding: 55px 6% 25px;
-            border-top: 1px solid rgba(21,158,148,0.12);
+
+            border-top: 1px solid rgba(21, 158, 148, 0.12);
         }
 
         .footer-container {
             max-width: 1200px;
             margin: auto;
+
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
             gap: 50px;
+
             padding-bottom: 40px;
         }
 
@@ -437,6 +538,7 @@
 
         .footer-brand p {
             max-width: 340px;
+
             color: var(--muted);
             font-size: 13px;
             line-height: 1.8;
@@ -452,10 +554,13 @@
 
         .footer-column a {
             display: block;
+
             color: var(--muted);
             font-size: 13px;
             font-weight: 600;
+
             margin-bottom: 12px;
+
             transition: 0.3s;
         }
 
@@ -467,17 +572,25 @@
         .footer-bottom {
             max-width: 1200px;
             margin: auto;
+
             padding-top: 22px;
-            border-top: 1px solid rgba(21,158,148,0.12);
+
+            border-top: 1px solid rgba(21, 158, 148, 0.12);
+
             text-align: center;
+
             color: #8AA7A3;
             font-size: 12px;
             font-weight: 600;
         }
 
-        /* RESPONSIVE */
+
+        /* =================================
+           RESPONSIVE DESIGN
+        ================================= */
 
         @media (max-width: 900px) {
+
             .activity-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -495,7 +608,9 @@
             }
         }
 
+
         @media (max-width: 650px) {
+
             .nav-container {
                 flex-direction: column;
                 gap: 13px;
@@ -507,8 +622,10 @@
 
             .nav-links {
                 width: 100%;
+
                 justify-content: center;
                 flex-wrap: wrap;
+
                 gap: 12px 18px;
             }
 
@@ -516,16 +633,12 @@
                 font-size: 12px;
             }
 
-            .nav-join {
-                padding: 8px 15px;
-            }
-
             .hero {
                 min-height: 450px;
                 padding: 75px 20px;
             }
 
-            .hero p {
+            .hero-description {
                 font-size: 15px;
             }
 
@@ -553,7 +666,9 @@
             }
         }
 
+
         @media (max-width: 390px) {
+
             .nav-links {
                 gap: 10px;
             }
@@ -571,7 +686,11 @@
             }
         }
 
+
+        /* REDUCED MOTION */
+
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -579,13 +698,18 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
+
     <!-- HEADER -->
+
     <header>
+
         <div class="nav-container">
 
             <a href="index.html" class="logo">
@@ -593,31 +717,48 @@
             </a>
 
             <nav class="nav-links">
+
                 <a href="index.html">Home</a>
+
                 <a href="meet-the-tutor.html">Meet the Tutor</a>
+
                 <a href="classes.html">Classes</a>
+
                 <a href="materials.html">Materials</a>
+
                 <a href="treasure.html">Treasure I've Earned</a>
-                <a href="join.html" class="nav-join">Join</a>
+
             </nav>
 
         </div>
+
     </header>
 
 
+
     <!-- HERO SECTION -->
+
     <section class="hero">
 
         <div class="hero-content">
 
-            <div class="hero-label">The Mathmium Practice Hub</div>
+            <div class="hero-label">
+                The Mathmium Practice Hub
+            </div>
 
-            <h1>
-                Explore. <span>Practise.</span> Shine!
+            <h1 class="hero-title">
+
+                <span class="explore">Explore.</span>
+
+                <span class="practise">Practise.</span>
+
+                <span class="shine">Shine!</span>
+
             </h1>
 
-            <p>
-                Discover exciting ways to practise Mathematics, test your knowledge, and develop your problem-solving skills.
+            <p class="hero-description">
+                Discover exciting ways to practise Mathematics,
+                test your knowledge, and develop your problem-solving skills.
             </p>
 
             <a href="#activities" class="lets-go">
@@ -629,14 +770,20 @@
     </section>
 
 
-    <!-- ACTIVITY SECTION -->
+
+    <!-- ACTIVITIES SECTION -->
+
     <section class="activities" id="activities">
 
         <div class="section-heading">
 
-            <div class="small-label">Your Learning Adventure</div>
+            <div class="small-label">
+                Your Learning Adventure
+            </div>
 
-            <h2>Choose Your Maths Activity</h2>
+            <h2>
+                Choose Your Maths Activity
+            </h2>
 
             <p>
                 Pick an activity and make every moment of maths practice meaningful and fun.
@@ -647,12 +794,18 @@
 
         <div class="activity-grid">
 
+
             <!-- QUIZZES -->
+
             <article class="activity-card">
 
-                <div class="activity-icon">🧠</div>
+                <div class="activity-icon">
+                    <span>🧠</span>
+                </div>
 
-                <h3>Quizzes</h3>
+                <h3>
+                    Quizzes
+                </h3>
 
                 <p>
                     Test your mathematical knowledge with exciting questions and interactive quizzes.
@@ -665,12 +818,18 @@
             </article>
 
 
+
             <!-- FLASHCARDS -->
+
             <article class="activity-card">
 
-                <div class="activity-icon">🎴</div>
+                <div class="activity-icon">
+                    <span>🎴</span>
+                </div>
 
-                <h3>Flashcards</h3>
+                <h3>
+                    Flashcards
+                </h3>
 
                 <p>
                     Remember important concepts, practise key facts, and strengthen your mathematical skills.
@@ -683,12 +842,18 @@
             </article>
 
 
-            <!-- PUZZLES -->
+
+            <!-- MATHS PUZZLES -->
+
             <article class="activity-card">
 
-                <div class="activity-icon">🧩</div>
+                <div class="activity-icon">
+                    <span>🧩</span>
+                </div>
 
-                <h3>Maths Puzzles</h3>
+                <h3>
+                    Maths Puzzles
+                </h3>
 
                 <p>
                     Challenge your brain with creative puzzles and interesting mathematical problems.
@@ -700,31 +865,19 @@
 
             </article>
 
+
         </div>
 
     </section>
 
 
-    <!-- END SECTION -->
-    <section class="end-section">
-
-        <h2>Ready to Enjoy Mathematics?</h2>
-
-        <p>
-            Start exploring, keep practising, and celebrate every little achievement.
-        </p>
-
-        <a href="index.html" class="home-button">
-            Back to Home
-        </a>
-
-    </section>
-
 
     <!-- FOOTER -->
+
     <footer>
 
         <div class="footer-container">
+
 
             <div class="footer-brand">
 
@@ -732,7 +885,9 @@
                     <img src="Images/Logo.svg" alt="Mathmium Logo">
                 </a>
 
-                <h3>Your World of Mathematics</h3>
+                <h3>
+                    Your World of Mathematics
+                </h3>
 
                 <p>
                     A creative space to discover, practise, explore, and enjoy Mathematics.
@@ -741,39 +896,58 @@
             </div>
 
 
+
             <div class="footer-column">
 
-                <h4>Explore</h4>
+                <h4>
+                    Explore
+                </h4>
 
                 <a href="index.html">Home</a>
+
                 <a href="classes.html">Classes</a>
+
                 <a href="materials.html">Materials</a>
+
                 <a href="quiz-zone.html">Quizzes</a>
+
                 <a href="flashcards.html">Flashcards</a>
+
                 <a href="puzzles.html">Maths Puzzles</a>
 
             </div>
 
 
+
             <div class="footer-column">
 
-                <h4>Get in Touch</h4>
+                <h4>
+                    Get in Touch
+                </h4>
 
                 <a href="join.html">Join Classes</a>
+
                 <a href="order-materials.html">Order Materials</a>
+
                 <a href="contact.html">Contact</a>
+
                 <a href="reviews.html">Reviews</a>
 
             </div>
+
 
         </div>
 
 
         <div class="footer-bottom">
+
             © 2026 Mathmium. All rights reserved.
+
         </div>
 
     </footer>
 
+
 </body>
+
 </html>
