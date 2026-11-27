@@ -181,10 +181,10 @@
             justify-content: center;
             overflow: hidden;
             background:
-                radial-gradient(ellipse at 12% 15%, rgba(255,209,220,.65), transparent 35%),
-                radial-gradient(ellipse at 88% 20%, rgba(204,204,255,.65), transparent 35%),
-                radial-gradient(ellipse at 50% 100%, rgba(255,232,163,.45), transparent 40%),
-                linear-gradient(135deg,#FFF9F5 0%,#F8F5FF 48%,#F3FAFF 100%);
+                radial-gradient(ellipse at 12% 15%, rgba(255,209,220,.72), transparent 35%),
+                radial-gradient(ellipse at 88% 20%, rgba(161,199,255,.60), transparent 35%),
+                radial-gradient(ellipse at 50% 100%, rgba(255,232,163,.55), transparent 40%),
+                linear-gradient(135deg,#FFF9F5 0%,#FFF7F2 48%,#F1F7FF 100%);
             text-align: center;
             padding: 75px 20px 65px;
         }
@@ -197,7 +197,7 @@
         }
 
         .hero-label {
-            color: var(--purple-deep);
+            color: var(--pink-deep);
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 3px;
@@ -210,12 +210,12 @@
             font-size: clamp(42px,7vw,72px);
             font-weight: 700;
             line-height: 1.2;
-            color: var(--purple-deep);
+            color: #30364F;
             margin-bottom: 18px;
         }
 
         .hero-title span {
-            background: linear-gradient(90deg,#D95F83,#8A55C7,#3978D4);
+            background: linear-gradient(90deg,#C34868,#E17B43,#3978D4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -229,35 +229,15 @@
             line-height: 1.8;
         }
 
-        .hero-decoration {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .hero-decoration span {
-            width: 13px;
-            height: 13px;
-            border-radius: 4px;
-            transform: rotate(45deg);
-        }
-
-        .hero-decoration span:nth-child(1) { background: var(--pink-main); }
-        .hero-decoration span:nth-child(2) { background: var(--blue-deep); }
-        .hero-decoration span:nth-child(3) { background: var(--yellow-main); }
-        .hero-decoration span:nth-child(4) { background: var(--green-deep); }
-        .hero-decoration span:nth-child(5) { background: var(--purple-deep); }
-
         /* COMMON */
 
         .main-section {
             padding: 65px 0 90px;
             background:
-                radial-gradient(ellipse at 0% 10%, rgba(255,209,220,.28), transparent 30%),
-                radial-gradient(ellipse at 100% 35%, rgba(204,204,255,.30), transparent 32%),
-                radial-gradient(ellipse at 45% 100%, rgba(255,232,163,.22), transparent 35%),
-                linear-gradient(180deg,#FFFBF8 0%,#FFFFFF 48%,#F8F6FF 100%);
+                radial-gradient(ellipse at 0% 10%, rgba(255,209,220,.30), transparent 30%),
+                radial-gradient(ellipse at 100% 35%, rgba(161,199,255,.28), transparent 32%),
+                radial-gradient(ellipse at 45% 100%, rgba(255,232,163,.28), transparent 35%),
+                linear-gradient(180deg,#FFFBF8 0%,#FFFFFF 48%,#FFF9F3 100%);
             min-height: 600px;
         }
 
@@ -273,7 +253,7 @@
         }
 
         .section-label {
-            color: var(--purple-deep);
+            color: var(--pink-deep);
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -285,7 +265,7 @@
             font-family: "Quicksand", sans-serif;
             font-size: clamp(32px,5vw,48px);
             line-height: 1.2;
-            color: var(--purple-deep);
+            color: #30364F;
             margin-bottom: 14px;
             font-weight: 700;
         }
@@ -349,7 +329,7 @@
             transform: rotate(55deg) scale(1.15);
         }
 
-        /* Hide subject emojis/icons */
+        /* HIDE SUBJECT EMOJIS / ICONS */
 
         .subject-icon {
             display: none !important;
@@ -390,9 +370,9 @@
             margin: 0 auto;
             padding: clamp(20px,4vw,42px);
             border-radius: 38px;
-            background: linear-gradient(145deg,#FFFFFF 0%,#FFF8FC 50%,#F5F3FF 100%);
-            border: 1px solid rgba(112,64,196,.15);
-            box-shadow: 0 22px 65px rgba(112,64,196,.10);
+            background: linear-gradient(145deg,#FFFFFF 0%,#FFF9F5 50%,#F2F8FF 100%);
+            border: 1px solid rgba(195,72,104,.15);
+            box-shadow: 0 22px 65px rgba(195,72,104,.09);
             animation: window-enter .45s ease both;
         }
 
@@ -428,8 +408,8 @@
             padding: 12px 20px;
             border: 0;
             border-radius: 50px;
-            background: var(--purple-pale);
-            color: var(--purple-deep);
+            background: var(--pink-soft);
+            color: var(--pink-deep);
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
@@ -437,13 +417,13 @@
         }
 
         .back-button:hover {
-            background: var(--purple-deep);
+            background: var(--pink-deep);
             color: white;
             transform: translateY(-2px);
         }
 
         .study-subject {
-            color: var(--purple-deep);
+            color: var(--pink-deep);
             font-size: clamp(20px,3vw,28px);
             font-weight: 700;
             text-align: right;
@@ -468,7 +448,7 @@
 
         .progress-track {
             height: 10px;
-            background: #EEEAF8;
+            background: #F0EAE5;
             border-radius: 20px;
             overflow: hidden;
         }
@@ -476,7 +456,7 @@
         .progress-fill {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg,#AC5A70,#B58CFF,#5B6CFF);
+            background: linear-gradient(90deg,#D85D78,#FFAB70,#5B9BE8);
             border-radius: 20px;
             transition: width .4s ease;
         }
@@ -521,16 +501,16 @@
         }
 
         .card-front {
-            background: linear-gradient(135deg,#FFF0F4 0%,#FFFFFF 52%,#EAF1FF 100%);
-            border: 2px solid rgba(172,90,112,.18);
-            box-shadow: 0 15px 40px rgba(172,90,112,.10);
+            background: linear-gradient(135deg,#FFF0F2 0%,#FFFFFF 52%,#EAF3FF 100%);
+            border: 2px solid rgba(195,72,104,.18);
+            box-shadow: 0 15px 40px rgba(195,72,104,.09);
         }
 
         .card-back {
             transform: rotateY(180deg);
-            background: linear-gradient(135deg,#FFF7DF 0%,#FFFFFF 52%,#F0E9FF 100%);
-            border: 2px solid rgba(112,64,196,.18);
-            box-shadow: 0 15px 40px rgba(112,64,196,.10);
+            background: linear-gradient(135deg,#FFF6DE 0%,#FFFFFF 52%,#EAF5FF 100%);
+            border: 2px solid rgba(57,120,212,.18);
+            box-shadow: 0 15px 40px rgba(57,120,212,.09);
         }
 
         .card-face::before,
@@ -539,7 +519,7 @@
             position: absolute;
             width: 130px;
             height: 130px;
-            border: 2px solid rgba(112,64,196,.10);
+            border: 2px solid rgba(195,72,104,.10);
             border-radius: 25px;
             transform: rotate(35deg);
             pointer-events: none;
@@ -565,7 +545,7 @@
         }
 
         .card-back .card-small-label {
-            color: var(--purple-deep);
+            color: var(--blue-deep);
         }
 
         .card-text {
@@ -636,13 +616,13 @@
 
         .next-button {
             color: white;
-            background: linear-gradient(100deg,#8A55C7,#5B6CFF);
-            box-shadow: 0 8px 20px rgba(91,108,255,.17);
+            background: linear-gradient(100deg,#C34868,#E17B43);
+            box-shadow: 0 8px 20px rgba(195,72,104,.17);
         }
 
         .shuffle-button {
-            color: var(--purple-deep);
-            background: var(--purple-pale);
+            color: #A34A39;
+            background: #FFE7D5;
         }
 
         .control-button:disabled {
@@ -664,20 +644,19 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 15px 30px;
+            padding: 15px 38px;
             border-radius: 50px;
-            background: linear-gradient(110deg,#AC5A70,#8A55C7,#5B6CFF);
+            background: linear-gradient(110deg,#C34868,#E17B43,#3978D4);
             color: #FFFFFF;
             font-size: 16px;
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(112,64,196,.18);
+            box-shadow: 0 10px 25px rgba(195,72,104,.18);
             transition: transform .3s,box-shadow .3s;
         }
 
         .materials-back-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(112,64,196,.25);
+            box-shadow: 0 15px 30px rgba(195,72,104,.25);
         }
 
         /* KEYBOARD / ACCESSIBILITY */
@@ -702,8 +681,8 @@
 
         footer {
             padding: 70px 20px 35px;
-            background: linear-gradient(180deg,#FFF9F8 0%,#F5F1FF 100%);
-            border-top: 1px solid rgba(112,64,196,.10);
+            background: linear-gradient(180deg,#FFF9F5 0%,#F2F8FF 100%);
+            border-top: 1px solid rgba(195,72,104,.10);
             text-align: center;
         }
 
@@ -751,7 +730,7 @@
 
         .copyright {
             padding-top: 25px;
-            border-top: 1px solid rgba(112,64,196,.10);
+            border-top: 1px solid rgba(195,72,104,.10);
             color: #8A918F;
             font-size: 14px;
             font-weight: 600;
@@ -950,6 +929,7 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
+
             <div class="hero-label">MATHMIUM PRACTICE ZONE</div>
 
             <h1 class="hero-title">
@@ -962,9 +942,6 @@
                 one card at a time.
             </p>
 
-            <div class="hero-decoration">
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
         </div>
     </section>
 
@@ -993,12 +970,14 @@
                 <div class="empty-message" id="empty-message">
                     No subjects have been added yet. Add your subjects in flashcards.js.
                 </div>
+
             </div>
 
             <!-- LARGE FLASHCARD STUDY WINDOW -->
             <section class="study-window" id="study-window" aria-label="Flashcard study area">
 
                 <div class="study-topbar">
+
                     <button class="back-button" id="back-button" type="button">
                         ← Back to Subjects
                     </button>
@@ -1006,10 +985,12 @@
                     <div class="study-subject" id="study-subject">
                         Mathematics
                     </div>
+
                 </div>
 
                 <!-- PROGRESS -->
                 <div class="progress-area">
+
                     <div class="progress-info">
                         <span id="card-counter">Card 1 of 20</span>
                         <span id="progress-percentage">5% completed</span>
@@ -1018,6 +999,7 @@
                     <div class="progress-track">
                         <div class="progress-fill" id="progress-fill"></div>
                     </div>
+
                 </div>
 
                 <!-- FLASHCARD -->
@@ -1029,9 +1011,11 @@
                     aria-label="Flashcard. Activate to reveal the answer."
                     aria-pressed="false"
                 >
+
                     <div class="flashcard">
 
                         <div class="card-face card-front">
+
                             <div class="card-small-label">✦ QUESTION ✦</div>
 
                             <div class="card-text" id="question-text">
@@ -1041,9 +1025,11 @@
                             <div class="card-hint">
                                 Tap the card to reveal the answer
                             </div>
+
                         </div>
 
                         <div class="card-face card-back">
+
                             <div class="card-small-label">✦ ANSWER ✦</div>
 
                             <div class="card-text" id="answer-text">
@@ -1053,9 +1039,11 @@
                             <div class="card-hint">
                                 Great job! Keep learning.
                             </div>
+
                         </div>
 
                     </div>
+
                 </div>
 
                 <p class="flip-hint">
@@ -1081,10 +1069,10 @@
 
             </section>
 
-            <!-- BACK TO PRACTICE MATERIALS -->
+            <!-- GO BACK BUTTON -->
             <div class="materials-back-area">
                 <a href="PracticeMaterials.html" class="materials-back-button">
-                    ← Back to Practice Materials
+                    Go Back
                 </a>
             </div>
 
@@ -1093,6 +1081,7 @@
 
     <!-- FOOTER — SAME AS HOMEPAGE -->
     <footer>
+
         <div class="footer-brand">Mathmium</div>
 
         <div class="footer-tagline">Your World of Mathematics</div>
@@ -1113,6 +1102,7 @@
         </div>
 
         <div class="copyright">© Mathmium</div>
+
     </footer>
 
     <!-- FLASHCARD DATA AND FUNCTIONALITY -->
