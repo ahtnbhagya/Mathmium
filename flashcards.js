@@ -440,41 +440,41 @@ document.addEventListener("DOMContentLoaded", function () {
         emptyMessage.style.display = "none";
 
         const colors = [
-             // Teal
-             ["#159E94", "#D0F5EF", "#087D76"],
-
-             // Sky Blue
-             ["#3978D4", "#DCEBFF", "#245BA9"],
-
-             // Peach
-             ["#E88752", "#FFE1CF", "#B9572C"],
-
+             // Deep Teal
+             ["#087F76", "#BDEBE3", "#045B55"],
+         
+             // Rich Sky Blue
+             ["#2865B8", "#C9DEFA", "#194783"],
+         
+             // Warm Peach
+             ["#D96F36", "#FFD5B9", "#A8471E"],
+         
              // Fresh Green
-             ["#69A94E", "#E2F3D8", "#477D32"],
-
-             // Coral Pink
-             ["#E87583", "#FFE0E4", "#BD4659"],
-
+             ["#548F35", "#D3EBC5", "#376522"],
+         
+             // Vibrant Coral Pink
+             ["#D65368", "#FAD0D8", "#A83249"],
+         
              // Golden Yellow
-             ["#D5A52E", "#FFF1C7", "#9B7418"],
-
-             // Aqua
-             ["#39AFC0", "#D5F4F7", "#197E8C"],
-
-             // Soft Orange
-             ["#DC9140", "#FFE9CC", "#A96520"],
-
+             ["#B98716", "#F9E5A8", "#805D0C"],
+         
+             // Deep Aqua
+             ["#218FA1", "#C4EAF0", "#146775"],
+         
+             // Rich Soft Orange
+             ["#C87924", "#F8DDB5", "#925316"],
+         
              // Berry
-             ["#B85C78", "#F8DCE6", "#883A55"],
-
-             // Mint Green
-             ["#46A88A", "#D5F2E6", "#26775D"],
-
+             ["#A74766", "#F0C9D8", "#783047"],
+         
+             // Rich Mint Green
+             ["#318B6D", "#C5E9D9", "#1D634C"],
+         
              // Periwinkle Blue
-             ["#657FC5", "#E0E7FF", "#40599C"],
-
-             // Lime
-             ["#91A83E", "#EDF5CE", "#667A24"]
+             ["#526DB2", "#D0DAF5", "#354B88"],
+         
+             // Lime Green
+             ["#788F25", "#E1EDB5", "#526418"]
          ];
            
         flashcardSubjects.forEach(function (subject, index) {
