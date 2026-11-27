@@ -73,9 +73,28 @@
             color-scheme: light;
         }
 
+        /* ONE CONTINUOUS PAGE BACKGROUND */
+
         body {
             font-family: "Quicksand", sans-serif;
-            background: var(--cream);
+            background:
+                radial-gradient(
+                    ellipse at 10% 15%,
+                    rgba(255,209,220,.25),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    ellipse at 90% 30%,
+                    rgba(161,199,255,.23),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    ellipse at 50% 85%,
+                    rgba(255,232,163,.22),
+                    transparent 40%
+                ),
+                #FFFDF8;
+            background-attachment: fixed;
             color: var(--text);
             line-height: 1.75;
             font-size: 18px;
@@ -92,7 +111,7 @@
             font-family: inherit;
         }
 
-        /* HEADER — SAME AS HOMEPAGE */
+        /* HEADER */
 
         header {
             position: sticky;
@@ -180,11 +199,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background:
-                radial-gradient(ellipse at 12% 15%, rgba(255,209,220,.72), transparent 35%),
-                radial-gradient(ellipse at 88% 20%, rgba(161,199,255,.60), transparent 35%),
-                radial-gradient(ellipse at 50% 100%, rgba(255,232,163,.55), transparent 40%),
-                linear-gradient(135deg,#FFF9F5 0%,#FFF7F2 48%,#F1F7FF 100%);
+            background: transparent;
             text-align: center;
             padding: 75px 20px 65px;
         }
@@ -233,11 +248,7 @@
 
         .main-section {
             padding: 65px 0 90px;
-            background:
-                radial-gradient(ellipse at 0% 10%, rgba(255,209,220,.30), transparent 30%),
-                radial-gradient(ellipse at 100% 35%, rgba(161,199,255,.28), transparent 32%),
-                radial-gradient(ellipse at 45% 100%, rgba(255,232,163,.28), transparent 35%),
-                linear-gradient(180deg,#FFFBF8 0%,#FFFFFF 48%,#FFF9F3 100%);
+            background: transparent;
             min-height: 600px;
         }
 
@@ -329,8 +340,6 @@
             transform: rotate(55deg) scale(1.15);
         }
 
-        /* HIDE SUBJECT EMOJIS / ICONS */
-
         .subject-icon {
             display: none !important;
         }
@@ -370,9 +379,9 @@
             margin: 0 auto;
             padding: clamp(20px,4vw,42px);
             border-radius: 38px;
-            background: linear-gradient(145deg,#FFFFFF 0%,#FFF9F5 50%,#F2F8FF 100%);
-            border: 1px solid rgba(195,72,104,.15);
-            box-shadow: 0 22px 65px rgba(195,72,104,.09);
+            background: rgba(255,255,255,.72);
+            border: 1px solid rgba(195,72,104,.12);
+            box-shadow: 0 22px 65px rgba(195,72,104,.07);
             animation: window-enter .45s ease both;
         }
 
@@ -659,7 +668,7 @@
             box-shadow: 0 15px 30px rgba(195,72,104,.25);
         }
 
-        /* KEYBOARD / ACCESSIBILITY */
+        /* ACCESSIBILITY */
 
         button:focus-visible,
         .card-stage:focus-visible,
@@ -677,11 +686,11 @@
             padding: 30px;
         }
 
-        /* FOOTER — SAME AS HOMEPAGE */
+        /* FOOTER */
 
         footer {
             padding: 70px 20px 35px;
-            background: linear-gradient(180deg,#FFF9F5 0%,#F2F8FF 100%);
+            background: transparent;
             border-top: 1px solid rgba(195,72,104,.10);
             text-align: center;
         }
@@ -759,6 +768,7 @@
         @media(max-width:700px) {
             body {
                 font-size: 17px;
+                background-attachment: scroll;
             }
 
             .nav-container {
@@ -890,6 +900,8 @@
             }
         }
 
+        /* REDUCED MOTION */
+
         @media(prefers-reduced-motion:reduce) {
             html {
                 scroll-behavior: auto;
@@ -903,6 +915,7 @@
                 transition-duration: .01ms !important;
             }
         }
+
     </style>
 </head>
 
@@ -911,6 +924,7 @@
     <!-- HEADER -->
     <header>
         <div class="nav-container">
+
             <a href="index.html" class="brand">
                 <img src="Images/Logo.svg" alt="Mathmium">
             </a>
@@ -923,14 +937,18 @@
                 <a href="index.html#quiz-zone">Practice Zone</a>
                 <a href="index.html#treasures">Treasures I've Earned</a>
             </nav>
+
         </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
+
         <div class="hero-content">
 
-            <div class="hero-label">MATHMIUM PRACTICE ZONE</div>
+            <div class="hero-label">
+                MATHMIUM PRACTICE ZONE
+            </div>
 
             <h1 class="hero-title">
                 Flashcard <span>Zone!</span>
@@ -943,24 +961,32 @@
             </p>
 
         </div>
+
     </section>
 
     <!-- MAIN -->
     <main class="main-section">
+
         <div class="section-inner">
 
             <!-- SUBJECT SELECTION -->
             <div id="subject-section">
 
                 <div class="section-heading">
-                    <div class="section-label">CHOOSE YOUR SUBJECT</div>
 
-                    <h2 class="section-title">What Shall We Explore Today?</h2>
+                    <div class="section-label">
+                        CHOOSE YOUR SUBJECT
+                    </div>
+
+                    <h2 class="section-title">
+                        What Shall We Explore Today?
+                    </h2>
 
                     <p class="section-description">
                         Choose a subject below to open your flashcards.
                         Tap or click a card to reveal the answer!
                     </p>
+
                 </div>
 
                 <div class="subject-grid" id="subject-grid">
@@ -968,17 +994,26 @@
                 </div>
 
                 <div class="empty-message" id="empty-message">
-                    No subjects have been added yet. Add your subjects in flashcards.js.
+                    No subjects have been added yet.
+                    Add your subjects in flashcards.js.
                 </div>
 
             </div>
 
-            <!-- LARGE FLASHCARD STUDY WINDOW -->
-            <section class="study-window" id="study-window" aria-label="Flashcard study area">
+            <!-- FLASHCARD STUDY WINDOW -->
+            <section
+                class="study-window"
+                id="study-window"
+                aria-label="Flashcard study area"
+            >
 
                 <div class="study-topbar">
 
-                    <button class="back-button" id="back-button" type="button">
+                    <button
+                        class="back-button"
+                        id="back-button"
+                        type="button"
+                    >
                         ← Back to Subjects
                     </button>
 
@@ -997,7 +1032,10 @@
                     </div>
 
                     <div class="progress-track">
-                        <div class="progress-fill" id="progress-fill"></div>
+                        <div
+                            class="progress-fill"
+                            id="progress-fill"
+                        ></div>
                     </div>
 
                 </div>
@@ -1014,9 +1052,12 @@
 
                     <div class="flashcard">
 
+                        <!-- FRONT -->
                         <div class="card-face card-front">
 
-                            <div class="card-small-label">✦ QUESTION ✦</div>
+                            <div class="card-small-label">
+                                ✦ QUESTION ✦
+                            </div>
 
                             <div class="card-text" id="question-text">
                                 Your question will appear here.
@@ -1028,9 +1069,12 @@
 
                         </div>
 
+                        <!-- BACK -->
                         <div class="card-face card-back">
 
-                            <div class="card-small-label">✦ ANSWER ✦</div>
+                            <div class="card-small-label">
+                                ✦ ANSWER ✦
+                            </div>
 
                             <div class="card-text" id="answer-text">
                                 Your answer will appear here.
@@ -1053,15 +1097,27 @@
                 <!-- CONTROLS -->
                 <div class="card-controls">
 
-                    <button class="control-button previous-button" id="previous-button" type="button">
+                    <button
+                        class="control-button previous-button"
+                        id="previous-button"
+                        type="button"
+                    >
                         ← Previous
                     </button>
 
-                    <button class="control-button next-button" id="next-button" type="button">
+                    <button
+                        class="control-button next-button"
+                        id="next-button"
+                        type="button"
+                    >
                         Next →
                     </button>
 
-                    <button class="control-button shuffle-button" id="shuffle-button" type="button">
+                    <button
+                        class="control-button shuffle-button"
+                        id="shuffle-button"
+                        type="button"
+                    >
                         ↻ Shuffle Cards
                     </button>
 
@@ -1071,26 +1127,37 @@
 
             <!-- GO BACK BUTTON -->
             <div class="materials-back-area">
-                <a href="PracticeMaterials.html" class="materials-back-button">
+
+                <a
+                    href="PracticeMaterials.html"
+                    class="materials-back-button"
+                >
                     Go Back
                 </a>
+
             </div>
 
         </div>
+
     </main>
 
-    <!-- FOOTER — SAME AS HOMEPAGE -->
+    <!-- FOOTER -->
     <footer>
 
-        <div class="footer-brand">Mathmium</div>
+        <div class="footer-brand">
+            Mathmium
+        </div>
 
-        <div class="footer-tagline">Your World of Mathematics</div>
+        <div class="footer-tagline">
+            Your World of Mathematics
+        </div>
 
         <div class="footer-description">
             A creative space to discover, practise, explore, and enjoy Mathematics.
         </div>
 
         <div class="footer-links">
+
             <a href="index.html">Home</a>
             <a href="index.html#classes">Classes</a>
             <a href="index.html#materials">Materials</a>
@@ -1099,17 +1166,22 @@
             <a href="index.html#contact">Contact</a>
             <a href="index.html#quiz-zone">Practice Zone</a>
             <a href="index.html#treasures">Reviews</a>
+
         </div>
 
-        <div class="copyright">© Mathmium</div>
+        <div class="copyright">
+            © Mathmium
+        </div>
 
     </footer>
 
     <!-- FLASHCARD DATA AND FUNCTIONALITY -->
     <script src="flashcards.js"></script>
 
-    <!-- Cloudflare Pages Analytics -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    <!-- CLOUDFLARE PAGES ANALYTICS -->
+    <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "265e064961004d9e8dfe8afefac86aa9"}'>
     </script>
 
