@@ -1,1194 +1,712 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" type="image/png" href="/Images/favicon.png">
-
-    <title>Mathmium Practice Zone | Explore. Practise. Shine!</title>
-
-    <meta
-        name="description"
-        content="Explore the Mathmium Practice Zone! Discover interactive mathematics quizzes, flashcards, and puzzles for Grades 1–10."
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        /* =====================================================
-           1. GLOBAL STYLES
-        ===================================================== */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --teal: #00AFA8;
-            --teal-bright: #16C9BE;
-            --teal-dark: #087E80;
-            --teal-deep: #075B60;
-
-            --aqua: #6BE5D8;
-            --mint: #C8F5E8;
-            --light-teal: #E5FBF7;
-            --pale-aqua: #F0FFFC;
-
-            --blue-teal: #299CB4;
-            --sea-green: #43C7A5;
-            --soft-blue: #DDF5FA;
-
-            --ink: #26383A;
-            --muted: #637477;
-            --white: #FFFFFF;
-
-            --page-width: 1180px;
-
-            --button-gradient: linear-gradient(
-                120deg,
-                #16C9BE 0%,
-                #00AFA8 48%,
-                #299CB4 100%
-            );
-
-            --button-hover-gradient: linear-gradient(
-                120deg,
-                #087E80 0%,
-                #076D73 55%,
-                #087E80 100%
-            );
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: "Quicksand", sans-serif;
-            color: var(--ink);
-            line-height: 1.65;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #E4FCF6 0%,
-                    #F6FFFD 24%,
-                    #FFFFFF 48%,
-                    #EDFBFC 73%,
-                    #DFF8F1 100%
-                );
-
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        button,
-        a {
-            font-family: "Quicksand", sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        button:focus-visible,
-        a:focus-visible {
-            outline: 3px solid var(--teal-dark);
-            outline-offset: 4px;
-        }
-
-        .page-container {
-            width: min(var(--page-width), 90%);
-            margin: 0 auto;
-        }
-
-
-        /* =====================================================
-           2. NAVIGATION
-        ===================================================== */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-
-            width: 100%;
-            padding: 18px 6%;
-
-            background: rgba(255, 255, 255, 0.97);
-
-            border-bottom:
-                1px solid rgba(0, 175, 168, 0.15);
-
-            box-shadow:
-                0 5px 22px rgba(0, 115, 116, 0.07);
-
-            backdrop-filter: blur(12px);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-            line-height: 1;
-            text-decoration: none;
-        }
-
-        .logo img {
-            display: block;
-            width: 145px;
-            height: auto;
-
-            filter:
-                brightness(0)
-                saturate(100%)
-                invert(43%)
-                sepia(91%)
-                saturate(1177%)
-                hue-rotate(136deg)
-                brightness(94%)
-                contrast(101%);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 27px;
-        }
-
-        .nav-links a {
-            color: #35494A;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            white-space: nowrap;
-
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--teal);
-            transform: translateY(-1px);
-        }
-
-
-        /* =====================================================
-           3. BUTTON STYLE
-        ===================================================== */
-
-        .practice-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-width: 185px;
-            min-height: 52px;
-            padding: 14px 29px;
-
-            border: 1px solid transparent;
-            border-radius: 14px;
-
-            background: var(--button-gradient);
-            color: var(--white);
-
-            font-size: 16px;
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 9px 24px rgba(0, 157, 151, 0.19);
-
-            transition:
-                background 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .practice-button:hover {
-            background: var(--button-hover-gradient);
-            color: var(--white);
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 13px 28px rgba(0, 105, 108, 0.23);
-        }
-
-        .practice-button:active {
-            transform: translateY(0);
-            box-shadow:
-                0 5px 14px rgba(0, 105, 108, 0.17);
-        }
-
-
-        /* =====================================================
-           4. HERO SECTION
-        ===================================================== */
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-
-            padding: 110px 20px 105px;
-
-            text-align: center;
-
-            border-bottom:
-                1px solid rgba(0, 175, 168, 0.14);
-
-            background:
-                radial-gradient(
-                    ellipse at 50% 0%,
-                    rgba(107, 229, 216, 0.22),
-                    transparent 57%
-                );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-
-            width: min(900px, 100%);
-            margin: 0 auto;
-        }
-
-        .hero-kicker {
-            margin-bottom: 21px;
-            color: var(--teal-dark);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2.2px;
-        }
-
-        .hero h1 {
-            margin-bottom: 19px;
-
-            color: var(--ink);
-            font-size: clamp(44px, 7vw, 76px);
-            font-weight: 700;
-            line-height: 1.12;
-            letter-spacing: -1.5px;
-        }
-
-        .hero h1 .gradient-text {
-            background:
-                linear-gradient(
-                    100deg,
-                    #00AFA8 0%,
-                    #16C9BE 45%,
-                    #299CB4 100%
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-subtitle {
-            margin-bottom: 20px;
-            color: var(--teal-dark);
-            font-size: clamp(19px, 2.5vw, 25px);
-            font-weight: 700;
-            line-height: 1.5;
-        }
-
-        .hero-description {
-            max-width: 790px;
-            margin: 0 auto 20px;
-
-            color: #586B6D;
-            font-size: 17px;
-            font-weight: 600;
-            line-height: 1.9;
-        }
-
-        .hero-emphasis {
-            margin-bottom: 30px;
-            color: #385C5D;
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .hero-emphasis span {
-            color: var(--teal);
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-        }
-
-
-        /* =====================================================
-           5. INTRODUCTION SECTION
-        ===================================================== */
-
-        .intro-section {
-            padding: 0 0 85px;
-            scroll-margin-top: 100px;
-        }
-
-        .intro-box {
-            padding: 53px 35px;
-
-            text-align: center;
-
-            border: 1px solid rgba(0, 175, 168, 0.15);
-            border-radius: 32px;
-
-            background:
-                radial-gradient(
-                    ellipse at 0% 100%,
-                    rgba(107, 229, 216, 0.25),
-                    transparent 42%
-                ),
-                radial-gradient(
-                    ellipse at 100% 0%,
-                    rgba(41, 156, 180, 0.15),
-                    transparent 42%
-                ),
-                linear-gradient(
-                    135deg,
-                    #E7FAF6,
-                    #FFFFFF 53%,
-                    #E5F8FB
-                );
-
-            box-shadow:
-                0 16px 42px rgba(0, 115, 116, 0.07);
-        }
-
-        .intro-box h2 {
-            margin-bottom: 16px;
-            color: var(--teal-dark);
-            font-size: clamp(30px, 4vw, 42px);
-            line-height: 1.25;
-        }
-
-        .intro-box > p {
-            max-width: 800px;
-            margin: 0 auto 18px;
-
-            color: #5D7071;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.9;
-        }
-
-        .intro-box .intro-message {
-            margin-bottom: 27px;
-            color: #087E80;
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           6. MATERIAL TYPE SELECTION
-        ===================================================== */
-
-        .materials-section {
-            padding: 0 0 105px;
-            scroll-margin-top: 100px;
-        }
-
-        .section-heading {
-            max-width: 760px;
-            margin: 0 auto 43px;
-            text-align: center;
-        }
-
-        .section-label {
-            display: inline-block;
-            margin-bottom: 12px;
-            color: var(--teal-dark);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-heading h2 {
-            margin-bottom: 13px;
-            color: var(--teal-dark);
-            font-size: clamp(30px, 4vw, 43px);
-            font-weight: 700;
-            line-height: 1.22;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            font-size: 17px;
-            font-weight: 600;
-            line-height: 1.8;
-        }
-
-        .material-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .material-card {
-            --material-accent: #00AFA8;
-            --material-light: #42D9CB;
-            --material-tint: #E1FAF5;
-
-            position: relative;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            min-width: 0;
-            min-height: 370px;
-            padding: 39px 27px 32px;
-
-            overflow: hidden;
-
-            text-align: center;
-            text-decoration: none;
-
-            border: 1px solid rgba(0, 135, 131, 0.15);
-            border-radius: 27px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #FFFFFF 0%,
-                    #FFFFFF 48%,
-                    var(--material-tint) 100%
-                );
-
-            box-shadow:
-                0 10px 27px rgba(0, 115, 116, 0.07);
-
-            transition:
-                transform 0.28s ease,
-                box-shadow 0.28s ease,
-                border-color 0.28s ease;
-        }
-
-        .material-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--material-accent);
-        }
-
-        .material-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--material-accent);
-
-            box-shadow:
-                0 18px 38px rgba(0, 115, 116, 0.14);
-        }
-
-        .material-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 105px;
-            height: 105px;
-            margin-bottom: 24px;
-
-            border-radius: 32px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--material-light),
-                    var(--material-accent)
-                );
-
-            color: #FFFFFF;
-            font-size: 48px;
-
-            box-shadow:
-                0 10px 23px rgba(0, 115, 116, 0.13);
-
-            transition: transform 0.28s ease;
-        }
-
-        .material-card:hover .material-icon {
-            transform: scale(1.08) rotate(-3deg);
-        }
-
-        .material-card h3 {
-            margin-bottom: 13px;
-            color: var(--teal-deep);
-            font-size: 25px;
-            font-weight: 700;
-        }
-
-        .material-card p {
-            flex-grow: 1;
-            margin-bottom: 25px;
-
-            color: #637477;
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.85;
-        }
-
-        .material-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-
-            min-height: 44px;
-            padding: 10px 22px;
-
-            border-radius: 12px;
-
-            background: var(--button-gradient);
-            color: #FFFFFF;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            box-shadow:
-                0 6px 17px rgba(0, 157, 151, 0.15);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .material-card:hover .material-link {
-            transform: translateY(-2px);
-            box-shadow:
-                0 9px 20px rgba(0, 105, 108, 0.20);
-        }
-
-
-        /* QUIZZES */
-
-        .material-card.quizzes {
-            --material-accent: #00AFA8;
-            --material-light: #42D9CB;
-            --material-tint: #E1FAF5;
-        }
-
-
-        /* FLASHCARDS */
-
-        .material-card.flashcards {
-            --material-accent: #159CB0;
-            --material-light: #54D1DF;
-            --material-tint: #E2F7FA;
-        }
-
-
-        /* PUZZLES */
-
-        .material-card.puzzles {
-            --material-accent: #25B99D;
-            --material-light: #66E2BD;
-            --material-tint: #E3FBF2;
-        }
-
-
-        /* =====================================================
-           7. BACK TO HOME
-        ===================================================== */
-
-        .back-home-section {
-            padding: 0 0 85px;
-            text-align: center;
-        }
-
-
-        /* =====================================================
-           8. FOOTER
-        ===================================================== */
-
-        footer {
-            padding: 75px 25px 48px;
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(200, 245, 232, 0.35) 0%,
-                    rgba(229, 251, 247, 0.60) 48%,
-                    rgba(255, 255, 255, 0.85) 100%
-                );
-
-            border-top:
-                1px solid rgba(0, 175, 168, 0.13);
-        }
-
-        .footer-logo {
-            margin-bottom: 8px;
-            color: var(--teal-dark);
-            font-family: "Pacifico", cursive;
-            font-size: 35px;
-        }
-
-        .footer-tagline {
-            margin-bottom: 14px;
-            color: var(--teal-dark);
-            font-family: "Quicksand", sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .footer-description {
-            max-width: 650px;
-            margin: 0 auto 28px;
-            color: #596D6D;
-            font-family: "Quicksand", sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.75;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 18px 28px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: var(--teal-dark);
-            font-family: "Quicksand", sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-
-            transition: color 0.25s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--teal);
-        }
-
-        .copyright {
-            color: #647777;
-            font-family: "Quicksand", sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           9. TABLET
-        ===================================================== */
-
-        @media (max-width: 1050px) {
-
-            .navbar {
-                padding: 17px 4%;
-            }
-
-            .nav-links {
-                gap: 16px;
-            }
-
-            .nav-links a {
-                font-size: 13px;
-            }
-
-            .material-grid {
-                gap: 17px;
-            }
-
-            .material-card {
-                padding: 33px 19px 27px;
-            }
-
-        }
-
-
-        /* =====================================================
-           10. MOBILE
-        ===================================================== */
-
-        @media (max-width: 760px) {
-
-            html {
-                scroll-padding-top: 20px;
-            }
-
-            .navbar {
-                position: relative;
-                flex-direction: column;
-                gap: 16px;
-                padding: 17px 5%;
-            }
-
-            .logo img {
-                width: 135px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px 18px;
-            }
-
-            .nav-links a {
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 78px 20px 75px;
-            }
-
-            .hero-content {
-                width: 100%;
-            }
-
-            .hero h1 {
-                font-size: clamp(43px, 9vw, 60px);
-                letter-spacing: -0.8px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-                line-height: 1.85;
-            }
-
-            .hero-subtitle {
-                font-size: 20px;
-            }
-
-            .hero-emphasis {
-                font-size: 15px;
-            }
-
-            .intro-section {
-                padding-bottom: 70px;
-            }
-
-            .intro-box {
-                padding: 45px 23px;
-                border-radius: 27px;
-            }
-
-            .material-grid {
-                grid-template-columns: 1fr;
-                gap: 19px;
-            }
-
-            .material-card {
-                min-height: 340px;
-                padding: 34px 25px 29px;
-            }
-
-            .material-icon {
-                width: 92px;
-                height: 92px;
-                border-radius: 27px;
-                font-size: 43px;
-            }
-
-            .materials-section {
-                padding-bottom: 75px;
-            }
-
-            .back-home-section {
-                padding-bottom: 65px;
-            }
-
-            footer {
-                padding: 60px 20px 38px;
-            }
-
-            .footer-links {
-                gap: 15px 20px;
-            }
-
-        }
-
-
-        /* =====================================================
-           11. SMALL MOBILE
-        ===================================================== */
-
-        @media (max-width: 390px) {
-
-            .page-container {
-                width: 92%;
-            }
-
-            .nav-links {
-                gap: 9px 13px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 65px 17px;
-            }
-
-            .hero h1 {
-                font-size: 41px;
-            }
-
-            .hero-kicker {
-                font-size: 11px;
-                letter-spacing: 1.7px;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .hero-actions .practice-button {
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .intro-box {
-                padding: 38px 18px;
-            }
-
-            .section-heading h2 {
-                font-size: 30px;
-            }
-
-            .section-heading p {
-                font-size: 15px;
-            }
-
-            .material-card {
-                padding: 30px 20px 25px;
-            }
-
-            .practice-button {
-                min-width: 170px;
-                padding: 13px 22px;
-                font-size: 15px;
-            }
-
-            .footer-links {
-                gap: 13px 16px;
-            }
-
-        }
-
-
-        /* =====================================================
-           12. REDUCED MOTION
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the Mathmium Practice Zone. Enjoy interactive maths quizzes, flashcards and puzzles.">
+  <title>Mathmium Practice Zone | Explore. Practise. Shine!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fbfdf9;
+      --white: #ffffff;
+      --teal: #159e94;
+      --deep-teal: #087c76;
+      --light-teal: #d9f5ef;
+      --mint: #effbf7;
+      --dark: #234744;
+      --text: #536b68;
+      --shadow: 0 12px 35px rgba(21, 158, 148, 0.10);
+      --soft-shadow: 0 7px 22px rgba(21, 158, 148, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(21, 158, 148, 0.10);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 13px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 155px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #45615d;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--teal);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--deep-teal);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 25px 100px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(190, 244, 228, 0.65), transparent 25%),
+        radial-gradient(circle at 88% 75%, rgba(197, 242, 236, 0.7), transparent 26%),
+        linear-gradient(135deg, #f1fcf7 0%, #e7f8f3 48%, #f7fdf9 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(21, 158, 148, 0.10);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 120px;
+      height: 120px;
+      top: 55px;
+      left: 7%;
+    }
+
+    .hero::after {
+      width: 85px;
+      height: 85px;
+      bottom: 55px;
+      right: 9%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 8px 20px;
+      margin-bottom: 23px;
+      border-radius: 30px;
+      background: rgba(21, 158, 148, 0.11);
+      color: var(--deep-teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(39px, 6vw, 68px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--teal);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-weight: 700;
+      color: #52736d;
+      margin-bottom: 13px;
+    }
+
+    .hero-description {
+      max-width: 670px;
+      margin: 0 auto 30px;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .hero-highlight {
+      color: var(--deep-teal);
+      font-weight: 800;
+    }
+
+    /* BUTTONS */
+
+    .practice-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 29px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #159e94, #087c76);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      box-shadow: 0 7px 18px rgba(21, 158, 148, 0.22);
+      border: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .practice-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 23px rgba(21, 158, 148, 0.27);
+    }
+
+    /* MATERIALS SECTION */
+
+    .materials-section {
+      padding: 85px 25px 75px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin: 0 auto 45px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      color: var(--dark);
+      font-size: clamp(30px, 4vw, 43px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 span {
+      color: var(--teal);
+    }
+
+    .section-heading p {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .materials-grid {
+      max-width: 1080px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 27px;
+    }
+
+    .material-card {
+      background: var(--white);
+      padding: 35px 27px 32px;
+      border-radius: 24px;
+      border: 1px solid rgba(21, 158, 148, 0.13);
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    /* PREMIUM TEAL EMOJI STYLE */
+
+    .material-icon {
+      width: 105px;
+      height: 105px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 23px;
+      background: linear-gradient(145deg, #e7faf5, #c9eee5);
+      border: 1px solid rgba(21, 158, 148, 0.16);
+      box-shadow:
+        inset 0 2px 5px rgba(255, 255, 255, 0.9),
+        0 8px 18px rgba(21, 158, 148, 0.10);
+    }
+
+    .material-icon span {
+      font-size: 48px;
+      line-height: 1;
+      filter: grayscale(0.45) sepia(0.18) hue-rotate(115deg) saturate(1.2);
+      text-shadow: 0 4px 8px rgba(8, 124, 118, 0.12);
+    }
+
+    .material-card h3 {
+      color: var(--dark);
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .material-card p {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      min-height: 70px;
+      margin-bottom: 23px;
+    }
+
+    .material-card .practice-button {
+      margin-top: auto;
+      min-width: 175px;
+    }
+
+    /* BACK TO HOME */
+
+    .back-home-section {
+      text-align: center;
+      padding: 15px 25px 85px;
+      background: var(--cream);
+    }
+
+    .back-home-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 30px;
+      border: 2px solid var(--teal);
+      border-radius: 30px;
+      color: var(--deep-teal);
+      background: transparent;
+      font-size: 14px;
+      font-weight: 800;
+      transition: all 0.25s ease;
+    }
+
+    .back-home-button:hover {
+      background: var(--teal);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #eaf8f3;
+      border-top: 1px solid rgba(21, 158, 148, 0.12);
+      padding: 55px 25px 20px;
+    }
+
+    .footer-container {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 55px;
+    }
+
+    .footer-logo img {
+      width: 145px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-about p {
+      max-width: 340px;
+      color: #58716c;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
+    .footer-column h3 {
+      color: var(--dark);
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 17px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: #58716c;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--teal);
+    }
+
+    .footer-bottom {
+      max-width: 1150px;
+      margin: 40px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(21, 158, 148, 0.15);
+      text-align: center;
+      color: #69817c;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+
+      .footer-about {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      .logo img {
+        width: 135px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hero {
+        padding: 70px 20px 80px;
+      }
+
+      .hero::before {
+        width: 65px;
+        height: 65px;
+        left: -15px;
+      }
+
+      .hero::after {
+        width: 55px;
+        height: 55px;
+        right: -10px;
+      }
+
+      .materials-section {
+        padding: 65px 20px 55px;
+      }
+
+      .materials-grid {
+        grid-template-columns: 1fr;
+        max-width: 390px;
+        gap: 20px;
+      }
+
+      .material-card {
+        padding: 30px 23px;
+      }
+
+      .material-card p {
+        min-height: auto;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px;
+      }
+
+      .footer-about {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- =====================================================
-         NAVIGATION
-    ===================================================== -->
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="Images/Logo.svg" alt="Mathmium Logo">
+      </a>
 
-    <nav class="navbar" aria-label="Main navigation">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
 
-        <a href="index.html" class="logo" aria-label="Mathmium home">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">Meet the Tutor</a></li>
+        <li><a href="index.html#classes">Classes</a></li>
+        <li><a href="index.html#materials">Materials</a></li>
+        <li><a href="index.html#daily-math-boost">Daily Math Boost</a></li>
+        <li><a href="index.html#quiz-zone">Quiz Zone</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <img src="Images/Logo.svg" alt="Mathmium">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
 
+      <div class="hero-label">MATHMIUM PRACTICE ZONE</div>
+
+      <h1>
+        Explore. <span>Practise.</span> Shine!
+      </h1>
+
+      <p class="hero-subtitle">
+        Your next maths adventure starts here!
+      </p>
+
+      <p class="hero-description">
+        Discover fun and engaging ways to strengthen your mathematical
+        skills. Challenge yourself, explore new ideas, and make every
+        practice session count.
+        <span class="hero-highlight">
+          Every little practice makes a big difference!
+        </span>
+      </p>
+
+      <a href="#materials" class="practice-button">
+        Let's Explore
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MATERIAL CHOICES -->
+  <section class="materials-section" id="materials">
+
+    <div class="section-heading">
+      <span class="section-label">CHOOSE YOUR ACTIVITY</span>
+      <h2>Find Your Way to <span>Learn!</span></h2>
+      <p>
+        Choose an activity and make your maths practice an enjoyable adventure.
+      </p>
+    </div>
+
+    <div class="materials-grid">
+
+      <!-- QUIZZES -->
+      <div class="material-card">
+        <div class="material-icon">
+          <span>📝</span>
+        </div>
+
+        <h3>Quizzes</h3>
+
+        <p>
+          Test your knowledge with fun questions and interactive challenges.
+          Practise different topics and see how much you know.
+        </p>
+
+        <a href="quizzes.html" class="practice-button">
+          Explore Quizzes
+        </a>
+      </div>
+
+      <!-- FLASHCARDS -->
+      <div class="material-card">
+        <div class="material-icon">
+          <span>🗂️</span>
+        </div>
+
+        <h3>Flashcards</h3>
+
+        <p>
+          Review important concepts, remember key facts, and strengthen
+          your mathematical knowledge one card at a time.
+        </p>
+
+        <a href="flashcards.html" class="practice-button">
+          Explore Flashcards
+        </a>
+      </div>
+
+      <!-- PUZZLES -->
+      <div class="material-card">
+        <div class="material-icon">
+          <span>🧩</span>
+        </div>
+
+        <h3>Puzzles</h3>
+
+        <p>
+          Put your thinking skills to the test with exciting maths puzzles.
+          Explore patterns, solve problems, and think creatively.
+        </p>
+
+        <a href="puzzles.html" class="practice-button">
+          Explore Puzzles
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BACK TO HOME -->
+  <section class="back-home-section">
+    <a href="index.html" class="back-home-button">
+      Back to Home
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">
+          <img src="Images/Logo.svg" alt="Mathmium Logo">
         </a>
 
-        <div class="nav-links">
-
-            <a href="index.html">Home</a>
-
-            <a href="index.html#tutor">Meet the Tutor</a>
-
-            <a href="index.html#classes">Classes</a>
-
-            <a href="index.html#materials">Materials</a>
-
-            <a href="index.html#treasures">Treasure I've Earned</a>
-
-        </div>
-
-    </nav>
-
-
-    <main>
-
-        <!-- =====================================================
-             SECTION 1: HERO
-        ===================================================== -->
-
-        <section class="hero" id="practice-home">
-
-            <div class="hero-content">
-
-                <div class="hero-kicker">
-                    MATHMIUM PRACTICE ZONE
-                </div>
-
-                <h1>
-                    Explore. Practise.<br>
-                    <span class="gradient-text">Shine!</span>
-                </h1>
-
-                <p class="hero-subtitle">
-                    Your next maths adventure starts here!
-                </p>
-
-                <p class="hero-description">
-                    Welcome to a world of fun, discovery, and mathematical
-                    adventures! Explore a variety of learning materials,
-                    practise your skills, challenge your thinking, and
-                    discover new ways to enjoy mathematics.
-                </p>
-
-                <p class="hero-emphasis">
-                    <span aria-hidden="true">★</span>
-                    Every little practice makes a big difference!
-                </p>
-
-                <div class="hero-actions">
-
-                    <a href="#materials" class="practice-button">
-                        Let's Explore
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SECTION 2: CHOOSE YOUR MATERIAL
-        ===================================================== -->
-
-        <section class="materials-section" id="materials">
-
-            <div class="page-container">
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        YOUR LEARNING PLAYGROUND
-                    </div>
-
-                    <h2>How Would You Like to Practise?</h2>
-
-                    <p>
-                        Choose your favourite way to learn and explore
-                        exciting mathematics activities!
-                    </p>
-
-                </div>
-
-
-                <div class="material-grid">
-
-
-                    <!-- QUIZZES -->
-
-                    <a
-                        href="quizzes.html"
-                        class="material-card quizzes"
-                        aria-label="Explore mathematics quizzes"
-                    >
-
-                        <div class="material-icon" aria-hidden="true">
-                            📝
-                        </div>
-
-                        <h3>Quizzes</h3>
-
-                        <p>
-                            Put your mathematical knowledge to the test!
-                            Answer engaging questions, practise different
-                            skills, and see how much you know.
-                        </p>
-
-                        <span class="material-link">
-                            Explore Quizzes <span aria-hidden="true">→</span>
-                        </span>
-
-                    </a>
-
-
-                    <!-- FLASHCARDS -->
-
-                    <a
-                        href="flashcards.html"
-                        class="material-card flashcards"
-                        aria-label="Explore mathematics flashcards"
-                    >
-
-                        <div class="material-icon" aria-hidden="true">
-                            🗂️
-                        </div>
-
-                        <h3>Flashcards</h3>
-
-                        <p>
-                            Make learning and revision easier! Discover
-                            important mathematical facts, formulas,
-                            definitions, and concepts through flashcards.
-                        </p>
-
-                        <span class="material-link">
-                            Explore Flashcards <span aria-hidden="true">→</span>
-                        </span>
-
-                    </a>
-
-
-                    <!-- PUZZLES -->
-
-                    <a
-                        href="puzzles.html"
-                        class="material-card puzzles"
-                        aria-label="Explore mathematics puzzles"
-                    >
-
-                        <div class="material-icon" aria-hidden="true">
-                            🧩
-                        </div>
-
-                        <h3>Puzzles</h3>
-
-                        <p>
-                            Get your brain thinking! Solve fun mathematical
-                            puzzles, discover patterns, and develop your
-                            problem-solving skills.
-                        </p>
-
-                        <span class="material-link">
-                            Explore Puzzles <span aria-hidden="true">→</span>
-                        </span>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SECTION 3: BACK TO HOME
-        ===================================================== -->
-
-        <section class="back-home-section">
-
-            <div class="page-container">
-
-                <a href="index.html" class="practice-button">
-                    Back to Home
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
-
-    <footer>
-
-        <div class="footer-logo">
-            Mathmium
-        </div>
-
-        <div class="footer-tagline">
-            Your World of Mathematics
-        </div>
-
-        <div class="footer-description">
-            A creative space to discover, practise, explore,
-            and enjoy Mathematics.
-        </div>
-
-        <div class="footer-links">
-
-            <a href="index.html">Home</a>
-
-            <a href="index.html#classes">Classes</a>
-
-            <a href="index.html#materials">Materials</a>
-
-            <a href="index.html#join">Join Classes</a>
-
-            <a href="index.html#order">Order Materials</a>
-
-            <a href="index.html#contact">Contact</a>
-
-            <a href="index.html#treasures">Reviews</a>
-
-        </div>
-
-        <div class="copyright">
-            © Mathmium
-        </div>
-
-    </footer>
+        <p>
+          Making Mathematics easier, more enjoyable, and more meaningful
+          through creative lessons, engaging activities, and interactive
+          learning resources.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">Meet the Tutor</a></li>
+          <li><a href="index.html#classes">Classes</a></li>
+          <li><a href="index.html#materials">Materials</a></li>
+          <li><a href="index.html#daily-math-boost">Daily Math Boost</a></li>
+          <li><a href="index.html#quiz-zone">Quiz Zone</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Get in Touch</h3>
+        <ul>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#join">Join Mathmium</a></li>
+          <li><a href="https://www.youtube.com/@mathmium" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Mathmium. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("show");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("show");
+      });
+    });
+  </script>
 
 </body>
-
 </html>
