@@ -1,27 +1,34 @@
-
 /* =========================================================
    MATHMIUM PUZZLE ZONE
-   100 MATHEMATICS CHALLENGES
+   120 MATHEMATICS CHALLENGES
 
-   FINAL UPDATED VERSION
+   SIX CATEGORIES
+   1. Number Towers
+   2. Missing Number Operations
+   3. Number Riddles
+   4. Balance Equals
+   5. Integer Puzzles
+   6. Sort Numbers
 
-   BALANCE EQUALS UPDATES
-   1. Difficulty labels removed from Balance Equals only
-   2. LHS displayed on the first line
-   3. Equals sign displayed on the second line
-   4. RHS displayed on the third line
-   5. Missing-number input retained
-   6. Existing colours, hints and explanations retained
+   SORT NUMBERS FEATURES
+   1. 20 questions across 10 sets
+   2. Easy, Intermediate and Advanced levels
+   3. Drag-and-drop number sorting
+   4. Tap a number, then tap a category
+   5. Move numbers between categories
+   6. Return numbers to the number bank
+   7. Check sorting answers
+   8. Restore answers when navigating
+   9. Question and sorting board displayed vertically
+   10. Controls displayed below the sorting activity
 
    OTHER FEATURES
    1. Twenty different colours for each category
    2. Every question has its own colour
-   3. Same colour sequence in all five categories
+   3. Same colour sequence in all categories
    4. Full-screen puzzle workspace
    5. Back to Puzzles button linking to puzzles.html
-   6. Number Riddles controls below the question
-   7. Integer Puzzles controls below the question
-   8. Other categories retain right-side controls
+   6. Existing layouts and functionality retained
 ========================================================= */
 
 (function () {
@@ -45,8 +52,6 @@ const styles = `
 #activity-window *::after {
     box-sizing: border-box;
 }
-
-/* FULL-SCREEN WORKSPACE */
 
 #activity-window.active {
     position: fixed !important;
@@ -78,14 +83,12 @@ const styles = `
     overflow-y: auto;
 }
 
-/* HIDE ORIGINAL TOPIC TITLE AND BACK BUTTON */
-
 #activity-window.active #activity-title,
 #activity-window.active #back-button {
     display: none !important;
 }
 
-/* BACK TO PUZZLES BUTTON */
+/* BACK TO PUZZLES */
 
 .puzzle-page-back {
     display: inline-flex;
@@ -169,8 +172,6 @@ const styles = `
     align-items: stretch;
     margin-top: 12px;
 }
-
-/* SINGLE COLUMN LAYOUT */
 
 .game-layout.single-column {
     grid-template-columns: minmax(0, 1fr);
@@ -321,8 +322,6 @@ const styles = `
 .hint-box.show {
     display: block;
 }
-
-/* FEEDBACK */
 
 .feedback {
     display: none;
@@ -514,8 +513,6 @@ const styles = `
     border: 1px solid var(--line);
 }
 
-/* LHS AND RHS ROWS */
-
 .balance-side-row {
     width: 100%;
     display: flex;
@@ -535,8 +532,6 @@ const styles = `
     color: var(--dark);
     margin-bottom: 3px;
 }
-
-/* EQUALS SIGN ON ITS OWN LINE */
 
 .balance-equals-row {
     width: 100%;
@@ -652,6 +647,169 @@ const styles = `
     color: #626B79;
 }
 
+/* =========================================================
+   SORT NUMBERS
+========================================================= */
+
+.sorting-panel {
+    width: 100%;
+    margin: 12px auto 0;
+}
+
+.sorting-bank {
+    width: 100%;
+    padding: 14px;
+    border: 2px dashed var(--line);
+    border-radius: 14px;
+    background: rgba(255,255,255,.75);
+    margin-bottom: 16px;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.sorting-bank.drop-active,
+.sorting-bin.drop-active {
+    border-color: var(--main);
+    background: var(--question-bg);
+}
+
+.sorting-section-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--dark);
+    text-align: center;
+    margin: 0 0 11px;
+}
+
+.sorting-number-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    min-height: 48px;
+}
+
+.sort-number-card {
+    min-width: 57px;
+    min-height: 43px;
+    padding: 9px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    background: white;
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: grab;
+    user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0 2px 5px rgba(0,0,0,.05);
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.sort-number-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--main);
+}
+
+.sort-number-card:active {
+    cursor: grabbing;
+}
+
+.sort-number-card.selected {
+    outline: 3px solid var(--main);
+    outline-offset: 2px;
+    background: var(--question-bg);
+    transform: translateY(-2px);
+}
+
+.sorting-categories {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.sorting-categories.three-categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sorting-bin {
+    min-width: 0;
+    min-height: 145px;
+    padding: 12px;
+    border: 2px dashed var(--line);
+    border-radius: 13px;
+    background: rgba(255,255,255,.8);
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.sorting-bin h4 {
+    margin: 0 0 11px;
+    text-align: center;
+    font-size: clamp(12px, 1.5vw, 15px);
+    line-height: 1.35;
+    color: var(--dark);
+}
+
+.sorting-bin .sorting-number-list {
+    min-height: 65px;
+    align-content: flex-start;
+}
+
+.sorting-bin .sort-number-card {
+    min-width: 48px;
+    min-height: 38px;
+    padding: 7px 9px;
+    font-size: 14px;
+}
+
+.sorting-empty {
+    width: 100%;
+    text-align: center;
+    color: #8A929F;
+    font-size: 12px;
+    padding: 14px 4px;
+    pointer-events: none;
+}
+
+.sorting-help {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #626B79;
+    margin: 9px 0 0;
+}
+
+.sorting-reset-button {
+    display: block;
+    width: min(100%, 220px);
+    min-height: 39px;
+    margin: 12px auto 0;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: white;
+    color: var(--dark);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.sorting-reset-button:hover {
+    background: var(--question-bg);
+}
+
+.sorting-feedback-note {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #626B79;
+    text-align: center;
+}
+
 /* COMPLETION */
 
 .completion-area {
@@ -709,6 +867,10 @@ const styles = `
 
     .question-panel {
         padding: 12px;
+    }
+
+    .sorting-categories.three-categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -786,6 +948,32 @@ const styles = `
     .balance-side-row {
         gap: 6px;
     }
+
+    .sorting-categories,
+    .sorting-categories.three-categories {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sorting-bin {
+        min-height: 115px;
+    }
+
+    .sorting-bank {
+        padding: 11px;
+    }
+
+    .sort-number-card {
+        min-width: 52px;
+        min-height: 41px;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .sorting-bin .sort-number-card {
+        min-width: 45px;
+        min-height: 36px;
+        font-size: 13px;
+    }
 }
 
 /* SMALL MOBILE */
@@ -806,6 +994,15 @@ const styles = `
 
     .inline-controls button {
         font-size: 11px;
+    }
+
+    .sorting-number-list {
+        gap: 7px;
+    }
+
+    .sort-number-card {
+        min-width: 46px;
+        padding: 7px;
     }
 }
 `;
@@ -1068,7 +1265,335 @@ const integerPuzzles = integerData.map((p, i) => ({
 }));
 
 /* =========================================================
-   9. CATEGORY COLLECTION
+   9. SORT NUMBERS - 20 QUESTIONS / 10 SETS
+========================================================= */
+
+function sortQuestion(id, set, level, title, instruction,
+                      categories, items, groups, hint, explanation) {
+    return {
+        id,
+        set,
+        level,
+        title,
+        instruction,
+        categories,
+        items,
+        groups,
+        hint,
+        explanation
+    };
+}
+
+const sortPuzzles = [
+
+    /* SET 01 - NUMBER BASICS */
+
+    sortQuestion(
+        1, "Set 01 – Number Basics", "Easy",
+        "Positive or Negative?",
+        "Sort each number into the correct group.",
+        ["Positive Numbers", "Negative Numbers"],
+        ["−8","12","−3","7","−15","20","−1","5","−11","14"],
+        [
+            ["12","7","20","5","14"],
+            ["−8","−3","−15","−1","−11"]
+        ],
+        "Positive numbers are greater than zero. Negative numbers are less than zero.",
+        "Positive numbers are greater than zero, while negative numbers are less than zero."
+    ),
+
+    sortQuestion(
+        2, "Set 01 – Number Basics", "Easy",
+        "Even or Odd?",
+        "Sort the numbers into even and odd groups.",
+        ["Even Numbers", "Odd Numbers"],
+        ["13","24","37","42","56","61","78","85","92","103"],
+        [
+            ["24","42","56","78","92"],
+            ["13","37","61","85","103"]
+        ],
+        "Even numbers are divisible by 2 without a remainder.",
+        "Even numbers end in 0, 2, 4, 6 or 8. Odd numbers end in 1, 3, 5, 7 or 9."
+    ),
+
+    /* SET 02 - PRIME AND COMPOSITE */
+
+    sortQuestion(
+        3, "Set 02 – Prime and Composite Numbers", "Easy",
+        "Prime or Composite?",
+        "Sort each number according to how many positive factors it has.",
+        ["Prime Numbers", "Composite Numbers"],
+        ["2","9","11","15","17","21","23","27","29","35"],
+        [
+            ["2","11","17","23","29"],
+            ["9","15","21","27","35"]
+        ],
+        "A prime number has exactly two positive factors: 1 and itself.",
+        "Prime numbers have exactly two positive factors. Composite numbers have more than two positive factors."
+    ),
+
+    sortQuestion(
+        4, "Set 02 – Prime and Composite Numbers", "Easy",
+        "Multiples of 3",
+        "Sort the numbers into multiples of 3 and numbers that are not multiples of 3.",
+        ["Multiples of 3", "Not Multiples of 3"],
+        ["12","14","18","22","27","31","36","40","45","52"],
+        [
+            ["12","18","27","36","45"],
+            ["14","22","31","40","52"]
+        ],
+        "A number is divisible by 3 if the sum of its digits is divisible by 3.",
+        "The multiples of 3 in this question are 12, 18, 27, 36 and 45."
+    ),
+
+    /* SET 03 - FACTORS AND MULTIPLES */
+
+    sortQuestion(
+        5, "Set 03 – Factors and Multiples", "Easy",
+        "Factors of 24",
+        "Sort the numbers into factors of 24 and numbers that are not factors of 24.",
+        ["Factors of 24", "Not Factors of 24"],
+        ["1","2","3","5","6","8","10","12","18","24"],
+        [
+            ["1","2","3","6","8","12","24"],
+            ["5","10","18"]
+        ],
+        "A factor divides 24 exactly, leaving no remainder.",
+        "The factors of 24 in this list are 1, 2, 3, 6, 8, 12 and 24."
+    ),
+
+    sortQuestion(
+        6, "Set 03 – Factors and Multiples", "Easy",
+        "Multiples of 5",
+        "Sort the numbers into multiples of 5 and numbers that are not multiples of 5.",
+        ["Multiples of 5", "Not Multiples of 5"],
+        ["15","22","30","34","45","51","60","67","75","82"],
+        [
+            ["15","30","45","60","75"],
+            ["22","34","51","67","82"]
+        ],
+        "Multiples of 5 end in either 0 or 5.",
+        "The multiples of 5 are 15, 30, 45, 60 and 75."
+    ),
+
+    /* SET 04 - FRACTIONS AND DECIMALS */
+
+    sortQuestion(
+        7, "Set 04 – Fractions and Decimals", "Intermediate",
+        "Fractions or Decimals?",
+        "Sort each value into the correct number representation.",
+        ["Fractions", "Decimals"],
+        ["½","0.75","⅓","1.25","¾","0.4","⅝","2.5","⅖","0.125"],
+        [
+            ["½","⅓","¾","⅝","⅖"],
+            ["0.75","1.25","0.4","2.5","0.125"]
+        ],
+        "Fractions are written using a numerator and denominator. Decimals use a decimal point.",
+        "Values written with a numerator and denominator are fractions. Values written with a decimal point are decimals."
+    ),
+
+    sortQuestion(
+        8, "Set 04 – Fractions and Decimals", "Intermediate",
+        "Proper or Improper Fractions?",
+        "Sort the fractions according to the relationship between their numerator and denominator.",
+        ["Proper Fractions", "Improper Fractions"],
+        ["⅔","5/4","¾","7/5","⅚","9/8","2/7","11/6","⅘","8/3"],
+        [
+            ["⅔","¾","⅚","2/7","⅘"],
+            ["5/4","7/5","9/8","11/6","8/3"]
+        ],
+        "A proper fraction has a numerator smaller than its denominator.",
+        "Proper fractions have numerators smaller than their denominators. Improper fractions have numerators greater than their denominators."
+    ),
+
+    /* SET 05 - RATIONAL AND IRRATIONAL */
+
+    sortQuestion(
+        9, "Set 05 – Rational and Irrational Numbers", "Intermediate",
+        "Rational or Irrational?",
+        "Sort the numbers into rational and irrational groups.",
+        ["Rational Numbers", "Irrational Numbers"],
+        ["½","√2","0.75","π","⅓","√3","4","√5","0.125","√7"],
+        [
+            ["½","0.75","⅓","4","0.125"],
+            ["√2","π","√3","√5","√7"]
+        ],
+        "Rational numbers can be written as a fraction of two integers. Irrational numbers cannot.",
+        "Fractions, integers and terminating decimals are rational. The listed square roots and π are irrational."
+    ),
+
+    sortQuestion(
+        10, "Set 05 – Rational and Irrational Numbers", "Intermediate",
+        "Integers or Not Integers?",
+        "Sort each value into integers and values that are not integers.",
+        ["Integers", "Not Integers"],
+        ["−5","3.5","0","⅔","12","−8","4.25","7","−2.5","⅞"],
+        [
+            ["−5","0","12","−8","7"],
+            ["3.5","⅔","4.25","−2.5","⅞"]
+        ],
+        "Integers are whole numbers, their negative counterparts, and zero.",
+        "Integers do not contain fractional or decimal parts. The integers here are −5, 0, 12, −8 and 7."
+    ),
+
+    /* SET 06 - DECIMAL AND PERCENTAGE VALUES */
+
+    sortQuestion(
+        11, "Set 06 – Decimal and Percentage Values", "Intermediate",
+        "Less Than 1 or Greater Than 1?",
+        "Sort each decimal according to its value compared with 1.",
+        ["Less Than 1", "Greater Than 1"],
+        ["0.25","1.5","0.75","2.4","0.9","3.25","0.4","1.2","0.05","4.6"],
+        [
+            ["0.25","0.75","0.9","0.4","0.05"],
+            ["1.5","2.4","3.25","1.2","4.6"]
+        ],
+        "Compare the digit before the decimal point with 1.",
+        "Decimals between 0 and 1 are less than 1. The remaining values in this question are greater than 1."
+    ),
+
+    sortQuestion(
+        12, "Set 06 – Decimal and Percentage Values", "Intermediate",
+        "Less Than 50% or Greater Than 50%?",
+        "Sort the percentages according to their value compared with 50%.",
+        ["Less Than 50%", "Greater Than 50%"],
+        ["25%","75%","40%","60%","10%","90%","35%","85%","45%","55%"],
+        [
+            ["25%","40%","10%","35%","45%"],
+            ["75%","60%","90%","85%","55%"]
+        ],
+        "Compare each percentage with 50%.",
+        "Percentages below 50% belong in the first group. Percentages above 50% belong in the second group."
+    ),
+
+    /* SET 07 - SQUARE AND CUBE NUMBERS */
+
+    sortQuestion(
+        13, "Set 07 – Square and Cube Numbers", "Intermediate",
+        "Perfect Squares or Not?",
+        "Sort the numbers into perfect squares and numbers that are not perfect squares.",
+        ["Perfect Squares", "Not Perfect Squares"],
+        ["16","20","25","30","36","40","49","55","64","70"],
+        [
+            ["16","25","36","49","64"],
+            ["20","30","40","55","70"]
+        ],
+        "A perfect square is the result of multiplying a whole number by itself.",
+        "16, 25, 36, 49 and 64 are perfect squares."
+    ),
+
+    sortQuestion(
+        14, "Set 07 – Square and Cube Numbers", "Intermediate",
+        "Perfect Cubes or Not?",
+        "Sort the numbers into perfect cubes and numbers that are not perfect cubes.",
+        ["Perfect Cubes", "Not Perfect Cubes"],
+        ["8","12","27","32","64","100","125","150","216","250"],
+        [
+            ["8","27","64","125","216"],
+            ["12","32","100","150","250"]
+        ],
+        "A perfect cube is the result of multiplying a whole number by itself three times.",
+        "8, 27, 64, 125 and 216 are perfect cubes."
+    ),
+
+    /* SET 08 - NUMBER CLASSIFICATION */
+
+    sortQuestion(
+        15, "Set 08 – Number Classification", "Advanced",
+        "Natural, Whole or Negative?",
+        "Classify each number into natural numbers, zero or negative integers.",
+        ["Natural Numbers", "Zero", "Negative Integers"],
+        ["−7","0","3","−12","8","−1","15","−5","20","−9"],
+        [
+            ["3","8","15","20"],
+            ["0"],
+            ["−7","−12","−1","−5","−9"]
+        ],
+        "Natural numbers are positive counting numbers. Zero is neither positive nor negative.",
+        "Positive counting numbers are natural numbers, zero has its own category, and negative whole numbers are negative integers."
+    ),
+
+    sortQuestion(
+        16, "Set 08 – Number Classification", "Advanced",
+        "Compare with 0.5",
+        "Compare each value with 0.5 and sort it into the correct group.",
+        ["Less Than 0.5", "Equal to 0.5", "Greater Than 0.5"],
+        ["0.25","½","0.75","0.4","0.50","⅗","0.1","¾","0.45","0.9"],
+        [
+            ["0.25","0.4","0.1","0.45"],
+            ["½","0.50"],
+            ["0.75","⅗","¾","0.9"]
+        ],
+        "Remember that ½ is equal to 0.5. Convert fractions to decimals if needed.",
+        "Values smaller than 0.5 go in the first group. One-half and 0.50 are equal to 0.5. The remaining values are greater than 0.5."
+    ),
+
+    /* SET 09 - MATHEMATICAL EXPRESSIONS */
+
+    sortQuestion(
+        17, "Set 09 – Mathematical Expressions", "Advanced",
+        "Fraction, Decimal or Percentage?",
+        "Sort each value according to how it is written.",
+        ["Fractions", "Decimals", "Percentages"],
+        ["⅖","0.65","35%","¾","1.25","80%","⅛","0.09","125%","⅗"],
+        [
+            ["⅖","¾","⅛","⅗"],
+            ["0.65","1.25","0.09"],
+            ["35%","80%","125%"]
+        ],
+        "Look for a fraction bar, a decimal point or the percentage symbol.",
+        "Values written as numerator and denominator are fractions. Values with decimal points are decimals. Values with the % symbol are percentages."
+    ),
+
+    sortQuestion(
+        18, "Set 09 – Mathematical Expressions", "Advanced",
+        "Constants, Variables or Expressions?",
+        "Classify each mathematical card into constants, variables or expressions.",
+        ["Constants", "Variables", "Expressions"],
+        ["7","−4","12","x","y","a","3x + 2","5y − 1","a + 7","2m"],
+        [
+            ["7","−4","12"],
+            ["x","y","a"],
+            ["3x + 2","5y − 1","a + 7","2m"]
+        ],
+        "A constant is a fixed number. A variable is a letter representing a value. An expression combines numbers, variables and operations.",
+        "The fixed numbers are constants. Single letters are variables. Combinations of numbers, variables and operations are expressions."
+    ),
+
+    /* SET 10 - FINAL NUMBER CHALLENGE */
+
+    sortQuestion(
+        19, "Set 10 – Final Number Challenge", "Advanced",
+        "Equivalent or Not Equivalent to ½?",
+        "Sort each fraction according to whether it has the same value as one-half.",
+        ["Equivalent to ½", "Not Equivalent to ½"],
+        ["2/4","3/6","4/8","5/10","3/4","2/5","6/12","7/14","4/6","5/8"],
+        [
+            ["2/4","3/6","4/8","5/10","6/12","7/14"],
+            ["3/4","2/5","4/6","5/8"]
+        ],
+        "Simplify each fraction or compare it with one-half.",
+        "Equivalent fractions have the same value as one-half, even if their numerators and denominators are different."
+    ),
+
+    sortQuestion(
+        20, "Set 10 – Final Number Challenge", "Advanced",
+        "Prime, Composite or Neither?",
+        "Classify each number as prime, composite or neither.",
+        ["Prime Numbers", "Composite Numbers", "Neither"],
+        ["1","2","4","7","9","11","15","17","21","23"],
+        [
+            ["2","7","11","17","23"],
+            ["4","9","15","21"],
+            ["1"]
+        ],
+        "Remember that 1 is neither prime nor composite.",
+        "Prime numbers have exactly two positive factors. Composite numbers have more than two positive factors. The number 1 is neither."
+    )
+];
+
+/* =========================================================
+   10. CATEGORY COLLECTION
 ========================================================= */
 
 window.MATHMIUM_PUZZLES = [
@@ -1101,10 +1626,17 @@ window.MATHMIUM_PUZZLES = [
         title: "Integer Puzzles",
         description: "Challenge yourself with positive and negative numbers.",
         puzzles: integerPuzzles
+    },
+    {
+        id: "sort-numbers",
+        title: "Sort Numbers",
+        description: "Sort numbers into the correct mathematical categories.",
+        puzzles: sortPuzzles
     }
 ];
 
 window.MATHMIUM_BALANCE_EQUALS = balancePuzzles;
+window.MATHMIUM_SORT_NUMBERS = sortPuzzles;
 
 window.getBalanceEqualsQuestion = id =>
     balancePuzzles.find(q => q.id === Number(id));
@@ -1121,7 +1653,7 @@ window.getBalanceEqualsExplanation = id =>
     window.getBalanceEqualsQuestion(id)?.explanation || "";
 
 /* =========================================================
-   10. GAME INITIALISATION
+   11. GAME INITIALISATION
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1145,6 +1677,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     let score = 0;
     let answers = {};
+    let selectedSortItem = null;
 
     const categoryThemes = {
         "number-towers": {
@@ -1171,6 +1704,11 @@ document.addEventListener("DOMContentLoaded", function () {
             main: "#E17B43",
             dark: "#A64B20",
             question: "#FFE8D2"
+        },
+        "sort-numbers": {
+            main: "#53A51D",
+            dark: "#357A13",
+            question: "#E4F9B3"
         }
     };
 
@@ -1195,6 +1733,12 @@ document.addEventListener("DOMContentLoaded", function () {
             <path d="M15 30 H85 M15 70 H85" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <path d="M30 20 L15 30 L30 40 M70 60 L85 70 L70 80" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="50" cy="50" r="12" stroke="currentColor" stroke-width="5"/>
+        </svg>`,
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <rect x="12" y="15" width="30" height="30" rx="7" stroke="currentColor" stroke-width="6"/>
+            <rect x="58" y="15" width="30" height="30" rx="7" stroke="currentColor" stroke-width="6"/>
+            <rect x="12" y="58" width="30" height="30" rx="7" stroke="currentColor" stroke-width="6"/>
+            <path d="M58 73 L69 84 L90 57" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`
     ];
 
@@ -1250,8 +1794,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 Math.abs(number - answer) < 0.000001
             );
     }
-
-    /* RIDDLES AND INTEGER PUZZLES USE BOTTOM CONTROLS */
 
     function isSideLayout() {
         return [
@@ -1321,6 +1863,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = 0;
         score = 0;
         answers = {};
+        selectedSortItem = null;
 
         library.style.display = "none";
         activity.classList.add("active");
@@ -1335,9 +1878,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        LEVEL LABEL
-
-       BALANCE EQUALS DOES NOT DISPLAY THIS LABEL.
-       OTHER CATEGORIES KEEP THEIR EXISTING LABELS.
     ===================================================== */
 
     function levelHTML(puzzle) {
@@ -1347,6 +1887,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const levelColor = {
             Easy: "#159E94",
             Medium: "#D17A27",
+            Intermediate: "#3978D4",
+            Advanced: "#8064C9",
             Challenge: "#8064C9",
             Hard: "#C34868"
         }[puzzle.level] || "#3978D4";
@@ -1530,6 +2072,327 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
+       SORT NUMBERS RENDERER
+    ===================================================== */
+
+    function getSortAssignments() {
+        const saved = answers[currentIndex];
+        return saved && saved.assignments
+            ? { ...saved.assignments }
+            : {};
+    }
+
+    function renderSortCard(item, index, assignments) {
+
+        return `
+            <div
+                class="sort-number-card ${selectedSortItem === index ? "selected" : ""}"
+                draggable="true"
+                tabindex="0"
+                role="button"
+                aria-label="Number ${escapeHTML(item)}. Select or drag to a category."
+                data-sort-item="${index}"
+            >
+                ${escapeHTML(item)}
+            </div>
+        `;
+    }
+
+    function renderSort(puzzle) {
+
+        const assignments = getSortAssignments();
+
+        const unassigned = puzzle.items
+            .map((item, index) => ({ item, index }))
+            .filter(entry => assignments[entry.index] === undefined);
+
+        const categoryClass = puzzle.categories.length === 3
+            ? "sorting-categories three-categories"
+            : "sorting-categories";
+
+        let binsHTML = "";
+
+        puzzle.categories.forEach((name, categoryIndex) => {
+
+            const assignedCards = puzzle.items
+                .map((item, index) => ({ item, index }))
+                .filter(entry =>
+                    Number(assignments[entry.index]) === categoryIndex
+                );
+
+            binsHTML += `
+                <div
+                    class="sorting-bin"
+                    data-sort-bin="${categoryIndex}"
+                    aria-label="${escapeHTML(name)} drop area"
+                >
+                    <h4>${escapeHTML(name)}</h4>
+
+                    <div class="sorting-number-list">
+
+                        ${
+                            assignedCards.length
+                                ? assignedCards.map(entry =>
+                                    renderSortCard(entry.item, entry.index, assignments)
+                                  ).join("")
+                                : `<div class="sorting-empty">Drop numbers here</div>`
+                        }
+
+                    </div>
+                </div>
+            `;
+        });
+
+        return `
+            <div class="question-panel">
+
+                <h3>${escapeHTML(puzzle.title)}</h3>
+
+                <p class="question-instruction">
+                    ${escapeHTML(puzzle.instruction)}
+                </p>
+
+                <div class="sorting-panel">
+
+                    <div class="sorting-bank" data-sort-bank="true">
+
+                        <p class="sorting-section-title">
+                            NUMBER BANK
+                        </p>
+
+                        <div class="sorting-number-list">
+
+                            ${
+                                unassigned.length
+                                    ? unassigned.map(entry =>
+                                        renderSortCard(entry.item, entry.index, assignments)
+                                      ).join("")
+                                    : `<div class="sorting-empty">All numbers have been sorted!</div>`
+                            }
+
+                        </div>
+
+                        <p class="sorting-help">
+                            Drag a number into a category, or tap a number and then tap its category.
+                        </p>
+
+                    </div>
+
+                    <div class="${categoryClass}">
+                        ${binsHTML}
+                    </div>
+
+                    <button
+                        type="button"
+                        class="sorting-reset-button"
+                        id="reset-sort"
+                    >
+                        Return All Numbers to Bank
+                    </button>
+
+                    <p class="sorting-feedback-note">
+                        Sort all ${puzzle.items.length} numbers before checking your answers.
+                    </p>
+
+                </div>
+
+            </div>
+        `;
+    }
+
+    /* =====================================================
+       SORT NUMBERS INTERACTIONS
+    ===================================================== */
+
+    function setupSortInteractions(puzzle) {
+
+        selectedSortItem = null;
+
+        const assignments = getSortAssignments();
+
+        function saveAssignments() {
+            const previous = answers[currentIndex] || {};
+
+            answers[currentIndex] = {
+                ...previous,
+                assignments: { ...assignments },
+                attempted: false,
+                correct: false
+            };
+        }
+
+        function refreshSortBoard() {
+            saveAssignments();
+
+            const panel = content.querySelector(".question-panel");
+
+            if (!panel) return;
+
+            const oldPanel = panel;
+            const newHTML = renderSort(puzzle);
+
+            const temporary = document.createElement("div");
+            temporary.innerHTML = newHTML;
+
+            const newPanel = temporary.firstElementChild;
+
+            oldPanel.replaceWith(newPanel);
+
+            setupSortInteractions(puzzle);
+        }
+
+        function assignItem(itemIndex, categoryIndex) {
+
+            if (answers[currentIndex]?.correct) return;
+
+            assignments[itemIndex] = categoryIndex;
+            selectedSortItem = null;
+
+            saveAssignments();
+            refreshSortBoard();
+        }
+
+        function returnItemToBank(itemIndex) {
+
+            if (answers[currentIndex]?.correct) return;
+
+            delete assignments[itemIndex];
+            selectedSortItem = null;
+
+            saveAssignments();
+            refreshSortBoard();
+        }
+
+        content.querySelectorAll("[data-sort-item]").forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                if (answers[currentIndex]?.correct) return;
+
+                const itemIndex = Number(card.dataset.sortItem);
+
+                if (selectedSortItem === itemIndex) {
+                    selectedSortItem = null;
+                } else {
+                    selectedSortItem = itemIndex;
+                }
+
+                content.querySelectorAll("[data-sort-item]").forEach(element => {
+                    element.classList.toggle(
+                        "selected",
+                        Number(element.dataset.sortItem) === selectedSortItem
+                    );
+                });
+            });
+
+            card.addEventListener("keydown", event => {
+
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    card.click();
+                }
+            });
+
+            card.addEventListener("dragstart", event => {
+
+                const itemIndex = Number(card.dataset.sortItem);
+
+                event.dataTransfer.setData("text/plain", String(itemIndex));
+                event.dataTransfer.effectAllowed = "move";
+
+                selectedSortItem = itemIndex;
+            });
+        });
+
+        content.querySelectorAll("[data-sort-bin]").forEach(bin => {
+
+            bin.addEventListener("click", () => {
+
+                if (selectedSortItem === null) return;
+
+                const categoryIndex = Number(bin.dataset.sortBin);
+
+                assignItem(selectedSortItem, categoryIndex);
+            });
+
+            bin.addEventListener("dragover", event => {
+                event.preventDefault();
+                bin.classList.add("drop-active");
+            });
+
+            bin.addEventListener("dragleave", () => {
+                bin.classList.remove("drop-active");
+            });
+
+            bin.addEventListener("drop", event => {
+
+                event.preventDefault();
+                bin.classList.remove("drop-active");
+
+                const itemIndex = Number(
+                    event.dataTransfer.getData("text/plain")
+                );
+
+                if (!Number.isInteger(itemIndex)) return;
+
+                assignItem(itemIndex, Number(bin.dataset.sortBin));
+            });
+        });
+
+        const bank = content.querySelector("[data-sort-bank]");
+
+        if (bank) {
+
+            bank.addEventListener("click", () => {
+
+                if (selectedSortItem === null) return;
+
+                returnItemToBank(selectedSortItem);
+            });
+
+            bank.addEventListener("dragover", event => {
+                event.preventDefault();
+                bank.classList.add("drop-active");
+            });
+
+            bank.addEventListener("dragleave", () => {
+                bank.classList.remove("drop-active");
+            });
+
+            bank.addEventListener("drop", event => {
+
+                event.preventDefault();
+                bank.classList.remove("drop-active");
+
+                const itemIndex = Number(
+                    event.dataTransfer.getData("text/plain")
+                );
+
+                if (!Number.isInteger(itemIndex)) return;
+
+                returnItemToBank(itemIndex);
+            });
+        }
+
+        const resetButton = document.getElementById("reset-sort");
+
+        if (resetButton) {
+            resetButton.addEventListener("click", () => {
+
+                if (answers[currentIndex]?.correct) return;
+
+                Object.keys(assignments).forEach(key => {
+                    delete assignments[key];
+                });
+
+                selectedSortItem = null;
+                saveAssignments();
+                refreshSortBoard();
+            });
+        }
+    }
+
+    /* =====================================================
        QUESTION CONTENT
     ===================================================== */
 
@@ -1547,6 +2410,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     ${renderBalance(puzzle)}
                 </div>
             `;
+        }
+
+        if (category.id === "sort-numbers") {
+            return renderSort(puzzle);
         }
 
         if (category.id === "missing-number-operations") {
@@ -1761,19 +2628,10 @@ document.addEventListener("DOMContentLoaded", function () {
             ? renderSideControls()
             : renderInlineControls();
 
-        /*
-           ONLY NUMBER RIDDLES AND INTEGER PUZZLES
-           USE A SINGLE COLUMN LAYOUT.
-        */
-
         const singleColumn =
             category.id === "number-riddles" ||
-            category.id === "integer-puzzles";
-
-        /*
-           BALANCE EQUALS DOES NOT DISPLAY DIFFICULTY LABELS.
-           OTHER CATEGORIES KEEP THEIR EXISTING LABELS.
-        */
+            category.id === "integer-puzzles" ||
+            category.id === "sort-numbers";
 
         const difficultyLabel =
             category.id === "balance-equals"
@@ -1827,6 +2685,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (currentIndex > 0) {
                     currentIndex--;
+                    selectedSortItem = null;
                     showPuzzle();
                     scrollToActivity();
                 }
@@ -1839,6 +2698,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (currentIndex < total - 1) {
                     currentIndex++;
+                    selectedSortItem = null;
                     showPuzzle();
                     scrollToActivity();
                 } else {
@@ -1870,7 +2730,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        /* RESTORE ANSWER */
+        /* SORT NUMBERS INTERACTIONS */
+
+        if (category.id === "sort-numbers") {
+            setupSortInteractions(puzzle);
+        }
 
         restoreAnswer();
     }
@@ -1926,6 +2790,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
+        } else if (category.id === "sort-numbers") {
+
+            if (saved.correct) {
+                showFeedback(
+                    "Correct! " + category.puzzles[currentIndex].explanation,
+                    true
+                );
+            } else if (saved.attempted) {
+                showFeedback(
+                    "Not quite! Check the categories and try again.",
+                    false
+                );
+            }
+
         } else {
 
             const input = document.getElementById("puzzle-answer");
@@ -1940,14 +2818,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        if (saved.correct) {
+        if (saved.correct && category.id !== "sort-numbers") {
             showFeedback(
                 saved.explanation
                     ? "Correct! " + saved.explanation
                     : "Correct! Excellent work!",
                 true
             );
-        } else if (saved.attempted) {
+        } else if (saved.attempted && category.id !== "sort-numbers") {
             showFeedback("Not quite! Try again. You can do it!", false);
         }
     }
@@ -1979,6 +2857,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (category.id === "number-towers") {
             checkTower(puzzle);
+            return;
+        }
+
+        if (category.id === "sort-numbers") {
+            checkSortAnswer(puzzle);
             return;
         }
 
@@ -2033,6 +2916,91 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         updateScore();
+    }
+
+    /* =====================================================
+       CHECK SORT NUMBERS
+    ===================================================== */
+
+    function checkSortAnswer(puzzle) {
+
+        const saved = answers[currentIndex] || {};
+        const assignments = saved.assignments || {};
+
+        const assignedCount = Object.keys(assignments).length;
+
+        if (assignedCount !== puzzle.items.length) {
+
+            const remaining = puzzle.items.length - assignedCount;
+
+            showFeedback(
+                "You still have " + remaining +
+                " number" + (remaining === 1 ? "" : "s") +
+                " to sort. Place every number into a category first.",
+                false
+            );
+
+            return;
+        }
+
+        let correct = true;
+
+        puzzle.items.forEach((item, itemIndex) => {
+
+            const correctCategory = puzzle.groups.findIndex(group =>
+                group.includes(item)
+            );
+
+            const selectedCategory = Number(assignments[itemIndex]);
+
+            if (selectedCategory !== correctCategory) {
+                correct = false;
+            }
+        });
+
+        answers[currentIndex] = {
+            assignments: { ...assignments },
+            attempted: true,
+            correct,
+            explanation: puzzle.explanation
+        };
+
+        if (correct) {
+
+            score++;
+
+            showFeedback(
+                "Excellent! All numbers are in the correct categories. " +
+                puzzle.explanation,
+                true
+            );
+
+            content.querySelectorAll(".sort-number-card").forEach(card => {
+                card.style.borderColor = "#4C9A65";
+                card.style.background = "#DDF5E3";
+                card.style.color = "#27633B";
+            });
+
+            content.querySelectorAll(".sorting-bin").forEach(bin => {
+                bin.style.borderColor = "#4C9A65";
+                bin.style.background = "#F0FFF3";
+            });
+
+            updateScore();
+
+        } else {
+
+            showFeedback(
+                "Some numbers are in the wrong categories. Review your sorting and try again.",
+                false
+            );
+
+            content.querySelectorAll(".sorting-bin").forEach(bin => {
+                bin.style.borderColor = "#C34868";
+            });
+
+            updateScore();
+        }
     }
 
     /* =====================================================
@@ -2196,6 +3164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentIndex = 0;
                 score = 0;
                 answers = {};
+                selectedSortItem = null;
 
                 applyTheme();
                 showPuzzle();
@@ -2219,6 +3188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (backButton) backButton.style.display = "";
 
         category = null;
+        selectedSortItem = null;
 
         window.scrollTo({
             top: library.getBoundingClientRect().top + window.scrollY - 15,
