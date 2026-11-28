@@ -348,6 +348,36 @@ const flashcardSubjects = [
             { question: "A rectangular field is 25 m long and 15 m wide. How far will someone walk by going once around it?", answer: "80 m" }
         ]
     }
+    // =====================================================
+    // SET 12: ROOTS AND EXPONENTS
+    // =====================================================
+
+    {
+        id: "roots-exponents",
+        name: "Roots and Exponents",
+        cards: [
+            { question: "Evaluate 2⁵.", answer: "32" },
+            { question: "Evaluate 3⁴.", answer: "81" },
+            { question: "Evaluate 5³.", answer: "125" },
+            { question: "What is the value of 10⁰?", answer: "1" },
+            { question: "Evaluate 2⁻³.", answer: "1/8" },
+            { question: "Simplify: 2³ × 2⁴.", answer: "2⁷ = 128" },
+            { question: "Simplify: 5⁶ ÷ 5².", answer: "5⁴ = 625" },
+            { question: "Simplify: (3²)³.", answer: "3⁶ = 729" },
+            { question: "Evaluate: 4² + 3².", answer: "25" },
+            { question: "Evaluate: 2³ × 3².", answer: "72" },
+            { question: "Find the square root of 196.", answer: "14" },
+            { question: "Find the square root of 625.", answer: "25" },
+            { question: "Find the square root of 0.81.", answer: "0.9" },
+            { question: "Find the cube root of 216.", answer: "6" },
+            { question: "Find the cube root of 1,000.", answer: "10" },
+            { question: "Find the value of √144 + √81.", answer: "21" },
+            { question: "Evaluate: ∛64 + √49.", answer: "11" },
+            { question: "Which number has a square of 324?", answer: "18" },
+            { question: "Which number has a cube of 512?", answer: "8" },
+            { question: "A square has an area of 400 cm². Find its side length.", answer: "20 cm" }
+        ]
+    }
 
 // =========================================================
 // FRACTION DISPLAY STYLING
