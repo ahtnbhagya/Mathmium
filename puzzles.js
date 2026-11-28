@@ -1876,39 +1876,6 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollToActivity();
     }
 
-    /* =====================================================
-       LEVEL LABEL
-    ===================================================== */
-
-    function levelHTML(puzzle) {
-
-        if (!puzzle.level) return "";
-
-        const levelColor = {
-            Easy: "#159E94",
-            Medium: "#D17A27",
-            Intermediate: "#3978D4",
-            Advanced: "#8064C9",
-            Challenge: "#8064C9",
-            Hard: "#C34868"
-        }[puzzle.level] || "#3978D4";
-
-        return `
-            <div style="
-                display:inline-block;
-                align-self:flex-start;
-                padding:5px 13px;
-                margin-bottom:10px;
-                border-radius:20px;
-                background:${levelColor}18;
-                color:${levelColor};
-                font-size:11px;
-                font-weight:800;
-            ">
-                ${escapeHTML(puzzle.level)} Level
-            </div>
-        `;
-    }
 
     /* =====================================================
        NUMBER TOWER RENDERER
@@ -2633,11 +2600,7 @@ document.addEventListener("DOMContentLoaded", function () {
             category.id === "integer-puzzles" ||
             category.id === "sort-numbers";
 
-        const difficultyLabel =
-            category.id === "balance-equals"
-                ? ""
-                : levelHTML(puzzle);
-
+        
         content.innerHTML = `
 
             <div class="game-area">
@@ -2660,8 +2623,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     CHALLENGE ${String(currentIndex + 1).padStart(2,"0")}
                 </div>
 
-                ${difficultyLabel}
-
+                
                 <div class="game-layout ${singleColumn ? "single-column" : ""}">
 
                     ${mainContent}
