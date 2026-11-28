@@ -1,31 +1,27 @@
-
 /* =========================================================
    MATHMIUM PUZZLE ZONE
-   100 MATHEMATICS CHALLENGES
+   120 MATHEMATICS CHALLENGES
 
-   UPDATED INTERFACE
+   1. Number Towers                  - 20
+   2. Missing Number Operations      - 20
+   3. Number Riddles                 - 20
+   4. Balance Equals                 - 20
+   5. Integer Puzzles                - 20
+   6. Decimal Challenges             - 20
 
-   NUMBER TOWERS
-   MISSING NUMBER OPERATIONS
-   BALANCE EQUALS
-   - Question area on the left
-   - Separate control panel on the right
-   - Check Answer first
-   - Previous and Next in one row
-   - Hint underneath
+   LAYOUT
+   Number Towers, Missing Operations,
+   Balance Equals, Decimal Challenges:
+   Question on left / Controls on right.
 
-   NUMBER RIDDLES
-   INTEGER PUZZLES
-   - Previous, Check Answer and Next in one row
-   - Check Answer is the widest button
-   - Hint underneath
+   Number Riddles, Integer Puzzles:
+   Question first / Controls underneath.
 
-   Responsive desktop, tablet and mobile layouts
+   Every category has its own colour theme.
 ========================================================= */
 
 (function () {
 "use strict";
-
 
 /* =========================================================
    1. RESPONSIVE STYLES
@@ -52,13 +48,12 @@ const styles = `
     overflow-x: hidden;
 }
 
-/* MAIN LAYOUT */
-
 .game-area {
     width: 100%;
     padding: clamp(12px, 2vw, 24px);
     border-radius: 18px;
     overflow: hidden;
+    background: var(--page-bg);
 }
 
 .game-progress {
@@ -69,6 +64,7 @@ const styles = `
     font-size: 13px;
     font-weight: 700;
     margin-bottom: 9px;
+    color: var(--dark);
 }
 
 .progress-track {
@@ -82,6 +78,7 @@ const styles = `
 
 .progress-fill {
     height: 100%;
+    background: var(--main);
     border-radius: inherit;
     transition: width .3s ease;
 }
@@ -92,7 +89,10 @@ const styles = `
     letter-spacing: 1.5px;
     font-weight: 800;
     margin: 8px 0;
+    color: var(--dark);
 }
+
+/* SIDE-BY-SIDE LAYOUT */
 
 .game-layout {
     display: grid;
@@ -102,7 +102,14 @@ const styles = `
     margin-top: 12px;
 }
 
-/* LEFT QUESTION AREA */
+/* SINGLE-COLUMN LAYOUT
+   Used by Number Riddles and Integer Puzzles.
+*/
+
+.game-layout.inline-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+}
 
 .question-panel {
     min-width: 0;
@@ -187,8 +194,6 @@ const styles = `
     cursor: not-allowed;
 }
 
-/* CHECK BUTTON */
-
 .check-button {
     display: block;
     width: 100%;
@@ -201,11 +206,10 @@ const styles = `
     box-shadow: 0 3px 8px var(--shadow);
 }
 
-.check-button:hover {
+.check-button:hover,
+.inline-check:hover {
     filter: brightness(.96);
 }
-
-/* PREVIOUS AND NEXT */
 
 .side-navigation {
     display: grid;
@@ -222,8 +226,6 @@ const styles = `
     color: var(--dark);
     font-size: 13px;
 }
-
-/* HINT */
 
 .hint-button {
     width: 100%;
@@ -281,14 +283,16 @@ const styles = `
     border: 1px solid #F3BAC5;
 }
 
-/* INLINE CONTROLS FOR RIDDLES AND INTEGERS */
+/* INLINE BUTTONS
+   Used below Number Riddles and Integer Puzzles.
+*/
 
 .inline-controls {
     width: 100%;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) minmax(0, 1fr);
     gap: 9px;
-    margin-top: 14px;
+    margin-top: 0;
 }
 
 .inline-controls button {
@@ -312,11 +316,9 @@ const styles = `
     box-shadow: 0 3px 8px var(--shadow);
 }
 
-/* HINT FOR INLINE LAYOUT */
-
 .inline-hint-area {
     width: 100%;
-    margin-top: 11px;
+    margin-top: 0;
 }
 
 .inline-hint-area .hint-button {
@@ -548,6 +550,186 @@ const styles = `
     color: #626B79;
 }
 
+/* DECIMAL CHALLENGES */
+
+.decimal-equation {
+    width: 100%;
+    margin: 16px auto;
+    padding: clamp(14px, 2vw, 24px);
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: white;
+    text-align: center;
+    font-size: clamp(20px, 3vw, 29px);
+    font-weight: 800;
+    line-height: 1.8;
+    color: var(--dark);
+}
+
+.decimal-blank {
+    display: inline-block;
+    width: clamp(75px, 12vw, 115px);
+    height: 44px;
+    margin: 3px 5px;
+    padding: 5px;
+    border: 2px dashed var(--main);
+    border-radius: 9px;
+    background: var(--question-bg);
+    color: var(--dark);
+    font-size: 19px;
+    font-weight: 800;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.decimal-blank:focus {
+    outline: 2px solid var(--main);
+    outline-offset: 2px;
+}
+
+.decimal-blank.correct-cell {
+    border: 2px solid #4C9A65;
+    background: #DDF5E3;
+}
+
+.decimal-blank.wrong-cell {
+    border: 2px solid #C34868;
+    background: #FFE4E8;
+}
+
+.decimal-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 18px auto;
+    padding: 15px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid var(--line);
+}
+
+.sequence-number {
+    min-width: 58px;
+    min-height: 52px;
+    padding: 10px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--question-bg);
+    color: var(--dark);
+    border: 1px solid var(--line);
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 800;
+}
+
+.sequence-arrow {
+    color: var(--main);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.decimal-grid {
+    width: 100%;
+    margin: 16px auto;
+    padding: clamp(10px, 2vw, 20px);
+    border-radius: 15px;
+    background: white;
+    border: 1px solid var(--line);
+}
+
+.decimal-grid-title {
+    margin: 0 0 15px;
+    text-align: center;
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.decimal-bar-row {
+    display: grid;
+    grid-template-columns: 75px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.decimal-row-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.decimal-bar {
+    min-width: 0;
+    display: flex;
+    gap: 4px;
+    min-height: 52px;
+}
+
+.decimal-part {
+    min-width: 0;
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 3px;
+    border-radius: 8px;
+    background: var(--question-bg);
+    border: 1px solid var(--line);
+    color: var(--dark);
+    font-size: clamp(12px, 1.7vw, 17px);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.decimal-part:nth-child(2) {
+    background: var(--part-two);
+}
+
+.decimal-part:nth-child(3) {
+    background: var(--part-three);
+}
+
+.decimal-part input {
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+    padding: 3px;
+    border: 2px dashed var(--main);
+    border-radius: 7px;
+    background: white;
+    color: var(--dark);
+    font-size: clamp(12px, 1.6vw, 16px);
+    font-weight: 800;
+    text-align: center;
+}
+
+.decimal-part input:focus {
+    outline: 2px solid var(--main);
+    outline-offset: 1px;
+}
+
+.decimal-part input.correct-cell {
+    border: 2px solid #4C9A65;
+    background: #DDF5E3;
+}
+
+.decimal-part input.wrong-cell {
+    border: 2px solid #C34868;
+    background: #FFE4E8;
+}
+
+.decimal-grid-note {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #626B79;
+}
+
 /* COMPLETION */
 
 .completion-area {
@@ -585,12 +767,13 @@ const styles = `
     color: white;
     font-size: 14px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 /* TABLET */
 
 @media (max-width: 760px) {
-    .game-layout {
+    .game-layout:not(.inline-layout) {
         grid-template-columns: minmax(0, 1fr) 220px;
         gap: 10px;
     }
@@ -611,9 +794,13 @@ const styles = `
         padding: 10px;
     }
 
-    .game-layout {
+    .game-layout:not(.inline-layout) {
         grid-template-columns: minmax(0, 1fr);
         gap: 10px;
+    }
+
+    .game-layout.inline-layout {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .question-panel {
@@ -655,6 +842,19 @@ const styles = `
     .puzzle-question {
         font-size: 19px;
     }
+
+    .decimal-bar-row {
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: 6px;
+    }
+
+    .decimal-bar {
+        gap: 3px;
+    }
+
+    .decimal-part {
+        padding: 5px 2px;
+    }
 }
 
 /* SMALL MOBILE */
@@ -674,6 +874,14 @@ const styles = `
     }
 
     .inline-controls button {
+        font-size: 11px;
+    }
+
+    .decimal-bar-row {
+        grid-template-columns: 54px minmax(0, 1fr);
+    }
+
+    .decimal-part {
         font-size: 11px;
     }
 }
@@ -908,7 +1116,260 @@ const integerPuzzles = integerData.map((p, i) => ({
 
 
 /* =========================================================
-   8. CATEGORY COLLECTION
+   8. DECIMAL CHALLENGES - 20
+========================================================= */
+
+/*
+   Types:
+   calculation = missing decimal calculation
+   sequence    = decimal number sequence
+   bar-grid    = proportional decimal bar grid
+
+   For bar-grid questions:
+   answers[0] = missing value in Row 2
+   answers[1] = missing value in Row 3
+*/
+
+const decimalPuzzles = [
+
+    {
+        id: 1,
+        type: "calculation",
+        title: "Find the Missing Decimal",
+        question: "Complete the addition equation.",
+        expression: "2.5 + ___ = 5.0",
+        answers: [2.5],
+        hint: "Subtract 2.5 from 5.0.",
+        explanation: "5.0 − 2.5 = 2.5. The missing number is 2.5."
+    },
+
+    {
+        id: 2,
+        type: "calculation",
+        title: "Complete the Addition",
+        question: "Find the missing decimal number.",
+        expression: "___ + 1.5 = 4.5",
+        answers: [3.0],
+        hint: "Subtract 1.5 from 4.5.",
+        explanation: "4.5 − 1.5 = 3.0. The missing number is 3.0."
+    },
+
+    {
+        id: 3,
+        type: "calculation",
+        title: "Decimal Subtraction",
+        question: "Find the missing number.",
+        expression: "8.6 − ___ = 3.1",
+        answers: [5.5],
+        hint: "Subtract 3.1 from 8.6.",
+        explanation: "8.6 − 3.1 = 5.5. The missing number is 5.5."
+    },
+
+    {
+        id: 4,
+        type: "calculation",
+        title: "Decimal Multiplication",
+        question: "Complete the multiplication equation.",
+        expression: "1.2 × ___ = 3.6",
+        answers: [3],
+        hint: "Divide 3.6 by 1.2.",
+        explanation: "3.6 ÷ 1.2 = 3. The missing number is 3."
+    },
+
+    {
+        id: 5,
+        type: "calculation",
+        title: "Decimal Division",
+        question: "Find the missing divisor.",
+        expression: "7.2 ÷ ___ = 2.4",
+        answers: [3],
+        hint: "Divide 7.2 by 2.4.",
+        explanation: "7.2 ÷ 2.4 = 3. The missing number is 3."
+    },
+
+    {
+        id: 6,
+        type: "calculation",
+        title: "Add the Decimals",
+        question: "Find the total.",
+        expression: "1.5 + 2.75 = ___",
+        answers: [4.25],
+        hint: "Write 1.5 as 1.50, then add the decimals.",
+        explanation: "1.50 + 2.75 = 4.25."
+    },
+
+    {
+        id: 7,
+        type: "sequence",
+        title: "Decimal Steps",
+        question: "Identify the rule and find the missing number.",
+        sequence: ["0.5", "1.0", "1.5", null, "2.5"],
+        answers: [2.0],
+        rule: "Add 0.5 each time.",
+        hint: "Look at how much each number increases.",
+        explanation: "The pattern increases by 0.5 each time. The missing number is 2.0."
+    },
+
+    {
+        id: 8,
+        type: "sequence",
+        title: "Count Backwards",
+        question: "Find the missing number in the sequence.",
+        sequence: ["5.0", "4.5", "4.0", null, "3.0"],
+        answers: [3.5],
+        rule: "Subtract 0.5 each time.",
+        hint: "Each number is 0.5 less than the previous number.",
+        explanation: "The pattern subtracts 0.5 each time. The missing number is 3.5."
+    },
+
+    {
+        id: 9,
+        type: "sequence",
+        title: "Small Decimal Steps",
+        question: "Complete the decimal pattern.",
+        sequence: ["1.2", "1.4", null, "1.8", "2.0"],
+        answers: [1.6],
+        rule: "Add 0.2 each time.",
+        hint: "Find the difference between 1.2 and 1.4.",
+        explanation: "The pattern increases by 0.2 each time. The missing number is 1.6."
+    },
+
+    {
+        id: 10,
+        type: "sequence",
+        title: "Decimal Growth",
+        question: "Find the missing number.",
+        sequence: ["2.5", "5.0", "10.0", null, "40.0"],
+        answers: [20.0],
+        rule: "Multiply each number by 2.",
+        hint: "Each number is double the previous number.",
+        explanation: "The pattern doubles each time. The missing number is 20.0."
+    },
+
+    {
+        id: 11,
+        type: "sequence",
+        title: "Quarter Steps",
+        question: "Complete the sequence.",
+        sequence: ["3.75", "3.50", null, "3.00", "2.75"],
+        answers: [3.25],
+        rule: "Subtract 0.25 each time.",
+        hint: "Find the difference between the first two numbers.",
+        explanation: "The pattern decreases by 0.25 each time. The missing number is 3.25."
+    },
+
+    {
+        id: 12,
+        type: "sequence",
+        title: "Tiny Decimal Steps",
+        question: "Find the missing decimal number.",
+        sequence: ["0.04", "0.08", "0.12", null, "0.20"],
+        answers: [0.16],
+        rule: "Add 0.04 each time.",
+        hint: "Look at the increase from 0.04 to 0.08.",
+        explanation: "The pattern increases by 0.04 each time. The missing number is 0.16."
+    },
+
+    {
+        id: 13,
+        type: "bar-grid",
+        title: "Proportional Decimal Bars",
+        total: 2.25,
+        row2: ["1.05", null],
+        row3: ["0.5", "0.75", null],
+        answers: [1.20, 1.00],
+        hint: "Both rows must add up to 2.25. Subtract the known parts from the total.",
+        explanation: "Row 2: 1.05 + 1.20 = 2.25. Row 3: 0.5 + 0.75 + 1.00 = 2.25."
+    },
+
+    {
+        id: 14,
+        type: "bar-grid",
+        title: "Complete the Decimal Bars",
+        total: 5.0,
+        row2: ["2.25", null],
+        row3: ["1.5", "1.0", null],
+        answers: [2.75, 2.50],
+        hint: "Find the missing part in each row so that both totals equal 5.0.",
+        explanation: "Row 2: 2.25 + 2.75 = 5.0. Row 3: 1.5 + 1.0 + 2.5 = 5.0."
+    },
+
+    {
+        id: 15,
+        type: "bar-grid",
+        title: "Decimal Bar Challenge",
+        total: 0.95,
+        row2: ["0.45", null],
+        row3: ["0.2", "0.3", null],
+        answers: [0.50, 0.45],
+        hint: "The total for each row is 0.95.",
+        explanation: "Row 2: 0.45 + 0.50 = 0.95. Row 3: 0.2 + 0.3 + 0.45 = 0.95."
+    },
+
+    {
+        id: 16,
+        type: "bar-grid",
+        title: "Balance the Decimal Bars",
+        total: 3.75,
+        row2: ["1.5", null],
+        row3: ["0.75", "1.25", null],
+        answers: [2.25, 1.75],
+        hint: "Subtract the known values in each row from 3.75.",
+        explanation: "Row 2: 1.5 + 2.25 = 3.75. Row 3: 0.75 + 1.25 + 1.75 = 3.75."
+    },
+
+    {
+        id: 17,
+        type: "bar-grid",
+        title: "Decimal Parts Puzzle",
+        total: 1.08,
+        row2: ["0.48", null],
+        row3: ["0.28", "0.3", null],
+        answers: [0.60, 0.50],
+        hint: "Make sure each row adds up to 1.08.",
+        explanation: "Row 2: 0.48 + 0.60 = 1.08. Row 3: 0.28 + 0.3 + 0.50 = 1.08."
+    },
+
+    {
+        id: 18,
+        type: "bar-grid",
+        title: "Large Decimal Bars",
+        total: 6.5,
+        row2: ["3.25", null],
+        row3: ["1.5", "2.0", null],
+        answers: [3.25, 3.00],
+        hint: "Both rows must have a total of 6.5.",
+        explanation: "Row 2: 3.25 + 3.25 = 6.5. Row 3: 1.5 + 2.0 + 3.0 = 6.5."
+    },
+
+    {
+        id: 19,
+        type: "bar-grid",
+        title: "Find the Missing Decimal Parts",
+        total: 2.65,
+        row2: ["1.15", null],
+        row3: ["0.65", "0.75", null],
+        answers: [1.50, 1.25],
+        hint: "Subtract the known parts from 2.65.",
+        explanation: "Row 2: 1.15 + 1.50 = 2.65. Row 3: 0.65 + 0.75 + 1.25 = 2.65."
+    },
+
+    {
+        id: 20,
+        type: "bar-grid",
+        title: "Final Decimal Bar Challenge",
+        total: 7.2,
+        row2: ["3.6", null],
+        row3: ["1.8", "2.4", null],
+        answers: [3.60, 3.00],
+        hint: "Complete both rows so that each has a total of 7.2.",
+        explanation: "Row 2: 3.6 + 3.6 = 7.2. Row 3: 1.8 + 2.4 + 3.0 = 7.2."
+    }
+];
+
+
+/* =========================================================
+   9. CATEGORY COLLECTION
 ========================================================= */
 
 window.MATHMIUM_PUZZLES = [
@@ -941,14 +1402,22 @@ window.MATHMIUM_PUZZLES = [
         title: "Integer Puzzles",
         description: "Challenge yourself with positive and negative numbers.",
         puzzles: integerPuzzles
+    },
+    {
+        id: "decimal-challenges",
+        title: "Decimal Challenges",
+        description: "Solve missing decimal calculations, sequences and proportional bar grids.",
+        puzzles: decimalPuzzles
     }
 ];
 
 window.MATHMIUM_BALANCE_EQUALS = balancePuzzles;
 
+window.MATHMIUM_DECIMAL_CHALLENGES = decimalPuzzles;
+
 
 /* =========================================================
-   9. OPTIONAL BALANCE QUESTION HELPERS
+   10. OPTIONAL BALANCE QUESTION HELPERS
 ========================================================= */
 
 window.getBalanceEqualsQuestion = id =>
@@ -967,7 +1436,7 @@ window.getBalanceEqualsExplanation = id =>
 
 
 /* =========================================================
-   10. GAME INITIALISATION
+   11. GAME INITIALISATION
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -992,6 +1461,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let score = 0;
     let answers = {};
 
+    /* =====================================================
+       CATEGORY COLOUR THEMES
+    ===================================================== */
+
     const themes = {
         "number-towers": {
             main: "#159E94",
@@ -1001,8 +1474,12 @@ document.addEventListener("DOMContentLoaded", function () {
             question: "#DFFFF9",
             line: "#BDEAE3",
             hint: "#E0F8F4",
-            shadow: "#159E9430"
+            shadow: "#159E9430",
+            partTwo: "#D4F3EC",
+            partThree: "#C4EAE2",
+            page: "#F8FFFE"
         },
+
         "missing-number-operations": {
             main: "#3978D4",
             dark: "#245AA8",
@@ -1011,8 +1488,12 @@ document.addEventListener("DOMContentLoaded", function () {
             question: "#DCEBFF",
             line: "#C5D9F8",
             hint: "#E8F1FF",
-            shadow: "#3978D430"
+            shadow: "#3978D430",
+            partTwo: "#D3E4FF",
+            partThree: "#C6D9FA",
+            page: "#FAFCFF"
         },
+
         "number-riddles": {
             main: "#C34868",
             dark: "#8A2947",
@@ -1021,8 +1502,12 @@ document.addEventListener("DOMContentLoaded", function () {
             question: "#FFDDE5",
             line: "#F2C4D0",
             hint: "#FCEAF0",
-            shadow: "#C3486830"
+            shadow: "#C3486830",
+            partTwo: "#FAD5DF",
+            partThree: "#F5C6D4",
+            page: "#FFFAFB"
         },
+
         "balance-equals": {
             main: "#8064C9",
             dark: "#513A91",
@@ -1031,8 +1516,12 @@ document.addEventListener("DOMContentLoaded", function () {
             question: "#EAE1FF",
             line: "#D8C9F6",
             hint: "#F0EAFF",
-            shadow: "#8064C930"
+            shadow: "#8064C930",
+            partTwo: "#E3D9FC",
+            partThree: "#D8CCF5",
+            page: "#FCFAFF"
         },
+
         "integer-puzzles": {
             main: "#E17B43",
             dark: "#A64B20",
@@ -1041,31 +1530,63 @@ document.addEventListener("DOMContentLoaded", function () {
             question: "#FFE8D2",
             line: "#F4D1B7",
             hint: "#FFF0E4",
-            shadow: "#E17B4330"
+            shadow: "#E17B4330",
+            partTwo: "#FCE0CA",
+            partThree: "#F8D3B6",
+            page: "#FFFCF9"
+        },
+
+        "decimal-challenges": {
+            main: "#2495C5",
+            dark: "#17658D",
+            panel: "#F0FAFF",
+            control: "#E2F5FC",
+            question: "#D5F0FA",
+            line: "#B8E0EF",
+            hint: "#E4F6FC",
+            shadow: "#2495C530",
+            partTwo: "#D0ECF8",
+            partThree: "#C0E3F1",
+            page: "#F8FDFF"
         }
     };
+
+
+    /* =====================================================
+       CATEGORY SVG ICONS
+    ===================================================== */
 
     const icons = [
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 10 L12 85 H88 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
             <path d="M31 61 H69 M40 45 H60" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
         </svg>`,
+
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <rect x="12" y="15" width="76" height="70" rx="15" stroke="currentColor" stroke-width="6"/>
             <path d="M30 38 H70 M30 60 H70" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
         </svg>`,
+
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <circle cx="50" cy="50" r="37" stroke="currentColor" stroke-width="6"/>
             <path d="M36 37 Q50 23 64 37 Q72 49 50 61 V67" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <circle cx="50" cy="78" r="4" fill="currentColor"/>
         </svg>`,
+
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 8 L60 37 L90 50 L60 63 L50 92 L40 63 L10 50 L40 37 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
         </svg>`,
+
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M15 30 H85 M15 70 H85" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <path d="M30 20 L15 30 L30 40 M70 60 L85 70 L70 80" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="50" cy="50" r="12" stroke="currentColor" stroke-width="5"/>
+        </svg>`,
+
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <rect x="13" y="13" width="74" height="74" rx="13" stroke="currentColor" stroke-width="6"/>
+            <path d="M50 27 V73 M27 50 H73" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="5" fill="currentColor"/>
         </svg>`
     ];
 
@@ -1096,7 +1617,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "--question-bg": theme.question,
             "--line": theme.line,
             "--hint-bg": theme.hint,
-            "--shadow": theme.shadow
+            "--shadow": theme.shadow,
+            "--part-two": theme.partTwo,
+            "--part-three": theme.partThree,
+            "--page-bg": theme.page
         }).forEach(([key, value]) => {
             root.style.setProperty(key, value);
         });
@@ -1125,22 +1649,27 @@ document.addEventListener("DOMContentLoaded", function () {
             : [Number(puzzle.answer)];
     }
 
-    function isCorrect(value, puzzle) {
+    function numberIsCorrect(value, answer) {
         if (String(value).trim() === "") return false;
 
         const number = Number(value);
 
         return Number.isFinite(number) &&
-            acceptedAnswers(puzzle).some(answer =>
-                Math.abs(number - answer) < 0.000001
-            );
+            Math.abs(number - Number(answer)) < 0.000001;
+    }
+
+    function isCorrect(value, puzzle) {
+        return acceptedAnswers(puzzle).some(answer =>
+            numberIsCorrect(value, answer)
+        );
     }
 
     function isSideLayout() {
         return [
             "number-towers",
             "missing-number-operations",
-            "balance-equals"
+            "balance-equals",
+            "decimal-challenges"
         ].includes(category.id);
     }
 
@@ -1173,14 +1702,17 @@ document.addEventListener("DOMContentLoaded", function () {
             card.style.setProperty("--main", theme.main);
             card.style.setProperty("--light", theme.question);
             card.style.setProperty("--dark", theme.dark);
+            card.style.borderColor = theme.line;
 
             const icon = document.createElement("div");
             icon.className = "puzzle-icon";
+            icon.style.color = theme.main;
             icon.innerHTML = icons[index];
 
             const name = document.createElement("div");
             name.className = "puzzle-name";
             name.textContent = item.title;
+            name.style.color = theme.dark;
 
             const description = document.createElement("div");
             description.className = "puzzle-description";
@@ -1189,9 +1721,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const meta = document.createElement("div");
             meta.className = "puzzle-meta";
             meta.textContent = item.puzzles.length + " CHALLENGES";
+            meta.style.color = theme.main;
 
             card.append(icon, name, description, meta);
-
             card.addEventListener("click", () => openCategory(item));
 
             grid.appendChild(card);
@@ -1267,7 +1799,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h3>Complete the Number Tower</h3>
 
                 <p class="question-instruction">
-                    Each number is the sum of the two numbers directly below it.
+                    Each number is the sum of the two numbers directly below.
                     Fill in all the empty blocks.
                 </p>
 
@@ -1402,13 +1934,208 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       DECIMAL CHALLENGE RENDERERS
+    ===================================================== */
+
+    function renderDecimalCalculation(puzzle) {
+
+        const expression = escapeHTML(puzzle.expression)
+            .replace(
+                "___",
+                `<input
+                    id="decimal-answer-0"
+                    class="decimal-blank"
+                    type="number"
+                    step="any"
+                    inputmode="decimal"
+                    placeholder="?"
+                    aria-label="Enter the missing decimal"
+                >`
+            );
+
+        return `
+            <div class="question-panel">
+
+                <h3>${escapeHTML(puzzle.title)}</h3>
+
+                <p class="question-instruction">
+                    ${escapeHTML(puzzle.question)}
+                </p>
+
+                <div class="decimal-equation">
+                    ${expression}
+                </div>
+
+                <p class="question-instruction" style="text-align:center">
+                    Enter the missing decimal number in the box.
+                </p>
+
+            </div>
+        `;
+    }
+
+
+    function renderDecimalSequence(puzzle) {
+
+        const sequenceHTML = puzzle.sequence.map((value, index) => {
+
+            if (value === null) {
+                return `
+                    <input
+                        id="decimal-answer-0"
+                        class="decimal-blank"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
+                        placeholder="?"
+                        aria-label="Missing sequence number"
+                    >
+                `;
+            }
+
+            return `
+                <div class="sequence-number">
+                    ${escapeHTML(value)}
+                </div>
+            `;
+
+        }).join(`<span class="sequence-arrow">→</span>`);
+
+        return `
+            <div class="question-panel">
+
+                <h3>${escapeHTML(puzzle.title)}</h3>
+
+                <p class="question-instruction">
+                    ${escapeHTML(puzzle.question)}
+                </p>
+
+                <div class="decimal-sequence">
+                    ${sequenceHTML}
+                </div>
+
+                <p class="question-instruction" style="text-align:center">
+                    Find the rule and enter the missing number.
+                </p>
+
+            </div>
+        `;
+    }
+
+
+    function renderDecimalBarPart(value, inputIndex) {
+
+        if (value === null) {
+            return `
+                <div class="decimal-part">
+                    <input
+                        id="decimal-answer-${inputIndex}"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
+                        placeholder="?"
+                        aria-label="Missing decimal part ${inputIndex + 1}"
+                    >
+                </div>
+            `;
+        }
+
+        return `
+            <div class="decimal-part">
+                ${escapeHTML(value)}
+            </div>
+        `;
+    }
+
+
+    function renderDecimalBarGrid(puzzle) {
+
+        return `
+            <div class="question-panel">
+
+                <h3>${escapeHTML(puzzle.title)}</h3>
+
+                <p class="question-instruction">
+                    Each row must have the same total. Find the missing decimal values.
+                </p>
+
+                <div class="decimal-grid">
+
+                    <p class="decimal-grid-title">
+                        Total amount: ${escapeHTML(puzzle.total)}
+                    </p>
+
+                    <div class="decimal-bar-row">
+                        <div class="decimal-row-label">Row 1</div>
+
+                        <div class="decimal-bar">
+                            <div class="decimal-part">
+                                ${escapeHTML(puzzle.total)}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="decimal-bar-row">
+                        <div class="decimal-row-label">Row 2</div>
+
+                        <div class="decimal-bar">
+                            ${renderDecimalBarPart(puzzle.row2[0], 0)}
+                            ${renderDecimalBarPart(puzzle.row2[1], 1)}
+                        </div>
+                    </div>
+
+                    <div class="decimal-bar-row">
+                        <div class="decimal-row-label">Row 3</div>
+
+                        <div class="decimal-bar">
+                            ${renderDecimalBarPart(puzzle.row3[0], 99)}
+                            ${renderDecimalBarPart(puzzle.row3[1], 98)}
+                            ${renderDecimalBarPart(puzzle.row3[2], 1)}
+                        </div>
+                    </div>
+
+                    <p class="decimal-grid-note">
+                        Row 1 shows the full amount. Rows 2 and 3 divide the same amount into smaller parts.
+                        Complete both missing values.
+                    </p>
+
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    function renderDecimal(puzzle) {
+
+        if (puzzle.type === "calculation") {
+            return renderDecimalCalculation(puzzle);
+        }
+
+        if (puzzle.type === "sequence") {
+            return renderDecimalSequence(puzzle);
+        }
+
+        if (puzzle.type === "bar-grid") {
+            return renderDecimalBarGrid(puzzle);
+        }
+
+        return "";
+    }
+
+
+    /* =====================================================
        QUESTION CONTENT
     ===================================================== */
 
     function renderQuestion(puzzle) {
 
         if (category.id === "number-towers") {
-            return renderTower(puzzle);
+            return `
+                <div class="question-panel">
+                    ${renderTower(puzzle)}
+                </div>
+            `;
         }
 
         if (category.id === "balance-equals") {
@@ -1477,36 +2204,44 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
         }
 
-        return `
-            <div class="question-panel">
-                <h3>Solve the Integer Challenge</h3>
+        if (category.id === "integer-puzzles") {
+            return `
+                <div class="question-panel">
+                    <h3>Solve the Integer Challenge</h3>
 
-                <p class="question-instruction">
-                    Calculate carefully. Remember the rules for positive and negative numbers.
-                </p>
+                    <p class="question-instruction">
+                        Calculate carefully. Remember the rules for positive and negative numbers.
+                    </p>
 
-                <div class="puzzle-question">
-                    ${escapeHTML(puzzle.question)}
+                    <div class="puzzle-question">
+                        ${escapeHTML(puzzle.question)}
+                    </div>
+
+                    <div class="answer-area">
+                        <label for="puzzle-answer">Enter your answer</label>
+                        <input
+                            id="puzzle-answer"
+                            class="answer-input"
+                            type="number"
+                            step="any"
+                            inputmode="decimal"
+                            placeholder="Your answer"
+                        >
+                    </div>
                 </div>
+            `;
+        }
 
-                <div class="answer-area">
-                    <label for="puzzle-answer">Enter your answer</label>
-                    <input
-                        id="puzzle-answer"
-                        class="answer-input"
-                        type="number"
-                        step="any"
-                        inputmode="decimal"
-                        placeholder="Your answer"
-                    >
-                </div>
-            </div>
-        `;
+        if (category.id === "decimal-challenges") {
+            return renderDecimal(puzzle);
+        }
+
+        return "";
     }
 
 
     /* =====================================================
-       CONTROL PANEL
+       CONTROL PANEL - SIDE LAYOUT
     ===================================================== */
 
     function renderSideControls() {
@@ -1549,6 +2284,10 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
+
+    /* =====================================================
+       CONTROL PANEL - INLINE LAYOUT
+    ===================================================== */
 
     function renderInlineControls() {
 
@@ -1602,21 +2341,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const sideLayout = isSideLayout();
 
-        let mainContent = "";
-
-        if (category.id === "number-towers") {
-            mainContent = `
-                <div class="question-panel">
-                    ${renderTower(puzzle)}
-                </div>
-            `;
-        } else {
-            mainContent = renderQuestion(puzzle);
-        }
+        const mainContent = renderQuestion(puzzle);
 
         const controls = sideLayout
             ? renderSideControls()
             : renderInlineControls();
+
+        const layoutClass = sideLayout
+            ? "game-layout"
+            : "game-layout inline-layout";
 
         content.innerHTML = `
 
@@ -1637,7 +2370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 ${levelHTML(puzzle)}
 
-                <div class="game-layout">
+                <div class="${layoutClass}">
 
                     ${mainContent}
 
@@ -1700,6 +2433,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
+        content.querySelectorAll("[id^='decimal-answer-']").forEach(decimalInput => {
+            decimalInput.addEventListener("keydown", event => {
+                if (event.key === "Enter") checkAnswer();
+            });
+        });
+
 
         /* RESTORE ANSWER */
 
@@ -1719,7 +2458,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const isVisible = box.classList.toggle("show");
 
-        box.textContent = isVisible ? puzzle.hint : "";
+        let hintText = puzzle.hint || "";
+
+        if (puzzle.type === "sequence" && puzzle.rule) {
+            hintText += " Rule: " + puzzle.rule;
+        }
+
+        box.textContent = isVisible ? hintText : "";
         button.textContent = isVisible ? "Hide Hint" : "Show Hint";
     }
 
@@ -1744,7 +2489,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const key = input.dataset.row + "-" + input.dataset.col;
 
-                if (saved.values[key] !== undefined) {
+                if (saved.values && saved.values[key] !== undefined) {
                     input.value = saved.values[key];
                 }
 
@@ -1756,6 +2501,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     input.classList.toggle("correct-cell", correct);
                     input.classList.toggle("wrong-cell", !correct);
+                }
+            });
+
+        } else if (category.id === "decimal-challenges") {
+
+            const inputs = content.querySelectorAll("[id^='decimal-answer-']");
+
+            inputs.forEach((input, index) => {
+
+                if (saved.values && saved.values[index] !== undefined) {
+                    input.value = saved.values[index];
+                }
+
+                if (saved.correct) {
+                    input.classList.add("correct-cell");
+                } else if (saved.attempted && input.value !== "") {
+                    input.classList.add("wrong-cell");
                 }
             });
 
@@ -1817,6 +2579,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        if (category.id === "decimal-challenges") {
+            checkDecimal(puzzle);
+            return;
+        }
+
         const input = document.getElementById("puzzle-answer");
 
         if (!input) return;
@@ -1865,6 +2632,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
             input.style.borderColor = "#C34868";
             input.style.background = "#FFF0F2";
+        }
+
+        updateScore();
+    }
+
+
+    /* =====================================================
+       CHECK DECIMAL CHALLENGES
+    ===================================================== */
+
+    function checkDecimal(puzzle) {
+
+        const inputs = Array.from(
+            content.querySelectorAll("[id^='decimal-answer-']")
+        );
+
+        const values = inputs.map(input => input.value.trim());
+
+        if (values.some(value => value === "")) {
+            showFeedback("Please complete all the missing decimal values.", false);
+
+            const firstEmpty = inputs.find(input => input.value.trim() === "");
+            if (firstEmpty) firstEmpty.focus();
+
+            return;
+        }
+
+        const correct = values.length === puzzle.answers.length &&
+            values.every((value, index) =>
+                numberIsCorrect(value, puzzle.answers[index])
+            );
+
+        answers[currentIndex] = {
+            values,
+            attempted: true,
+            correct,
+            explanation: puzzle.explanation || ""
+        };
+
+        inputs.forEach((input, index) => {
+
+            const inputCorrect = numberIsCorrect(
+                input.value,
+                puzzle.answers[index]
+            );
+
+            input.classList.toggle("correct-cell", inputCorrect);
+            input.classList.toggle("wrong-cell", !inputCorrect);
+        });
+
+        if (correct) {
+
+            score++;
+
+            showFeedback(
+                "Excellent! " + puzzle.explanation,
+                true
+            );
+
+        } else {
+
+            showFeedback(
+                "Not quite! Check your decimal calculations and try again.",
+                false
+            );
         }
 
         updateScore();
