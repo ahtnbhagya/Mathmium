@@ -1,15 +1,21 @@
+
 /* =========================================================
    MATHMIUM PUZZLE ZONE
    100 MATHEMATICS CHALLENGES
 
-   UPDATED FEATURES
+   FINAL UPDATED VERSION
+
+   FEATURES
    1. Twenty different colours for each category
    2. Every question has its own colour
-   3. The same colour sequence is used in all five categories
+   3. Same colour sequence in all five categories
    4. Full-screen puzzle workspace
-   5. Topic title and Back to Puzzles hidden during play
-   6. Previous, Check Answer, Next and Hint remain accessible
-   7. Responsive desktop, tablet and mobile layouts
+   5. Topic title and original Back button hidden during play
+   6. Back to Puzzles button linking to puzzle.html
+   7. Number Riddles controls BELOW the question
+   8. Integer Puzzles controls BELOW the question
+   9. Other categories retain right-side controls
+   10. Responsive desktop, tablet and mobile layouts
 ========================================================= */
 
 (function () {
@@ -66,11 +72,42 @@ const styles = `
     overflow-y: auto;
 }
 
-/* HIDE TOPIC TITLE AND BACK BUTTON DURING PLAY */
+/* HIDE ORIGINAL TOPIC TITLE AND BACK BUTTON */
 
 #activity-window.active #activity-title,
 #activity-window.active #back-button {
     display: none !important;
+}
+
+/* NEW BACK TO PUZZLES BUTTON */
+
+.puzzle-page-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 9px 17px;
+    margin: 0 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: white;
+    color: var(--dark);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+}
+
+.puzzle-page-back:hover {
+    background: var(--question-bg);
+    transform: translateY(-1px);
+}
+
+.puzzle-page-back:active {
+    transform: scale(.98);
 }
 
 /* MAIN GAME AREA */
@@ -125,6 +162,13 @@ const styles = `
     gap: clamp(12px, 2vw, 22px);
     align-items: stretch;
     margin-top: 12px;
+}
+
+/* SINGLE COLUMN LAYOUT
+   NUMBER RIDDLES AND INTEGER PUZZLES */
+
+.game-layout.single-column {
+    grid-template-columns: minmax(0, 1fr);
 }
 
 /* QUESTION AREA */
@@ -615,6 +659,10 @@ const styles = `
         gap: 10px;
     }
 
+    .game-layout.single-column {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .control-panel {
         padding: 11px;
     }
@@ -684,6 +732,11 @@ const styles = `
     .puzzle-question {
         font-size: 19px;
     }
+
+    .puzzle-page-back {
+        min-height: 38px;
+        margin-bottom: 10px;
+    }
 }
 
 /* SMALL MOBILE */
@@ -720,11 +773,6 @@ function installStyles() {
 /* =========================================================
    2. QUESTION COLOUR SYSTEM
 ========================================================= */
-
-/*
-   Each question receives a different colour.
-   The same 20-colour sequence is repeated in every category.
-*/
 
 const questionColours = [
     165, 195, 220, 345, 275,
@@ -1154,6 +1202,8 @@ document.addEventListener("DOMContentLoaded", function () {
             );
     }
 
+    /* RIDDLES AND INTEGER PUZZLES USE BOTTOM CONTROLS */
+
     function isSideLayout() {
         return [
             "number-towers",
@@ -1279,7 +1329,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h3>Complete the Number Tower</h3>
 
                 <p class="question-instruction">
-                    Each number is the sum of the two numbers directly below it.
+                    Each number is the sum of the two numbers directly below.
                     Fill in all the empty blocks.
                 </p>
 
@@ -1515,6 +1565,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
+       BACK TO PUZZLES PAGE LINK
+    ===================================================== */
+
+    function renderPuzzlePageBackButton() {
+        return `
+            <a
+                class="puzzle-page-back"
+                href="puzzle.html"
+                aria-label="Back to Puzzles page"
+            >
+                ← Back to Puzzles
+            </a>
+        `;
+    }
+
+    /* =====================================================
        CONTROL PANEL
     ===================================================== */
 
@@ -1609,8 +1675,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const sideLayout = isSideLayout();
 
-        /* CHANGE COLOUR FOR EVERY QUESTION */
-
         applyTheme();
 
         let mainContent = "";
@@ -1629,9 +1693,21 @@ document.addEventListener("DOMContentLoaded", function () {
             ? renderSideControls()
             : renderInlineControls();
 
+        /*
+           ONLY NUMBER RIDDLES AND INTEGER PUZZLES
+           USE A SINGLE COLUMN LAYOUT.
+           THEIR CONTROLS WILL APPEAR BELOW THE QUESTION.
+        */
+
+        const singleColumn =
+            category.id === "number-riddles" ||
+            category.id === "integer-puzzles";
+
         content.innerHTML = `
 
             <div class="game-area">
+
+                ${renderPuzzlePageBackButton()}
 
                 <div class="game-progress">
                     <span>Challenge ${currentIndex + 1} of ${total}</span>
@@ -1651,7 +1727,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 ${levelHTML(puzzle)}
 
-                <div class="game-layout">
+                <div class="game-layout ${singleColumn ? "single-column" : ""}">
 
                     ${mainContent}
 
@@ -2002,6 +2078,8 @@ document.addEventListener("DOMContentLoaded", function () {
         content.innerHTML = `
 
             <div class="completion-area">
+
+                ${renderPuzzlePageBackButton()}
 
                 <h2>Adventure Completed!</h2>
 
