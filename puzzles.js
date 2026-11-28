@@ -3,15 +3,24 @@
    MATHMIUM PUZZLE ZONE
    100 MATHEMATICS CHALLENGES
 
-   1. Number Towers                 - 20
-   2. Missing Number Operations     - 20
-   3. Number Riddles                - 20
-   4. Balance Equals                - 20
-   5. Integer Puzzles               - 20
+   UPDATED INTERFACE
 
-   Responsive game interface
-   Screen-friendly layout
-   Mobile, tablet and desktop support
+   NUMBER TOWERS
+   MISSING NUMBER OPERATIONS
+   BALANCE EQUALS
+   - Question area on the left
+   - Separate control panel on the right
+   - Check Answer first
+   - Previous and Next in one row
+   - Hint underneath
+
+   NUMBER RIDDLES
+   INTEGER PUZZLES
+   - Previous, Check Answer and Next in one row
+   - Check Answer is the widest button
+   - Hint underneath
+
+   Responsive desktop, tablet and mobile layouts
 ========================================================= */
 
 (function () {
@@ -19,16 +28,13 @@
 
 
 /* =========================================================
-   1. RESPONSIVE GAME STYLES
-   Automatically added by JavaScript
+   1. RESPONSIVE STYLES
 ========================================================= */
 
-const responsiveCSS = `
-/* MAIN GAME WINDOW */
-
+const styles = `
 #activity-window {
-    width: min(100%, 1100px);
-    max-width: 1100px;
+    width: min(100%, 1150px);
+    max-width: 1150px;
     margin: 0 auto;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -46,34 +52,32 @@ const responsiveCSS = `
     overflow-x: hidden;
 }
 
+/* MAIN LAYOUT */
+
 .game-area {
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: clamp(12px, 2.5vw, 28px);
+    padding: clamp(12px, 2vw, 24px);
     border-radius: 18px;
     overflow: hidden;
 }
 
-/* PROGRESS */
-
 .game-progress {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 5px;
-    font-size: clamp(12px, 1.5vw, 15px);
-    line-height: 1.4;
-    margin-bottom: 10px;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
 }
 
 .progress-track {
     width: 100%;
     height: 7px;
-    overflow: hidden;
+    background: #E9EDF4;
     border-radius: 20px;
-    margin-bottom: 15px;
+    overflow: hidden;
+    margin-bottom: 12px;
 }
 
 .progress-fill {
@@ -84,201 +88,346 @@ const responsiveCSS = `
 
 .question-number {
     text-align: center;
-    font-size: clamp(11px, 1.3vw, 13px);
+    font-size: 11px;
     letter-spacing: 1.5px;
-    margin: 10px 0;
+    font-weight: 800;
+    margin: 8px 0;
 }
 
-/* QUESTION CONTENT */
+.game-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 285px);
+    gap: clamp(12px, 2vw, 22px);
+    align-items: stretch;
+    margin-top: 12px;
+}
 
-.tower-container {
-    width: 100%;
-    max-width: 850px;
-    margin: 12px auto;
-    padding: clamp(12px, 2.5vw, 24px);
+/* LEFT QUESTION AREA */
+
+.question-panel {
+    min-width: 0;
+    padding: clamp(12px, 2vw, 22px);
     border-radius: 16px;
-    text-align: center;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     overflow: hidden;
 }
 
-.tower-container h3 {
-    font-size: clamp(17px, 2.2vw, 23px);
+.question-panel h3 {
+    margin: 0 0 8px;
+    font-size: clamp(18px, 2vw, 23px);
     line-height: 1.3;
-    margin: 5px 0 10px;
+    color: var(--dark);
 }
 
-.tower-container > p {
-    font-size: clamp(12px, 1.5vw, 15px);
-    line-height: 1.5;
-    margin: 8px auto 15px;
-    max-width: 650px;
+.question-instruction {
+    margin: 0 auto 14px;
+    font-size: clamp(12px, 1.4vw, 15px);
+    line-height: 1.55;
+    color: #5F6877;
 }
 
 .puzzle-question {
     width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: clamp(14px, 3vw, 25px);
-    border-radius: 14px;
-    font-size: clamp(17px, 3vw, 27px);
-    line-height: 1.6;
+    margin: 14px auto;
+    padding: clamp(14px, 2vw, 24px);
+    border-radius: 13px;
+    background: var(--question-bg);
+    border: 1px solid var(--line);
     text-align: center;
+    font-size: clamp(17px, 2.5vw, 26px);
+    font-weight: 700;
+    line-height: 1.6;
     overflow-wrap: anywhere;
 }
 
-/* ANSWER AREA */
+/* RIGHT CONTROL PANEL */
 
-.answer-area {
-    width: 100%;
-    max-width: 420px;
-    margin: 18px auto;
+.control-panel {
+    min-width: 0;
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: var(--control-bg);
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 12px;
 }
 
-.answer-area label {
-    font-size: clamp(13px, 1.5vw, 15px);
-    font-weight: 700;
-    text-align: center;
+.control-heading {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark);
+    margin: 0 0 2px;
 }
 
-.answer-input {
-    width: 100%;
-    min-width: 0;
-    height: 48px;
-    padding: 10px 14px;
-    border: 2px solid #DCE4EF;
-    border-radius: 10px;
-    font-size: 17px;
-    text-align: center;
-}
-
-/* BUTTONS */
-
-#activity-window button {
+.control-panel button,
+.inline-controls button {
     font-family: inherit;
     cursor: pointer;
-    max-width: 100%;
     touch-action: manipulation;
-}
-
-.primary-button,
-.hint-button {
-    display: block;
-    width: min(100%, 420px);
-    min-height: 44px;
-    margin: 12px auto;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 10px;
-    font-size: clamp(13px, 1.5vw, 16px);
     font-weight: 700;
-    line-height: 1.3;
-}
-
-.game-navigation {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.game-navigation button {
-    min-width: 0;
-    min-height: 44px;
-    padding: 10px 12px;
-    border: 1px solid #DCE4EF;
     border-radius: 10px;
-    font-size: clamp(12px, 1.5vw, 15px);
-    font-weight: 700;
-    overflow-wrap: anywhere;
+    transition: transform .15s ease, opacity .15s ease;
 }
 
-.game-navigation button:disabled {
+.control-panel button:active,
+.inline-controls button:active {
+    transform: scale(.98);
+}
+
+.control-panel button:disabled,
+.inline-controls button:disabled {
     opacity: .4;
     cursor: not-allowed;
 }
 
-/* FEEDBACK AND HINT */
+/* CHECK BUTTON */
 
-.feedback {
+.check-button {
+    display: block;
     width: 100%;
-    max-width: 650px;
-    margin: 10px auto;
+    min-height: 48px;
+    padding: 11px 14px;
+    border: none;
+    background: var(--main);
+    color: white;
+    font-size: 15px;
+    box-shadow: 0 3px 8px var(--shadow);
+}
+
+.check-button:hover {
+    filter: brightness(.96);
+}
+
+/* PREVIOUS AND NEXT */
+
+.side-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.side-navigation button {
+    min-width: 0;
+    min-height: 43px;
+    padding: 9px 5px;
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--dark);
+    font-size: 13px;
+}
+
+/* HINT */
+
+.hint-button {
+    width: 100%;
+    min-height: 43px;
     padding: 10px 12px;
-    border-radius: 10px;
-    font-size: clamp(12px, 1.5vw, 15px);
-    line-height: 1.5;
-    overflow-wrap: anywhere;
+    border: 1px solid var(--main);
+    background: var(--hint-bg);
+    color: var(--dark);
+    font-size: 14px;
 }
 
 .hint-box {
-    width: 100%;
-    max-width: 650px;
-    margin: 10px auto;
+    display: none;
     padding: 12px;
     border-radius: 10px;
-    font-size: clamp(12px, 1.5vw, 15px);
+    background: white;
+    border: 1px solid var(--line);
+    color: #535D6C;
+    font-size: 13px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.hint-box.show {
+    display: block;
+}
+
+/* FEEDBACK */
+
+.feedback {
+    display: none;
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10px;
+    font-size: 13px;
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
 
-/* NUMBER TOWER */
+.feedback.show {
+    display: block;
+}
+
+.feedback.correct {
+    display: block;
+    color: #27633B;
+    background: #DDF5E3;
+    border: 1px solid #A8DAB5;
+}
+
+.feedback.incorrect {
+    display: block;
+    color: #963D50;
+    background: #FFE4E8;
+    border: 1px solid #F3BAC5;
+}
+
+/* INLINE CONTROLS FOR RIDDLES AND INTEGERS */
+
+.inline-controls {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.inline-controls button {
+    min-width: 0;
+    min-height: 47px;
+    padding: 10px 6px;
+    font-size: clamp(12px, 1.4vw, 14px);
+}
+
+.inline-previous,
+.inline-next {
+    background: white;
+    border: 1px solid var(--line);
+    color: var(--dark);
+}
+
+.inline-check {
+    background: var(--main);
+    color: white;
+    border: none;
+    box-shadow: 0 3px 8px var(--shadow);
+}
+
+/* HINT FOR INLINE LAYOUT */
+
+.inline-hint-area {
+    width: 100%;
+    margin-top: 11px;
+}
+
+.inline-hint-area .hint-button {
+    width: 100%;
+}
+
+/* ANSWER INPUT */
+
+.answer-area {
+    width: 100%;
+    max-width: 430px;
+    margin: 16px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.answer-area label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.answer-input {
+    width: 100%;
+    height: 48px;
+    padding: 10px 14px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    background: white;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+}
+
+.answer-input:focus {
+    border-color: var(--main);
+}
+
+/* NUMBER TOWERS */
+
+.tower-container {
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+}
 
 .tower {
     width: 100%;
-    max-width: 600px;
-    margin: 15px auto;
-    overflow-x: auto;
+    max-width: 620px;
+    margin: 10px auto;
     padding: 5px;
+    overflow-x: auto;
 }
 
 .tower-row {
     display: flex;
     justify-content: center;
-    gap: clamp(5px, 1.5vw, 12px);
+    gap: clamp(5px, 1.2vw, 12px);
     margin: 7px auto;
     min-width: min-content;
 }
 
 .tower-block,
 .tower-input {
-    width: clamp(38px, 7vw, 65px);
-    height: clamp(38px, 7vw, 60px);
+    width: clamp(38px, 5.5vw, 62px);
+    height: clamp(38px, 5.5vw, 58px);
     flex: 0 0 auto;
     border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: clamp(14px, 2vw, 19px);
-    font-weight: 700;
+    font-size: clamp(14px, 1.8vw, 19px);
+    font-weight: 800;
+}
+
+.tower-block {
+    background: var(--main);
+    color: white;
 }
 
 .tower-input {
     min-width: 0;
-    border: 2px dashed #3978D4;
-    background: #DCEBFF;
+    padding: 3px;
+    border: 2px dashed var(--main);
+    background: var(--question-bg);
+    color: var(--dark);
+    outline: none;
+}
+
+.tower-input:focus {
+    border-style: solid;
 }
 
 .tower-input.correct-cell {
-    background: #DDF5E3;
     border: 2px solid #4C9A65;
+    background: #DDF5E3;
 }
 
 .tower-input.wrong-cell {
-    background: #FFE4E8;
     border: 2px solid #C34868;
+    background: #FFE4E8;
 }
 
 /* BALANCE EQUALS */
 
 .balance-equation-wrapper {
     width: 100%;
-    max-width: 850px;
-    margin: 18px auto;
+    margin: 12px auto;
 }
 
 .balance-equation {
@@ -288,23 +437,22 @@ const responsiveCSS = `
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: clamp(5px, 1.5vw, 12px);
-    padding: clamp(12px, 3vw, 25px);
-    background: #F7FAFF;
-    border: 1px solid #DCEBFF;
-    border-radius: 16px;
-    overflow-wrap: anywhere;
+    gap: clamp(5px, 1vw, 11px);
+    padding: clamp(12px, 2vw, 22px);
+    border-radius: 14px;
+    background: white;
+    border: 1px solid var(--line);
 }
 
 .balance-element {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    min-width: clamp(32px, 5vw, 46px);
-    min-height: clamp(38px, 5vw, 48px);
-    padding: 6px 10px;
+    min-width: clamp(32px, 4vw, 45px);
+    min-height: clamp(37px, 4.5vw, 47px);
+    padding: 6px 9px;
     border-radius: 9px;
-    font-size: clamp(17px, 3vw, 24px);
+    font-size: clamp(16px, 2.4vw, 23px);
     font-weight: 800;
 }
 
@@ -321,42 +469,27 @@ const responsiveCSS = `
 .balance-equals {
     color: #27633B;
     background: #DDF5E3;
-    font-size: clamp(20px, 3.5vw, 28px);
+    font-size: 26px;
 }
 
 .balance-bracket {
     color: #513A91;
-    font-size: clamp(24px, 4vw, 32px);
+    font-size: 28px;
     padding: 0 2px;
 }
 
 .balance-missing-input {
-    width: clamp(55px, 9vw, 78px);
-    height: clamp(43px, 6vw, 55px);
+    width: clamp(55px, 7vw, 75px);
+    height: clamp(42px, 5vw, 53px);
     min-width: 0;
-    padding: 4px;
+    padding: 3px;
     border: 2px dashed #D69B19;
     border-radius: 10px;
     background: #FFF2B8;
     color: #805800;
-    text-align: center;
-    font-size: clamp(17px, 3vw, 22px);
+    font-size: 20px;
     font-weight: 800;
-}
-
-.balance-missing-input:focus {
-    outline: 2px solid #D69B19;
-    outline-offset: 2px;
-}
-
-.balance-missing-input.correct-cell {
-    border: 2px solid #4C9A65;
-    background: #DDF5E3;
-}
-
-.balance-missing-input.wrong-cell {
-    border: 2px solid #C34868;
-    background: #FFE4E8;
+    text-align: center;
 }
 
 .balance-fraction {
@@ -366,7 +499,7 @@ const responsiveCSS = `
     justify-content: center;
     min-width: 32px;
     color: #245AA8;
-    font-size: clamp(15px, 2.5vw, 20px);
+    font-size: 18px;
     font-weight: 800;
 }
 
@@ -385,14 +518,14 @@ const responsiveCSS = `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 14px;
-    margin-top: 15px;
+    gap: 8px 13px;
+    margin-top: 12px;
 }
 
 .guide-item {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-size: 11px;
     color: #555;
 }
@@ -400,7 +533,6 @@ const responsiveCSS = `
 .guide-dot {
     width: 10px;
     height: 10px;
-    flex: 0 0 auto;
     border-radius: 50%;
 }
 
@@ -410,144 +542,155 @@ const responsiveCSS = `
 .guide-green { background: #4C9A65; }
 
 .balance-answer-label {
-    margin-top: 12px;
+    margin-top: 10px;
     text-align: center;
-    font-size: 13px;
-    color: #555;
+    font-size: 12px;
+    color: #626B79;
 }
 
-/* COMPLETION SCREEN */
+/* COMPLETION */
 
 .completion-area {
     width: 100%;
     max-width: 650px;
     margin: 0 auto;
-    padding: clamp(16px, 4vw, 35px);
+    padding: 25px 15px;
     text-align: center;
 }
 
 .completion-area h2 {
-    font-size: clamp(21px, 4vw, 30px);
-    line-height: 1.3;
-}
-
-.completion-area p {
-    font-size: clamp(13px, 1.6vw, 16px);
-    line-height: 1.5;
+    font-size: clamp(22px, 4vw, 31px);
+    color: var(--dark);
 }
 
 .score-display {
-    margin: 18px auto;
-    padding: 18px;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 15px;
-    font-size: clamp(21px, 4vw, 30px);
+    background: var(--question-bg);
+    color: var(--dark);
+    font-size: 27px;
     font-weight: 800;
+}
+
+.completion-button {
+    width: min(100%, 400px);
+    min-height: 46px;
+    margin: 8px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    background: var(--main);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 /* TABLET */
 
-@media (max-width: 768px) {
-    #activity-window {
-        width: 100%;
-        max-width: 100%;
+@media (max-width: 760px) {
+    .game-layout {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 10px;
     }
 
-    .game-area {
-        padding: 14px;
-        border-radius: 14px;
+    .control-panel {
+        padding: 11px;
     }
 
-    .tower-container {
+    .question-panel {
         padding: 12px;
     }
 }
 
 /* MOBILE */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .game-area {
         padding: 10px;
-        border-radius: 12px;
     }
 
-    .game-navigation {
-        gap: 7px;
+    .game-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
     }
 
-    .game-navigation button {
-        padding: 9px 6px;
+    .question-panel {
+        min-height: auto;
     }
 
-    .balance-colour-guide {
-        gap: 7px 10px;
-    }
-
-    .guide-item {
-        font-size: 10px;
-    }
-
-    .puzzle-question {
-        margin: 12px auto;
+    .control-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
         padding: 12px;
     }
 
-    .answer-area {
-        margin: 12px auto;
+    .control-heading {
+        margin-bottom: 0;
     }
 
-    .primary-button,
+    .check-button {
+        min-height: 46px;
+    }
+
+    .side-navigation button {
+        min-height: 42px;
+    }
+
     .hint-button {
-        margin: 8px auto;
-    }
-}
-
-/* SHORT SCREEN HEIGHT */
-
-@media (max-height: 650px) {
-    .game-area {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        min-height: 42px;
     }
 
-    .tower-container {
-        margin: 8px auto;
-        padding: 10px;
+    .inline-controls {
+        gap: 6px;
     }
 
-    .tower-container > p {
-        margin: 5px auto 8px;
+    .inline-controls button {
+        min-height: 45px;
+        padding: 8px 3px;
     }
 
     .puzzle-question {
-        margin: 10px auto;
+        font-size: 19px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+    .game-area {
+        padding: 7px;
     }
 
-    .balance-equation-wrapper {
-        margin: 10px auto;
-    }
-
-    .balance-equation {
+    .question-panel,
+    .control-panel {
         padding: 10px;
     }
 
-    .game-navigation {
-        margin-top: 10px;
+    .inline-controls {
+        gap: 4px;
+    }
+
+    .inline-controls button {
+        font-size: 11px;
     }
 }
 `;
 
-function installResponsiveStyles() {
-    if (document.getElementById("mathmium-responsive-puzzle-styles")) return;
+function installStyles() {
+    if (document.getElementById("mathmium-puzzle-layout-styles")) return;
 
     const style = document.createElement("style");
-    style.id = "mathmium-responsive-puzzle-styles";
-    style.textContent = responsiveCSS;
+    style.id = "mathmium-puzzle-layout-styles";
+    style.textContent = styles;
     document.head.appendChild(style);
 }
 
 
 /* =========================================================
-   SHARED BALANCE ELEMENT HELPERS
+   2. DATA HELPERS
 ========================================================= */
 
 const N = value => ({ type: "number", value: String(value) });
@@ -564,25 +707,17 @@ const F = (numerator, denominator) => ({
 function balanceQuestion(id, level, title, instruction, left, right,
                          answer, hint, explanation) {
     return {
-        id,
-        level,
-        title,
-        instruction,
-        left,
-        equals: E(),
-        right,
-        answer,
-        hint,
-        explanation
+        id, level, title, instruction, left,
+        equals: E(), right, answer, hint, explanation
     };
 }
 
 
 /* =========================================================
-   2. NUMBER TOWERS
+   3. NUMBER TOWERS - 20
 ========================================================= */
 
-const numberTowers = [
+const towerBases = [
     [2,3,4],[1,5,2],[4,2,6],[3,3,5],[7,1,4],
     [2,6,3],[5,4,2],[6,2,7],[3,8,1],[4,5,3],
     [1,2,3,4],[2,1,4,3],[5,2,1,6],[3,4,2,5],[6,1,3,2],
@@ -612,18 +747,18 @@ const towerHints = [
     "Complete all the sums from bottom to top."
 ];
 
-const towerPuzzles = numberTowers.map((base, index) => ({
-    id: index + 1,
+const towerPuzzles = towerBases.map((base, i) => ({
+    id: i + 1,
     base,
-    hint: towerHints[index]
+    hint: towerHints[i]
 }));
 
 
 /* =========================================================
-   3. MISSING NUMBER OPERATIONS
+   4. MISSING NUMBER OPERATIONS - 20
 ========================================================= */
 
-const missingNumberPuzzles = [
+const missingPuzzles = [
     ["8 + ___ = 15",7,"Subtract 8 from 15."],
     ["___ + 9 = 21",12,"Subtract 9 from 21."],
     ["24 - ___ = 16",8,"Find the difference between 24 and 16."],
@@ -644,8 +779,8 @@ const missingNumberPuzzles = [
     ["90 ÷ ___ = 10",9,"What number multiplied by 10 gives 90?"],
     ["38 + ___ = 100",62,"Subtract 38 from 100."],
     ["___ - 35 = 47",82,"Add 35 to 47."]
-].map((p, index) => ({
-    id: index + 1,
+].map((p, i) => ({
+    id: i + 1,
     question: p[0],
     answer: p[1],
     hint: p[2]
@@ -653,10 +788,10 @@ const missingNumberPuzzles = [
 
 
 /* =========================================================
-   4. NUMBER RIDDLES
+   5. NUMBER RIDDLES - 20
 ========================================================= */
 
-const originalNumberRiddles = [
+const riddleData = [
     ["I am an even number between 10 and 20. I am also a multiple of 3. What number am I?",[12,18],"List the even numbers between 10 and 20. Which are divisible by 3?"],
     ["I am greater than 30 and less than 40. My digits add up to 9. What number am I?",36,"Try the numbers from 31 to 39."],
     ["Double me and you get 26. What number am I?",13,"Divide 26 by 2."],
@@ -677,8 +812,10 @@ const originalNumberRiddles = [
     ["I am the smallest three-digit number. What number am I?",100,"Think about the first number with three digits."],
     ["I am a two-digit number. My digits are the same, and their sum is 12. What number am I?",66,"Each digit must be half of 12."],
     ["I am a number between 1 and 100. I am divisible by both 3 and 5, and I am greater than 40 but less than 50. What number am I?",45,"Find a multiple of 15 between 40 and 50."]
-].map((p, index) => ({
-    id: index + 1,
+];
+
+const riddlePuzzles = riddleData.map((p, i) => ({
+    id: i + 1,
     question: p[0],
     answer: p[1],
     hint: p[2]
@@ -686,160 +823,58 @@ const originalNumberRiddles = [
 
 
 /* =========================================================
-   5. BALANCE EQUALS
-   20 QUESTIONS
+   6. BALANCE EQUALS - 20
 ========================================================= */
 
 const balancePuzzles = [
 
-    balanceQuestion(1,"Easy","Make Both Sides Equal!",
-        "Find the missing number to balance the equation.",
-        [N(8),O("+"),N(7)], [I(),O("+"),N(5)],
-        10,
-        "First calculate 8 + 7. Then find the number that makes the right side equal 15.",
-        "8 + 7 = 15. The missing number is 10 because 10 + 5 = 15."),
+    balanceQuestion(1,"Easy","Make Both Sides Equal!","Find the missing number to balance the equation.",[N(8),O("+"),N(7)],[I(),O("+"),N(5)],10,"First calculate 8 + 7. Then find the number that makes the right side equal 15.","8 + 7 = 15. The missing number is 10 because 10 + 5 = 15."),
 
-    balanceQuestion(2,"Easy","Find the Missing Number",
-        "Both sides must have the same value.",
-        [N(18),O("−"),N(6)], [I(),O("+"),N(4)],
-        8,
-        "What number plus 4 gives 12?",
-        "18 − 6 = 12. The missing number is 8 because 8 + 4 = 12."),
+    balanceQuestion(2,"Easy","Find the Missing Number","Both sides must have the same value.",[N(18),O("−"),N(6)],[I(),O("+"),N(4)],8,"What number plus 4 gives 12?","18 − 6 = 12. The missing number is 8 because 8 + 4 = 12."),
 
-    balanceQuestion(3,"Easy","Multiplication Balance",
-        "Complete the right side of the equation.",
-        [N(5),O("×"),N(4)], [I(),O("+"),N(6)],
-        14,
-        "Calculate 5 × 4 first. Then subtract 6.",
-        "5 × 4 = 20. The missing number is 14 because 14 + 6 = 20."),
+    balanceQuestion(3,"Easy","Multiplication Balance","Complete the right side of the equation.",[N(5),O("×"),N(4)],[I(),O("+"),N(6)],14,"Calculate 5 × 4 first. Then subtract 6.","5 × 4 = 20. The missing number is 14 because 14 + 6 = 20."),
 
-    balanceQuestion(4,"Easy","Division Balance",
-        "Find the number that makes both sides equal.",
-        [N(36),O("÷"),N(4)], [I(),O("+"),N(3)],
-        6,
-        "36 ÷ 4 = 9. What number plus 3 equals 9?",
-        "36 ÷ 4 = 9. The missing number is 6 because 6 + 3 = 9."),
+    balanceQuestion(4,"Easy","Division Balance","Find the number that makes both sides equal.",[N(36),O("÷"),N(4)],[I(),O("+"),N(3)],6,"36 ÷ 4 = 9. What number plus 3 equals 9?","36 ÷ 4 = 9. The missing number is 6 because 6 + 3 = 9."),
 
-    balanceQuestion(5,"Easy","Subtraction Challenge",
-        "Complete the missing number.",
-        [N(25),O("+"),N(15)], [N(50),O("−"),I()],
-        10,
-        "The left side equals 40. What should you subtract from 50 to get 40?",
-        "25 + 15 = 40. The missing number is 10 because 50 − 10 = 40."),
+    balanceQuestion(5,"Easy","Subtraction Challenge","Complete the missing number.",[N(25),O("+"),N(15)],[N(50),O("−"),I()],10,"The left side equals 40. What should you subtract from 50 to get 40?","25 + 15 = 40. The missing number is 10 because 50 − 10 = 40."),
 
-    balanceQuestion(6,"Medium","Multiplication Mystery",
-        "Find the missing factor.",
-        [N(42),O("−"),N(18)], [N(6),O("×"),I()],
-        4,
-        "42 − 18 = 24. Which number multiplied by 6 gives 24?",
-        "42 − 18 = 24. The missing number is 4 because 6 × 4 = 24."),
+    balanceQuestion(6,"Medium","Multiplication Mystery","Find the missing factor.",[N(42),O("−"),N(18)],[N(6),O("×"),I()],4,"42 − 18 = 24. Which number multiplied by 6 gives 24?","42 − 18 = 24. The missing number is 4 because 6 × 4 = 24."),
 
-    balanceQuestion(7,"Medium","Balance the Difference",
-        "Find the missing number.",
-        [N(7),O("×"),N(6)], [N(50),O("−"),I()],
-        8,
-        "7 × 6 = 42. What should you subtract from 50 to get 42?",
-        "7 × 6 = 42. The missing number is 8 because 50 − 8 = 42."),
+    balanceQuestion(7,"Medium","Balance the Difference","Find the missing number.",[N(7),O("×"),N(6)],[N(50),O("−"),I()],8,"7 × 6 = 42. What should you subtract from 50 to get 42?","7 × 6 = 42. The missing number is 8 because 50 − 8 = 42."),
 
-    balanceQuestion(8,"Medium","Find the Starting Number",
-        "Complete the equation.",
-        [N(64),O("÷"),N(8)], [I(),O("−"),N(2)],
-        10,
-        "64 ÷ 8 = 8. What number minus 2 equals 8?",
-        "64 ÷ 8 = 8. The missing number is 10 because 10 − 2 = 8."),
+    balanceQuestion(8,"Medium","Find the Starting Number","Complete the equation.",[N(64),O("÷"),N(8)],[I(),O("−"),N(2)],10,"64 ÷ 8 = 8. What number minus 2 equals 8?","64 ÷ 8 = 8. The missing number is 10 because 10 − 2 = 8."),
 
-    balanceQuestion(9,"Medium","Integer Balance",
-        "Remember to use positive and negative numbers.",
-        [N("−5"),O("+"),N(12)], [I(),O("+"),N(10)],
-        -3,
-        "Calculate −5 + 12. Then find the number that adds to 10 to give the same result.",
-        "−5 + 12 = 7. The missing number is −3 because −3 + 10 = 7."),
+    balanceQuestion(9,"Medium","Integer Balance","Remember to use positive and negative numbers.",[N("−5"),O("+"),N(12)],[I(),O("+"),N(10)],-3,"Calculate −5 + 12. Then find the number that adds to 10 to give the same result.","−5 + 12 = 7. The missing number is −3 because −3 + 10 = 7."),
 
-    balanceQuestion(10,"Medium","Integer Multiplication",
-        "Complete the missing number.",
-        [N("−8"),O("+"),N(20)], [N(3),O("×"),I()],
-        4,
-        "First calculate −8 + 20. Then divide the result by 3.",
-        "−8 + 20 = 12. The missing number is 4 because 3 × 4 = 12."),
+    balanceQuestion(10,"Medium","Integer Multiplication","Complete the missing number.",[N("−8"),O("+"),N(20)],[N(3),O("×"),I()],4,"First calculate −8 + 20. Then divide the result by 3.","−8 + 20 = 12. The missing number is 4 because 3 × 4 = 12."),
 
-    balanceQuestion(11,"Challenge","Decimal Balance",
-        "Balance the equation using decimals.",
-        [N("2.5"),O("+"),N("1.5")], [I(),O("+"),N(1)],
-        3,
-        "Add 2.5 and 1.5 first.",
-        "2.5 + 1.5 = 4. The missing number is 3 because 3 + 1 = 4."),
+    balanceQuestion(11,"Challenge","Decimal Balance","Balance the equation using decimals.",[N("2.5"),O("+"),N("1.5")],[I(),O("+"),N(1)],3,"Add 2.5 and 1.5 first.","2.5 + 1.5 = 4. The missing number is 3 because 3 + 1 = 4."),
 
-    balanceQuestion(12,"Challenge","Find the Missing Value",
-        "Complete the subtraction equation.",
-        [N(15),O("÷"),N(3)], [N(12),O("−"),I()],
-        7,
-        "15 ÷ 3 = 5. What should you subtract from 12 to get 5?",
-        "15 ÷ 3 = 5. The missing number is 7 because 12 − 7 = 5."),
+    balanceQuestion(12,"Challenge","Find the Missing Value","Complete the subtraction equation.",[N(15),O("÷"),N(3)],[N(12),O("−"),I()],7,"15 ÷ 3 = 5. What should you subtract from 12 to get 5?","15 ÷ 3 = 5. The missing number is 7 because 12 − 7 = 5."),
 
-    balanceQuestion(13,"Challenge","Fraction Balance",
-        "Complete the equation using a decimal number.",
-        [F(3,4),O("+"),F(1,4)], [N(2),O("×"),I()],
-        0.5,
-        "3/4 + 1/4 = 1. Then find half of 1.",
-        "3/4 + 1/4 = 1. The missing number is 0.5 because 2 × 0.5 = 1."),
+    balanceQuestion(13,"Challenge","Fraction Balance","Complete the equation using a decimal number.",[F(3,4),O("+"),F(1,4)],[N(2),O("×"),I()],0.5,"3/4 + 1/4 = 1. Then find half of 1.","3/4 + 1/4 = 1. The missing number is 0.5 because 2 × 0.5 = 1."),
 
-    balanceQuestion(14,"Challenge","Decimal Division Balance",
-        "Find the missing number.",
-        [N("1.2"),O("+"),N("0.8")], [I(),O("÷"),N(2)],
-        4,
-        "The left side equals 2. What number divided by 2 gives 2?",
-        "1.2 + 0.8 = 2. The missing number is 4 because 4 ÷ 2 = 2."),
+    balanceQuestion(14,"Challenge","Decimal Division Balance","Find the missing number.",[N("1.2"),O("+"),N("0.8")],[I(),O("÷"),N(2)],4,"The left side equals 2. What number divided by 2 gives 2?","1.2 + 0.8 = 2. The missing number is 4 because 4 ÷ 2 = 2."),
 
-    balanceQuestion(15,"Challenge","Multiplication Mystery",
-        "Find the missing factor.",
-        [N(5),O("×"),I()], [N(45),O("−"),N(10)],
-        7,
-        "Calculate 45 − 10 first. Then divide by 5.",
-        "45 − 10 = 35. The missing number is 7 because 5 × 7 = 35."),
+    balanceQuestion(15,"Challenge","Multiplication Mystery","Find the missing factor.",[N(5),O("×"),I()],[N(45),O("−"),N(10)],7,"Calculate 45 − 10 first. Then divide by 5.","45 − 10 = 35. The missing number is 7 because 5 × 7 = 35."),
 
-    balanceQuestion(16,"Challenge","Complete the Balance",
-        "Find the missing number.",
-        [N(100),O("÷"),N(5)], [I(),O("+"),N(8)],
-        12,
-        "100 ÷ 5 = 20. Subtract 8 to find the missing number.",
-        "100 ÷ 5 = 20. The missing number is 12 because 12 + 8 = 20."),
+    balanceQuestion(16,"Challenge","Complete the Balance","Find the missing number.",[N(100),O("÷"),N(5)],[I(),O("+"),N(8)],12,"100 ÷ 5 = 20. Subtract 8 to find the missing number.","100 ÷ 5 = 20. The missing number is 12 because 12 + 8 = 20."),
 
-    balanceQuestion(17,"Challenge","Negative Number Challenge",
-        "Complete the multiplication equation.",
-        [N("−6"),O("×"),I()], [N("−24")],
-        4,
-        "A negative number multiplied by a positive number gives a negative answer.",
-        "The missing number is 4 because −6 × 4 = −24."),
+    balanceQuestion(17,"Challenge","Negative Number Challenge","Complete the multiplication equation.",[N("−6"),O("×"),I()],[N("−24")],4,"A negative number multiplied by a positive number gives a negative answer.","The missing number is 4 because −6 × 4 = −24."),
 
-    balanceQuestion(18,"Challenge","Subtraction Balance",
-        "Find the missing number.",
-        [N(30),O("−"),I()], [N(4),O("×"),N(5)],
-        10,
-        "Calculate 4 × 5 first. Then subtract the result from 30.",
-        "4 × 5 = 20. The missing number is 10 because 30 − 10 = 20."),
+    balanceQuestion(18,"Challenge","Subtraction Balance","Find the missing number.",[N(30),O("−"),I()],[N(4),O("×"),N(5)],10,"Calculate 4 × 5 first. Then subtract the result from 30.","4 × 5 = 20. The missing number is 10 because 30 − 10 = 20."),
 
-    balanceQuestion(19,"Challenge","Brackets Balance",
-        "Find the number inside the brackets.",
-        [N(2),O("×"),B("("),I(),O("+"),N(3),B(")")], [N(18)],
-        6,
-        "Divide 18 by 2 first. Then subtract 3.",
-        "18 ÷ 2 = 9. The missing number is 6 because 6 + 3 = 9."),
+    balanceQuestion(19,"Challenge","Brackets Balance","Find the number inside the brackets.",[N(2),O("×"),B("("),I(),O("+"),N(3),B(")")],[N(18)],6,"Divide 18 by 2 first. Then subtract 3.","18 ÷ 2 = 9. The missing number is 6 because 6 + 3 = 9."),
 
-    balanceQuestion(20,"Challenge","Final Balance Challenge",
-        "Find the missing divisor.",
-        [N(48),O("÷"),I()], [N(6)],
-        8,
-        "48 divided by which number equals 6?",
-        "The missing number is 8 because 48 ÷ 8 = 6.")
-
+    balanceQuestion(20,"Challenge","Final Balance Challenge","Find the missing divisor.",[N(48),O("÷"),I()],[N(6)],8,"48 divided by which number equals 6?","The missing number is 8 because 48 ÷ 8 = 6.")
 ];
 
 
 /* =========================================================
-   6. INTEGER PUZZLES
+   7. INTEGER PUZZLES - 20
 ========================================================= */
 
-const integerPuzzles = [
+const integerData = [
     ["(-8) + 15 = ?",7,"Start at -8 and move 15 steps to the right.","-8 + 15 = 7"],
     ["12 + (-7) = ?",5,"Subtract 7 from 12.","12 - 7 = 5"],
     ["(-9) - 6 = ?",-15,"Move 6 more steps to the left from -9.","-9 - 6 = -15"],
@@ -860,9 +895,11 @@ const integerPuzzles = [
     ["(-15) + 6 × (-4) - (-9) = ?",-30,"Multiply before adding and subtracting.","-15 - 24 + 9 = -30"],
     ["[(-8) + 3] × [(-2) - 4] = ?",30,"Calculate both brackets before multiplying.","(-5) × (-6) = 30"],
     ["100 ÷ (-5) + [(-6) × (-3)] - 8 = ?",-10,"Calculate division and multiplication first.","-20 + 18 - 8 = -10"]
-].map((p, index) => ({
-    id: index + 1,
-    level: index < 8 ? "Easy" : index < 15 ? "Medium" : "Hard",
+];
+
+const integerPuzzles = integerData.map((p, i) => ({
+    id: i + 1,
+    level: i < 8 ? "Easy" : i < 15 ? "Medium" : "Hard",
     question: p[0],
     answer: p[1],
     hint: p[2],
@@ -871,135 +908,71 @@ const integerPuzzles = [
 
 
 /* =========================================================
-   7. COMBINE ALL CATEGORIES
+   8. CATEGORY COLLECTION
 ========================================================= */
 
 window.MATHMIUM_PUZZLES = [
-
     {
         id: "number-towers",
         title: "Number Towers",
         description: "Complete each tower by adding the two numbers directly below.",
         puzzles: towerPuzzles
     },
-
     {
         id: "missing-number-operations",
         title: "Missing Number Operations",
         description: "Find the missing number that makes each equation true.",
-        puzzles: missingNumberPuzzles
+        puzzles: missingPuzzles
     },
-
     {
         id: "number-riddles",
         title: "Number Riddles",
         description: "Read each clue and discover the mystery number.",
-        puzzles: originalNumberRiddles
+        puzzles: riddlePuzzles
     },
-
     {
         id: "balance-equals",
         title: "Balance Equals",
         description: "Balance both sides of each equation by finding the missing number.",
         puzzles: balancePuzzles
     },
-
     {
         id: "integer-puzzles",
         title: "Integer Puzzles",
         description: "Challenge yourself with positive and negative numbers.",
         puzzles: integerPuzzles
     }
-
 ];
-
-
-/* =========================================================
-   8. BALANCE EQUALS HELPER FUNCTIONS
-========================================================= */
 
 window.MATHMIUM_BALANCE_EQUALS = balancePuzzles;
 
-window.getBalanceEqualsQuestion = function(id) {
-    return balancePuzzles.find(q => q.id === Number(id));
-};
 
-window.checkBalanceEqualsAnswer = function(id, userAnswer) {
+/* =========================================================
+   9. OPTIONAL BALANCE QUESTION HELPERS
+========================================================= */
 
-    const question = window.getBalanceEqualsQuestion(id);
+window.getBalanceEqualsQuestion = id =>
+    balancePuzzles.find(q => q.id === Number(id));
 
-    if (!question) {
-        return {
-            correct: false,
-            message: "Question not found."
-        };
-    }
-
-    const value = String(userAnswer).trim();
-
-    if (value === "") {
-        return {
-            correct: false,
-            message: "Please enter a number."
-        };
-    }
-
-    const numericAnswer = Number(value);
-
-    if (!Number.isFinite(numericAnswer)) {
-        return {
-            correct: false,
-            message: "Please enter a valid number."
-        };
-    }
-
-    const correct = Math.abs(numericAnswer - question.answer) < 0.000001;
-
-    return {
-        correct,
-        correctAnswer: question.answer,
-        message: correct
-            ? "Amazing! Both sides are equal!"
-            : "Good try! Check your calculations and try again."
-    };
-};
-
-window.getBalanceEqualsHint = function(id) {
-    const question = window.getBalanceEqualsQuestion(id);
-    return question ? question.hint : "";
-};
-
-window.getBalanceEqualsExplanation = function(id) {
-    const question = window.getBalanceEqualsQuestion(id);
-    return question ? question.explanation : "";
-};
-
-window.getBalanceEqualsByLevel = function(level) {
-    return balancePuzzles.filter(q =>
+window.getBalanceEqualsByLevel = level =>
+    balancePuzzles.filter(q =>
         q.level.toLowerCase() === String(level).toLowerCase()
     );
-};
 
-window.getBalanceEqualsElements = function(id) {
-    const question = window.getBalanceEqualsQuestion(id);
+window.getBalanceEqualsHint = id =>
+    window.getBalanceEqualsQuestion(id)?.hint || "";
 
-    if (!question) return [];
-
-    return [
-        ...question.left,
-        question.equals,
-        ...question.right
-    ];
-};
+window.getBalanceEqualsExplanation = id =>
+    window.getBalanceEqualsQuestion(id)?.explanation || "";
 
 
 /* =========================================================
-   9. GAME FUNCTIONALITY
+   10. GAME INITIALISATION
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    installResponsiveStyles();
+    installStyles();
 
     const grid = document.getElementById("puzzle-grid");
     const library = document.getElementById("puzzle-library");
@@ -1010,7 +983,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const backButton = document.getElementById("back-button");
 
     if (!grid || !library || !activity || !content) {
-        console.error("Mathmium puzzle HTML elements are missing.");
+        console.error("Mathmium Puzzle Zone: Required HTML elements were not found.");
         return;
     }
 
@@ -1019,36 +992,76 @@ document.addEventListener("DOMContentLoaded", function() {
     let score = 0;
     let answers = {};
 
-    const colors = [
-        ["#159E94","#CFFFF7","#087D76"],
-        ["#3978D4","#DCEBFF","#245AA8"],
-        ["#C34868","#FFD1DC","#8A2947"],
-        ["#E17B43","#FFE8D2","#A64B20"],
-        ["#8064C9","#EAE1FF","#513A91"],
-        ["#4C9A65","#DDF5E3","#27633B"]
-    ];
+    const themes = {
+        "number-towers": {
+            main: "#159E94",
+            dark: "#087D76",
+            panel: "#F0FCFA",
+            control: "#E5F7F4",
+            question: "#DFFFF9",
+            line: "#BDEAE3",
+            hint: "#E0F8F4",
+            shadow: "#159E9430"
+        },
+        "missing-number-operations": {
+            main: "#3978D4",
+            dark: "#245AA8",
+            panel: "#F2F7FF",
+            control: "#E9F1FF",
+            question: "#DCEBFF",
+            line: "#C5D9F8",
+            hint: "#E8F1FF",
+            shadow: "#3978D430"
+        },
+        "number-riddles": {
+            main: "#C34868",
+            dark: "#8A2947",
+            panel: "#FFF5F7",
+            control: "#FDEBF0",
+            question: "#FFDDE5",
+            line: "#F2C4D0",
+            hint: "#FCEAF0",
+            shadow: "#C3486830"
+        },
+        "balance-equals": {
+            main: "#8064C9",
+            dark: "#513A91",
+            panel: "#F8F5FF",
+            control: "#F0EAFF",
+            question: "#EAE1FF",
+            line: "#D8C9F6",
+            hint: "#F0EAFF",
+            shadow: "#8064C930"
+        },
+        "integer-puzzles": {
+            main: "#E17B43",
+            dark: "#A64B20",
+            panel: "#FFF8F2",
+            control: "#FFF0E4",
+            question: "#FFE8D2",
+            line: "#F4D1B7",
+            hint: "#FFF0E4",
+            shadow: "#E17B4330"
+        }
+    };
 
     const icons = [
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 10 L12 85 H88 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
             <path d="M31 61 H69 M40 45 H60" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
         </svg>`,
-
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <rect x="12" y="15" width="76" height="70" rx="15" stroke="currentColor" stroke-width="6"/>
             <path d="M30 38 H70 M30 60 H70" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
         </svg>`,
-
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <circle cx="50" cy="50" r="37" stroke="currentColor" stroke-width="6"/>
             <path d="M36 37 Q50 23 64 37 Q72 49 50 61 V67" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <circle cx="50" cy="78" r="4" fill="currentColor"/>
         </svg>`,
-
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 8 L60 37 L90 50 L60 63 L50 92 L40 63 L10 50 L40 37 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
         </svg>`,
-
         `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M15 30 H85 M15 70 H85" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <path d="M30 20 L15 30 L30 40 M70 60 L85 70 L70 80" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1058,7 +1071,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     /* =====================================================
-       HELPER FUNCTIONS
+       COMMON HELPERS
     ===================================================== */
 
     function escapeHTML(value) {
@@ -1071,37 +1084,28 @@ document.addEventListener("DOMContentLoaded", function() {
         })[char]);
     }
 
-    function getAcceptedAnswers(puzzle) {
+    function applyTheme() {
+        const theme = themes[category.id] || themes["number-towers"];
+        const root = document.querySelector("#activity-window");
 
-        const values = Array.isArray(puzzle.answer)
-            ? puzzle.answer.slice()
-            : [puzzle.answer];
-
-        if (puzzle.acceptedAnswers) {
-            values.push(...puzzle.acceptedAnswers);
-        }
-
-        return values.map(Number);
-    }
-
-    function isCorrectAnswer(value, puzzle) {
-
-        if (String(value).trim() === "") return false;
-
-        const number = Number(value);
-
-        return Number.isFinite(number) &&
-            getAcceptedAnswers(puzzle).some(answer =>
-                Math.abs(number - answer) < 0.0000001
-            );
+        Object.entries({
+            "--main": theme.main,
+            "--dark": theme.dark,
+            "--panel": theme.panel,
+            "--control-bg": theme.control,
+            "--question-bg": theme.question,
+            "--line": theme.line,
+            "--hint-bg": theme.hint,
+            "--shadow": theme.shadow
+        }).forEach(([key, value]) => {
+            root.style.setProperty(key, value);
+        });
     }
 
     function calculateTower(base) {
-
         const rows = [base.slice()];
 
         while (rows[rows.length - 1].length > 1) {
-
             const previous = rows[rows.length - 1];
             const next = [];
 
@@ -1115,50 +1119,64 @@ document.addEventListener("DOMContentLoaded", function() {
         return rows;
     }
 
+    function acceptedAnswers(puzzle) {
+        return Array.isArray(puzzle.answer)
+            ? puzzle.answer.map(Number)
+            : [Number(puzzle.answer)];
+    }
+
+    function isCorrect(value, puzzle) {
+        if (String(value).trim() === "") return false;
+
+        const number = Number(value);
+
+        return Number.isFinite(number) &&
+            acceptedAnswers(puzzle).some(answer =>
+                Math.abs(number - answer) < 0.000001
+            );
+    }
+
+    function isSideLayout() {
+        return [
+            "number-towers",
+            "missing-number-operations",
+            "balance-equals"
+        ].includes(category.id);
+    }
+
     function scrollToActivity() {
-
-        activity.scrollTop = 0;
-
         window.scrollTo({
-            top: activity.getBoundingClientRect().top + window.scrollY - 20,
+            top: activity.getBoundingClientRect().top + window.scrollY - 15,
             behavior: "smooth"
         });
     }
 
 
     /* =====================================================
-       CATEGORY CARDS
+       CATEGORY LIBRARY
     ===================================================== */
 
     function displayCategories() {
 
         grid.innerHTML = "";
 
-        const categories = window.MATHMIUM_PUZZLES;
-
-        if (!categories || categories.length === 0) {
-            if (empty) empty.classList.add("show");
-            return;
-        }
-
         if (empty) empty.classList.remove("show");
 
-        categories.forEach((item, index) => {
+        window.MATHMIUM_PUZZLES.forEach((item, index) => {
 
-            const color = colors[index % colors.length];
+            const theme = themes[item.id];
 
             const card = document.createElement("button");
-
             card.type = "button";
             card.className = "puzzle-card";
 
-            card.style.setProperty("--main", color[0]);
-            card.style.setProperty("--light", color[1]);
-            card.style.setProperty("--dark", color[2]);
+            card.style.setProperty("--main", theme.main);
+            card.style.setProperty("--light", theme.question);
+            card.style.setProperty("--dark", theme.dark);
 
             const icon = document.createElement("div");
             icon.className = "puzzle-icon";
-            icon.innerHTML = icons[index % icons.length];
+            icon.innerHTML = icons[index];
 
             const name = document.createElement("div");
             name.className = "puzzle-name";
@@ -1197,23 +1215,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
         activityTitle.textContent = item.title;
 
+        applyTheme();
         showPuzzle();
         scrollToActivity();
     }
 
 
     /* =====================================================
-       NUMBER TOWER
+       LEVEL LABEL
     ===================================================== */
 
-    function createTower(puzzle) {
+    function levelHTML(puzzle) {
+
+        if (!puzzle.level) return "";
+
+        const levelColor = {
+            Easy: "#159E94",
+            Medium: "#D17A27",
+            Challenge: "#8064C9",
+            Hard: "#C34868"
+        }[puzzle.level] || "#3978D4";
+
+        return `
+            <div style="
+                display:inline-block;
+                align-self:flex-start;
+                padding:5px 13px;
+                margin-bottom:10px;
+                border-radius:20px;
+                background:${levelColor}18;
+                color:${levelColor};
+                font-size:11px;
+                font-weight:800;
+            ">
+                ${escapeHTML(puzzle.level)} Level
+            </div>
+        `;
+    }
+
+
+    /* =====================================================
+       NUMBER TOWER RENDERER
+    ===================================================== */
+
+    function renderTower(puzzle) {
 
         const rows = calculateTower(puzzle.base);
 
         let html = `
             <div class="tower-container">
                 <h3>Complete the Number Tower</h3>
-                <p>Each number is the sum of the two numbers directly below it.</p>
+
+                <p class="question-instruction">
+                    Each number is the sum of the two numbers directly below it.
+                    Fill in all the empty blocks.
+                </p>
+
                 <div class="tower">
         `;
 
@@ -1230,8 +1287,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         <input
                             class="tower-input"
                             type="number"
-                            step="1"
                             inputmode="numeric"
+                            step="1"
                             data-row="${r}"
                             data-col="${c}"
                             aria-label="Missing tower number"
@@ -1245,7 +1302,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         html += `
                 </div>
-                <p>Fill in all the empty blocks, starting from the bottom row.</p>
             </div>
         `;
 
@@ -1254,100 +1310,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     /* =====================================================
-       DIFFICULTY LABEL
+       BALANCE EQUATION RENDERER
     ===================================================== */
 
-    function getLevelHTML(puzzle) {
-
-        if (!puzzle.level) return "";
-
-        const levelColors = {
-            Easy: "#159E94",
-            Medium: "#D17A27",
-            Challenge: "#C34868",
-            Hard: "#C34868"
-        };
-
-        const color = levelColors[puzzle.level] || "#3978D4";
-
-        return `
-            <div style="
-                display:inline-block;
-                padding:5px 15px;
-                margin:4px auto 8px;
-                border-radius:20px;
-                background:${color}18;
-                color:${color};
-                font-size:12px;
-                font-weight:700;
-            ">
-                ${escapeHTML(puzzle.level)} Level
-            </div>
-        `;
-    }
-
-
-    /* =====================================================
-       BALANCE ELEMENT RENDERER
-    ===================================================== */
-
-    function renderBalanceElement(element, index) {
+    function renderBalanceElement(element) {
 
         if (element.type === "number") {
-            return `
-                <span class="balance-element balance-number">
-                    ${escapeHTML(element.value)}
-                </span>
-            `;
+            return `<span class="balance-element balance-number">${escapeHTML(element.value)}</span>`;
         }
 
         if (element.type === "operator") {
-            return `
-                <span class="balance-element balance-operator">
-                    ${escapeHTML(element.value)}
-                </span>
-            `;
+            return `<span class="balance-element balance-operator">${escapeHTML(element.value)}</span>`;
         }
 
         if (element.type === "equals") {
-            return `
-                <span class="balance-element balance-equals">=</span>
-            `;
+            return `<span class="balance-element balance-equals">=</span>`;
+        }
+
+        if (element.type === "bracket") {
+            return `<span class="balance-element balance-bracket">${escapeHTML(element.value)}</span>`;
         }
 
         if (element.type === "input") {
             return `
                 <input
-                    class="balance-missing-input"
                     id="puzzle-answer"
+                    class="balance-missing-input"
                     type="number"
                     step="any"
                     inputmode="decimal"
-                    autocomplete="off"
                     placeholder="?"
                     aria-label="Enter the missing number"
                 >
             `;
         }
 
-        if (element.type === "bracket") {
-            return `
-                <span class="balance-element balance-bracket">
-                    ${escapeHTML(element.value)}
-                </span>
-            `;
-        }
-
         if (element.type === "fraction") {
             return `
                 <span class="balance-fraction">
-                    <span class="fraction-numerator">
-                        ${escapeHTML(element.numerator)}
-                    </span>
+                    <span class="fraction-numerator">${escapeHTML(element.numerator)}</span>
                     <span class="fraction-line"></span>
-                    <span class="fraction-denominator">
-                        ${escapeHTML(element.denominator)}
-                    </span>
+                    <span class="fraction-denominator">${escapeHTML(element.denominator)}</span>
                 </span>
             `;
         }
@@ -1355,8 +1358,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return "";
     }
 
-
-    function renderBalanceEquation(puzzle) {
+    function renderBalance(puzzle) {
 
         const elements = [
             ...puzzle.left,
@@ -1364,16 +1366,11 @@ document.addEventListener("DOMContentLoaded", function() {
             ...puzzle.right
         ];
 
-        let html = `
+        return `
             <div class="balance-equation-wrapper">
+
                 <div class="balance-equation">
-        `;
-
-        elements.forEach((element, index) => {
-            html += renderBalanceElement(element, index);
-        });
-
-        html += `
+                    ${elements.map(renderBalanceElement).join("")}
                 </div>
 
                 <div class="balance-colour-guide">
@@ -1381,17 +1378,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span class="guide-dot guide-blue"></span>
                         Numbers
                     </span>
-
                     <span class="guide-item">
                         <span class="guide-dot guide-purple"></span>
                         Operations
                     </span>
-
                     <span class="guide-item">
                         <span class="guide-dot guide-yellow"></span>
                         Missing number
                     </span>
-
                     <span class="guide-item">
                         <span class="guide-dot guide-green"></span>
                         Equals
@@ -1401,10 +1395,198 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="balance-answer-label">
                     Enter your answer in the yellow box.
                 </div>
+
             </div>
         `;
+    }
 
-        return html;
+
+    /* =====================================================
+       QUESTION CONTENT
+    ===================================================== */
+
+    function renderQuestion(puzzle) {
+
+        if (category.id === "number-towers") {
+            return renderTower(puzzle);
+        }
+
+        if (category.id === "balance-equals") {
+            return `
+                <div class="question-panel">
+                    <h3>${escapeHTML(puzzle.title)}</h3>
+                    <p class="question-instruction">${escapeHTML(puzzle.instruction)}</p>
+                    ${renderBalance(puzzle)}
+                </div>
+            `;
+        }
+
+        if (category.id === "missing-number-operations") {
+            return `
+                <div class="question-panel">
+                    <h3>Find the Missing Number</h3>
+
+                    <p class="question-instruction">
+                        Find the number that makes the equation correct.
+                    </p>
+
+                    <div class="puzzle-question">
+                        ${escapeHTML(puzzle.question)}
+                    </div>
+
+                    <div class="answer-area">
+                        <label for="puzzle-answer">Enter your answer</label>
+                        <input
+                            id="puzzle-answer"
+                            class="answer-input"
+                            type="number"
+                            step="any"
+                            inputmode="decimal"
+                            placeholder="Your answer"
+                        >
+                    </div>
+                </div>
+            `;
+        }
+
+        if (category.id === "number-riddles") {
+            return `
+                <div class="question-panel">
+                    <h3>Can You Solve the Riddle?</h3>
+
+                    <p class="question-instruction">
+                        Read the clues carefully and find the mystery number.
+                    </p>
+
+                    <div class="puzzle-question">
+                        ${escapeHTML(puzzle.question)}
+                    </div>
+
+                    <div class="answer-area">
+                        <label for="puzzle-answer">Your mystery number</label>
+                        <input
+                            id="puzzle-answer"
+                            class="answer-input"
+                            type="number"
+                            step="any"
+                            inputmode="decimal"
+                            placeholder="Enter your answer"
+                        >
+                    </div>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="question-panel">
+                <h3>Solve the Integer Challenge</h3>
+
+                <p class="question-instruction">
+                    Calculate carefully. Remember the rules for positive and negative numbers.
+                </p>
+
+                <div class="puzzle-question">
+                    ${escapeHTML(puzzle.question)}
+                </div>
+
+                <div class="answer-area">
+                    <label for="puzzle-answer">Enter your answer</label>
+                    <input
+                        id="puzzle-answer"
+                        class="answer-input"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
+                        placeholder="Your answer"
+                    >
+                </div>
+            </div>
+        `;
+    }
+
+
+    /* =====================================================
+       CONTROL PANEL
+    ===================================================== */
+
+    function renderSideControls() {
+
+        return `
+            <div class="control-panel">
+
+                <p class="control-heading">Your Controls</p>
+
+                <button class="check-button" id="check-answer">
+                    Check Answer
+                </button>
+
+                <div class="side-navigation">
+
+                    <button
+                        id="previous-puzzle"
+                        ${currentIndex === 0 ? "disabled" : ""}
+                    >
+                        Previous
+                    </button>
+
+                    <button id="next-puzzle">
+                        ${currentIndex === category.puzzles.length - 1
+                            ? "Finish"
+                            : "Next"}
+                    </button>
+
+                </div>
+
+                <div class="feedback" id="feedback" aria-live="polite"></div>
+
+                <button class="hint-button" id="hint-button">
+                    Show Hint
+                </button>
+
+                <div class="hint-box" id="hint-box"></div>
+
+            </div>
+        `;
+    }
+
+
+    function renderInlineControls() {
+
+        return `
+            <div class="feedback" id="feedback" aria-live="polite"></div>
+
+            <div class="inline-controls">
+
+                <button
+                    class="inline-previous"
+                    id="previous-puzzle"
+                    ${currentIndex === 0 ? "disabled" : ""}
+                >
+                    Previous
+                </button>
+
+                <button class="inline-check" id="check-answer">
+                    Check Answer
+                </button>
+
+                <button class="inline-next" id="next-puzzle">
+                    ${currentIndex === category.puzzles.length - 1
+                        ? "Finish"
+                        : "Next"}
+                </button>
+
+            </div>
+
+            <div class="inline-hint-area">
+
+                <button class="hint-button" id="hint-button">
+                    Show Hint
+                </button>
+
+                <div class="hint-box" id="hint-box"></div>
+
+            </div>
+        `;
     }
 
 
@@ -1418,53 +1600,23 @@ document.addEventListener("DOMContentLoaded", function() {
         const total = category.puzzles.length;
         const progress = ((currentIndex + 1) / total) * 100;
 
-        const isTower = category.id === "number-towers";
-        const isBalance = category.id === "balance-equals";
+        const sideLayout = isSideLayout();
 
-        let questionHTML;
+        let mainContent = "";
 
-
-        if (isTower) {
-
-            questionHTML = createTower(puzzle);
-
-        } else if (isBalance) {
-
-            questionHTML = `
-                <div class="tower-container">
-
-                    <h3>${escapeHTML(puzzle.title)}</h3>
-
-                    <p>${escapeHTML(puzzle.instruction)}</p>
-
-                    ${renderBalanceEquation(puzzle)}
-
+        if (category.id === "number-towers") {
+            mainContent = `
+                <div class="question-panel">
+                    ${renderTower(puzzle)}
                 </div>
             `;
-
         } else {
-
-            questionHTML = `
-                <div class="puzzle-question">
-                    ${escapeHTML(puzzle.question)}
-                </div>
-
-                <div class="answer-area">
-                    <label for="puzzle-answer">Enter your answer</label>
-
-                    <input
-                        class="answer-input"
-                        id="puzzle-answer"
-                        type="number"
-                        step="any"
-                        inputmode="decimal"
-                        autocomplete="off"
-                        placeholder="Type your answer here"
-                    >
-                </div>
-            `;
+            mainContent = renderQuestion(puzzle);
         }
 
+        const controls = sideLayout
+            ? renderSideControls()
+            : renderInlineControls();
 
         content.innerHTML = `
 
@@ -1476,48 +1628,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
 
                 <div class="progress-track">
-                    <div
-                        class="progress-fill"
-                        style="width:${progress}%"
-                    ></div>
+                    <div class="progress-fill" style="width:${progress}%"></div>
                 </div>
 
                 <div class="question-number">
                     CHALLENGE ${String(currentIndex + 1).padStart(2,"0")}
                 </div>
 
-                ${getLevelHTML(puzzle)}
+                ${levelHTML(puzzle)}
 
-                ${questionHTML}
+                <div class="game-layout">
 
-                <button class="primary-button" id="check-answer">
-                    ${isTower ? "Check Tower" : "Check Answer"}
-                </button>
+                    ${mainContent}
 
-                <div
-                    class="feedback"
-                    id="feedback"
-                    aria-live="polite"
-                ></div>
-
-                <button class="hint-button" id="hint-button">
-                    Show Hint
-                </button>
-
-                <div class="hint-box" id="hint-box"></div>
-
-                <div class="game-navigation">
-
-                    <button
-                        id="previous-puzzle"
-                        ${currentIndex === 0 ? "disabled" : ""}
-                    >
-                        Previous
-                    </button>
-
-                    <button id="next-puzzle">
-                        ${currentIndex === total - 1 ? "Finish" : "Next Challenge"}
-                    </button>
+                    ${controls}
 
                 </div>
 
@@ -1525,38 +1649,10 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
 
-        /* CHECK BUTTON */
+        /* CHECK */
 
         document.getElementById("check-answer")
             .addEventListener("click", checkAnswer);
-
-
-        /* ENTER KEY */
-
-        const answerInput = document.getElementById("puzzle-answer");
-
-        if (answerInput) {
-            answerInput.addEventListener("keydown", event => {
-                if (event.key === "Enter") {
-                    checkAnswer();
-                }
-            });
-        }
-
-
-        /* HINT */
-
-        document.getElementById("hint-button")
-            .addEventListener("click", () => {
-
-                const hint = document.getElementById("hint-box");
-                const button = document.getElementById("hint-button");
-
-                const visible = hint.classList.toggle("show");
-
-                hint.textContent = visible ? puzzle.hint : "";
-                button.textContent = visible ? "Hide Hint" : "Show Hint";
-            });
 
 
         /* PREVIOUS */
@@ -1588,12 +1684,48 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
 
+        /* HINT */
+
+        document.getElementById("hint-button")
+            .addEventListener("click", toggleHint);
+
+
+        /* ENTER KEY */
+
+        const input = document.getElementById("puzzle-answer");
+
+        if (input) {
+            input.addEventListener("keydown", event => {
+                if (event.key === "Enter") checkAnswer();
+            });
+        }
+
+
+        /* RESTORE ANSWER */
+
         restoreAnswer();
     }
 
 
     /* =====================================================
-       RESTORE PREVIOUS ANSWERS
+       HINT
+    ===================================================== */
+
+    function toggleHint() {
+
+        const puzzle = category.puzzles[currentIndex];
+        const box = document.getElementById("hint-box");
+        const button = document.getElementById("hint-button");
+
+        const isVisible = box.classList.toggle("show");
+
+        box.textContent = isVisible ? puzzle.hint : "";
+        button.textContent = isVisible ? "Hide Hint" : "Show Hint";
+    }
+
+
+    /* =====================================================
+       RESTORE PREVIOUS ANSWER
     ===================================================== */
 
     function restoreAnswer() {
@@ -1601,7 +1733,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const saved = answers[currentIndex];
 
         if (!saved) return;
-
 
         if (category.id === "number-towers") {
 
@@ -1633,35 +1764,41 @@ document.addEventListener("DOMContentLoaded", function() {
             const input = document.getElementById("puzzle-answer");
 
             if (input) {
-
                 input.value = saved.value ?? "";
 
                 if (saved.correct) {
-                    input.classList.add("correct-cell");
                     input.style.borderColor = "#159E94";
                     input.style.background = "#DDF5E3";
                 }
             }
         }
 
-
         if (saved.correct) {
-
-            const feedback = document.getElementById("feedback");
-
-            feedback.textContent = saved.explanation
-                ? "Correct! " + saved.explanation
-                : "Correct! Excellent work!";
-
-            feedback.className = "feedback correct";
-
+            showFeedback(
+                saved.explanation
+                    ? "Correct! " + saved.explanation
+                    : "Correct! Excellent work!",
+                true
+            );
         } else if (saved.attempted) {
-
-            const feedback = document.getElementById("feedback");
-
-            feedback.textContent = "Not quite! Try again. You can do it!";
-            feedback.className = "feedback incorrect";
+            showFeedback("Not quite! Try again. You can do it!", false);
         }
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+    ===================================================== */
+
+    function showFeedback(message, correct) {
+
+        const feedback = document.getElementById("feedback");
+
+        if (!feedback) return;
+
+        feedback.textContent = message;
+        feedback.className =
+            "feedback show " + (correct ? "correct" : "incorrect");
     }
 
 
@@ -1672,155 +1809,146 @@ document.addEventListener("DOMContentLoaded", function() {
     function checkAnswer() {
 
         const puzzle = category.puzzles[currentIndex];
-        const feedback = document.getElementById("feedback");
-
-        const isTower = category.id === "number-towers";
 
         if (answers[currentIndex]?.correct) return;
 
+        if (category.id === "number-towers") {
+            checkTower(puzzle);
+            return;
+        }
 
-        /* NUMBER TOWER */
+        const input = document.getElementById("puzzle-answer");
 
-        if (isTower) {
+        if (!input) return;
 
-            const rows = calculateTower(puzzle.base);
-            const inputs = content.querySelectorAll(".tower-input");
+        const value = input.value.trim();
 
-            const values = {};
+        if (!value) {
+            showFeedback("Please enter your answer first.", false);
+            input.focus();
+            return;
+        }
 
-            let complete = true;
-            let correct = true;
+        const correct = isCorrect(value, puzzle);
+
+        answers[currentIndex] = {
+            value,
+            attempted: true,
+            correct,
+            explanation: puzzle.explanation || ""
+        };
+
+        if (correct) {
+
+            score++;
+
+            showFeedback(
+                puzzle.explanation
+                    ? "Correct! " + puzzle.explanation
+                    : "Correct! Excellent work!",
+                true
+            );
+
+            input.style.borderColor = "#159E94";
+            input.style.background = "#DDF5E3";
+
+            if (category.id === "balance-equals") {
+                input.style.borderStyle = "solid";
+            }
+
+        } else {
+
+            showFeedback(
+                "Not quite! Check your work and try again.",
+                false
+            );
+
+            input.style.borderColor = "#C34868";
+            input.style.background = "#FFF0F2";
+        }
+
+        updateScore();
+    }
+
+
+    /* =====================================================
+       CHECK NUMBER TOWER
+    ===================================================== */
+
+    function checkTower(puzzle) {
+
+        const rows = calculateTower(puzzle.base);
+        const inputs = content.querySelectorAll(".tower-input");
+
+        const values = {};
+
+        let complete = true;
+        let correct = true;
+
+        inputs.forEach(input => {
+
+            const row = Number(input.dataset.row);
+            const col = Number(input.dataset.col);
+            const key = row + "-" + col;
+
+            values[key] = input.value.trim();
+
+            if (input.value.trim() === "") {
+                complete = false;
+            } else if (
+                !Number.isFinite(Number(input.value)) ||
+                Number(input.value) !== rows[row][col]
+            ) {
+                correct = false;
+            }
+        });
+
+        if (!complete) {
+            showFeedback("Please fill in all the empty blocks.", false);
+            return;
+        }
+
+        answers[currentIndex] = {
+            values,
+            attempted: true,
+            correct
+        };
+
+        if (correct) {
+
+            score++;
+
+            answers[currentIndex].explanation =
+                "Every number is the sum of the two numbers directly below it.";
+
+            showFeedback(
+                "Amazing! Your number tower is correct!",
+                true
+            );
+
+            inputs.forEach(input => {
+                input.classList.add("correct-cell");
+                input.classList.remove("wrong-cell");
+            });
+
+        } else {
+
+            showFeedback(
+                "Not quite! Check the highlighted numbers and try again.",
+                false
+            );
 
             inputs.forEach(input => {
 
                 const row = Number(input.dataset.row);
                 const col = Number(input.dataset.col);
-                const key = row + "-" + col;
-                const value = input.value.trim();
 
-                values[key] = value;
+                const right =
+                    Number(input.value) === rows[row][col];
 
-                if (value === "") {
-                    complete = false;
-                } else if (
-                    !Number.isFinite(Number(value)) ||
-                    Number(value) !== rows[row][col]
-                ) {
-                    correct = false;
-                }
+                input.classList.toggle("correct-cell", right);
+                input.classList.toggle("wrong-cell", !right);
             });
-
-            if (!complete) {
-                feedback.textContent = "Please fill in all the empty blocks.";
-                feedback.className = "feedback incorrect";
-                return;
-            }
-
-            answers[currentIndex] = {
-                values,
-                attempted: true,
-                correct
-            };
-
-            if (correct) {
-
-                score++;
-
-                answers[currentIndex].explanation =
-                    "Every number is the sum of the two numbers directly below it.";
-
-                feedback.textContent =
-                    "Amazing! Your number tower is correct!";
-
-                feedback.className = "feedback correct";
-
-                inputs.forEach(input => {
-                    input.classList.add("correct-cell");
-                    input.classList.remove("wrong-cell");
-                });
-
-            } else {
-
-                feedback.textContent =
-                    "Not quite! Check the highlighted numbers and try again.";
-
-                feedback.className = "feedback incorrect";
-
-                inputs.forEach(input => {
-
-                    const row = Number(input.dataset.row);
-                    const col = Number(input.dataset.col);
-
-                    const right =
-                        Number(input.value) === rows[row][col];
-
-                    input.classList.toggle("correct-cell", right);
-                    input.classList.toggle("wrong-cell", !right);
-                });
-            }
-
-        }
-
-
-        /* ALL OTHER CATEGORIES */
-
-        else {
-
-            const input = document.getElementById("puzzle-answer");
-
-            if (!input) return;
-
-            const value = input.value.trim();
-
-            if (!value) {
-
-                feedback.textContent = "Please enter your answer first.";
-                feedback.className = "feedback incorrect";
-
-                input.focus();
-                return;
-            }
-
-            const correct = isCorrectAnswer(value, puzzle);
-
-            answers[currentIndex] = {
-                value,
-                attempted: true,
-                correct,
-                explanation: puzzle.explanation || ""
-            };
-
-            if (correct) {
-
-                score++;
-
-                feedback.textContent = puzzle.explanation
-                    ? "Correct! " + puzzle.explanation
-                    : "Correct! Excellent work!";
-
-                feedback.className = "feedback correct";
-
-                input.style.borderColor = "#159E94";
-                input.style.background = "#DDF5E3";
-
-                if (category.id === "balance-equals") {
-                    input.classList.add("correct-cell");
-                }
-
-            } else {
-
-                feedback.textContent =
-                    "Not quite! Try again. You can do it!";
-
-                feedback.className = "feedback incorrect";
-
-                input.style.borderColor = "#C34868";
-                input.style.background = "#FFF0F2";
-
-                if (category.id === "balance-equals") {
-                    input.classList.add("wrong-cell");
-                }
-            }
         }
 
         updateScore();
@@ -1833,19 +1961,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateScore() {
 
-        const progress = content.querySelector(".game-progress");
+        const scoreText = content.querySelector(".game-progress span:last-child");
 
-        if (progress) {
-            progress.innerHTML = `
-                <span>Challenge ${currentIndex + 1} of ${category.puzzles.length}</span>
-                <span>Score: ${score}</span>
-            `;
+        if (scoreText) {
+            scoreText.textContent = "Score: " + score;
         }
     }
 
 
     /* =====================================================
-       COMPLETION SCREEN
+       FINISH CATEGORY
     ===================================================== */
 
     function finishCategory() {
@@ -1886,12 +2011,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 <p>${message}</p>
 
-                <button class="primary-button" id="restart-button">
+                <button class="completion-button" id="restart-button">
                     Play Again
                 </button>
 
                 <button
-                    class="primary-button"
+                    class="completion-button"
                     id="categories-button"
                     style="background:#3978D4"
                 >
@@ -1901,7 +2026,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
-
         document.getElementById("restart-button")
             .addEventListener("click", () => {
 
@@ -1909,10 +2033,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 score = 0;
                 answers = {};
 
+                applyTheme();
                 showPuzzle();
                 scrollToActivity();
             });
-
 
         document.getElementById("categories-button")
             .addEventListener("click", goBack);
@@ -1920,7 +2044,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     /* =====================================================
-       BACK TO PUZZLE LIBRARY
+       RETURN TO LIBRARY
     ===================================================== */
 
     function goBack() {
@@ -1931,14 +2055,14 @@ document.addEventListener("DOMContentLoaded", function() {
         category = null;
 
         window.scrollTo({
-            top: library.getBoundingClientRect().top + window.scrollY - 20,
+            top: library.getBoundingClientRect().top + window.scrollY - 15,
             behavior: "smooth"
         });
     }
 
 
     /* =====================================================
-       INITIALISE
+       START
     ===================================================== */
 
     if (backButton) {
@@ -1948,11 +2072,11 @@ document.addEventListener("DOMContentLoaded", function() {
     displayCategories();
 
     console.log(
-        "Mathmium Puzzle Zone loaded:",
+        "Mathmium Puzzle Zone ready:",
         window.MATHMIUM_PUZZLES.length,
-        "categories and",
+        "categories,",
         window.MATHMIUM_PUZZLES.reduce(
-            (total, item) => total + item.puzzles.length,
+            (sum, item) => sum + item.puzzles.length,
             0
         ),
         "challenges."
