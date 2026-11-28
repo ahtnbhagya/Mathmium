@@ -5,17 +5,23 @@
 
    FINAL UPDATED VERSION
 
-   FEATURES
+   BALANCE EQUALS UPDATES
+   1. Difficulty labels removed from Balance Equals only
+   2. LHS displayed on the first line
+   3. Equals sign displayed on the second line
+   4. RHS displayed on the third line
+   5. Missing-number input retained
+   6. Existing colours, hints and explanations retained
+
+   OTHER FEATURES
    1. Twenty different colours for each category
    2. Every question has its own colour
    3. Same colour sequence in all five categories
    4. Full-screen puzzle workspace
-   5. Topic title and original Back button hidden during play
-   6. Back to Puzzles button linking to puzzle.html
-   7. Number Riddles controls BELOW the question
-   8. Integer Puzzles controls BELOW the question
-   9. Other categories retain right-side controls
-   10. Responsive desktop, tablet and mobile layouts
+   5. Back to Puzzles button linking to puzzles.html
+   6. Number Riddles controls below the question
+   7. Integer Puzzles controls below the question
+   8. Other categories retain right-side controls
 ========================================================= */
 
 (function () {
@@ -79,7 +85,7 @@ const styles = `
     display: none !important;
 }
 
-/* NEW BACK TO PUZZLES BUTTON */
+/* BACK TO PUZZLES BUTTON */
 
 .puzzle-page-back {
     display: inline-flex;
@@ -164,8 +170,7 @@ const styles = `
     margin-top: 12px;
 }
 
-/* SINGLE COLUMN LAYOUT
-   NUMBER RIDDLES AND INTEGER PUZZLES */
+/* SINGLE COLUMN LAYOUT */
 
 .game-layout.single-column {
     grid-template-columns: minmax(0, 1fr);
@@ -491,6 +496,7 @@ const styles = `
 
 .balance-equation-wrapper {
     width: 100%;
+    max-width: 650px;
     margin: 12px auto;
 }
 
@@ -498,14 +504,46 @@ const styles = `
     width: 100%;
     min-width: 0;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: clamp(14px, 2vw, 24px);
+    border-radius: 14px;
+    background: white;
+    border: 1px solid var(--line);
+}
+
+/* LHS AND RHS ROWS */
+
+.balance-side-row {
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: clamp(5px, 1vw, 11px);
-    padding: clamp(12px, 2vw, 22px);
-    border-radius: 14px;
-    background: white;
-    border: 1px solid var(--line);
+    min-height: 55px;
+}
+
+.balance-side-label {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--dark);
+    margin-bottom: 3px;
+}
+
+/* EQUALS SIGN ON ITS OWN LINE */
+
+.balance-equals-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
 }
 
 .balance-element {
@@ -533,7 +571,9 @@ const styles = `
 .balance-equals {
     color: #27633B;
     background: #DDF5E3;
-    font-size: 26px;
+    font-size: 27px;
+    min-width: 55px;
+    min-height: 38px;
 }
 
 .balance-bracket {
@@ -736,6 +776,15 @@ const styles = `
     .puzzle-page-back {
         min-height: 38px;
         margin-bottom: 10px;
+    }
+
+    .balance-equation {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .balance-side-row {
+        gap: 6px;
     }
 }
 
@@ -1286,6 +1335,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
        LEVEL LABEL
+
+       BALANCE EQUALS DOES NOT DISPLAY THIS LABEL.
+       OTHER CATEGORIES KEEP THEIR EXISTING LABELS.
     ===================================================== */
 
     function levelHTML(puzzle) {
@@ -1421,17 +1473,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderBalance(puzzle) {
 
-        const elements = [
-            ...puzzle.left,
-            puzzle.equals,
-            ...puzzle.right
-        ];
+        const leftHTML = puzzle.left
+            .map(renderBalanceElement)
+            .join("");
+
+        const rightHTML = puzzle.right
+            .map(renderBalanceElement)
+            .join("");
 
         return `
             <div class="balance-equation-wrapper">
 
                 <div class="balance-equation">
-                    ${elements.map(renderBalanceElement).join("")}
+
+                    <div class="balance-side-row">
+                        <div class="balance-side-label">LHS</div>
+                        ${leftHTML}
+                    </div>
+
+                    <div class="balance-equals-row">
+                        <span class="balance-element balance-equals">=</span>
+                    </div>
+
+                    <div class="balance-side-row">
+                        <div class="balance-side-label">RHS</div>
+                        ${rightHTML}
+                    </div>
+
                 </div>
 
                 <div class="balance-colour-guide">
@@ -1696,12 +1764,21 @@ document.addEventListener("DOMContentLoaded", function () {
         /*
            ONLY NUMBER RIDDLES AND INTEGER PUZZLES
            USE A SINGLE COLUMN LAYOUT.
-           THEIR CONTROLS WILL APPEAR BELOW THE QUESTION.
         */
 
         const singleColumn =
             category.id === "number-riddles" ||
             category.id === "integer-puzzles";
+
+        /*
+           BALANCE EQUALS DOES NOT DISPLAY DIFFICULTY LABELS.
+           OTHER CATEGORIES KEEP THEIR EXISTING LABELS.
+        */
+
+        const difficultyLabel =
+            category.id === "balance-equals"
+                ? ""
+                : levelHTML(puzzle);
 
         content.innerHTML = `
 
@@ -1725,7 +1802,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     CHALLENGE ${String(currentIndex + 1).padStart(2,"0")}
                 </div>
 
-                ${levelHTML(puzzle)}
+                ${difficultyLabel}
 
                 <div class="game-layout ${singleColumn ? "single-column" : ""}">
 
