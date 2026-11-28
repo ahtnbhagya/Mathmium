@@ -347,7 +347,8 @@ const flashcardSubjects = [
             { question: "A water tank measures 2 m × 1.5 m × 1 m. Find its capacity in cubic metres.", answer: "3 m³" },
             { question: "A rectangular field is 25 m long and 15 m wide. How far will someone walk by going once around it?", answer: "80 m" }
         ]
-    }
+    },
+
     // =====================================================
     // SET 12: ROOTS AND EXPONENTS
     // =====================================================
@@ -377,7 +378,7 @@ const flashcardSubjects = [
             { question: "Which number has a cube of 512?", answer: "8" },
             { question: "A square has an area of 400 cm². Find its side length.", answer: "20 cm" }
         ]
-    }
+    },
 
 // =========================================================
 // FRACTION DISPLAY STYLING
