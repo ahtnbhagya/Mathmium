@@ -1572,7 +1572,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return `
             <a
                 class="puzzle-page-back"
-                href="puzzle.html"
+                href="puzzles.html"
                 aria-label="Back to Puzzles page"
             >
                 ← Back to Puzzles
