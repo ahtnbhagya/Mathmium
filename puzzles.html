@@ -1,925 +1,666 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-
-    <link rel="icon" type="image/png"
-          href="https://mathmium.pages.dev/Images/favicon.png">
-
-    <title>Mathmium Puzzle Zone | Think. Solve. Shine!</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-        :root {
-            --cream: #FFFDF8;
-            --text: #29292C;
-            --text-soft: #666268;
-
-            --teal-soft: #CFFFF7;
-            --teal-deep: #159E94;
-
-            --pink-soft: #FFD1DC;
-            --pink-deep: #8A2947;
-
-            --blue-soft: #DCEBFF;
-            --blue-deep: #3978D4;
-
-            --yellow-soft: #FFE8A3;
-            --orange-soft: #FFD0A0;
-
-            --green-soft: #E5F9B5;
-            --purple-soft: #E8E8FF;
-            --red-soft: #FFD0D6;
-            --indigo-main: #5B6CFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            color-scheme: light;
-        }
-
-        body {
-            font-family: "Quicksand", sans-serif;
-            background:
-                radial-gradient(
-                    ellipse at 10% 15%,
-                    rgba(255,209,220,.25),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    ellipse at 90% 30%,
-                    rgba(161,199,255,.23),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    ellipse at 50% 85%,
-                    rgba(255,232,163,.22),
-                    transparent 40%
-                ),
-                #FFFDF8;
-
-            background-attachment: fixed;
-            color: var(--text);
-            line-height: 1.75;
-            font-size: 18px;
-            font-weight: 600;
-            min-width: 0;
-            overflow-x: clip;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        /* HEADER */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,253,248,.94);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(21,158,148,.13);
-        }
-
-        .nav-container {
-            width: min(1180px,92%);
-            min-height: 82px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            font-family: "Pacifico", cursive;
-            font-size: 31px;
-            color: var(--teal-deep);
-            white-space: nowrap;
-            transition: .3s;
-        }
-
-        .brand:hover {
-            transform: translateY(-2px);
-        }
-
-        .brand img {
-            width: auto;
-            height: 48px;
-            max-width: 180px;
-            object-fit: contain;
-            filter: drop-shadow(
-                0 2px 5px rgba(21,158,148,.14)
-            );
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            position: relative;
-            color: var(--text);
-            font-size: 16px;
-            font-weight: 600;
-            transition: .3s;
-        }
-
-        nav a:hover {
-            color: var(--teal-deep);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -7px;
-            width: 0;
-            height: 2px;
-            background: var(--teal-deep);
-            border-radius: 5px;
-            transition: width .3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 380px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 75px 20px 65px;
-        }
-
-        .hero-content {
-            width: min(1000px,92%);
-            margin: auto;
-        }
-
-        .hero-label,
-        .section-label {
-            color: var(--pink-deep);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .hero-title {
-            font-size: clamp(42px,7vw,72px);
-            font-weight: 700;
-            line-height: 1.2;
-            color: #30364F;
-            margin-bottom: 18px;
-        }
-
-        .hero-title span {
-            background: linear-gradient(
-                90deg,
-                #C34868,
-                #E17B43,
-                #3978D4
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-description {
-            max-width: 720px;
-            margin: 0 auto;
-            color: var(--text-soft);
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* MAIN */
-
-        .main-section {
-            padding: 65px 0 90px;
-            min-height: 600px;
-        }
-
-        .section-inner {
-            width: min(1180px,90%);
-            margin: auto;
-        }
-
-        .section-heading {
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto 42px;
-        }
-
-        .section-label {
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(32px,5vw,48px);
-            line-height: 1.2;
-            color: #30364F;
-            margin-bottom: 14px;
-            font-weight: 700;
-        }
-
-        .section-description {
-            color: var(--text-soft);
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        /* PUZZLE CARDS */
-
-        .puzzle-grid {
-            display: grid;
-            grid-template-columns: repeat(3,minmax(0,1fr));
-            gap: 24px;
-        }
-
-        .puzzle-card {
-            --puzzle-color: #159E94;
-            --puzzle-light: #CFFFF7;
-            --puzzle-dark: #087D76;
-
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            min-height: 245px;
-            padding: 30px 24px;
-
-            border-radius: 30px;
-            border: 1px solid color-mix(
-                in srgb,
-                var(--puzzle-color) 18%,
-                transparent
-            );
-
-            background: linear-gradient(
-                145deg,
-                #FFFFFF 0%,
-                var(--puzzle-light) 100%
-            );
-
-            box-shadow: 0 12px 35px rgba(41,41,44,.055);
-            cursor: pointer;
-            overflow: hidden;
-            transition: transform .3s, box-shadow .3s;
-            color: var(--puzzle-dark);
-        }
-
-        .puzzle-card::before {
-            content: "";
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border: 2px solid color-mix(
-                in srgb,
-                var(--puzzle-color) 16%,
-                transparent
-            );
-            border-radius: 28px;
-            transform: rotate(35deg);
-            right: -70px;
-            top: -75px;
-            transition: transform .4s;
-            pointer-events: none;
-        }
-
-        .puzzle-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 20px 42px rgba(41,41,44,.10);
-        }
-
-        .puzzle-card:hover::before {
-            transform: rotate(55deg) scale(1.15);
-        }
-
-        .puzzle-card:focus-visible {
-            outline: 3px solid var(--indigo-main);
-            outline-offset: 4px;
-        }
-
-        .puzzle-emoji {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            place-items: center;
-            width: 76px;
-            height: 76px;
-            border-radius: 24px;
-            background: rgba(255,255,255,.72);
-            box-shadow: 0 8px 18px rgba(41,41,44,.06);
-            font-size: 38px;
-            margin-bottom: 17px;
-        }
-
-        .puzzle-name {
-            position: relative;
-            z-index: 1;
-            font-size: 21px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-
-        .puzzle-description {
-            position: relative;
-            z-index: 1;
-            font-size: 14px;
-            line-height: 1.6;
-            opacity: .82;
-            max-width: 290px;
-        }
-
-        .puzzle-meta {
-            position: relative;
-            z-index: 1;
-            margin-top: 14px;
-            font-size: 12px;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-            font-weight: 700;
-            opacity: .7;
-        }
-
-        /* EMPTY STATE */
-
-        .empty-state {
-            display: none;
-            text-align: center;
-            padding: 50px 25px;
-            border: 1px dashed rgba(195,72,104,.28);
-            border-radius: 30px;
-            background: rgba(255,255,255,.62);
-            color: var(--text-soft);
-        }
-
-        .empty-state.show {
-            display: block;
-        }
-
-        .empty-emoji {
-            font-size: 48px;
-            margin-bottom: 12px;
-        }
-
-        .empty-state h3 {
-            color: #30364F;
-            font-size: 23px;
-            margin-bottom: 8px;
-        }
-
-        .empty-state p {
-            font-size: 15px;
-        }
-
-        /* ACTIVITY WINDOW */
-
-        .activity-window {
-            display: none;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: clamp(20px,4vw,42px);
-            border-radius: 38px;
-            background: rgba(255,255,255,.72);
-            border: 1px solid rgba(195,72,104,.12);
-            box-shadow: 0 22px 65px rgba(195,72,104,.07);
-            animation: window-enter .45s ease both;
-        }
-
-        .activity-window.active {
-            display: block;
-        }
-
-        @keyframes window-enter {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(.98);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .activity-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            border: 0;
-            border-radius: 50px;
-            background: var(--pink-soft);
-            color: var(--pink-deep);
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .back-button:hover {
-            background: var(--pink-deep);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .activity-title {
-            color: var(--pink-deep);
-            font-size: clamp(20px,3vw,28px);
-            font-weight: 700;
-            text-align: right;
-        }
-
-        .activity-content {
-            min-height: 260px;
-            display: grid;
-            place-items: center;
-            padding: 30px;
-            border-radius: 28px;
-            border: 1px solid rgba(57,120,212,.14);
-            background: linear-gradient(
-                135deg,
-                #FFF0F2 0%,
-                #FFFFFF 55%,
-                #EAF3FF 100%
-            );
-            text-align: center;
-        }
-
-        .activity-placeholder {
-            max-width: 620px;
-        }
-
-        .activity-placeholder .big-emoji {
-            font-size: 52px;
-            margin-bottom: 12px;
-        }
-
-        .activity-placeholder h3 {
-            color: #30364F;
-            font-size: clamp(22px,3vw,30px);
-            margin-bottom: 10px;
-        }
-
-        .activity-placeholder p {
-            color: var(--text-soft);
-            font-size: 16px;
-        }
-
-        .activity-placeholder code {
-            color: var(--pink-deep);
-            background: #fff;
-            padding: 3px 7px;
-            border-radius: 7px;
-        }
-
-        /* GO BACK */
-
-        .materials-back-area {
-            display: flex;
-            justify-content: center;
-            margin-top: 55px;
-        }
-
-        .materials-back-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 38px;
-            border-radius: 50px;
-            background: linear-gradient(
-                110deg,
-                #C34868,
-                #E17B43,
-                #3978D4
-            );
-            color: #FFFFFF;
-            font-size: 16px;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(195,72,104,.18);
-            transition: transform .3s, box-shadow .3s;
-        }
-
-        .materials-back-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(195,72,104,.25);
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 70px 20px 35px;
-            background: transparent;
-            border-top: 1px solid rgba(195,72,104,.10);
-            text-align: center;
-        }
-
-        .footer-brand {
-            font-family: "Pacifico", cursive;
-            font-size: 35px;
-            color: var(--teal-deep);
-            margin-bottom: 8px;
-        }
-
-        .footer-tagline {
-            color: var(--text-soft);
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .footer-description {
-            color: var(--text-soft);
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px 28px;
-            margin: 30px auto;
-            max-width: 900px;
-        }
-
-        .footer-links a {
-            color: var(--teal-deep);
-            font-size: 15px;
-            font-weight: 700;
-            transition: .3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text);
-            transform: translateY(-2px);
-        }
-
-        .copyright {
-            padding-top: 25px;
-            border-top: 1px solid rgba(195,72,104,.10);
-            color: #8A918F;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        /* RESPONSIVE */
-
-        @media(max-width:900px) {
-            nav {
-                gap: 17px;
-            }
-
-            nav a {
-                font-size: 14px;
-            }
-
-            .puzzle-grid {
-                grid-template-columns: repeat(2,minmax(0,1fr));
-            }
-        }
-
-        @media(max-width:700px) {
-            body {
-                font-size: 17px;
-                background-attachment: scroll;
-            }
-
-            .nav-container {
-                min-height: auto;
-                padding: 18px 0;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav {
-                width: 100%;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 9px 17px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .brand img {
-                height: 42px;
-                max-width: 160px;
-            }
-
-            .hero {
-                min-height: 330px;
-                padding: 60px 15px;
-            }
-
-            .hero-title {
-                font-size: clamp(40px,10vw,62px);
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .main-section {
-                padding: 55px 0 75px;
-            }
-
-            .section-inner {
-                width: 90%;
-            }
-
-            .puzzle-grid {
-                grid-template-columns: 1fr;
-                gap: 17px;
-            }
-
-            .puzzle-card {
-                min-height: 210px;
-                padding: 25px 18px;
-            }
-
-            .activity-window {
-                padding: 22px 15px;
-                border-radius: 25px;
-            }
-
-            .activity-topbar {
-                align-items: flex-start;
-            }
-
-            .activity-title {
-                font-size: 19px;
-            }
-
-            .activity-content {
-                padding: 22px 15px;
-                min-height: 240px;
-            }
-
-            .materials-back-area {
-                margin-top: 40px;
-            }
-
-            .footer-links {
-                gap: 10px 18px;
-            }
-        }
-
-        @media(max-width:380px) {
-            nav {
-                gap: 8px 12px;
-            }
-
-            nav a {
-                font-size: 11px;
-            }
-
-            .hero-title {
-                font-size: 39px;
-            }
-
-            .activity-topbar {
-                flex-direction: column;
-            }
-
-            .activity-title {
-                text-align: left;
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+
+<link rel="icon" href="https://mathmium.pages.dev/Images/favicon.png">
+<title>Mathmium Puzzle Zone | Think. Solve. Shine!</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream:#FFFDF8;
+    --text:#29292C;
+    --soft:#666268;
+    --teal:#159E94;
+    --pink:#8A2947;
+    --blue:#3978D4;
+    --indigo:#5B6CFF;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+    font-family:"Quicksand",sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 15%,rgba(255,209,220,.25),transparent 35%),
+        radial-gradient(ellipse at 90% 30%,rgba(161,199,255,.23),transparent 35%),
+        radial-gradient(ellipse at 50% 85%,rgba(255,232,163,.22),transparent 40%),
+        var(--cream);
+    background-attachment:fixed;
+    color:var(--text);
+    line-height:1.7;
+    font-size:17px;
+    font-weight:600;
+    overflow-x:hidden;
+}
+
+a { text-decoration:none; }
+button,input { font-family:inherit; }
+
+/* HEADER */
+
+header {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,253,248,.95);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(21,158,148,.13);
+}
+
+.nav-container {
+    width:min(1180px,92%);
+    min-height:82px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.brand img {
+    height:48px;
+    max-width:180px;
+}
+
+nav {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:22px;
+}
+
+nav a {
+    color:var(--text);
+    font-size:15px;
+    transition:.3s;
+}
+
+nav a:hover { color:var(--teal); }
+
+/* HERO */
+
+.hero {
+    min-height:350px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:65px 20px;
+}
+
+.hero-content { max-width:850px; }
+
+.hero-label,.section-label {
+    color:var(--pink);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero h1 {
+    font-size:clamp(42px,7vw,72px);
+    line-height:1.2;
+    color:#30364F;
+    margin-bottom:18px;
+}
+
+.hero h1 span {
+    background:linear-gradient(90deg,#C34868,#E17B43,#3978D4);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p {
+    color:var(--soft);
+    max-width:700px;
+    margin:auto;
+}
+
+/* MAIN */
+
+.main-section { padding:55px 0 90px; }
+.section-inner { width:min(1180px,90%); margin:auto; }
+
+.section-heading {
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 42px;
+}
+
+.section-title {
+    font-size:clamp(30px,5vw,46px);
+    line-height:1.25;
+    color:#30364F;
+    margin-bottom:12px;
+}
+
+.section-description { color:var(--soft); }
+
+/* PUZZLE CARDS */
+
+.puzzle-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+}
+
+.puzzle-card {
+    --light:#CFFFF7;
+    --dark:#087D76;
+    --main:#159E94;
+
+    min-height:245px;
+    padding:28px 22px;
+    border-radius:28px;
+    border:1px solid var(--main);
+    background:linear-gradient(145deg,#fff,var(--light));
+    color:var(--dark);
+    box-shadow:0 12px 35px rgba(41,41,44,.06);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.puzzle-card:hover {
+    transform:translateY(-7px);
+    box-shadow:0 20px 42px rgba(41,41,44,.11);
+}
+
+.puzzle-card:focus-visible {
+    outline:3px solid var(--indigo);
+    outline-offset:4px;
+}
+
+.puzzle-icon {
+    width:76px;
+    height:76px;
+    display:grid;
+    place-items:center;
+    background:#ffffffc9;
+    border-radius:22px;
+    margin-bottom:16px;
+}
+
+.puzzle-icon svg { width:53px;height:53px; }
+
+.puzzle-name { font-size:21px;font-weight:700; }
+.puzzle-description { font-size:14px;margin-top:7px; }
+.puzzle-meta { font-size:12px;margin-top:13px;letter-spacing:1px; }
+
+.empty-state {
+    display:none;
+    text-align:center;
+    padding:40px;
+}
+
+.empty-state.show { display:block; }
+
+/* ACTIVITY */
+
+.activity-window {
+    display:none;
+    max-width:1050px;
+    margin:auto;
+    padding:clamp(20px,4vw,42px);
+    border-radius:32px;
+    background:rgba(255,255,255,.85);
+    border:1px solid rgba(195,72,104,.15);
+    box-shadow:0 20px 55px rgba(41,41,44,.07);
+}
+
+.activity-window.active { display:block; }
+
+.activity-topbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.back-button {
+    padding:12px 20px;
+    border:0;
+    border-radius:30px;
+    background:#FFD1DC;
+    color:var(--pink);
+    font-weight:700;
+    cursor:pointer;
+}
+
+.activity-title {
+    color:var(--pink);
+    font-size:24px;
+    font-weight:700;
+}
+
+.activity-content {
+    min-height:350px;
+    padding:clamp(18px,4vw,40px);
+    border-radius:25px;
+    background:linear-gradient(135deg,#FFF0F2,#fff 55%,#EAF3FF);
+    text-align:center;
+}
+
+/* GAME CONTENT */
+
+.game-area { max-width:750px;margin:auto; }
+
+.game-progress {
+    color:var(--blue);
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.progress-track {
+    height:11px;
+    background:#DCEBFF;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-fill {
+    height:100%;
+    background:var(--teal);
+    transition:width .3s;
+}
+
+.question-number {
+    color:var(--pink);
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.puzzle-question {
+    font-size:clamp(23px,4vw,34px);
+    color:#30364F;
+    font-weight:700;
+    line-height:1.6;
+    margin:25px auto;
+}
+
+.answer-area {
+    max-width:460px;
+    margin:25px auto;
+}
+
+.answer-area label {
+    display:block;
+    margin-bottom:10px;
+    color:#30364F;
+}
+
+.answer-input {
+    width:100%;
+    padding:15px;
+    border:2px solid #DCEBFF;
+    border-radius:15px;
+    font-size:20px;
+    text-align:center;
+    outline:none;
+    background:white;
+    color:var(--text);
+}
+
+.answer-input:focus { border-color:var(--blue); }
+
+.primary-button {
+    width:100%;
+    margin-top:13px;
+    padding:15px 22px;
+    border:0;
+    border-radius:30px;
+    background:var(--teal);
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.primary-button:hover { background:#087D76; }
+
+.feedback {
+    min-height:30px;
+    margin:15px 0;
+    font-weight:700;
+}
+
+.feedback.correct { color:var(--teal); }
+.feedback.incorrect { color:var(--pink); }
+
+.hint-button {
+    padding:11px 23px;
+    border:0;
+    border-radius:25px;
+    background:#FFE8A3;
+    color:#70551B;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.hint-box {
+    display:none;
+    padding:15px;
+    margin:15px auto;
+    background:#FFF5D8;
+    color:#70551B;
+    border-radius:15px;
+}
+
+.hint-box.show { display:block; }
+
+.game-navigation {
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:30px;
+}
+
+.game-navigation button {
+    padding:12px 22px;
+    border:0;
+    border-radius:25px;
+    background:#DCEBFF;
+    color:#245AA8;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.game-navigation button:disabled {
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+/* NUMBER TOWERS */
+
+.tower-container { margin:15px auto 25px; }
+
+.tower-container h3 {
+    font-size:25px;
+    color:#30364F;
+}
+
+.tower-container p { color:var(--soft);font-size:15px; }
+
+.tower {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:9px;
+    margin:30px auto;
+}
+
+.tower-row {
+    display:flex;
+    justify-content:center;
+    gap:9px;
+}
+
+.tower-block {
+    width:65px;
+    height:58px;
+    border-radius:13px;
+    border:2px solid var(--teal);
+    background:#CFFFF7;
+    color:#087D76;
+    font-size:20px;
+    font-weight:700;
+    display:grid;
+    place-items:center;
+}
+
+.tower-input {
+    width:65px;
+    height:58px;
+    border:2px solid var(--blue);
+    border-radius:13px;
+    background:white;
+    text-align:center;
+    font-size:19px;
+    font-weight:700;
+    color:#245AA8;
+    outline:none;
+}
+
+.tower-input:focus { border-color:var(--teal);background:#F1FFFC; }
+
+.tower-input.correct-cell {
+    border-color:var(--teal);
+    background:#D9FFF3;
+}
+
+.tower-input.wrong-cell {
+    border-color:#C34868;
+    background:#FFF0F2;
+}
+
+/* COMPLETION */
+
+.completion-area { padding:35px 10px; }
+
+.completion-area h2 {
+    font-size:clamp(27px,5vw,38px);
+    color:var(--teal);
+    margin:15px 0;
+}
+
+.completion-area p { color:var(--soft);margin-bottom:20px; }
+
+.score-display {
+    display:inline-block;
+    padding:15px 28px;
+    background:#DFFFF4;
+    border-radius:18px;
+    color:#087D76;
+    font-size:22px;
+    font-weight:700;
+    margin:15px 0 25px;
+}
+
+.completion-area .primary-button {
+    max-width:300px;
+    display:block;
+    margin:12px auto;
+}
+
+/* BACK BUTTON */
+
+.materials-back-area {
+    display:flex;
+    justify-content:center;
+    margin-top:55px;
+}
+
+.materials-back-button {
+    padding:15px 38px;
+    border-radius:50px;
+    background:linear-gradient(110deg,#C34868,#E17B43,#3978D4);
+    color:white;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(195,72,104,.18);
+}
+
+/* FOOTER */
+
+footer {
+    padding:65px 20px 30px;
+    text-align:center;
+    border-top:1px solid rgba(195,72,104,.1);
+}
+
+.footer-brand {
+    font-family:"Pacifico",cursive;
+    font-size:35px;
+    color:var(--teal);
+}
+
+.footer-tagline,.footer-description { color:var(--soft); }
+
+.footer-links {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px 25px;
+    margin:28px auto;
+}
+
+.footer-links a { color:var(--teal);font-size:15px; }
+
+.copyright {
+    border-top:1px solid rgba(195,72,104,.1);
+    padding-top:22px;
+    color:#8A918F;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+    .puzzle-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .nav-container { flex-direction:column;padding:15px 0; }
+    nav { justify-content:center; }
+}
+
+@media(max-width:600px) {
+    body { background-attachment:scroll; }
+    .puzzle-grid { grid-template-columns:1fr; }
+    .hero { min-height:300px;padding:50px 15px; }
+    .activity-window { padding:18px 12px;border-radius:22px; }
+    .activity-content { padding:20px 12px; }
+    .activity-title { font-size:19px; }
+    .tower-block,.tower-input { width:48px;height:48px;font-size:16px; }
+    .tower-row { gap:5px; }
+    .game-navigation button { padding:11px 14px;font-size:13px; }
+    nav { gap:9px 15px; }
+    nav a { font-size:13px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        scroll-behavior:auto!important;
+        transition:none!important;
+        animation:none!important;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="nav-container">
+<header>
+    <div class="nav-container">
+        <a href="https://mathmium.pages.dev/index.html" class="brand">
+            <img src="https://mathmium.pages.dev/Images/Logo.svg" alt="Mathmium">
+        </a>
 
-            <a href="https://mathmium.pages.dev/index.html" class="brand">
-                <img src="https://mathmium.pages.dev/Images/Logo.svg"
-                     alt="Mathmium">
-            </a>
-
-            <nav>
-                <a href="https://mathmium.pages.dev/index.html">Home</a>
-                <a href="https://mathmium.pages.dev/index.html#tutor">Meet the Tutor</a>
-                <a href="https://mathmium.pages.dev/index.html#classes">Classes</a>
-                <a href="https://mathmium.pages.dev/index.html#materials">Materials</a>
-                <a href="https://mathmium.pages.dev/index.html#quiz-zone">Practice Zone</a>
-                <a href="https://mathmium.pages.dev/index.html#treasures">Treasures I've Earned</a>
-            </nav>
-
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-
-            <div class="hero-label">
-                MATHMIUM PRACTICE ZONE
-            </div>
-
-            <h1 class="hero-title">
-                Puzzle <span>Zone!</span>
-            </h1>
-
-            <p class="hero-description">
-                Think, explore, and solve! Challenge your brain with playful
-                Mathematics puzzles, discover clever strategies, and celebrate
-                every little breakthrough.
-            </p>
-
-        </div>
-    </section>
-
-    <!-- MAIN -->
-    <main class="main-section">
-        <div class="section-inner">
-
-            <!-- PUZZLE SELECTION -->
-            <section id="puzzle-library">
-
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        READY, SET, SOLVE!
-                    </div>
-
-                    <h2 class="section-title">
-                        Which Puzzle Will You Try?
-                    </h2>
-
-                    <p class="section-description">
-                        Choose a puzzle adventure and give your brain a fun
-                        little workout. New challenges will appear here as
-                        they are added to the puzzle library.
-                    </p>
-
-                </div>
-
-                <div class="puzzle-grid" id="puzzle-grid"></div>
-
-                <div class="empty-state" id="empty-state">
-                    <div class="empty-emoji">🧩</div>
-
-                    <h3>Your puzzle adventures are getting ready!</h3>
-
-                    <p>
-                        Add puzzle types to <strong>puzzles.js</strong>
-                        and they will appear here.
-                    </p>
-                </div>
-
-            </section>
-
-            <!-- PUZZLE ACTIVITY -->
-            <section class="activity-window"
-                     id="activity-window"
-                     aria-label="Puzzle activity">
-
-                <div class="activity-topbar">
-
-                    <button class="back-button"
-                            id="back-button"
-                            type="button">
-                        ← Back to Puzzles
-                    </button>
-
-                    <div class="activity-title" id="activity-title">
-                        Puzzle Activity
-                    </div>
-
-                </div>
-
-                <div class="activity-content" id="activity-content">
-
-                    <div class="activity-placeholder">
-                        <div class="big-emoji">🧩</div>
-
-                        <h3>Your puzzle will appear here!</h3>
-
-                        <p>
-                            Choose a puzzle from the library to get started.
-                        </p>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- GO BACK BUTTON -->
-            <div class="materials-back-area">
-                <a href="https://mathmium.pages.dev/PracticeMaterials.html"
-                   class="materials-back-button">
-                    Go Back
-                </a>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-brand">
-            Mathmium
-        </div>
-
-        <div class="footer-tagline">
-            Your World of Mathematics
-        </div>
-
-        <div class="footer-description">
-            A creative space to discover, practise, explore, and enjoy Mathematics.
-        </div>
-
-        <div class="footer-links">
-
+        <nav>
             <a href="https://mathmium.pages.dev/index.html">Home</a>
+            <a href="https://mathmium.pages.dev/index.html#tutor">Meet the Tutor</a>
             <a href="https://mathmium.pages.dev/index.html#classes">Classes</a>
             <a href="https://mathmium.pages.dev/index.html#materials">Materials</a>
-            <a href="https://mathmium.pages.dev/index.html#join">Join Classes</a>
-            <a href="https://mathmium.pages.dev/index.html#order">Order Materials</a>
-            <a href="https://mathmium.pages.dev/index.html#contact">Contact</a>
             <a href="https://mathmium.pages.dev/index.html#quiz-zone">Practice Zone</a>
-            <a href="https://mathmium.pages.dev/index.html#treasures">Reviews</a>
+            <a href="https://mathmium.pages.dev/index.html#treasures">Treasures I've Earned</a>
+        </nav>
+    </div>
+</header>
 
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-label">MATHMIUM PRACTICE ZONE</div>
+        <h1>Puzzle <span>Zone!</span></h1>
+        <p>
+            Think, explore, and solve! Challenge your brain with playful
+            Mathematics puzzles, discover clever strategies, and celebrate
+            every little breakthrough.
+        </p>
+    </div>
+</section>
+
+<main class="main-section">
+    <div class="section-inner">
+
+        <section id="puzzle-library">
+            <div class="section-heading">
+                <div class="section-label">READY, SET, SOLVE!</div>
+                <h2 class="section-title">Which Puzzle Will You Try?</h2>
+                <p class="section-description">
+                    Choose a puzzle adventure and give your brain a fun
+                    little workout. Explore all 60 challenges!
+                </p>
+            </div>
+
+            <div class="puzzle-grid" id="puzzle-grid"></div>
+
+            <div class="empty-state" id="empty-state">
+                <h3>Your puzzle adventures are getting ready!</h3>
+                <p>Please check that puzzles.js is loaded correctly.</p>
+            </div>
+        </section>
+
+        <section class="activity-window" id="activity-window" aria-label="Puzzle activity">
+            <div class="activity-topbar">
+                <button class="back-button" id="back-button" type="button">
+                    Back to Puzzles
+                </button>
+                <div class="activity-title" id="activity-title">Puzzle Activity</div>
+            </div>
+
+            <div class="activity-content" id="activity-content"></div>
+        </section>
+
+        <div class="materials-back-area">
+            <a href="https://mathmium.pages.dev/PracticeMaterials.html"
+               class="materials-back-button">Go Back</a>
         </div>
 
-        <div class="copyright">
-            © Mathmium
-        </div>
+    </div>
+</main>
 
-    </footer>
+<footer>
+    <div class="footer-brand">Mathmium</div>
+    <div class="footer-tagline">Your World of Mathematics</div>
+    <div class="footer-description">
+        A creative space to discover, practise, explore, and enjoy Mathematics.
+    </div>
 
-    <!-- PUZZLE DATA AND FUNCTIONALITY -->
-    <script src="./puzzles.js"></script>
+    <div class="footer-links">
+        <a href="https://mathmium.pages.dev/index.html">Home</a>
+        <a href="https://mathmium.pages.dev/index.html#classes">Classes</a>
+        <a href="https://mathmium.pages.dev/index.html#materials">Materials</a>
+        <a href="https://mathmium.pages.dev/index.html#join">Join Classes</a>
+        <a href="https://mathmium.pages.dev/index.html#order">Order Materials</a>
+        <a href="https://mathmium.pages.dev/index.html#contact">Contact</a>
+        <a href="https://mathmium.pages.dev/index.html#quiz-zone">Practice Zone</a>
+        <a href="https://mathmium.pages.dev/index.html#treasures">Reviews</a>
+    </div>
 
-    <!-- CLOUDFLARE PAGES ANALYTICS -->
-    <script defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token":"265e064961004d9e8dfe8afefac86aa9"}'>
-    </script>
+    <div class="copyright">© Mathmium</div>
+</footer>
+
+<script src="./puzzles.js"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+data-cf-beacon='{"token":"265e064961004d9e8dfe8afefac86aa9"}'></script>
 
 </body>
 </html>
