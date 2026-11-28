@@ -287,6 +287,67 @@ const flashcardSubjects = [
 
 ];
 
+       // =====================================================
+    // SET 10: INEQUALITIES
+    // =====================================================
+
+    {
+        id: "inequalities",
+        name: "Inequalities",
+        cards: [
+            { question: "Which symbol means 'greater than'?", answer: ">" },
+            { question: "Which symbol means 'less than or equal to'?", answer: "≤" },
+            { question: "Write an inequality for: x is greater than 12.", answer: "x > 12" },
+            { question: "Write an inequality for: y is at least 8.", answer: "y ≥ 8" },
+            { question: "Solve: x + 7 > 15.", answer: "x > 8" },
+            { question: "Solve: x - 9 ≤ 4.", answer: "x ≤ 13" },
+            { question: "Solve: 5x < 30.", answer: "x < 6" },
+            { question: "Solve: 4x ≥ 28.", answer: "x ≥ 7" },
+            { question: "Solve: x/3 > 5.", answer: "x > 15" },
+            { question: "Solve: x/4 ≤ 6.", answer: "x ≤ 24" },
+            { question: "Solve: 2x + 3 > 13.", answer: "x > 5" },
+            { question: "Solve: 3x - 4 ≤ 11.", answer: "x ≤ 5" },
+            { question: "Solve: 7 - x > 2.", answer: "x < 5" },
+            { question: "Solve: -2x > 10.", answer: "x < -5" },
+            { question: "Solve: -3x ≤ 12.", answer: "x ≥ -4" },
+            { question: "Solve: 2(x + 3) ≥ 16.", answer: "x ≥ 5" },
+            { question: "Write an inequality for a number n that is no more than 25.", answer: "n ≤ 25" },
+            { question: "A student must score at least 40 marks to pass. Write an inequality for the score m.", answer: "m ≥ 40" },
+            { question: "A bus can carry a maximum of 50 passengers. Write an inequality for the number of passengers p.", answer: "p ≤ 50" },
+            { question: "Find the smallest integer that satisfies x > 6.5.", answer: "7" }
+        ]
+    },
+
+    // =====================================================
+    // SET 11: PERIMETER, AREA AND VOLUME
+    // =====================================================
+
+    {
+        id: "perimeter-area-volume",
+        name: "Perimeter, Area and Volume",
+        cards: [
+            { question: "Find the perimeter of a square with a side length of 11 cm.", answer: "44 cm" },
+            { question: "Find the area of a rectangle with a length of 18 cm and a width of 7 cm.", answer: "126 cm²" },
+            { question: "A rectangle has an area of 96 cm² and a length of 12 cm. Find its width.", answer: "8 cm" },
+            { question: "Find the area of a triangle with a base of 16 cm and a height of 9 cm.", answer: "72 cm²" },
+            { question: "Find the area of a parallelogram with a base of 13 cm and a height of 8 cm.", answer: "104 cm²" },
+            { question: "Find the area of a trapezium with parallel sides of 10 cm and 16 cm and a height of 7 cm.", answer: "91 cm²" },
+            { question: "A circle has a diameter of 14 cm. Find its circumference using π = 22/7.", answer: "44 cm" },
+            { question: "Find the area of a circle with a radius of 5 cm using π = 3.14.", answer: "78.5 cm²" },
+            { question: "A rectangle measures 15 m by 9 m. Find its perimeter.", answer: "48 m" },
+            { question: "A square has a perimeter of 64 cm. Find its area.", answer: "256 cm²" },
+            { question: "Find the volume of a cube with an edge length of 5 cm.", answer: "125 cm³" },
+            { question: "Find the volume of a cuboid measuring 9 cm × 6 cm × 4 cm.", answer: "216 cm³" },
+            { question: "A cuboid has a volume of 480 cm³, a length of 10 cm and a width of 8 cm. Find its height.", answer: "6 cm" },
+            { question: "Find the total surface area of a cube with an edge length of 4 cm.", answer: "96 cm²" },
+            { question: "Find the volume of a cylinder with radius 4 cm and height 7 cm using π = 22/7.", answer: "352 cm³" },
+            { question: "A triangular prism has a triangular base area of 15 cm² and a length of 12 cm. Find its volume.", answer: "180 cm³" },
+            { question: "A rectangular garden is 20 m long and 12 m wide. Find its area.", answer: "240 m²" },
+            { question: "A square floor has an area of 121 m². Find the length of one side.", answer: "11 m" },
+            { question: "A water tank measures 2 m × 1.5 m × 1 m. Find its capacity in cubic metres.", answer: "3 m³" },
+            { question: "A rectangular field is 25 m long and 15 m wide. How far will someone walk by going once around it?", answer: "80 m" }
+        ]
+    }
 
 // =========================================================
 // FRACTION DISPLAY STYLING
