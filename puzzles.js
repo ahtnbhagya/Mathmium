@@ -1,13 +1,14 @@
 /* =========================================================
    MATHMIUM PUZZLE ZONE
-   120 MATHEMATICS CHALLENGES
+   100 MATHEMATICS CHALLENGES
 
    1. Number Towers                 - 20
    2. Missing Number Operations     - 20
    3. Number Riddles                - 20
-   4. Number Riddles - Level Up     - 20
-   5. Balance Equals                - 20
-   6. Integer Puzzles               - 20
+   4. Balance Equals                - 20
+   5. Integer Puzzles               - 20
+
+   Responsive-friendly game functionality
 ========================================================= */
 
 
@@ -119,156 +120,7 @@ const originalNumberRiddles = [
 
 
 /* =========================================================
-   4. NUMBER RIDDLES - LEVEL UP
-   EASY / MEDIUM / HARD
-========================================================= */
-
-const levelUpRiddles = [
-    {
-        id:1,level:"Easy",
-        question:"I am a number. If you add 8 to me, you get 25. What am I?",
-        hint:"Subtract 8 from 25.",
-        answer:17,
-        explanation:"25 - 8 = 17"
-    },
-    {
-        id:2,level:"Easy",
-        question:"I am an even number between 20 and 30. My digits add up to 8. What am I?",
-        hint:"Try the even numbers between 20 and 30.",
-        answer:26,
-        explanation:"26 is even and 2 + 6 = 8."
-    },
-    {
-        id:3,level:"Easy",
-        question:"Multiply me by 5 and you get 45. What number am I?",
-        hint:"Divide 45 by 5.",
-        answer:9,
-        explanation:"45 ÷ 5 = 9"
-    },
-    {
-        id:4,level:"Easy",
-        question:"I am greater than 40 but less than 50. I am divisible by both 3 and 5. What am I?",
-        hint:"Find a multiple of 15 between 40 and 50.",
-        answer:45,
-        explanation:"45 is divisible by both 3 and 5."
-    },
-    {
-        id:5,level:"Easy",
-        question:"I am a number. Half of me is 18. What am I?",
-        hint:"Multiply 18 by 2.",
-        answer:36,
-        explanation:"18 × 2 = 36"
-    },
-    {
-        id:6,level:"Easy",
-        question:"I am a two-digit number. My tens digit is 4 and my ones digit is twice my tens digit. What am I?",
-        hint:"Twice 4 is 8.",
-        answer:48,
-        explanation:"The tens digit is 4 and the ones digit is 8."
-    },
-    {
-        id:7,level:"Easy",
-        question:"What number becomes 100 when you multiply it by 4 and add 20?",
-        hint:"Subtract 20, then divide by 4.",
-        answer:20,
-        explanation:"(100 - 20) ÷ 4 = 20"
-    },
-    {
-        id:8,level:"Easy",
-        question:"I am a multiple of 7. I am greater than 30 and less than 40. What am I?",
-        hint:"Count in sevens.",
-        answer:35,
-        explanation:"7 × 5 = 35"
-    },
-    {
-        id:9,level:"Medium",
-        question:"The sum of three consecutive whole numbers is 36. What is the middle number?",
-        hint:"Divide 36 by 3.",
-        answer:12,
-        explanation:"11 + 12 + 13 = 36"
-    },
-    {
-        id:10,level:"Medium",
-        question:"I am a number. When you divide me by 6 and add 4, the answer is 9. What am I?",
-        hint:"Subtract 4, then multiply by 6.",
-        answer:30,
-        explanation:"30 ÷ 6 + 4 = 9"
-    },
-    {
-        id:11,level:"Medium",
-        question:"I am a two-digit number. My digits add up to 9. Reversing my digits gives a number 27 greater than me. What am I?",
-        hint:"Compare the digits and remember that reversing them changes their place values.",
-        answer:36,
-        explanation:"3 + 6 = 9 and 63 - 36 = 27."
-    },
-    {
-        id:12,level:"Medium",
-        question:"I am a square number between 50 and 80. What am I?",
-        hint:"Think of 7 × 7 and 8 × 8.",
-        answer:64,
-        explanation:"8 × 8 = 64"
-    },
-    {
-        id:13,level:"Medium",
-        question:"A number is multiplied by 3. Then 12 is subtracted. The result is 30. Find the number.",
-        hint:"Add 12 to 30, then divide by 3.",
-        answer:14,
-        explanation:"(30 + 12) ÷ 3 = 14"
-    },
-    {
-        id:14,level:"Medium",
-        question:"I am a number between 1 and 100. I am divisible by 4 and 6, and my digits add up to 6. What am I?",
-        hint:"Find a common multiple of 4 and 6.",
-        answer:24,
-        explanation:"24 is divisible by 4 and 6, and 2 + 4 = 6."
-    },
-    {
-        id:15,level:"Medium",
-        question:"Four times a number is equal to 3 times 20. What is the number?",
-        hint:"Calculate 3 × 20, then divide by 4.",
-        answer:15,
-        explanation:"60 ÷ 4 = 15"
-    },
-    {
-        id:16,level:"Hard",
-        question:"The sum of two numbers is 50. Their difference is 10. What is the smaller number?",
-        hint:"Subtract the difference from the sum, then divide by 2.",
-        answer:20,
-        explanation:"(50 - 10) ÷ 2 = 20"
-    },
-    {
-        id:17,level:"Hard",
-        question:"A number is divided by 4. Then 7 is added. The result is 19. Find the number.",
-        hint:"Subtract 7 and multiply by 4.",
-        answer:48,
-        explanation:"(19 - 7) × 4 = 48"
-    },
-    {
-        id:18,level:"Hard",
-        question:"I am a three-digit number. My hundreds digit is 2, my tens digit is twice my hundreds digit, and my ones digit is 3 more than my tens digit. What am I?",
-        hint:"Find each digit separately.",
-        answer:247,
-        explanation:"Hundreds = 2, tens = 4, ones = 7."
-    },
-    {
-        id:19,level:"Hard",
-        question:"The product of two consecutive positive integers is 72. What is the smaller integer?",
-        hint:"Try multiplying consecutive numbers.",
-        answer:8,
-        explanation:"8 × 9 = 72"
-    },
-    {
-        id:20,level:"Hard",
-        question:"I am a number. One-third of me plus 10 equals 25. What am I?",
-        hint:"Subtract 10, then multiply by 3.",
-        answer:45,
-        explanation:"(25 - 10) × 3 = 45"
-    }
-];
-
-
-/* =========================================================
-   5. BALANCE EQUALS
+   4. BALANCE EQUALS
 ========================================================= */
 
 const balancePuzzles = [
@@ -304,7 +156,7 @@ const balancePuzzles = [
 
 
 /* =========================================================
-   6. INTEGER PUZZLES
+   5. INTEGER PUZZLES
 ========================================================= */
 
 const integerPuzzles = [
@@ -340,6 +192,7 @@ const integerPuzzles = [
 
 /* =========================================================
    COMBINE ALL PUZZLE CATEGORIES
+   TOTAL: 100 CHALLENGES
 ========================================================= */
 
 window.MATHMIUM_PUZZLES = [
@@ -363,13 +216,6 @@ window.MATHMIUM_PUZZLES = [
         title:"Number Riddles",
         description:"Read each clue and discover the mystery number.",
         puzzles:originalNumberRiddles
-    },
-
-    {
-        id:"number-riddles-level-up",
-        title:"Number Riddles - Level Up",
-        description:"Solve mystery numbers with Easy, Medium and Hard challenges.",
-        puzzles:levelUpRiddles
     },
 
     {
@@ -423,36 +269,38 @@ document.addEventListener("DOMContentLoaded",function(){
     ];
 
     const icons=[
-        `<svg viewBox="0 0 100 100" fill="none">
+
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 10 L12 85 H88 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
             <path d="M31 61 H69 M40 45 H60" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
         </svg>`,
 
-        `<svg viewBox="0 0 100 100" fill="none">
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <rect x="12" y="15" width="76" height="70" rx="15" stroke="currentColor" stroke-width="6"/>
             <path d="M30 38 H70 M30 60 H70" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
         </svg>`,
 
-        `<svg viewBox="0 0 100 100" fill="none">
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <circle cx="50" cy="50" r="37" stroke="currentColor" stroke-width="6"/>
             <path d="M36 37 Q50 23 64 37 Q72 49 50 61 V67" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <circle cx="50" cy="78" r="4" fill="currentColor"/>
         </svg>`,
 
-        `<svg viewBox="0 0 100 100" fill="none">
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 8 L60 37 L90 50 L60 63 L50 92 L40 63 L10 50 L40 37 Z" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
         </svg>`,
 
-        `<svg viewBox="0 0 100 100" fill="none">
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M15 30 H85 M15 70 H85" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <path d="M30 20 L15 30 L30 40 M70 60 L85 70 L70 80" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="50" cy="50" r="12" stroke="currentColor" stroke-width="5"/>
         </svg>`,
 
-        `<svg viewBox="0 0 100 100" fill="none">
+        `<svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M50 10 V90 M10 50 H90" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="37" stroke="currentColor" stroke-width="5"/>
         </svg>`
+
     ];
 
 
@@ -461,6 +309,7 @@ document.addEventListener("DOMContentLoaded",function(){
     ===================================================== */
 
     function escapeHTML(value){
+
         return String(value).replace(/[&<>"']/g,char=>({
             "&":"&amp;",
             "<":"&lt;",
@@ -468,12 +317,14 @@ document.addEventListener("DOMContentLoaded",function(){
             '"':"&quot;",
             "'":"&#39;"
         })[char]);
+
     }
+
 
     function getAcceptedAnswers(puzzle){
 
         const values=Array.isArray(puzzle.answer)
-            ?puzzle.answer
+            ?puzzle.answer.slice()
             :[puzzle.answer];
 
         if(puzzle.acceptedAnswers){
@@ -481,7 +332,9 @@ document.addEventListener("DOMContentLoaded",function(){
         }
 
         return values.map(Number);
+
     }
+
 
     function isCorrectAnswer(value,puzzle){
 
@@ -493,7 +346,9 @@ document.addEventListener("DOMContentLoaded",function(){
             getAcceptedAnswers(puzzle).some(answer=>
                 Math.abs(number-answer)<0.0000001
             );
+
     }
+
 
     function calculateTower(base){
 
@@ -509,9 +364,23 @@ document.addEventListener("DOMContentLoaded",function(){
             }
 
             rows.push(next);
+
         }
 
         return rows;
+
+    }
+
+
+    function scrollToActivity(){
+
+        activity.scrollTop=0;
+
+        window.scrollTo({
+            top:activity.getBoundingClientRect().top+window.scrollY-80,
+            behavior:"smooth"
+        });
+
     }
 
 
@@ -526,17 +395,21 @@ document.addEventListener("DOMContentLoaded",function(){
         const categories=window.MATHMIUM_PUZZLES;
 
         if(!categories||categories.length===0){
-            empty.classList.add("show");
+
+            if(empty)empty.classList.add("show");
+
             return;
+
         }
 
-        empty.classList.remove("show");
+        if(empty)empty.classList.remove("show");
 
         categories.forEach((item,index)=>{
 
             const color=colors[index%colors.length];
 
             const card=document.createElement("button");
+
             card.type="button";
             card.className="puzzle-card";
 
@@ -545,18 +418,22 @@ document.addEventListener("DOMContentLoaded",function(){
             card.style.setProperty("--dark",color[2]);
 
             const icon=document.createElement("div");
+
             icon.className="puzzle-icon";
             icon.innerHTML=icons[index%icons.length];
 
             const name=document.createElement("div");
+
             name.className="puzzle-name";
             name.textContent=item.title;
 
             const description=document.createElement("div");
+
             description.className="puzzle-description";
             description.textContent=item.description;
 
             const meta=document.createElement("div");
+
             meta.className="puzzle-meta";
             meta.textContent=item.puzzles.length+" CHALLENGES";
 
@@ -565,7 +442,9 @@ document.addEventListener("DOMContentLoaded",function(){
             card.addEventListener("click",()=>openCategory(item));
 
             grid.appendChild(card);
+
         });
+
     }
 
 
@@ -581,16 +460,15 @@ document.addEventListener("DOMContentLoaded",function(){
         answers={};
 
         library.style.display="none";
+
         activity.classList.add("active");
 
         activityTitle.textContent=item.title;
 
         showPuzzle();
 
-        window.scrollTo({
-            top:activity.getBoundingClientRect().top+window.scrollY-100,
-            behavior:"smooth"
-        });
+        scrollToActivity();
+
     }
 
 
@@ -604,8 +482,13 @@ document.addEventListener("DOMContentLoaded",function(){
 
         let html=`
             <div class="tower-container">
+
                 <h3>Complete the Number Tower</h3>
-                <p>Each number is the sum of the two numbers directly below it.</p>
+
+                <p>
+                    Each number is the sum of the two numbers directly below it.
+                </p>
+
                 <div class="tower">
         `;
 
@@ -617,7 +500,9 @@ document.addEventListener("DOMContentLoaded",function(){
 
                 if(r===0){
 
-                    html+=`<div class="tower-block">${number}</div>`;
+                    html+=`
+                        <div class="tower-block">${number}</div>
+                    `;
 
                 }else{
 
@@ -625,25 +510,32 @@ document.addEventListener("DOMContentLoaded",function(){
                         <input
                             class="tower-input"
                             type="number"
+                            step="1"
                             inputmode="numeric"
                             data-row="${r}"
                             data-col="${c}"
                             aria-label="Missing tower number"
                         >
                     `;
+
                 }
+
             });
 
             html+=`</div>`;
+
         }
 
         html+=`
                 </div>
+
                 <p>Fill in all the empty blocks, starting from the bottom row.</p>
+
             </div>
         `;
 
         return html;
+
     }
 
 
@@ -667,7 +559,7 @@ document.addEventListener("DOMContentLoaded",function(){
             <div style="
                 display:inline-block;
                 padding:6px 18px;
-                margin:5px auto 15px;
+                margin:5px auto 10px;
                 border-radius:20px;
                 background:${color}18;
                 color:${color};
@@ -677,6 +569,7 @@ document.addEventListener("DOMContentLoaded",function(){
                 ${escapeHTML(puzzle.level)} Level
             </div>
         `;
+
     }
 
 
@@ -687,55 +580,98 @@ document.addEventListener("DOMContentLoaded",function(){
     function showPuzzle(){
 
         const puzzle=category.puzzles[currentIndex];
+
         const total=category.puzzles.length;
+
         const progress=((currentIndex+1)/total)*100;
 
         const isTower=category.id==="number-towers";
+
         const isBalance=category.id==="balance-equals";
 
         let questionHTML;
+
+
+        /* NUMBER TOWER */
 
         if(isTower){
 
             questionHTML=createTower(puzzle);
 
-        }else if(isBalance){
+        }
+
+
+        /* BALANCE EQUALS */
+
+        else if(isBalance){
 
             questionHTML=`
+
                 <div class="tower-container">
+
                     <h3>Balance Both Sides!</h3>
-                    <p>Find the missing number to make both sides equal.</p>
+
+                    <p>
+                        Find the missing number to make both sides equal.
+                    </p>
+
                     <div class="puzzle-question">
+
                         ${escapeHTML(puzzle.left)}
+
                         <br>
+
                         =
+
                         <br>
+
                         ${escapeHTML(puzzle.right)}
+
                     </div>
 
                     <div class="answer-area">
-                        <label for="puzzle-answer">What is the missing number?</label>
+
+                        <label for="puzzle-answer">
+                            What is the missing number?
+                        </label>
+
                         <input
                             class="answer-input"
                             id="puzzle-answer"
                             type="number"
                             step="any"
                             inputmode="decimal"
+                            autocomplete="off"
                             placeholder="Enter the missing number"
                         >
+
                     </div>
+
                 </div>
+
             `;
 
-        }else{
+        }
+
+
+        /* OTHER PUZZLE CATEGORIES */
+
+        else{
 
             questionHTML=`
+
                 <div class="puzzle-question">
+
                     ${escapeHTML(puzzle.question)}
+
                 </div>
 
                 <div class="answer-area">
-                    <label for="puzzle-answer">Enter your answer</label>
+
+                    <label for="puzzle-answer">
+                        Enter your answer
+                    </label>
+
                     <input
                         class="answer-input"
                         id="puzzle-answer"
@@ -745,103 +681,195 @@ document.addEventListener("DOMContentLoaded",function(){
                         autocomplete="off"
                         placeholder="Type your answer here"
                     >
+
                 </div>
+
             `;
+
         }
 
+
+        /* COMPLETE GAME INTERFACE */
+
         content.innerHTML=`
+
             <div class="game-area">
 
                 <div class="game-progress">
+
                     Challenge ${currentIndex+1} of ${total}
-                    &nbsp; | &nbsp; Score: ${score}
+
+                    &nbsp; | &nbsp;
+
+                    Score: ${score}
+
                 </div>
+
 
                 <div class="progress-track">
-                    <div class="progress-fill" style="width:${progress}%"></div>
+
+                    <div
+                        class="progress-fill"
+                        style="width:${progress}%"
+                    ></div>
+
                 </div>
 
+
                 <div class="question-number">
+
                     CHALLENGE ${String(currentIndex+1).padStart(2,"0")}
+
                 </div>
+
 
                 ${getLevelHTML(puzzle)}
 
+
                 ${questionHTML}
 
+
                 <button class="primary-button" id="check-answer">
+
                     ${isTower?"Check Tower":"Check Answer"}
+
                 </button>
 
-                <div class="feedback" id="feedback" aria-live="polite"></div>
+
+                <div
+                    class="feedback"
+                    id="feedback"
+                    aria-live="polite"
+                ></div>
+
 
                 <button class="hint-button" id="hint-button">
+
                     Show Hint
+
                 </button>
+
 
                 <div class="hint-box" id="hint-box"></div>
 
+
                 <div class="game-navigation">
 
-                    <button id="previous-puzzle" ${currentIndex===0?"disabled":""}>
+                    <button
+                        id="previous-puzzle"
+                        ${currentIndex===0?"disabled":""}
+                    >
                         Previous
                     </button>
 
+
                     <button id="next-puzzle">
+
                         ${currentIndex===total-1?"Finish":"Next Challenge"}
+
                     </button>
 
                 </div>
 
             </div>
+
         `;
+
+
+        /* CHECK ANSWER BUTTON */
 
         document.getElementById("check-answer")
             .addEventListener("click",checkAnswer);
 
+
+        /* ENTER KEY */
+
         const answerInput=document.getElementById("puzzle-answer");
 
         if(answerInput){
+
             answerInput.addEventListener("keydown",event=>{
-                if(event.key==="Enter")checkAnswer();
+
+                if(event.key==="Enter"){
+                    checkAnswer();
+                }
+
             });
+
         }
+
+
+        /* HINT BUTTON */
 
         document.getElementById("hint-button")
             .addEventListener("click",()=>{
 
                 const hint=document.getElementById("hint-box");
 
-                hint.textContent=puzzle.hint;
-                hint.classList.toggle("show");
+                const button=document.getElementById("hint-button");
+
+                const isVisible=hint.classList.toggle("show");
+
+                hint.textContent=isVisible
+                    ?puzzle.hint
+                    :"";
+
+                button.textContent=isVisible
+                    ?"Hide Hint"
+                    :"Show Hint";
+
             });
+
+
+        /* PREVIOUS BUTTON */
 
         document.getElementById("previous-puzzle")
             .addEventListener("click",()=>{
 
                 if(currentIndex>0){
+
                     currentIndex--;
+
                     showPuzzle();
+
+                    scrollToActivity();
+
                 }
+
             });
+
+
+        /* NEXT BUTTON */
 
         document.getElementById("next-puzzle")
             .addEventListener("click",()=>{
 
                 if(currentIndex<total-1){
+
                     currentIndex++;
+
                     showPuzzle();
+
+                    scrollToActivity();
+
                 }else{
+
                     finishCategory();
+
+                    scrollToActivity();
+
                 }
+
             });
 
+
         restoreAnswer();
+
     }
 
 
     /* =====================================================
-       RESTORE ANSWERS
+       RESTORE PREVIOUS ANSWERS
     ===================================================== */
 
     function restoreAnswer(){
@@ -850,16 +878,23 @@ document.addEventListener("DOMContentLoaded",function(){
 
         if(!saved)return;
 
+
+        /* RESTORE NUMBER TOWER */
+
         if(category.id==="number-towers"){
 
-            const rows=calculateTower(category.puzzles[currentIndex].base);
+            const rows=calculateTower(
+                category.puzzles[currentIndex].base
+            );
 
             content.querySelectorAll(".tower-input").forEach(input=>{
 
                 const key=input.dataset.row+"-"+input.dataset.col;
 
                 if(saved.values[key]!==undefined){
+
                     input.value=saved.values[key];
+
                 }
 
                 if(input.value!==""){
@@ -869,23 +904,40 @@ document.addEventListener("DOMContentLoaded",function(){
                         rows[Number(input.dataset.row)][Number(input.dataset.col)];
 
                     input.classList.toggle("correct-cell",correct);
+
                     input.classList.toggle("wrong-cell",!correct);
+
                 }
+
             });
 
-        }else{
+        }
+
+
+        /* RESTORE OTHER ANSWERS */
+
+        else{
 
             const input=document.getElementById("puzzle-answer");
 
             if(input){
+
                 input.value=saved.value??"";
 
                 if(saved.correct){
+
                     input.style.borderColor="#159E94";
+
                     input.style.background="#D9FFF3";
+
                 }
+
             }
+
         }
+
+
+        /* RESTORE FEEDBACK */
 
         if(saved.correct){
 
@@ -902,8 +954,11 @@ document.addEventListener("DOMContentLoaded",function(){
             const feedback=document.getElementById("feedback");
 
             feedback.textContent="Not quite! Try again. You can do it!";
+
             feedback.className="feedback incorrect";
+
         }
+
     }
 
 
@@ -914,108 +969,176 @@ document.addEventListener("DOMContentLoaded",function(){
     function checkAnswer(){
 
         const puzzle=category.puzzles[currentIndex];
+
         const feedback=document.getElementById("feedback");
+
         const isTower=category.id==="number-towers";
 
+
+        /* PREVENT DUPLICATE SCORE */
+
         if(answers[currentIndex]?.correct)return;
+
+
+        /* NUMBER TOWER CHECKING */
 
         if(isTower){
 
             const rows=calculateTower(puzzle.base);
+
             const inputs=content.querySelectorAll(".tower-input");
 
             const values={};
+
             let complete=true;
+
             let correct=true;
+
 
             inputs.forEach(input=>{
 
                 const row=Number(input.dataset.row);
+
                 const col=Number(input.dataset.col);
+
                 const key=row+"-"+col;
+
                 const value=input.value.trim();
 
                 values[key]=value;
 
+
                 if(value===""){
+
                     complete=false;
+
                 }else if(
                     !Number.isFinite(Number(value))||
                     Number(value)!==rows[row][col]
                 ){
+
                     correct=false;
+
                 }
+
             });
 
+
             answers[currentIndex]={
+
                 values,
+
                 attempted:true,
+
                 correct
+
             };
+
 
             if(!complete){
 
                 feedback.textContent="Please fill in all the empty blocks.";
+
                 feedback.className="feedback incorrect";
+
                 return;
+
             }
+
 
             if(correct){
 
                 score++;
+
 
                 answers[currentIndex].explanation=
                     "Every number is the sum of the two numbers directly below it.";
 
-                feedback.textContent="Amazing! Your number tower is correct!";
+
+                feedback.textContent=
+                    "Amazing! Your number tower is correct!";
+
                 feedback.className="feedback correct";
 
+
                 inputs.forEach(input=>{
+
                     input.classList.add("correct-cell");
+
                     input.classList.remove("wrong-cell");
+
                 });
 
             }else{
 
-                feedback.textContent="Not quite! Check the highlighted numbers and try again.";
+                feedback.textContent=
+                    "Not quite! Check the highlighted numbers and try again.";
+
                 feedback.className="feedback incorrect";
+
 
                 inputs.forEach(input=>{
 
                     const row=Number(input.dataset.row);
+
                     const col=Number(input.dataset.col);
 
-                    const right=Number(input.value)===rows[row][col];
+                    const right=
+                        Number(input.value)===rows[row][col];
 
                     input.classList.toggle("correct-cell",right);
+
                     input.classList.toggle("wrong-cell",!right);
+
                 });
+
             }
 
-        }else{
+        }
+
+
+        /* OTHER PUZZLE CHECKING */
+
+        else{
 
             const input=document.getElementById("puzzle-answer");
+
             const value=input.value.trim();
+
 
             if(!value){
 
                 feedback.textContent="Please enter your answer first.";
+
                 feedback.className="feedback incorrect";
+
+                input.focus();
+
                 return;
+
             }
+
 
             const correct=isCorrectAnswer(value,puzzle);
 
+
             answers[currentIndex]={
+
                 value,
+
                 attempted:true,
+
                 correct,
+
                 explanation:puzzle.explanation||""
+
             };
+
 
             if(correct){
 
                 score++;
+
 
                 feedback.textContent=puzzle.explanation
                     ?"Correct! "+puzzle.explanation
@@ -1023,20 +1146,30 @@ document.addEventListener("DOMContentLoaded",function(){
 
                 feedback.className="feedback correct";
 
+
                 input.style.borderColor="#159E94";
+
                 input.style.background="#D9FFF3";
 
             }else{
 
-                feedback.textContent="Not quite! Try again. You can do it!";
+                feedback.textContent=
+                    "Not quite! Try again. You can do it!";
+
                 feedback.className="feedback incorrect";
 
+
                 input.style.borderColor="#C34868";
+
                 input.style.background="#FFF0F2";
+
             }
+
         }
 
+
         updateScore();
+
     }
 
 
@@ -1052,7 +1185,9 @@ document.addEventListener("DOMContentLoaded",function(){
 
             progress.textContent=
                 `Challenge ${currentIndex+1} of ${category.puzzles.length} | Score: ${score}`;
+
         }
+
     }
 
 
@@ -1063,62 +1198,111 @@ document.addEventListener("DOMContentLoaded",function(){
     function finishCategory(){
 
         const total=category.puzzles.length;
+
         const percentage=Math.round(score/total*100);
 
         let message;
 
+
         if(percentage===100){
+
             message="Perfect score! Outstanding work!";
+
         }else if(percentage>=70){
+
             message="Wonderful effort! Keep practising!";
+
         }else if(percentage>=40){
+
             message="Good effort! You are making progress!";
+
         }else{
+
             message="Every challenge helps you learn. Keep trying!";
+
         }
 
+
         content.innerHTML=`
+
             <div class="completion-area">
 
                 <h2>Adventure Completed!</h2>
 
+
                 <p>
+
                     You have completed all ${total} challenges
+
                     in ${escapeHTML(category.title)}.
+
                 </p>
 
+
                 <div class="score-display">
+
                     ${score} / ${total} Correct
+
                     <br>
-                    <span style="font-size:16px">${percentage}% Score</span>
+
+                    <span style="font-size:16px">
+
+                        ${percentage}% Score
+
+                    </span>
+
                 </div>
+
 
                 <p>${message}</p>
 
+
                 <button class="primary-button" id="restart-button">
+
                     Play Again
+
                 </button>
 
-                <button class="primary-button" id="categories-button"
-                    style="background:#3978D4">
+
+                <button
+                    class="primary-button"
+                    id="categories-button"
+                    style="background:#3978D4"
+                >
+
                     Back to Puzzle Library
+
                 </button>
+
 
             </div>
+
         `;
+
+
+        /* RESTART */
 
         document.getElementById("restart-button")
             .addEventListener("click",()=>{
 
                 currentIndex=0;
+
                 score=0;
+
                 answers={};
 
                 showPuzzle();
+
+                scrollToActivity();
+
             });
+
+
+        /* BACK TO LIBRARY */
 
         document.getElementById("categories-button")
             .addEventListener("click",goBack);
+
     }
 
 
@@ -1129,12 +1313,19 @@ document.addEventListener("DOMContentLoaded",function(){
     function goBack(){
 
         activity.classList.remove("active");
+
         library.style.display="block";
 
+        category=null;
+
         window.scrollTo({
-            top:library.getBoundingClientRect().top+window.scrollY-100,
+
+            top:library.getBoundingClientRect().top+window.scrollY-80,
+
             behavior:"smooth"
+
         });
+
     }
 
 
@@ -1142,18 +1333,34 @@ document.addEventListener("DOMContentLoaded",function(){
        INITIALISE
     ===================================================== */
 
-    backButton.addEventListener("click",goBack);
+    if(backButton){
+
+        backButton.addEventListener("click",goBack);
+
+    }
+
 
     displayCategories();
 
+
     console.log(
+
         "Mathmium Puzzle Zone loaded:",
+
         window.MATHMIUM_PUZZLES.length,
+
         "categories and",
+
         window.MATHMIUM_PUZZLES.reduce(
-            (total,item)=>total+item.puzzles.length,0
+
+            (total,item)=>total+item.puzzles.length,
+
+            0
+
         ),
+
         "challenges."
+
     );
 
 });
